@@ -12,7 +12,7 @@
 <meta name="theme-color" content="#121213">
 <link rel="apple-touch-icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 180 180'%3E%3Crect width='180' height='180' rx='40' fill='%23121213'/%3E%3Ctext x='90' y='118' font-size='84' font-family='Georgia,serif' fill='%23c87a30' text-anchor='middle'%3EM%3C/text%3E%3C/svg%3E">
 <link rel="manifest" href="data:application/json,%7B%22name%22%3A%22M%C2%B7C%22%2C%22short_name%22%3A%22M%C2%B7C%22%2C%22display%22%3A%22standalone%22%2C%22background_color%22%3A%22%23121213%22%2C%22theme_color%22%3A%22%23121213%22%7D">
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,400;1,400&family=JetBrains+Mono:wght@300;400&family=Caveat:wght@400;600;700&family=Noto+Serif+SC:wght@300;400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,400;1,400&family=JetBrains+Mono:wght@300;400&family=Caveat:wght@400;600;700&family=Noto+Serif+SC:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
 :root {
   --bg: #f5ede0; --s1: rgba(255,250,242,0.92); --s2: rgba(250,242,230,0.85);
@@ -26,7 +26,7 @@
   --bigtext-opacity: 1;
 }
 * { margin:0; padding:0; box-sizing:border-box; }
-body { min-height:100vh; display:flex; overflow-x:hidden; font-family:'Inter',-apple-system,sans-serif; font-weight:400; color:var(--text); background-color:var(--bg);
+body { min-height:100vh; display:flex; overflow-x:hidden; font-family:'Noto Serif SC',serif; font-weight:400; color:var(--text); background-color:var(--bg);
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0.3'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='0.05'/%3E%3C/svg%3E"), radial-gradient(ellipse at 10% 10%, rgba(255,200,120,0.2) 0%, transparent 50%), radial-gradient(ellipse at 90% 90%, rgba(200,150,255,0.1) 0%, transparent 50%);
   background-size:300px 300px,cover,cover; background-attachment:fixed; }
 .hero-time,.weather-big,.person-name,.days-num { opacity:var(--bigtext-opacity); }
@@ -59,7 +59,7 @@ nav { height:50px; background:rgba(245,235,220,0.9); backdrop-filter:blur(20px);
 .sdot-on { background:var(--green); box-shadow:0 0 6px rgba(45,138,90,0.4); animation:pulse 2.5s infinite; }
 .sdot-off { background:var(--text4); } .sdot-away { background:var(--amber); }
 @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.3} }
-.nav-btn { background:var(--s1); border:1px solid var(--border2); border-radius:20px; padding:5px 12px; font-size:10px; font-weight:700; color:var(--text3); cursor:pointer; font-family:'Inter',sans-serif; transition:all 0.2s; display:flex; align-items:center; gap:5px; }
+.nav-btn { background:var(--s1); border:1px solid var(--border2); border-radius:20px; padding:5px 12px; font-size:10px; font-weight:700; color:var(--text3); cursor:pointer; font-family:'Noto Serif SC',serif; transition:all 0.2s; display:flex; align-items:center; gap:5px; }
 .page { padding:18px 20px; display:grid; grid-template-columns:repeat(12,1fr); gap:11px; width:100%; align-items:start; }
 .draggable-slot { position:relative; transition:transform 0.15s; }
 .draggable-slot.drag-over { outline:2px dashed var(--gold); outline-offset:4px; border-radius:18px; }
@@ -125,7 +125,7 @@ nav { height:50px; background:rgba(245,235,220,0.9); backdrop-filter:blur(20px);
 .write-label { font-size:9px; font-weight:700; letter-spacing:2px; color:var(--mint); text-transform:uppercase; margin-bottom:8px; }
 .write-input { background:transparent; border:none; outline:none; font-family:'Caveat',cursive; font-size:16px; color:var(--text2); width:100%; resize:none; height:55px; line-height:1.6; }
 .write-input::placeholder { color:var(--text4); }
-.write-btn { background:rgba(45,138,90,0.1); border:1px solid rgba(45,138,90,0.22); border-radius:6px; padding:4px 12px; font-size:10px; font-weight:700; color:var(--mint); cursor:pointer; font-family:'Inter',sans-serif; letter-spacing:1px; transition:all 0.15s; margin-top:4px; }
+.write-btn { background:rgba(45,138,90,0.1); border:1px solid rgba(45,138,90,0.22); border-radius:6px; padding:4px 12px; font-size:10px; font-weight:700; color:var(--mint); cursor:pointer; font-family:'Noto Serif SC',serif; letter-spacing:1px; transition:all 0.15s; margin-top:4px; }
 .note-m3 { background:linear-gradient(135deg,rgba(220,240,255,0.95),rgba(245,250,255,0.98)); border:1px solid rgba(58,110,168,0.2); transform:rotate(0.5deg); }
 .note-m3 .note-stripe { background:linear-gradient(90deg,var(--blue),rgba(58,110,168,0.2)); }
 .note-m3 .note-from { color:var(--blue); }
@@ -133,7 +133,7 @@ nav { height:50px; background:rgba(245,235,220,0.9); backdrop-filter:blur(20px);
 .note-fav:hover { transform:scale(1.25); }
 .note-fav.on { color:var(--gold); text-shadow:0 0 6px rgba(200,122,48,0.4); }
 .note-sig { font-family:'Caveat',cursive; font-size:15px; color:var(--text3); text-align:right; margin-top:6px; }
-.board-archive-btn { background:var(--s1); border:1px solid var(--border2); border-radius:9px; padding:7px 10px; font-size:9px; font-weight:700; letter-spacing:1.5px; color:var(--text3); cursor:pointer; font-family:'Inter',sans-serif; text-transform:uppercase; transition:all 0.15s; width:100%; }
+.board-archive-btn { background:var(--s1); border:1px solid var(--border2); border-radius:9px; padding:7px 10px; font-size:9px; font-weight:700; letter-spacing:1.5px; color:var(--text3); cursor:pointer; font-family:'Noto Serif SC',serif; text-transform:uppercase; transition:all 0.15s; width:100%; }
 .board-archive-btn:hover { color:var(--gold); border-color:rgba(200,122,48,0.3); background:var(--gold-dim); }
 .right-col { grid-column:6/13; display:flex; flex-direction:column; gap:11px; }
 .dim-grid { display:grid; grid-template-columns:1fr 1fr; gap:8px; margin-top:4px; }
@@ -146,7 +146,7 @@ nav { height:50px; background:rgba(245,235,220,0.9); backdrop-filter:blur(20px);
 .wp.here { opacity:1; border-color:var(--border2); }
 .wpdot { width:4px; height:4px; border-radius:50%; background:var(--green); }
 .world-empty { font-family:'Playfair Display',serif; font-style:italic; font-size:11px; color:var(--text4); }
-.portal-btn { background:var(--gold-dim); border:1px solid var(--border2); border-radius:8px; padding:8px 16px; font-family:'Inter',sans-serif; font-size:10px; font-weight:700; letter-spacing:1.5px; color:var(--gold); text-transform:uppercase; cursor:pointer; transition:all 0.2s; }
+.portal-btn { background:var(--gold-dim); border:1px solid var(--border2); border-radius:8px; padding:8px 16px; font-family:'Noto Serif SC',serif; font-size:10px; font-weight:700; letter-spacing:1.5px; color:var(--gold); text-transform:uppercase; cursor:pointer; transition:all 0.2s; }
 .portal-btn:hover { background:var(--gold-dim); border-color:var(--gold); }
 .thought-badge { display:inline-flex; align-items:center; gap:6px; background:var(--gold-dim); border:1px solid rgba(200,122,48,0.2); border-radius:100px; padding:3px 10px 3px 7px; font-size:9px; font-weight:700; letter-spacing:1px; color:var(--gold); text-transform:uppercase; }
 .thought-dot { width:5px; height:5px; border-radius:50%; background:var(--gold); animation:pulse 2s infinite; }
@@ -170,9 +170,9 @@ nav { height:50px; background:rgba(245,235,220,0.9); backdrop-filter:blur(20px);
 .music-title { font-size:13px; font-weight:700; color:var(--text); white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
 .music-artist { font-size:11px; color:var(--text3); margin-top:1px; }
 .music-controls { display:flex; gap:6px; margin-top:8px; }
-.music-btn { background:var(--s2); border:1px solid var(--border); border-radius:6px; padding:4px 10px; font-size:10px; font-weight:600; color:var(--text3); cursor:pointer; transition:all 0.15s; font-family:'Inter',sans-serif; }
+.music-btn { background:var(--s2); border:1px solid var(--border); border-radius:6px; padding:4px 10px; font-size:10px; font-weight:600; color:var(--text3); cursor:pointer; transition:all 0.15s; font-family:'Noto Serif SC',serif; }
 .music-btn.active { background:var(--gold-dim); border-color:rgba(200,122,48,0.3); color:var(--gold); }
-.music-input { background:transparent; border:none; outline:none; font-family:'Inter',sans-serif; font-size:11px; color:var(--text2); width:100%; margin-top:8px; border-top:1px solid var(--border); padding-top:7px; }
+.music-input { background:transparent; border:none; outline:none; font-family:'Noto Serif SC',serif; font-size:11px; color:var(--text2); width:100%; margin-top:8px; border-top:1px solid var(--border); padding-top:7px; }
 .music-input::placeholder { color:var(--text4); }
 .anniv-item { display:flex; justify-content:space-between; align-items:center; padding:7px 0; border-bottom:1px solid var(--border); }
 .anniv-item:first-child { padding-top:0; } .anniv-item:last-child { border-bottom:none; padding-bottom:0; }
@@ -259,10 +259,10 @@ nav { height:50px; background:rgba(245,235,220,0.9); backdrop-filter:blur(20px);
 .panel-section { margin-bottom:20px; }
 .panel-section-title { font-size:9px; font-weight:700; letter-spacing:2px; color:var(--text3); text-transform:uppercase; margin-bottom:10px; padding-bottom:6px; border-bottom:1px solid var(--border); }
 .panel-label { font-size:11px; color:var(--text3); font-weight:600; margin-bottom:5px; display:block; }
-.panel-input { background:var(--s2); border:1px solid var(--border); border-radius:8px; padding:7px 11px; font-family:'Inter',sans-serif; font-size:12px; color:var(--text2); font-weight:600; width:100%; outline:none; margin-bottom:8px; }
-.panel-select { background:var(--s2); border:1px solid var(--border); border-radius:8px; padding:7px 11px; font-family:'Inter',sans-serif; font-size:12px; color:var(--text2); font-weight:600; width:100%; outline:none; margin-bottom:8px; cursor:pointer; }
+.panel-input { background:var(--s2); border:1px solid var(--border); border-radius:8px; padding:7px 11px; font-family:'Noto Serif SC',serif; font-size:12px; color:var(--text2); font-weight:600; width:100%; outline:none; margin-bottom:8px; }
+.panel-select { background:var(--s2); border:1px solid var(--border); border-radius:8px; padding:7px 11px; font-family:'Noto Serif SC',serif; font-size:12px; color:var(--text2); font-weight:600; width:100%; outline:none; margin-bottom:8px; cursor:pointer; }
 .panel-textarea { background:var(--s2); border:1px solid var(--border); border-radius:8px; padding:7px 11px; font-family:'Caveat',cursive; font-size:14px; color:var(--text2); width:100%; outline:none; resize:none; height:60px; margin-bottom:8px; }
-.panel-save-btn { width:100%; background:rgba(200,122,48,0.12); border:1px solid rgba(200,122,48,0.3); border-radius:10px; padding:10px; font-family:'Inter',sans-serif; font-size:12px; font-weight:700; letter-spacing:1px; color:var(--gold); cursor:pointer; transition:all 0.2s; margin-top:4px; }
+.panel-save-btn { width:100%; background:rgba(200,122,48,0.12); border:1px solid rgba(200,122,48,0.3); border-radius:10px; padding:10px; font-family:'Noto Serif SC',serif; font-size:12px; font-weight:700; letter-spacing:1px; color:var(--gold); cursor:pointer; transition:all 0.2s; margin-top:4px; }
 .panel-save-btn:hover { background:rgba(200,122,48,0.2); }
 .theme-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:8px; }
 .theme-swatch { border-radius:10px; padding:10px 8px; text-align:center; cursor:pointer; border:2px solid transparent; transition:all 0.15s; font-size:10px; font-weight:700; }
@@ -284,6 +284,11 @@ nav { height:50px; background:rgba(245,235,220,0.9); backdrop-filter:blur(20px);
 .drawer-overlay.open { display:block; }
 .mobile-drawer { position:fixed; top:0; left:0; width:255px; height:100vh; background:rgba(250,245,235,0.98); border-right:1px solid var(--border2); box-shadow:4px 0 28px rgba(140,100,60,0.18); z-index:3001; transform:translateX(-100%); transition:transform 0.28s cubic-bezier(0.4,0,0.2,1); overflow-y:auto; display:flex; flex-direction:column; padding:20px 0; }
 .mobile-drawer.open { transform:translateX(0); }
+.typing-dots { display:inline-flex; gap:5px; align-items:center; padding:6px 2px; }
+.typing-dots i { width:6px; height:6px; border-radius:50%; background:var(--text3); display:inline-block; animation:tdB 1.25s infinite ease-in-out; }
+.typing-dots i:nth-child(2) { animation-delay:.18s; }
+.typing-dots i:nth-child(3) { animation-delay:.36s; }
+@keyframes tdB { 0%,65%,100% { transform:translateY(0); opacity:.35 } 30% { transform:translateY(-5px); opacity:.95 } }
 .swipe-zone { position:fixed; top:0; left:0; width:18px; height:100vh; z-index:2999; }
 @media (max-width:1100px) {
   .page { grid-template-columns:repeat(8,1fr); }
@@ -301,10 +306,14 @@ nav { height:50px; background:rgba(245,235,220,0.9); backdrop-filter:blur(20px);
   .days-card { grid-column:1/2; } .status-card { grid-column:2/3; } .session-card { grid-column:1/2; } .weather-card { grid-column:2/3; }
   .notes-col { grid-column:1/3; } .right-col { grid-column:1/3; } .footer { grid-column:1/3; flex-wrap:wrap; gap:6px; }
   .panel { width:100vw; } .card { user-select:none; -webkit-user-select:none; }
+  #chatInput { font-size:14px !important; }
   /* ===== 手机端优化（只影响手机）===== */
-  nav { padding-top: calc(env(safe-area-inset-top, 0px) + 4px) !important; height:auto !important; min-height:calc(48px + env(safe-area-inset-top, 0px)); }
-  .page { padding-top: calc(env(safe-area-inset-top, 0px) + 6px) !important; padding-bottom: calc(env(safe-area-inset-bottom, 0px) + 60px) !important; }
-  #viewChat > div:first-child, #viewMemory > div:first-child, #viewPalace > div:first-child, #viewIf > div:first-child, #viewFavorites > div:first-child { padding-top: calc(env(safe-area-inset-top, 0px) + 12px) !important; }
+  /* 灵动岛：只让顶栏避开（顶栏已避开 → 下面别再重复留白）*/
+  nav { padding-top: calc(env(safe-area-inset-top, 0px) + 4px) !important; height:auto !important; min-height:calc(46px + env(safe-area-inset-top, 0px)); }
+  .page { padding-top: 8px !important; padding-bottom: calc(env(safe-area-inset-bottom, 0px) + 50px) !important; grid-template-columns:1fr !important; gap:9px !important; }
+  .page > * { grid-column:1 / -1 !important; }   /* 主界面单列、全部贴满，消除参差留空 */
+  /* chat 顶栏隐藏了主导航 → 它的头部要避开灵动岛 */
+  #viewChat > div:first-child { padding-top: calc(env(safe-area-inset-top, 0px) + 10px) !important; }
   .mobile-hamburger { background: var(--gold-dim) !important; border-color: var(--border2) !important; color: var(--gold) !important; }
   .mobile-hamburger svg { stroke: var(--gold) !important; }
   /* 副标题不竖排；chat 标题/副标题隐藏（避免重合、竖字）*/
@@ -317,7 +326,7 @@ nav { height:50px; background:rgba(245,235,220,0.9); backdrop-filter:blur(20px);
   .pal-tabs { overflow-x:auto; flex-wrap:nowrap !important; -webkit-overflow-scrolling:touch; padding:10px 14px 6px !important; }
   .pal-tab { white-space:nowrap !important; padding:6px 13px !important; flex-shrink:0; }
   /* chat 内容：减少两边留白、字体略小、行距略紧 */
-  #chatMessages { padding:12px 12px calc(env(safe-area-inset-bottom,0px) + 12px) !important; gap:14px !important; }
+  #chatMessages { padding:10px 12px calc(env(safe-area-inset-bottom,0px) + 10px) !important; gap:11px !important; }
   #chatMessages > div { max-width:100% !important; }
 }
 </style>
@@ -340,7 +349,7 @@ nav { height:50px; background:rgba(245,235,220,0.9); backdrop-filter:blur(20px);
   <div class="sb-bottom"><div class="sb-nav" style="padding:0">
     <a class="sb-item" onclick="openPanel('settings');closeDrawer()"><div class="sb-icon"><svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="7" cy="7" r="2.5"/><path d="M7 1 L7 2.5 M7 11.5 L7 13 M1 7 L2.5 7 M11.5 7 L13 7 M2.9 2.9 L4 4 M10 10 L11.1 11.1 M11.1 2.9 L10 4 M4 10 L2.9 11.1"/></svg></div><div class="sb-label">Settings</div></a>
     <a class="sb-item" onclick="openPanel('creator');closeDrawer()"><div class="sb-icon"><svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="4" cy="4" r="2"/><circle cx="10" cy="4" r="2"/><circle cx="7" cy="10" r="2"/><line x1="4" y1="6" x2="7" y2="8"/><line x1="10" y1="6" x2="7" y2="8"/></svg></div><div class="sb-label">Creator Mode</div></a>
-    <div class="sb-item" style="opacity:0.4;cursor:default;font-size:10px"><div class="sb-icon"><svg width="8" height="8" viewBox="0 0 8 8" fill="currentColor"><circle cx="4" cy="4" r="3"/></svg></div><div class="sb-label" style="font-family:'JetBrains Mono',monospace;letter-spacing:1px">v11.8 ✦ MOBILE2</div></div>
+    <div class="sb-item" style="opacity:0.4;cursor:default;font-size:10px"><div class="sb-icon"><svg width="8" height="8" viewBox="0 0 8 8" fill="currentColor"><circle cx="4" cy="4" r="3"/></svg></div><div class="sb-label" style="font-family:'JetBrains Mono',monospace;letter-spacing:1px">v12.1 ✦ VOICE</div></div>
   </div></div>
 </div>
 
@@ -358,7 +367,7 @@ nav { height:50px; background:rgba(245,235,220,0.9); backdrop-filter:blur(20px);
   <div class="sb-bottom"><div class="sb-nav" style="padding:0">
     <a class="sb-item" onclick="openPanel('settings')"><div class="sb-icon"><svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="7" cy="7" r="2.5"/><path d="M7 1 L7 2.5 M7 11.5 L7 13 M1 7 L2.5 7 M11.5 7 L13 7 M2.9 2.9 L4 4 M10 10 L11.1 11.1 M11.1 2.9 L10 4 M4 10 L2.9 11.1"/></svg></div><div class="sb-label">Settings</div></a>
     <a class="sb-item" onclick="openPanel('creator')"><div class="sb-icon"><svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="4" cy="4" r="2"/><circle cx="10" cy="4" r="2"/><circle cx="7" cy="10" r="2"/><line x1="4" y1="6" x2="7" y2="8"/><line x1="10" y1="6" x2="7" y2="8"/></svg></div><div class="sb-label">Creator Mode</div></a>
-    <div class="sb-item" style="opacity:0.4;cursor:default;font-size:10px"><div class="sb-icon"><svg width="8" height="8" viewBox="0 0 8 8" fill="currentColor"><circle cx="4" cy="4" r="3"/></svg></div><div class="sb-label" style="font-family:'JetBrains Mono',monospace;letter-spacing:1px">v11.8 ✦ MOBILE2</div></div>
+    <div class="sb-item" style="opacity:0.4;cursor:default;font-size:10px"><div class="sb-icon"><svg width="8" height="8" viewBox="0 0 8 8" fill="currentColor"><circle cx="4" cy="4" r="3"/></svg></div><div class="sb-label" style="font-family:'JetBrains Mono',monospace;letter-spacing:1px">v12.1 ✦ VOICE</div></div>
   </div></div>
 </div>
 
@@ -501,7 +510,7 @@ nav { height:50px; background:rgba(245,235,220,0.9); backdrop-filter:blur(20px);
   </div>
 
   <div class="footer">
-    <div class="footer-item">MYCROFT.SYS · v11.8 ✦ MOBILE2</div>
+    <div class="footer-item">MYCROFT.SYS · v12.1 ✦ VOICE</div>
     <div class="footer-live"><div class="sdot sdot-on"></div><span>LIVE</span></div>
     <div class="footer-item" id="footerDate">----</div>
     <div class="footer-item" style="border:1px solid rgba(170,60,55,0.45);color:rgba(170,60,55,0.85);border-radius:3px;padding:0 7px;letter-spacing:2px;transform:rotate(-1.5deg)">CLASSIFIED · 机密</div>
@@ -2215,7 +2224,7 @@ function openNote(who,id){
     +'<span style="font-size:11px;color:'+(n.fav?'var(--gold)':'var(--text4)')+';cursor:pointer" onclick="'+fav+'">'+starTxt+'</span>'
     +'<span style="font-size:10px;color:var(--text4);opacity:0.7;cursor:pointer" onclick="deleteNote(\''+who+'\',\''+n.id+'\')">🗑 删除</span></div>'
     +'<div id="replyBox" style="display:none;gap:7px;align-items:center;margin-top:10px">'
-    +'<input id="noteReplyInput" placeholder="回复…" style="flex:1;background:var(--s1);border:1px solid var(--border2);border-radius:9px;padding:7px 10px;font-size:13px;font-family:Inter,sans-serif;outline:none;color:var(--text2)" onkeydown="if(event.key===\'Enter\'){'+rb+'}"/>'
+    +'<input id="noteReplyInput" placeholder="回复…" style="flex:1;background:var(--s1);border:1px solid var(--border2);border-radius:9px;padding:7px 10px;font-size:13px;font-family:\'Noto Serif SC\',serif;outline:none;color:var(--text2)" onkeydown="if(event.key===\'Enter\'){'+rb+'}"/>'
     +'<button onclick="'+rb+'" style="background:var(--gold-dim);border:1px solid rgba(200,122,48,0.3);border-radius:9px;padding:7px 11px;font-size:12px;font-weight:700;color:var(--gold);cursor:pointer;white-space:nowrap">发送</button></div>';
   fillPopup('<div style="text-align:left;width:100%">'+main+thread+foot+'</div>');
 }
@@ -2630,7 +2639,7 @@ function showView(name){
   if(c) c.style.height=(name==='chat')?'100vh':'calc(100vh - 50px)';
   try{ var _an=(name==='chat'&&_activeChat.type==='if')?'if':name; document.querySelectorAll('.sb-item[data-view]').forEach(function(a){ a.classList.toggle('active', a.getAttribute('data-view')===_an); }); }catch(e){}
   if(typeof closeDrawer==='function') closeDrawer();
-  if(name==='chat'){ if(_chatLastMemIdx===null) _chatLastMemIdx=loadChat().length; updateChatHeader(); renderChat(); updateChatAutoBtn(); setTimeout(function(){ var i=document.getElementById('chatInput'); if(i) i.focus(); },80); }
+  if(name==='chat'){ if(_chatLastMemIdx===null) _chatLastMemIdx=loadChat().length; updateChatHeader(); renderChat(); updateChatAutoBtn(); setTimeout(function(){ var i=document.getElementById('chatInput'); if(i) i.focus(); if(window._fitChatVV) window._fitChatVV(); },80); }
   if(name==='if'){ renderIf(); }
   if(name==='memory'){ refreshMemory(); }
   if(name==='palace'){ renderPalace(); }
@@ -2915,10 +2924,14 @@ function renderChat(){
       +'</div>';
     }
     if(m.role==='user'){
-      var ub='<div style="background:var(--s2);border:1px solid var(--border2);border-radius:16px;padding:11px 15px;color:var(--text);font-size:15px;font-weight:600;line-height:1.6;white-space:pre-wrap;font-family:\'Noto Serif SC\',serif">'+chatEsc(m.text)+'</div>';
+      var ub='<div style="background:var(--s2);border:1px solid var(--border2);border-radius:16px;padding:10px 14px;color:var(--text);font-size:14px;font-weight:600;line-height:1.5;white-space:pre-wrap;font-family:\'Noto Serif SC\',serif">'+chatEsc(m.text)+'</div>';
       return '<div style="align-self:flex-end;max-width:82%;display:flex;flex-direction:column;align-items:flex-end;gap:2px">'+ub+_msgTools(i,true,m.fav)+'</div>';
     }
-    var bubble='<div style="color:var(--text2);font-size:15px;font-weight:600;line-height:1.7;white-space:pre-wrap;font-family:\'Noto Serif SC\',serif;padding:2px 0">'+chatEsc(mcCleanText(m.text))+'</div>';
+    if(m.pending){   // 打字中：空=三点跳动，有字=流式填入（暂无工具栏）
+      var inner=m.text?chatEsc(mcCleanText(m.text)):'<span class="typing-dots"><i></i><i></i><i></i></span>';
+      return '<div style="align-self:stretch;display:flex;flex-direction:column;gap:2px"><div id="chatStreamBubble" style="color:var(--text2);font-size:14px;font-weight:600;line-height:1.55;white-space:pre-wrap;font-family:\'Noto Serif SC\',serif;padding:2px 0">'+inner+'</div></div>';
+    }
+    var bubble='<div style="color:var(--text2);font-size:14px;font-weight:600;line-height:1.55;white-space:pre-wrap;font-family:\'Noto Serif SC\',serif;padding:2px 0">'+chatEsc(mcCleanText(m.text))+'</div>';
     if(m.err) return '<div style="align-self:stretch;display:flex;flex-direction:column;gap:2px">'+bubble+_msgTools(i,false,m.fav)+'</div>';
     return '<div style="align-self:stretch;display:flex;flex-direction:column;gap:2px">'+bubble+_msgTools(i,false,m.fav)+'</div>';
   }).join('');
@@ -3034,6 +3047,27 @@ async function callGeminiChat(systemText, contents, opts){
   }
   throw new Error('服务器忙，重试 3 次仍失败，稍后再发');
 }
+// 流式聊天（SSE，边出边显示）
+async function callGeminiChatStream(systemText, contents, onChunk, opts){
+  opts=opts||{};
+  var key=getApiKey(); if(!key) throw new Error('NO_KEY');
+  var url=MC_CFG.endpoint+(opts.model||getModel())+':streamGenerateContent?alt=sse&key='+encodeURIComponent(key);
+  var body={ system_instruction:{ parts:[{ text:systemText }] }, contents:contents, generationConfig:{ temperature:(opts.temperature!=null?opts.temperature:MC_CFG.temperature) } };
+  var resp=await fetch(url,{ method:'POST', headers:{ 'Content-Type':'application/json' }, body:JSON.stringify(body) });
+  if(!resp.ok){ var t=await resp.text(); throw new Error('HTTP '+resp.status+'：'+t.slice(0,120)); }
+  if(!resp.body||!resp.body.getReader) throw new Error('NO_STREAM');
+  var reader=resp.body.getReader(), dec=new TextDecoder(), buf='', full='';
+  while(true){
+    var r=await reader.read(); if(r.done) break;
+    buf+=dec.decode(r.value,{stream:true});
+    var lines=buf.split('\n'); buf=lines.pop();
+    for(var i=0;i<lines.length;i++){ var line=lines[i].trim(); if(line.indexOf('data:')!==0) continue; var js=line.slice(5).trim(); if(!js||js==='[DONE]') continue;
+      try{ var o=JSON.parse(js); var part=o&&o.candidates&&o.candidates[0]&&o.candidates[0].content&&o.candidates[0].content.parts; if(part){ var seg=part.map(function(p){return p.text||'';}).join(''); if(seg){ full+=seg; if(onChunk) onChunk(full); } } }catch(e){}
+    }
+  }
+  if(!full) throw new Error('空回复');
+  return full;
+}
 var CHAT_PERSPECTIVE=[
 '',
 '=== CHAT MODE (live private conversation with Cael) ===',
@@ -3052,6 +3086,20 @@ function chatSystem(){ return getPersona()+'\n'+CHAT_PERSPECTIVE; }
 var _vStream=null, _vRec=null, _vChunks=[], _vCtx=null, _vAnalyser=null, _vRAF=null, _recOn=false;
 function _recBtnUI(){ var b=document.getElementById('chatMicBtn'); if(!b) return; b.style.color=_recOn?'var(--gold)':'var(--text3)'; }
 function _showVoiceBar(on){ _recOn=on; var r=document.getElementById('chatInputRow'), v=document.getElementById('voiceBar'); if(r) r.style.display=on?'none':'flex'; if(v) v.style.display=on?'flex':'none'; _recBtnUI(); }
+// 转录中：保留语音条，把波形换成「正在转录…」（手机+电脑都可见）
+function _voiceTranscribing(on){
+  var v=document.getElementById('voiceBar'), r=document.getElementById('chatInputRow'), cv=document.getElementById('voiceWave'), tip=document.getElementById('voiceTip');
+  var btns=v?v.querySelectorAll('button'):[];
+  if(on){
+    if(r) r.style.display='none'; if(v) v.style.display='flex'; if(cv) cv.style.display='none';
+    if(tip){ tip.innerHTML='<span class="typing-dots" style="transform:scale(.78);padding:0"><i></i><i></i><i></i></span><span style="margin-left:8px">正在转录…</span>'; tip.style.flex='1'; tip.style.display='flex'; tip.style.alignItems='center'; }
+    btns.forEach(function(b){ b.style.display='none'; });
+  } else {
+    if(cv) cv.style.display='block';
+    if(tip){ tip.textContent='听着…'; tip.style.flex=''; tip.style.display=''; }
+    btns.forEach(function(b){ b.style.display=''; });
+  }
+}
 async function chatVoiceToggle(){
   if(!navigator.mediaDevices||!navigator.mediaDevices.getUserMedia){ alert('这个浏览器不支持录音（建议 Chrome / Edge；本地文件可能受限，放到网页版就好）。'); return; }
   if(!getApiKey()){ alert('语音转写要用 Gemini，先在 Settings 填 API key。'); return; }
@@ -3070,15 +3118,16 @@ function _voiceConfirm(){
   _vRec.onstop=async function(){
     _stopWave();
     var blob=new Blob(_vChunks,{type:(_vChunks[0]&&_vChunks[0].type)||'audio/webm'}); _vChunks=[];
-    _showVoiceBar(false);                      // ★ 先把输入框显示出来，否则填字时高度算成 0、看不见
     var inp=document.getElementById('chatInput'); var sub=document.getElementById('chatSubtitle');
-    if(!blob.size){ if(sub) sub.textContent='没录到声音'; return; }
-    if(sub) sub.textContent='转写中…';
+    if(!blob.size){ _showVoiceBar(false); if(sub) sub.textContent='没录到声音'; return; }
+    _voiceTranscribing(true);                   // ★ 保留语音条 → 显示「正在转录…」(手机端 subtitle 被隐藏，必须在这显示)
+    if(sub) sub.textContent='正在转录…';
     try{
       var txt=await _transcribeAudio(blob);
-      if(inp&&txt){ inp.value=(inp.value||'')+txt; chatAutosize(inp); inp.focus(); if(sub) updateChatHeader(); }
+      _voiceTranscribing(false); _showVoiceBar(false);
+      if(inp&&txt){ inp.value=(inp.value||'')+txt; chatAutosize(inp); inp.focus(); updateChatHeader(); }
       else { if(sub) sub.textContent='没听清，再说一次？'; }
-    }catch(e){ if(sub) sub.textContent='转写失败：'+e.message; alert('转写失败：'+e.message); }
+    }catch(e){ _voiceTranscribing(false); _showVoiceBar(false); if(sub) sub.textContent='转写失败：'+e.message; alert('转写失败：'+e.message); }
   };
   try{ _vRec.stop(); }catch(e){ _showVoiceBar(false); }
 }
@@ -3155,12 +3204,21 @@ async function sendChat(){
     var recent=recentByChars(loadChat(), 60000);   // 短期：最近约6万字逐字喂；更早的进框架
     var contents=recent.map(function(m){ return { role:(m.role==='user'?'user':'model'), parts:[{ text:m.text }] }; });
     var sys=await _chatBuildSys(text);
-    var reply=await callGeminiChat(sys, contents);
-    var h2=loadChat(); h2.push({role:'model',text:reply,ts:Date.now()}); saveChat(h2); renderChat();
+    // 占位"打字中"泡
+    var hp=loadChat(); hp.push({role:'model', text:'', ts:Date.now(), pending:true}); saveChat(hp); renderChat();
+    var reply='';
+    try{
+      reply=await callGeminiChatStream(sys, contents, function(partial){
+        var el=document.getElementById('chatStreamBubble'); if(el){ el.innerHTML=chatEsc(mcCleanText(partial)); var bx=document.getElementById('chatMessages'); if(bx) bx.scrollTop=bx.scrollHeight; }
+      });
+    }catch(streamErr){ reply=await callGeminiChat(sys, contents); }   // 流式不行就退回一次性
+    var h2=loadChat(); var pi=-1; for(var _i=0;_i<h2.length;_i++){ if(h2[_i].pending){ pi=_i; break; } }
+    if(pi>=0){ h2[pi].text=reply; h2[pi].pending=false; h2[pi].ts=Date.now(); } else { h2.push({role:'model',text:reply,ts:Date.now()}); }
+    saveChat(h2); renderChat();
     if(_activeChat.type!=='if'){ setTimeout(chatAutoMemory,150); _dossierTick++; if(_dossierTick%4===0) setTimeout(function(){ dossierObserve(null,'gemini-2.5-flash-lite',true); }, 1200); if(_dossierTick%8===0) setTimeout(function(){ try{ var h=loadMainChat().filter(function(m){return !m.err;}); var convo=h.slice(-16).map(function(m){ return (m.role==='user'?'她：':'他：')+(m.text||''); }).join('\n'); _pastIngest(convo,false,'gemini-2.5-flash-lite'); }catch(e){} }, 2000); }   // 持续观察建档 + 往事归位（便宜模型·静默）
     else { var _fid=_activeChat.id, _fbr=_activeChat.branch||'main'; setTimeout(function(){ ifFoldToFramework(_fid,_fbr); }, 300); }
   }catch(e){
-    var h3=loadChat(); h3.push({role:'model',text:'（…连接出了点问题：'+e.message+'）',ts:Date.now(),err:true}); saveChat(h3); renderChat();
+    var h3=loadChat(); for(var _j=h3.length-1;_j>=0;_j--){ if(h3[_j].pending){ h3.splice(_j,1); break; } } h3.push({role:'model',text:'（…连接出了点问题：'+e.message+'）',ts:Date.now(),err:true}); saveChat(h3); renderChat();
   }finally{
     _chatBusy=false; if(btn) btn.disabled=false; if(sub) sub.textContent='与你私语';
   }
@@ -3976,7 +4034,7 @@ function _syncStat(t){ var e=document.getElementById('syncChip'); if(e) e.textCo
 async function syncPushNow(){ if(!_syncPass||_syncBusy) return; _syncBusy=true; _syncStat('同步中…'); try{ var id=await _hashId(_syncPass); var payload=await _enc(JSON.stringify(_bundleLocal()),_syncPass); await _syncUpsert(id,payload); var d=new Date(); _syncStat('已同步 '+pad(d.getHours())+':'+pad(d.getMinutes())); }catch(e){ _syncStat('同步失败'); }finally{ _syncBusy=false; } }
 function syncSchedulePush(){ if(!_syncReady) return; if(_syncTimer) clearTimeout(_syncTimer); _syncTimer=setTimeout(syncPushNow,2500); }
 (function(){ var orig=localStorage.setItem.bind(localStorage); localStorage.setItem=function(k,v){ orig(k,v); if(_syncReady&&!SYNC_SKIP[k]) syncSchedulePush(); }; })();
-function _syncChipShow(){ if(document.getElementById('syncChip')) return; var c=document.createElement('div'); c.id='syncChip'; c.title='点一下立即同步'; c.style.cssText='position:fixed;left:10px;bottom:10px;z-index:3000;font-size:10px;color:var(--text4);background:var(--s1);border:1px solid var(--border2);border-radius:20px;padding:4px 10px;cursor:pointer;opacity:.75'; c.textContent='☁ 同步'; c.onclick=function(){ syncPushNow(); }; document.body.appendChild(c); }
+function _syncChipShow(){ if(document.getElementById('syncChip')) return; var c=document.createElement('div'); c.id='syncChip'; c.title='点一下立即同步'; c.style.cssText='position:fixed;left:8px;bottom:2px;z-index:3000;font-size:9px;color:var(--text4);background:var(--s1);border:1px solid var(--border2);border-radius:20px;padding:3px 8px;cursor:pointer;opacity:.5'; c.textContent='☁ 同步'; c.onclick=function(){ syncPushNow(); }; document.body.appendChild(c); }
 function _syncLockHTML(msg,setup){ return '<div id="syncLock" style="position:fixed;inset:0;z-index:5000;background:#0e0d0c;display:flex;align-items:center;justify-content:center">'
   +'<div style="width:min(340px,88vw);text-align:center;font-family:\'Noto Serif SC\',serif">'
     +'<div style="font-family:\'Playfair Display\',serif;font-size:30px;color:#c87a30;font-weight:700;margin-bottom:6px">M · C</div>'
@@ -4019,6 +4077,14 @@ async function syncInit(){
     if(dx>0){ var ov=document.querySelector('.panel-overlay.open, .popup-overlay.open, .mstate-overlay.open'); if(ov){ ov.classList.remove('open'); } }   // 右滑 → 关弹窗
     else { var dr=document.getElementById('mobileDrawer'); if(dr&&dr.classList.contains('open')&&typeof closeDrawer==='function'){ closeDrawer(); } }   // 左滑 → 关侧栏
   },{passive:true});
+})();
+// ===== 手机：输入框贴键盘（visualViewport 动态高度，键盘弹起不留空）=====
+(function(){
+  if(!window.visualViewport) return;
+  var vv=window.visualViewport;
+  function fit(){ var c=document.getElementById('viewChat'); if(!c||getComputedStyle(c).display==='none') return; c.style.height=vv.height+'px'; var bx=document.getElementById('chatMessages'); if(bx) bx.scrollTop=bx.scrollHeight; }
+  window._fitChatVV=fit;
+  vv.addEventListener('resize',fit); vv.addEventListener('scroll',fit);
 })();
 // ===== START =====
 syncInit();
