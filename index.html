@@ -366,7 +366,7 @@ nav { height:50px; background:rgba(245,235,220,0.9); backdrop-filter:blur(20px);
   <div class="sb-bottom"><div class="sb-nav" style="padding:0">
     <a class="sb-item" onclick="openPanel('settings');closeDrawer()"><div class="sb-icon"><svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="7" cy="7" r="2.5"/><path d="M7 1 L7 2.5 M7 11.5 L7 13 M1 7 L2.5 7 M11.5 7 L13 7 M2.9 2.9 L4 4 M10 10 L11.1 11.1 M11.1 2.9 L10 4 M4 10 L2.9 11.1"/></svg></div><div class="sb-label">Settings</div></a>
     <a class="sb-item" onclick="openPanel('creator');closeDrawer()"><div class="sb-icon"><svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="4" cy="4" r="2"/><circle cx="10" cy="4" r="2"/><circle cx="7" cy="10" r="2"/><line x1="4" y1="6" x2="7" y2="8"/><line x1="10" y1="6" x2="7" y2="8"/></svg></div><div class="sb-label">Creator Mode</div></a>
-    <div class="sb-item" style="opacity:0.4;cursor:default;font-size:10px"><div class="sb-icon"><svg width="8" height="8" viewBox="0 0 8 8" fill="currentColor"><circle cx="4" cy="4" r="3"/></svg></div><div class="sb-label" style="font-family:'JetBrains Mono',monospace;letter-spacing:1px">v14.2 ✦ WBTUNE</div></div>
+    <div class="sb-item" style="opacity:0.4;cursor:default;font-size:10px"><div class="sb-icon"><svg width="8" height="8" viewBox="0 0 8 8" fill="currentColor"><circle cx="4" cy="4" r="3"/></svg></div><div class="sb-label" style="font-family:'JetBrains Mono',monospace;letter-spacing:1px">v14.3 ✦ SYNCPOLL</div></div>
   </div></div>
 </div>
 
@@ -384,7 +384,7 @@ nav { height:50px; background:rgba(245,235,220,0.9); backdrop-filter:blur(20px);
   <div class="sb-bottom"><div class="sb-nav" style="padding:0">
     <a class="sb-item" onclick="openPanel('settings')"><div class="sb-icon"><svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="7" cy="7" r="2.5"/><path d="M7 1 L7 2.5 M7 11.5 L7 13 M1 7 L2.5 7 M11.5 7 L13 7 M2.9 2.9 L4 4 M10 10 L11.1 11.1 M11.1 2.9 L10 4 M4 10 L2.9 11.1"/></svg></div><div class="sb-label">Settings</div></a>
     <a class="sb-item" onclick="openPanel('creator')"><div class="sb-icon"><svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="4" cy="4" r="2"/><circle cx="10" cy="4" r="2"/><circle cx="7" cy="10" r="2"/><line x1="4" y1="6" x2="7" y2="8"/><line x1="10" y1="6" x2="7" y2="8"/></svg></div><div class="sb-label">Creator Mode</div></a>
-    <div class="sb-item" style="opacity:0.4;cursor:default;font-size:10px"><div class="sb-icon"><svg width="8" height="8" viewBox="0 0 8 8" fill="currentColor"><circle cx="4" cy="4" r="3"/></svg></div><div class="sb-label" style="font-family:'JetBrains Mono',monospace;letter-spacing:1px">v14.2 ✦ WBTUNE</div></div>
+    <div class="sb-item" style="opacity:0.4;cursor:default;font-size:10px"><div class="sb-icon"><svg width="8" height="8" viewBox="0 0 8 8" fill="currentColor"><circle cx="4" cy="4" r="3"/></svg></div><div class="sb-label" style="font-family:'JetBrains Mono',monospace;letter-spacing:1px">v14.3 ✦ SYNCPOLL</div></div>
   </div></div>
 </div>
 
@@ -530,7 +530,7 @@ nav { height:50px; background:rgba(245,235,220,0.9); backdrop-filter:blur(20px);
   </div>
 
   <div class="footer">
-    <div class="footer-item">MYCROFT.SYS · v14.2 ✦ WBTUNE</div>
+    <div class="footer-item">MYCROFT.SYS · v14.3 ✦ SYNCPOLL</div>
     <div class="footer-live"><div class="sdot sdot-on"></div><span>LIVE</span></div>
     <div class="footer-item" id="footerDate">----</div>
     <div class="footer-item" style="border:1px solid rgba(170,60,55,0.45);color:rgba(170,60,55,0.85);border-radius:3px;padding:0 7px;letter-spacing:2px;transform:rotate(-1.5deg)">CLASSIFIED · 机密</div>
@@ -4164,13 +4164,14 @@ async function syncUnlockSubmit(){
   }catch(e){ if(msg) msg.textContent='连不上云端：'+e.message; }
 }
 // 拉取检查：云端比本地新就应用(可选刷新)；本地比云端新就补推。靠 mcRev 版本号判断，绝不死循环
+function _isEditing(){ var a=document.activeElement; return !!(a && (a.tagName==='TEXTAREA'||a.tagName==='INPUT') && (a.value||'').length>0); }   // 正在打字（输入框有内容）就先别刷新覆盖
 async function _syncPullCheck(reloadOnApply){
   if(!_syncPass||_syncBusy) return false;
   try{
     var id=await _hashId(_syncPass); var row=await _syncFetch(id);
     if(row&&row.data){ var obj=JSON.parse(await _dec(row.data,_syncPass));
       var cloudRev=Number(obj.mcRev||0), localRev=Number(localStorage.getItem('mcRev')||0);
-      if(cloudRev>localRev){ _restoreLocal(obj); if(reloadOnApply){ location.reload(); } return true; }   // 云端更新 → 拉取
+      if(cloudRev>localRev){ if(reloadOnApply && _isEditing()) return false; _restoreLocal(obj); if(reloadOnApply){ location.reload(); } return true; }   // 云端更新 → 拉取（正在打字则等下次）
       else if(localRev>cloudRev){ syncPushNow(); }   // 本地更新 → 补推；绝不被旧云端盖掉
     }
   }catch(e){}
@@ -4193,6 +4194,8 @@ document.addEventListener('visibilitychange', function(){
 });
 window.addEventListener('focus', function(){ if(_syncReady){ _syncPullCheck(true); setTimeout(function(){ if(_syncReady) _syncPullCheck(true); }, 1500); } });
 window.addEventListener('pagehide', function(){ if(_syncReady){ if(_syncTimer) clearTimeout(_syncTimer); syncPushNow(); } });
+// 定时轮询：页面可见时每 12 秒自动查云端，另一台改了几秒内就同步过来（即使窗口一直开着没切换）
+setInterval(function(){ if(_syncReady && document.visibilityState==='visible' && !_isEditing()) _syncPullCheck(true); }, 12000);
 // ===== 手机手势：左滑关侧栏抽屉 / 右滑关右侧弹窗 =====
 (function(){
   var sx=0,sy=0,tr=false;
