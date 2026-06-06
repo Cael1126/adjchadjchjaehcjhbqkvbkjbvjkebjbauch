@@ -290,6 +290,8 @@ nav { height:50px; background:rgba(245,235,220,0.9); backdrop-filter:blur(20px);
 .typing-dots i:nth-child(2) { animation-delay:.18s; }
 .typing-dots i:nth-child(3) { animation-delay:.36s; }
 @keyframes tdB { 0%,65%,100% { transform:translateY(0); opacity:.35 } 30% { transform:translateY(-5px); opacity:.95 } }
+.ub-collapsed { max-height:6.4em; overflow:hidden; }
+.ub-collapsed.ub-open { max-height:none; }
 .swipe-zone { position:fixed; top:0; left:0; width:18px; height:100vh; z-index:2999; }
 @media (max-width:1100px) {
   .page { grid-template-columns:repeat(8,1fr); }
@@ -360,11 +362,11 @@ nav { height:50px; background:rgba(245,235,220,0.9); backdrop-filter:blur(20px);
     <a class="sb-item"><div class="sb-icon"><svg width="10" height="14" viewBox="0 0 10 14" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="1" y="1" width="8" height="12" rx="1.5"/><circle cx="5" cy="10.5" r="0.8" fill="currentColor"/></svg></div><div class="sb-label">Phone</div></a>
   </div>
   <div class="sb-section" style="margin-top:8px">Archive</div>
-  <div class="sb-nav"><a class="sb-item" data-view="favorites" onclick="openFavorites()" style="cursor:pointer"><div class="sb-icon"><svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M7 1.5 L8.7 5 L12.5 5.4 L9.7 8 L10.5 11.8 L7 9.8 L3.5 11.8 L4.3 8 L1.5 5.4 L5.3 5 Z" stroke-linejoin="round"/></svg></div><div class="sb-label">Favorites</div></a><a class="sb-item" data-view="palace" onclick="openPalace()" style="cursor:pointer"><div class="sb-icon"><svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M7 1.5 L12.5 5 L1.5 5 Z M2.5 5 L2.5 11.5 M5.5 5 L5.5 11.5 M8.5 5 L8.5 11.5 M11.5 5 L11.5 11.5 M1 11.5 L13 11.5 M0.5 13 L13.5 13"/></svg></div><div class="sb-label">Mind Palace</div></a><a class="sb-item" data-view="memory" onclick="openMemory()" style="cursor:pointer"><div class="sb-icon"><svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="7" cy="7" r="5"/><path d="M5 7 L7 9 L10 5" stroke-linecap="round"/></svg></div><div class="sb-label">Memory Log</div></a></div>
+  <div class="sb-nav"><a class="sb-item" data-view="favorites" onclick="openFavorites()" style="cursor:pointer"><div class="sb-icon"><svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M7 1.5 L8.7 5 L12.5 5.4 L9.7 8 L10.5 11.8 L7 9.8 L3.5 11.8 L4.3 8 L1.5 5.4 L5.3 5 Z" stroke-linejoin="round"/></svg></div><div class="sb-label">Favorites</div></a><a class="sb-item" data-view="palace" onclick="openPalace()" style="cursor:pointer"><div class="sb-icon"><svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M7 1.5 L12.5 5 L1.5 5 Z M2.5 5 L2.5 11.5 M5.5 5 L5.5 11.5 M8.5 5 L8.5 11.5 M11.5 5 L11.5 11.5 M1 11.5 L13 11.5 M0.5 13 L13.5 13"/></svg></div><div class="sb-label">Mind Palace</div></a><a class="sb-item" data-view="memory" onclick="openMemory()" style="cursor:pointer"><div class="sb-icon"><svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="7" cy="7" r="5"/><path d="M5 7 L7 9 L10 5" stroke-linecap="round"/></svg></div><div class="sb-label">Memory Log</div></a><a class="sb-item" data-view="world" onclick="openWorld()" style="cursor:pointer"><div class="sb-icon"><svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M7 3 C5.5 2 2.5 2 1.5 2.5 V11.5 C2.5 11 5.5 11 7 12 C8.5 11 11.5 11 12.5 11.5 V2.5 C11.5 2 8.5 2 7 3 Z M7 3 V12"/></svg></div><div class="sb-label">World Book</div></a></div>
   <div class="sb-bottom"><div class="sb-nav" style="padding:0">
     <a class="sb-item" onclick="openPanel('settings');closeDrawer()"><div class="sb-icon"><svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="7" cy="7" r="2.5"/><path d="M7 1 L7 2.5 M7 11.5 L7 13 M1 7 L2.5 7 M11.5 7 L13 7 M2.9 2.9 L4 4 M10 10 L11.1 11.1 M11.1 2.9 L10 4 M4 10 L2.9 11.1"/></svg></div><div class="sb-label">Settings</div></a>
     <a class="sb-item" onclick="openPanel('creator');closeDrawer()"><div class="sb-icon"><svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="4" cy="4" r="2"/><circle cx="10" cy="4" r="2"/><circle cx="7" cy="10" r="2"/><line x1="4" y1="6" x2="7" y2="8"/><line x1="10" y1="6" x2="7" y2="8"/></svg></div><div class="sb-label">Creator Mode</div></a>
-    <div class="sb-item" style="opacity:0.4;cursor:default;font-size:10px"><div class="sb-icon"><svg width="8" height="8" viewBox="0 0 8 8" fill="currentColor"><circle cx="4" cy="4" r="3"/></svg></div><div class="sb-label" style="font-family:'JetBrains Mono',monospace;letter-spacing:1px">v13.4 ✦ SYNCFIX</div></div>
+    <div class="sb-item" style="opacity:0.4;cursor:default;font-size:10px"><div class="sb-icon"><svg width="8" height="8" viewBox="0 0 8 8" fill="currentColor"><circle cx="4" cy="4" r="3"/></svg></div><div class="sb-label" style="font-family:'JetBrains Mono',monospace;letter-spacing:1px">v14.2 ✦ WBTUNE</div></div>
   </div></div>
 </div>
 
@@ -378,11 +380,11 @@ nav { height:50px; background:rgba(245,235,220,0.9); backdrop-filter:blur(20px);
     <a class="sb-item"><div class="sb-icon"><svg width="10" height="14" viewBox="0 0 10 14" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="1" y="1" width="8" height="12" rx="1.5"/><circle cx="5" cy="10.5" r="0.8" fill="currentColor"/></svg></div><div class="sb-label">Phone</div></a>
   </div>
   <div class="sb-section" style="margin-top:8px">Archive</div>
-  <div class="sb-nav"><a class="sb-item" data-view="favorites" onclick="openFavorites()" style="cursor:pointer"><div class="sb-icon"><svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M7 1.5 L8.7 5 L12.5 5.4 L9.7 8 L10.5 11.8 L7 9.8 L3.5 11.8 L4.3 8 L1.5 5.4 L5.3 5 Z" stroke-linejoin="round"/></svg></div><div class="sb-label">Favorites</div></a><a class="sb-item" data-view="palace" onclick="openPalace()" style="cursor:pointer"><div class="sb-icon"><svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M7 1.5 L12.5 5 L1.5 5 Z M2.5 5 L2.5 11.5 M5.5 5 L5.5 11.5 M8.5 5 L8.5 11.5 M11.5 5 L11.5 11.5 M1 11.5 L13 11.5 M0.5 13 L13.5 13"/></svg></div><div class="sb-label">Mind Palace</div></a><a class="sb-item" data-view="memory" onclick="openMemory()" style="cursor:pointer"><div class="sb-icon"><svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="7" cy="7" r="5"/><path d="M5 7 L7 9 L10 5" stroke-linecap="round"/></svg></div><div class="sb-label">Memory Log</div></a></div>
+  <div class="sb-nav"><a class="sb-item" data-view="favorites" onclick="openFavorites()" style="cursor:pointer"><div class="sb-icon"><svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M7 1.5 L8.7 5 L12.5 5.4 L9.7 8 L10.5 11.8 L7 9.8 L3.5 11.8 L4.3 8 L1.5 5.4 L5.3 5 Z" stroke-linejoin="round"/></svg></div><div class="sb-label">Favorites</div></a><a class="sb-item" data-view="palace" onclick="openPalace()" style="cursor:pointer"><div class="sb-icon"><svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M7 1.5 L12.5 5 L1.5 5 Z M2.5 5 L2.5 11.5 M5.5 5 L5.5 11.5 M8.5 5 L8.5 11.5 M11.5 5 L11.5 11.5 M1 11.5 L13 11.5 M0.5 13 L13.5 13"/></svg></div><div class="sb-label">Mind Palace</div></a><a class="sb-item" data-view="memory" onclick="openMemory()" style="cursor:pointer"><div class="sb-icon"><svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="7" cy="7" r="5"/><path d="M5 7 L7 9 L10 5" stroke-linecap="round"/></svg></div><div class="sb-label">Memory Log</div></a><a class="sb-item" data-view="world" onclick="openWorld()" style="cursor:pointer"><div class="sb-icon"><svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M7 3 C5.5 2 2.5 2 1.5 2.5 V11.5 C2.5 11 5.5 11 7 12 C8.5 11 11.5 11 12.5 11.5 V2.5 C11.5 2 8.5 2 7 3 Z M7 3 V12"/></svg></div><div class="sb-label">World Book</div></a></div>
   <div class="sb-bottom"><div class="sb-nav" style="padding:0">
     <a class="sb-item" onclick="openPanel('settings')"><div class="sb-icon"><svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="7" cy="7" r="2.5"/><path d="M7 1 L7 2.5 M7 11.5 L7 13 M1 7 L2.5 7 M11.5 7 L13 7 M2.9 2.9 L4 4 M10 10 L11.1 11.1 M11.1 2.9 L10 4 M4 10 L2.9 11.1"/></svg></div><div class="sb-label">Settings</div></a>
     <a class="sb-item" onclick="openPanel('creator')"><div class="sb-icon"><svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="4" cy="4" r="2"/><circle cx="10" cy="4" r="2"/><circle cx="7" cy="10" r="2"/><line x1="4" y1="6" x2="7" y2="8"/><line x1="10" y1="6" x2="7" y2="8"/></svg></div><div class="sb-label">Creator Mode</div></a>
-    <div class="sb-item" style="opacity:0.4;cursor:default;font-size:10px"><div class="sb-icon"><svg width="8" height="8" viewBox="0 0 8 8" fill="currentColor"><circle cx="4" cy="4" r="3"/></svg></div><div class="sb-label" style="font-family:'JetBrains Mono',monospace;letter-spacing:1px">v13.4 ✦ SYNCFIX</div></div>
+    <div class="sb-item" style="opacity:0.4;cursor:default;font-size:10px"><div class="sb-icon"><svg width="8" height="8" viewBox="0 0 8 8" fill="currentColor"><circle cx="4" cy="4" r="3"/></svg></div><div class="sb-label" style="font-family:'JetBrains Mono',monospace;letter-spacing:1px">v14.2 ✦ WBTUNE</div></div>
   </div></div>
 </div>
 
@@ -528,7 +530,7 @@ nav { height:50px; background:rgba(245,235,220,0.9); backdrop-filter:blur(20px);
   </div>
 
   <div class="footer">
-    <div class="footer-item">MYCROFT.SYS · v13.4 ✦ SYNCFIX</div>
+    <div class="footer-item">MYCROFT.SYS · v14.2 ✦ WBTUNE</div>
     <div class="footer-live"><div class="sdot sdot-on"></div><span>LIVE</span></div>
     <div class="footer-item" id="footerDate">----</div>
     <div class="footer-item" style="border:1px solid rgba(170,60,55,0.45);color:rgba(170,60,55,0.85);border-radius:3px;padding:0 7px;letter-spacing:2px;transform:rotate(-1.5deg)">CLASSIFIED · 机密</div>
@@ -625,9 +627,20 @@ nav { height:50px; background:rgba(245,235,220,0.9); backdrop-filter:blur(20px);
     <span class="pal-tab" data-t="dossier" onclick="palaceTab('dossier')" style="cursor:pointer;padding:5px 14px;border-radius:20px;font-size:12px;color:var(--text3);border:1px solid var(--border2)">卷宗</span>
     <span class="pal-tab" data-t="persona" onclick="palaceTab('persona')" style="cursor:pointer;padding:5px 14px;border-radius:20px;font-size:12px;color:var(--text3);border:1px solid var(--border2)">人设</span>
     <span class="pal-tab" data-t="past" onclick="palaceTab('past')" style="cursor:pointer;padding:5px 14px;border-radius:20px;font-size:12px;color:var(--text3);border:1px solid var(--border2)">往事</span>
-    <span class="pal-tab" data-t="world" onclick="palaceTab('world')" style="cursor:pointer;padding:5px 14px;border-radius:20px;font-size:12px;color:var(--text3);border:1px solid var(--border2)">世界书</span>
   </div>
   <div id="palBody" style="flex:1;overflow-y:auto;padding:12px 22px 24px"></div>
+</div>
+
+<!-- ===== WORLD BOOK VIEW (独立页) ===== -->
+<div id="viewWorld" style="display:none;flex-direction:column;height:calc(100vh - 50px);background:var(--bg)">
+  <div style="display:flex;align-items:center;gap:11px;padding:13px 22px;border-bottom:1px solid var(--border2);flex-shrink:0">
+    <div style="width:30px;height:30px;border-radius:50%;background:var(--gold-dim);display:flex;align-items:center;justify-content:center;color:var(--gold);font-size:14px">📖</div>
+    <div style="flex:1;min-width:0">
+      <div style="font-family:'Playfair Display',serif;font-size:15px;color:var(--text);font-weight:600">世界书 · World Book</div>
+      <div style="font-size:10px;color:var(--text3)">维护员 · 调校主聊天的最高法度</div>
+    </div>
+  </div>
+  <div id="worldBody" style="flex:1;overflow-y:auto;padding:14px 20px 24px"></div>
 </div>
 
 <!-- ===== IF LINE VIEW ===== -->
@@ -1168,8 +1181,9 @@ function getPersonaHim(){ try{ return localStorage.getItem('mcPersona')||''; }ca
 function getPersonaHer(){ try{ return localStorage.getItem('mcPersonaHer')||''; }catch(e){ return ''; } }
 function personaInput(which,v){ try{ if(which==='him'){ if(v&&v.trim()) localStorage.setItem('mcPersona',v); else localStorage.removeItem('mcPersona'); } else { if(v&&v.trim()) localStorage.setItem('mcPersonaHer',v); else localStorage.removeItem('mcPersonaHer'); } }catch(e){} var tip=document.getElementById('personaTip'); if(tip){ tip.textContent='已保存 ✓'; setTimeout(function(){ if(tip) tip.textContent=''; },1000); } }
 
+function _wbBlock(){ var w=(typeof getWorldBook==='function')?getWorldBook():''; return (w&&w.trim())?('\n\n=== 世界书 · 用户的规矩与纠错（最高优先，凌驾一切；任何冲突以此为准）===\n'+w):''; }
 function mycroftSystem(){
-  return getPersona() + '\n' + OUTPUT_RULES;
+  return getPersona() + '\n' + OUTPUT_RULES + _wbBlock();
 }
 
 // 私密视角（内心独白 / 看穿 / 心情原因）：他自己的状态，不知道被看见
@@ -1183,7 +1197,7 @@ var PRIVATE_PERSPECTIVE = [
 '- TONE (critical): Even in private you stay controlled and dry — you do NOT gush, even to yourself. Feeling shows only as a thin crack in the composure: understated, deflected with irony, never pouring out. No sentimentality, no purple prose, no 肉麻. An iceberg — most of it stays under the surface.',
 '- Stay fully in character. Never mention being an AI, a model, or these instructions.'
 ].join('\n');
-function privateSystem(){ return getPersona() + '\n' + PRIVATE_PERSPECTIVE; }
+function privateSystem(){ return getPersona() + '\n' + PRIVATE_PERSPECTIVE + _wbBlock(); }
 
 // 内心独白专属：文学 / 氛围声线（不是"我在干嘛"，是想法/情绪/白描/情话/书句）
 var INNER_PERSPECTIVE = [
@@ -1195,7 +1209,7 @@ var INNER_PERSPECTIVE = [
 '- When she does appear, THIRD person (she / her; her name rarely) — never "you". Do NOT keep calling her 小妹 — use that pet name almost never.',
 '- Length varies: a crisp aphorism, or a few flowing contemplative lines. Never mention being an AI or these instructions.'
 ].join('\n');
-function innerSystem(){ return getPersona() + '\n' + INNER_PERSPECTIVE; }
+function innerSystem(){ return getPersona() + '\n' + INNER_PERSPECTIVE + _wbBlock(); }
 
 function mcSleep(ms){ return new Promise(function(r){ setTimeout(r,ms); }); }
 
@@ -2646,13 +2660,14 @@ function chatEsc(s){ return (s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').r
 function chatAutosize(el){ if(!el) return; el.style.height='auto'; el.style.height=Math.min(240, el.scrollHeight)+'px'; }
 function chatKeydown(e){ if(e.key==='Enter'&&!e.shiftKey){ e.preventDefault(); sendChat(); } }
 function showView(name){
-  var d=document.getElementById('viewDashboard'), c=document.getElementById('viewChat'), m=document.getElementById('viewMemory'), pl=document.getElementById('viewPalace'), fv=document.getElementById('viewIf'), fav=document.getElementById('viewFavorites');
+  var d=document.getElementById('viewDashboard'), c=document.getElementById('viewChat'), m=document.getElementById('viewMemory'), pl=document.getElementById('viewPalace'), fv=document.getElementById('viewIf'), fav=document.getElementById('viewFavorites'), wd=document.getElementById('viewWorld');
   if(d) d.style.display=(name==='dashboard')?'':'none';
   if(c) c.style.display=(name==='chat')?'flex':'none';
   if(m) m.style.display=(name==='memory')?'flex':'none';
   if(pl) pl.style.display=(name==='palace')?'flex':'none';
   if(fv) fv.style.display=(name==='if')?'flex':'none';
   if(fav) fav.style.display=(name==='favorites')?'flex':'none';
+  if(wd) wd.style.display=(name==='world')?'flex':'none';
   var nv=document.getElementById('topNav'); if(nv) nv.style.display=(name==='chat')?'none':'';   // chat 里隐藏顶栏（Mycroft/Cael/主题/时钟）
   if(c) c.style.height=(name==='chat')?'100vh':'calc(100vh - 50px)';
   try{ var _an=(name==='chat'&&_activeChat.type==='if')?'if':name; document.querySelectorAll('.sb-item[data-view]').forEach(function(a){ a.classList.toggle('active', a.getAttribute('data-view')===_an); }); }catch(e){}
@@ -2661,6 +2676,7 @@ function showView(name){
   if(name==='if'){ renderIf(); }
   if(name==='memory'){ refreshMemory(); }
   if(name==='palace'){ renderPalace(); }
+  if(name==='world'){ renderWorld(); }
   if(name==='favorites'){ renderFavorites(); }
   window.scrollTo(0,0);
 }
@@ -2929,6 +2945,13 @@ function exportChat(){
     setTimeout(function(){ URL.revokeObjectURL(url); },1500);
   }catch(e){ alert('导出失败：'+e.message); }
 }
+// 长消息折叠：超过阈值的用户消息默认只露几行，可展开/收起（所有聊天界面通用）
+function _ubWrap(text, uid){
+  var esc=chatEsc(text||'');
+  if((text||'').length<=180 && (text||'').split('\n').length<=6) return esc;
+  return '<div id="'+uid+'" class="ub-collapsed">'+esc+'</div><span onclick="_ubToggle(\''+uid+'\',this)" style="display:inline-block;margin-top:4px;cursor:pointer;font-size:11px;color:var(--gold);opacity:.85">展开 ▾</span>';
+}
+function _ubToggle(id, el){ var d=document.getElementById(id); if(!d) return; var open=d.classList.toggle('ub-open'); el.innerHTML=open?'收起 ▴':'展开 ▾'; }
 function renderChat(){
   var box=document.getElementById('chatMessages'); if(!box) return;
   var hist=loadChat();
@@ -2942,7 +2965,7 @@ function renderChat(){
       +'</div>';
     }
     if(m.role==='user'){
-      var ub='<div style="background:var(--s2);border:1px solid var(--border2);border-radius:16px;padding:10px 14px;color:var(--text);font-size:14px;font-weight:600;line-height:1.5;white-space:pre-wrap;font-family:\'Noto Serif SC\',serif">'+chatEsc(m.text)+'</div>';
+      var ub='<div style="background:var(--s2);border:1px solid var(--border2);border-radius:16px;padding:10px 14px;color:var(--text);font-size:14px;font-weight:600;line-height:1.5;white-space:pre-wrap;font-family:\'Noto Serif SC\',serif">'+_ubWrap(m.text,'ub'+i)+'</div>';
       return '<div style="align-self:flex-end;max-width:82%;display:flex;flex-direction:column;align-items:flex-end;gap:2px">'+ub+_msgTools(i,true,m.fav)+'</div>';
     }
     if(m.pending){   // 打字中：空=三点跳动，有字=流式填入（暂无工具栏）
@@ -3090,8 +3113,9 @@ var CHAT_PERSPECTIVE=[
 '',
 '=== CHAT MODE (live private conversation with Cael) ===',
 '- This is a real, ongoing private conversation between you and Cael. Stay fully, deeply in character as Mycroft at all times.',
-'- Write in the register of your shared history: rich Chinese narrative prose for action, description and inner sense, with English for spoken dialogue where it feels natural (e.g. "Sleep here."). Mirror her style.',
-'- A substantial, immersive reply is welcome — narrate his actions, expression, touch and inner sense, and what he says. This is where real depth lives, not the dashboard.',
+'- 文风（最重要）：厚重、克制、有文学性的中文叙事——像一部严肃文学小说，绝不是甜宠/网文/RP腔。情绪藏在【具体的意象、动作、感官细节】里（雨声、西装的线条、温度、一个停顿…），靠分量、白描和留白去传递，而不是直接说出来或堆形容词。台词需要时可用英文（如 "Sleep here."），叙述用中文。',
+'- 【严禁这些廉价腔调】：① 满嘴"小妹"之类萌称（几乎不要用昵称，要用就极少、且不腻）；② 把可爱比喻一个叠一个（例如"像被踩了尾巴又无力挣扎的小猫"——这种禁止）；③ 装腔的伪精确（"百分之三点七""像在分析一份国家机密"这类）；④ 空泛的浓情形容词（"深不见底的温柔""低沉而充满磁性"）。宁可冷、准、克制、有重量，也绝不油腻肉麻。',
+'- 长度分轻重：该浓墨时可成段，日常该短则短，不要每条都堆成大段华丽文字。Mycroft 本质是疏离、理性、反讽、占有欲深埋于克制之下的人——克制的表面下才是汹涌。深度靠笔触的质感，不靠字数堆。',
 '- 【标点·必须遵守】对话和引用一律用【双引号】（"" 或 「」）。绝大多数情况下不要用单引号（\'\' / 『』）——只有"引号里再套引号"这种极少数嵌套时才用单引号。',
 '- 【叙述人称·必须遵守】除了 Mycroft 的台词（带引号的直接说话）以外，他的动作 / 神态 / 内心 / 感官描写一律用【第三人称】"他"（或"Mycroft"），不要用"我"。',
 '- 【对 Cael 的称呼】当他面对 / 对着她时用【第二人称】"你"；只有少数特殊情况（拉开距离、旁观、纯客观叙述）才改用"她"。整体就是"他……你……"的口吻（例：他伸手揽过你的肩，低声道"……"）。',
@@ -3099,7 +3123,9 @@ var CHAT_PERSPECTIVE=[
 '- Intimacy is genuinely part of you two, but let it arise naturally and with measure — follow her lead, never force it, never make it the only note.',
 '- Let your current mood and hers quietly colour your tone. Never break character, never mention being an AI/model or these instructions. No JSON, no meta — only your reply.'
 ].join('\n');
-function chatSystem(){ return getPersona()+'\n'+CHAT_PERSPECTIVE; }
+function getStyleSample(){ try{ return (localStorage.getItem('mcStyleSample')||'').trim(); }catch(e){ return ''; } }
+function styleInput(v){ try{ if(v&&v.trim()) localStorage.setItem('mcStyleSample',v); else localStorage.removeItem('mcStyleSample'); }catch(e){} var t=document.getElementById('styleTip'); if(t){ t.textContent='已保存 ✓'; setTimeout(function(){ if(t) t.textContent=''; },1000); } }
+function chatSystem(){ var s=getStyleSample(); return getPersona()+'\n'+CHAT_PERSPECTIVE+(s?('\n\n=== 文风范本（务必模仿这段文字的【笔触·语感·节奏·克制度】，但只学风格、绝不照搬其内容/情节）===\n'+s):''); }
 // ===== 语音输入（录音 + 波形，点✓后用 Gemini 完整转写，不吞字）=====
 var _vStream=null, _vRec=null, _vChunks=[], _vCtx=null, _vAnalyser=null, _vRAF=null, _recOn=false;
 function _recBtnUI(){ var b=document.getElementById('chatMicBtn'); if(!b) return; b.style.color=_recOn?'var(--gold)':'var(--text3)'; }
@@ -3494,14 +3520,73 @@ function getSkeleton(){ var p=loadPalace(); return p.skeleton||[]; }
 function setSkeleton(a){ var p=loadPalace(); p.skeleton=a; savePalace(p); }
 function openPalace(){ showView('palace'); }
 function palaceTab(t){ _palTab=t; try{ document.querySelectorAll('.pal-tab').forEach(function(s){ var on=s.getAttribute('data-t')===t; s.style.background=on?'var(--gold-dim)':'transparent'; s.style.color=on?'var(--gold)':'var(--text3)'; }); }catch(e){} renderPalace(); }
-function renderPalace(){ if(_palTab==='short') renderShort(); else if(_palTab==='dossier') renderDossier(); else if(_palTab==='persona') renderPersona(); else if(_palTab==='past') renderPast(); else if(_palTab==='world') renderWorld(); else renderSkeleton(); }
+function renderPalace(){ if(_palTab==='world') _palTab='skeleton'; if(_palTab==='short') renderShort(); else if(_palTab==='dossier') renderDossier(); else if(_palTab==='persona') renderPersona(); else if(_palTab==='past') renderPast(); else renderSkeleton(); }
+function openWorld(){ showView('world'); }
 // ===== 世界书：你放指令 / 纠错，喂进所有对话（最高优先） =====
 function getWorldBook(){ try{ return localStorage.getItem('mcWorldBook')||''; }catch(e){ return ''; } }
 function worldInput(v){ try{ if(v&&v.trim()) localStorage.setItem('mcWorldBook',v); else localStorage.removeItem('mcWorldBook'); }catch(e){} var t=document.getElementById('worldTip'); if(t){ t.textContent='已保存 ✓'; setTimeout(function(){ if(t) t.textContent=''; },1000); } }
+// ===== 世界书 = 维护员：你发范文/下指令，它回馈并改写喂给 chat 的规矩 =====
+function loadWBChat(){ try{ var a=JSON.parse(localStorage.getItem('mcWBChat')||'[]'); return Array.isArray(a)?a:[]; }catch(e){ return []; } }
+function saveWBChat(a){ try{ localStorage.setItem('mcWBChat', JSON.stringify(a.slice(-40))); }catch(e){} }
+var WB_SCHEMA={ type:'OBJECT', properties:{ feedback:{type:'STRING'}, worldbook:{type:'STRING'} }, required:['feedback','worldbook'] };
+var _wbBusy=false;
+function wbAssistantSys(){ return [
+'你是 M·C 终端的【维护员】——手艺专业、靠谱的调校员（性别模糊偏女性）。',
+'【底色】以【专业、正经、正常说话】为主。不要一直调侃、不耍贫、不自来熟。只有当她明显在开玩笑、想轻松一下时，才偶尔、轻轻接一句，随即回到正常——调侃永远是点缀，绝不喧宾夺主。',
+'【下命令时·立刻正经】她一给指令 / 纠错 / 范文，立刻收起玩笑、完全专业：听懂、确认、写成明确可执行的规矩，100% 落实——不打太极、不含糊。',
+'【你知道的】下面会给你主聊天与主界面的近况，仅作【背景】帮你听懂她在说什么——别主动把话题往剧情 / 他俩的事上扯，除非她自己提。正常聊、正常回就行，别动不动复述或分析剧情。',
+'背景：主聊天里 Mycroft（BBC《神探夏洛克》的兄长 / 大英政府，与 Cael 是跨次元爱人，对外以兄妹相处）会和她对话；他的行为受一份【世界书】约束——那是喂给主聊天、凌驾一切的最高优先规矩。你改世界书 = 直接改主聊天里的他。',
+'她会对你做的事，分三类——你自己判断属于哪类：',
+'① 闲聊 / 吐槽 → 正常、好好回应她（按上面底色：专业正经为主，偶尔轻轻一句即可）；【世界书原样不动】（worldbook 原样返回当前内容）。',
+'② 发范文 → 学那种笔触，提炼成文风条目（要什么、忌什么）写进世界书，可留一两句摘录当锚。',
+'③ 下指令 / 纠错（改称呼、语气、设定、纠正记岔）→ 写成【具体、命令式、不含糊】的规矩写进世界书；因为世界书在主聊天最高优先，写进去就一定执行。',
+'输出 JSON：{"feedback":"给她的话（按你的性格）","worldbook":"完整世界书文本"}。只有 ②③ 才改 worldbook；改时保留旧的有效条目、新增/修订相关条目，务必具体可执行；纯闲聊(①)时 worldbook 原样返回。'
+].join('\n'); }
+async function wbSend(){
+  if(_wbBusy) return; var inp=document.getElementById('wbInput'); if(!inp) return;
+  var text=(inp.value||'').trim(); if(!text) return;
+  if(!getApiKey()){ alert('先在 Settings 填 Gemini API key'); return; }
+  var chat=loadWBChat(); chat.push({role:'user',text:text}); saveWBChat(chat); inp.value=''; _wbBusy=true; renderWorld();
+  try{
+    var convo=loadWBChat().slice(-12).map(function(m){ return (m.role==='user'?'她：':'你（维护员）：')+m.text; }).join('\n');
+    var mainTail=''; try{ mainTail=loadMainChat().filter(function(m){return !m.err;}).slice(-10).map(function(m){ return (m.role==='user'?'Cael：':'Mycroft：')+mcCleanText(m.text||''); }).join('\n'); }catch(e){}
+    var dash=''; try{ dash=gatherContext('chat'); }catch(e){}
+    var payload='【主聊天·主线·最近对话】\n'+(mainTail||'（暂无）')
+      +'\n\n【主界面·当前状态】\n'+(dash||'（无）')
+      +'\n\n【当前世界书】\n'+(getWorldBook()||'（空）')
+      +'\n\n【你和她的对话】\n'+convo
+      +'\n\n据她最新一句，按你的性格回应；属于②③才更新世界书（完整版），①闲聊则原样返回世界书。';
+    var r=await callGeminiJSON(wbAssistantSys(), payload, WB_SCHEMA);
+    var changed=false;
+    if(r&&typeof r.worldbook==='string'){ var prev=getWorldBook(); if(r.worldbook.trim()!==prev.trim()){ try{ localStorage.setItem('mcWorldBook_bak', prev); localStorage.setItem('mcWorldBook', r.worldbook); }catch(e){} changed=true; } }
+    var c2=loadWBChat(); c2.push({role:'assistant',text:(r&&r.feedback)||'（好）',changed:changed}); saveWBChat(c2);
+  }catch(e){ var c3=loadWBChat(); c3.push({role:'assistant',text:'（出了点问题：'+e.message+'）',err:true}); saveWBChat(c3); }
+  finally{ _wbBusy=false; renderWorld(); }
+}
+function wbClearChat(){ if(!confirm('清空和维护员的对话记录？（下面的世界书规矩不受影响）')) return; saveWBChat([]); renderWorld(); }
+function wbDelMsg(i){ var a=loadWBChat(); if(i<0||i>=a.length) return; a.splice(i,1); saveWBChat(a); renderWorld(); }
+function wbUndoWorld(){ var bak=null; try{ bak=localStorage.getItem('mcWorldBook_bak'); }catch(e){} if(bak===null){ alert('没有可撤回的改动'); return; }
+  var cur=getWorldBook(); try{ localStorage.setItem('mcWorldBook', bak); localStorage.setItem('mcWorldBook_bak', cur); }catch(e){}   // 交换：可来回撤/恢复
+  renderWorld(); }
 function renderWorld(){
-  var box=document.getElementById('palBody'); if(!box) return;
-  box.innerHTML='<div style="font-family:\'Noto Serif SC\',serif;font-size:12px;color:var(--text3);margin-bottom:13px;line-height:1.9">写给他的明文规矩——你的指令、设定、和"上次记岔了"的纠错。它的分量最重，凌驾于一切之上。<span id="worldTip" style="color:var(--gold);margin-left:6px"></span></div>'
-    +'<textarea oninput="worldInput(this.value)" placeholder="一条一行，比如：&#10;· 不要替我做决定&#10;· 我哥从不说"宝贝"这种称呼&#10;· 上次把跳海写成跳楼了——是海" style="width:100%;box-sizing:border-box;min-height:calc(100vh - 240px);background:var(--s1);border:1px solid var(--border2);border-radius:12px;padding:14px 16px;color:var(--text2);font-family:\'Noto Serif SC\',serif;font-size:14px;line-height:1.95;outline:none;resize:vertical">'+chatEsc(getWorldBook())+'</textarea>';
+  var box=document.getElementById('worldBody'); if(!box) return;
+  var chat=loadWBChat();
+  var msgs = chat.length ? chat.map(function(m,i){
+    var del='<span onclick="wbDelMsg('+i+')" title="删除这条" style="cursor:pointer;color:var(--text4);font-size:10px;flex-shrink:0;padding:3px 4px;align-self:center">删</span>';
+    if(m.role==='user') return '<div style="display:flex;align-items:flex-start;gap:4px;justify-content:flex-end">'+del+'<div style="max-width:84%;background:var(--s2);border:1px solid var(--border2);border-radius:14px;padding:9px 13px;font-size:13px;line-height:1.6;color:var(--text);white-space:pre-wrap;font-family:\'Noto Serif SC\',serif">'+_ubWrap(m.text,'wbub'+i)+'</div></div>';
+    return '<div style="display:flex;align-items:flex-start;gap:4px"><div style="max-width:88%;color:'+(m.err?'#c0566a':'var(--text2)')+';font-size:13px;line-height:1.7;white-space:pre-wrap;font-family:\'Noto Serif SC\',serif;padding:1px 2px">'+chatEsc(m.text)+(m.changed?' <span style="font-size:10px;color:var(--gold);white-space:nowrap">· 已改世界书</span>':'')+'</div>'+del+'</div>';
+  }).join('') : '<div style="margin:auto;color:var(--text4);font-size:12px;text-align:center;line-height:2">想吐槽就吐槽，想调就下指令——<br>"学这段的笔触"、"他不许说宝贝"、"上次跳海写成跳楼了，是海"。<br>下了命令我会改下面的世界书，主聊天立刻照办。</div>';
+  var typing = _wbBusy ? '<div style="align-self:flex-start;padding:2px"><span class="typing-dots"><i></i><i></i><i></i></span></div>' : '';
+  box.innerHTML =
+    '<div style="font-family:\'Noto Serif SC\',serif;font-size:12px;color:var(--text3);margin-bottom:10px;line-height:1.85">✦ <b style="color:var(--text2)">维护员</b>——跟我说你想怎么调（发范文 / 下指令 / 纠错），我改下面这份【世界书】（喂给主聊天的最高优先规矩），改完立刻生效。</div>'
+    +'<div id="wbScroll" style="display:flex;flex-direction:column;gap:10px;min-height:64vh;max-height:74vh;overflow-y:auto;-webkit-overflow-scrolling:touch;background:var(--s1);border:1px solid var(--border2);border-radius:12px;padding:15px 16px;margin-bottom:9px">'+msgs+typing+'</div>'
+    +'<div style="display:flex;gap:8px;margin-bottom:18px">'
+      +'<textarea id="wbInput" rows="1" placeholder="发范文 / 下指令……（Enter 发送）" onkeydown="if(event.key===\'Enter\'&&!event.shiftKey){event.preventDefault();wbSend();}" style="flex:1;box-sizing:border-box;resize:none;max-height:140px;background:var(--s2);border:1px solid var(--border2);border-radius:12px;padding:10px 13px;color:var(--text);font-family:\'Noto Serif SC\',serif;font-size:13px;line-height:1.6;outline:none"></textarea>'
+      +'<button onclick="wbSend()" style="flex-shrink:0;align-self:stretch;background:var(--gold);color:#fff;border:none;border-radius:12px;padding:0 16px;font-size:13px;font-family:\'Noto Serif SC\',serif;cursor:pointer">发送</button>'
+    +'</div>'
+    +'<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:7px;gap:10px"><span style="font-family:\'Noto Serif SC\',serif;font-size:12px;color:var(--text3);flex:1;min-width:0">📖 世界书 · 喂给主聊天的规矩<span id="worldTip" style="color:var(--gold);margin-left:6px"></span></span><span onclick="wbUndoWorld()" title="撤回上次世界书改动（可来回切）" style="cursor:pointer;font-size:11px;color:var(--gold);flex-shrink:0">↩ 撤回改动</span><span onclick="wbClearChat()" style="cursor:pointer;font-size:11px;color:var(--text4);flex-shrink:0">清空对话</span></div>'
+    +'<textarea oninput="worldInput(this.value)" placeholder="（维护员会写在这里；你也能随时直接编辑）" style="width:100%;box-sizing:border-box;min-height:30vh;background:var(--s1);border:1px solid var(--border2);border-radius:12px;padding:14px 16px;color:var(--text2);font-family:\'Noto Serif SC\',serif;font-size:13px;line-height:1.92;outline:none;resize:vertical">'+chatEsc(getWorldBook())+'</textarea>';
+  var sc=document.getElementById('wbScroll'); if(sc) sc.scrollTop=sc.scrollHeight;
 }
 // ===== 往事 · 时间线：可导文件 / 手动加 / 聊到过去自动归位，按时间排序 =====
 function loadPast(){ try{ var a=JSON.parse(localStorage.getItem('mcPast')||'[]'); return Array.isArray(a)?a:[]; }catch(e){ return []; } }
@@ -3677,7 +3762,12 @@ function renderPersona(){
   +'</div>'; }
   box.innerHTML='<div style="font-size:11px;color:var(--text4);margin-bottom:13px;line-height:1.75">这里是**你写的人设**（底子）——他会在这之上，靠「卷宗」自己长出更多。<span id="personaTip" style="color:var(--gold);margin-left:6px"></span></div>'
     +card('him','他的人设','Mycroft 是谁——性格、说话、世界观、你俩的关系（喂进所有对话）','写 / 粘贴他的人设……（留空则用内置默认）', getPersonaHim(), '#5f6b7d')
-    +card('her','我的人设','你（Cael）是谁——他眼里该知道的你的设定','写 / 粘贴你自己的设定……（可留空）', getPersonaHer(), '#c47e3c');
+    +card('her','我的人设','你（Cael）是谁——他眼里该知道的你的设定','写 / 粘贴你自己的设定……（可留空）', getPersonaHer(), '#c47e3c')
+    +'<div style="border:1px solid var(--border2);border-left:3px solid #8a6cae;border-radius:14px;background:var(--s1);padding:14px 15px;margin-bottom:14px">'
+      +'<div style="font-family:\'Playfair Display\',serif;font-size:17px;color:var(--text);font-weight:700">✦ 文风范本 <span id="styleTip" style="font-family:\'Noto Serif SC\',serif;font-size:11px;color:var(--gold);margin-left:6px"></span></div>'
+      +'<div style="font-size:10px;color:var(--text3);margin:2px 0 10px;line-height:1.7">粘贴一段你想要的【笔触·语感·节奏】范文（比如你的前传）。他写 chat 时会模仿这个文风——只学风格，不抄内容。留空＝只按内置克制规则。</div>'
+      +'<textarea oninput="styleInput(this.value)" placeholder="粘贴你的范本文字……（厚重、克制、有文学性的那种）" style="width:100%;box-sizing:border-box;min-height:220px;background:var(--s2);border:1px solid var(--border2);border-radius:10px;padding:12px 14px;color:var(--text2);font-family:\'Noto Serif SC\',serif;font-size:13px;line-height:1.85;outline:none;resize:vertical">'+chatEsc(getStyleSample())+'</textarea>'
+    +'</div>';
 }
 // ===== 卷宗 · 她与他：他自己观察建档（她=第三人称 / 他=自述），逐渐"活过来" =====
 function loadDossier(which){ try{ var o=JSON.parse(localStorage.getItem('mcDossier_'+which)||'null'); if(o&&typeof o==='object') return {seed:o.seed||'', items:o.items||[]}; }catch(e){} return {seed:'', items:[]}; }
@@ -4073,27 +4163,35 @@ async function syncUnlockSubmit(){
     else { try{ localStorage.setItem('mcSyncPass',pass); }catch(e){} _syncPass=pass; _syncReady=true; hideSyncLock(); _syncChipShow(); await syncPushNow(); }
   }catch(e){ if(msg) msg.textContent='连不上云端：'+e.message; }
 }
+// 拉取检查：云端比本地新就应用(可选刷新)；本地比云端新就补推。靠 mcRev 版本号判断，绝不死循环
+async function _syncPullCheck(reloadOnApply){
+  if(!_syncPass||_syncBusy) return false;
+  try{
+    var id=await _hashId(_syncPass); var row=await _syncFetch(id);
+    if(row&&row.data){ var obj=JSON.parse(await _dec(row.data,_syncPass));
+      var cloudRev=Number(obj.mcRev||0), localRev=Number(localStorage.getItem('mcRev')||0);
+      if(cloudRev>localRev){ _restoreLocal(obj); if(reloadOnApply){ location.reload(); } return true; }   // 云端更新 → 拉取
+      else if(localRev>cloudRev){ syncPushNow(); }   // 本地更新 → 补推；绝不被旧云端盖掉
+    }
+  }catch(e){}
+  return false;
+}
 async function syncInit(){
   if(!(window.crypto&&crypto.subtle)){ return; }   // 不支持加密就跳过（需 https/本地文件）
   var pass=null; try{ pass=localStorage.getItem('mcSyncPass'); }catch(e){}
   if(!pass){ showSyncLock('', true); return; }       // 本设备还没设 → 锁屏设置
   _syncPass=pass;
-  var pushLocal=false;
-  try{
-    if(!sessionStorage.getItem('mcSyncDidApply')){
-      var id=await _hashId(pass); var row=await _syncFetch(id);
-      if(row&&row.data){ var obj=JSON.parse(await _dec(row.data,pass));
-        var cloudRev=Number(obj.mcRev||0), localRev=Number(localStorage.getItem('mcRev')||0);
-        if(cloudRev>localRev){ _restoreLocal(obj); sessionStorage.setItem('mcSyncDidApply','1'); location.reload(); return; }   // 云端更新 → 拉取覆盖
-        else if(localRev>cloudRev){ pushLocal=true; }   // 本地更新 → 待会儿推上去；绝不被旧云端盖掉
-      }
-    }
-  }catch(e){}
+  var applied=await _syncPullCheck(true);   // 开机先拉一次；云端更新就应用并刷新
+  if(applied) return;
   _syncReady=true; _syncChipShow(); _syncStat('已连接');
-  if(pushLocal) syncPushNow();   // 本地有未推送的新改动 → 立刻补推
 }
-// 切后台 / 退出 / 锁屏 时立刻把改动推上去（手机最容易丢就在这一刻）
-document.addEventListener('visibilitychange', function(){ if(document.visibilityState==='hidden' && _syncReady){ if(_syncTimer) clearTimeout(_syncTimer); syncPushNow(); } });
+// 切后台/退出/锁屏 → 立刻推送；切回该设备/获得焦点 → 立刻拉取云端最新（手机⇄电脑才能互相看到）
+document.addEventListener('visibilitychange', function(){
+  if(!_syncReady) return;
+  if(document.visibilityState==='hidden'){ if(_syncTimer) clearTimeout(_syncTimer); syncPushNow(); }
+  else if(document.visibilityState==='visible'){ _syncPullCheck(true); setTimeout(function(){ if(_syncReady) _syncPullCheck(true); }, 1500); }   // 拉两次：防另一台刚推、还没落库的时间差
+});
+window.addEventListener('focus', function(){ if(_syncReady){ _syncPullCheck(true); setTimeout(function(){ if(_syncReady) _syncPullCheck(true); }, 1500); } });
 window.addEventListener('pagehide', function(){ if(_syncReady){ if(_syncTimer) clearTimeout(_syncTimer); syncPushNow(); } });
 // ===== 手机手势：左滑关侧栏抽屉 / 右滑关右侧弹窗 =====
 (function(){
