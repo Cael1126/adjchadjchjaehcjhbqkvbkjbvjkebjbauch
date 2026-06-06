@@ -62,6 +62,7 @@ nav { height:50px; background:rgba(245,235,220,0.9); backdrop-filter:blur(20px);
 .nav-btn { background:var(--s1); border:1px solid var(--border2); border-radius:20px; padding:5px 12px; font-size:10px; font-weight:700; color:var(--text3); cursor:pointer; font-family:'Noto Serif SC',serif; transition:all 0.2s; display:flex; align-items:center; gap:5px; }
 .page { padding:18px 20px; display:grid; grid-template-columns:repeat(12,1fr); gap:11px; width:100%; align-items:start; }
 .draggable-slot { position:relative; transition:transform 0.15s; }
+.stat-wrap, .stat-col { display:contents; }   /* 桌面/平板：隐形，四张卡片直接受 grid 摆布（布局完全不变）；手机端在媒体查询里变成两条独立竖列 */
 .draggable-slot.drag-over { outline:2px dashed var(--gold); outline-offset:4px; border-radius:18px; }
 .draggable-slot.dragging-source { opacity:0.35; transform:scale(0.97); }
 .card { background:var(--s1); border:1px solid var(--border); border-radius:16px; padding:18px; box-shadow:var(--shadow); transition:box-shadow 0.2s,border-color 0.2s,transform 0.2s; position:relative; overflow:hidden; cursor:pointer; width:100%; }
@@ -311,11 +312,13 @@ nav { height:50px; background:rgba(245,235,220,0.9); backdrop-filter:blur(20px);
   /* 灵动岛：只让顶栏避开（顶栏已避开 → 下面别再重复留白）*/
   nav { padding-top: calc(env(safe-area-inset-top, 0px) + 4px) !important; height:auto !important; min-height:calc(46px + env(safe-area-inset-top, 0px)); }
   /* 主界面：2 列固定排版 —— 日期↓M.STATUS（左）、天气↓C.SESSION（右）*/
-  /* ⚠️ display 不能用 !important —— 否则会盖掉 showView 设的 display:none，进 chat 时主界面漏出来 */
-  .page { display:block; column-count:2; column-gap:9px; padding:8px 10px calc(env(safe-area-inset-bottom, 0px) + 50px) !important; }
-  .page > * { break-inside:avoid; -webkit-column-break-inside:avoid; page-break-inside:avoid; margin:0 0 9px 0 !important; width:100% !important; }
-  .hero, .notes-col, .right-col, .footer { -webkit-column-span:all !important; column-span:all !important; }   /* 横跨整行 */
-  .status-card { break-after:column; -webkit-column-break-after:always; }   /* 强制：日期+status 在左列，天气+session 去右列 */
+  /* ⚠️ display 不能用 !important —— 否则盖掉 showView 的 display:none，进 chat 时主界面会漏 */
+  .page { display:block; padding:8px 10px calc(env(safe-area-inset-bottom, 0px) + 50px) !important; }
+  .page > * { margin:0 0 9px 0 !important; width:100% !important; }
+  /* 四个卡片 = 两条独立竖列（真瀑布流：各自贴合本列上一张，无参差）*/
+  .stat-wrap { display:flex !important; gap:9px; align-items:flex-start; }
+  .stat-col { display:flex !important; flex-direction:column; gap:9px; flex:1 1 0; min-width:0; }
+  .stat-col > * { width:100% !important; margin:0 !important; }
   /* 卡片内文字不许超出框：缩小 + M.STATUS 三行做成平行（值换到下一行、左对齐，不溢出）*/
   .card { padding:13px 13px !important; }
   .card .skey, .card .sess-key { font-size:11px !important; }
@@ -325,7 +328,7 @@ nav { height:50px; background:rgba(245,235,220,0.9); backdrop-filter:blur(20px);
   .status-card .skey { flex:1 1 auto; }
   .status-card .sval { flex:0 0 100%; padding-left:17px; text-align:left; margin-top:1px; font-size:12px !important; display:flex; align-items:center; gap:5px; flex-wrap:wrap; }
   /* chat：手机上固定贴住可视区（配合 JS visualViewport 贴键盘）*/
-  #viewChat { position:fixed !important; left:0 !important; right:0 !important; top:0 !important; bottom:0 !important; z-index:40; box-sizing:border-box; background:var(--bg) !important; }
+  #viewChat { position:fixed !important; left:0 !important; right:0 !important; top:0 !important; bottom:0 !important; height:auto !important; z-index:40; box-sizing:border-box; background:var(--bg) !important; }
   #viewChat > div:first-child { padding-top: calc(env(safe-area-inset-top, 0px) + 10px) !important; }
   .mobile-hamburger { background: var(--gold-dim) !important; border-color: var(--border2) !important; color: var(--gold) !important; }
   .mobile-hamburger svg { stroke: var(--gold) !important; }
@@ -362,7 +365,7 @@ nav { height:50px; background:rgba(245,235,220,0.9); backdrop-filter:blur(20px);
   <div class="sb-bottom"><div class="sb-nav" style="padding:0">
     <a class="sb-item" onclick="openPanel('settings');closeDrawer()"><div class="sb-icon"><svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="7" cy="7" r="2.5"/><path d="M7 1 L7 2.5 M7 11.5 L7 13 M1 7 L2.5 7 M11.5 7 L13 7 M2.9 2.9 L4 4 M10 10 L11.1 11.1 M11.1 2.9 L10 4 M4 10 L2.9 11.1"/></svg></div><div class="sb-label">Settings</div></a>
     <a class="sb-item" onclick="openPanel('creator');closeDrawer()"><div class="sb-icon"><svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="4" cy="4" r="2"/><circle cx="10" cy="4" r="2"/><circle cx="7" cy="10" r="2"/><line x1="4" y1="6" x2="7" y2="8"/><line x1="10" y1="6" x2="7" y2="8"/></svg></div><div class="sb-label">Creator Mode</div></a>
-    <div class="sb-item" style="opacity:0.4;cursor:default;font-size:10px"><div class="sb-icon"><svg width="8" height="8" viewBox="0 0 8 8" fill="currentColor"><circle cx="4" cy="4" r="3"/></svg></div><div class="sb-label" style="font-family:'JetBrains Mono',monospace;letter-spacing:1px">v12.7 ✦ DESKTOPSAFE</div></div>
+    <div class="sb-item" style="opacity:0.4;cursor:default;font-size:10px"><div class="sb-icon"><svg width="8" height="8" viewBox="0 0 8 8" fill="currentColor"><circle cx="4" cy="4" r="3"/></svg></div><div class="sb-label" style="font-family:'JetBrains Mono',monospace;letter-spacing:1px">v12.8 ✦ TWOCOL</div></div>
   </div></div>
 </div>
 
@@ -380,7 +383,7 @@ nav { height:50px; background:rgba(245,235,220,0.9); backdrop-filter:blur(20px);
   <div class="sb-bottom"><div class="sb-nav" style="padding:0">
     <a class="sb-item" onclick="openPanel('settings')"><div class="sb-icon"><svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="7" cy="7" r="2.5"/><path d="M7 1 L7 2.5 M7 11.5 L7 13 M1 7 L2.5 7 M11.5 7 L13 7 M2.9 2.9 L4 4 M10 10 L11.1 11.1 M11.1 2.9 L10 4 M4 10 L2.9 11.1"/></svg></div><div class="sb-label">Settings</div></a>
     <a class="sb-item" onclick="openPanel('creator')"><div class="sb-icon"><svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="4" cy="4" r="2"/><circle cx="10" cy="4" r="2"/><circle cx="7" cy="10" r="2"/><line x1="4" y1="6" x2="7" y2="8"/><line x1="10" y1="6" x2="7" y2="8"/></svg></div><div class="sb-label">Creator Mode</div></a>
-    <div class="sb-item" style="opacity:0.4;cursor:default;font-size:10px"><div class="sb-icon"><svg width="8" height="8" viewBox="0 0 8 8" fill="currentColor"><circle cx="4" cy="4" r="3"/></svg></div><div class="sb-label" style="font-family:'JetBrains Mono',monospace;letter-spacing:1px">v12.7 ✦ DESKTOPSAFE</div></div>
+    <div class="sb-item" style="opacity:0.4;cursor:default;font-size:10px"><div class="sb-icon"><svg width="8" height="8" viewBox="0 0 8 8" fill="currentColor"><circle cx="4" cy="4" r="3"/></svg></div><div class="sb-label" style="font-family:'JetBrains Mono',monospace;letter-spacing:1px">v12.8 ✦ TWOCOL</div></div>
   </div></div>
 </div>
 
@@ -421,6 +424,7 @@ nav { height:50px; background:rgba(245,235,220,0.9); backdrop-filter:blur(20px);
     </div>
   </div>
 
+  <div class="stat-wrap"><div class="stat-col stat-col-l">
   <div class="draggable-slot days-card" data-slot="0" draggable="true">
   <div class="card card-gold" onclick="showPopup('days')">
     <svg class="deco" style="bottom:10px;right:12px;width:28px;height:24px" viewBox="0 0 28 24" fill="none" stroke="rgba(200,122,48,0.5)" stroke-width="1.3"><path d="M14 20 C14 20 3 13 3 7 C3 4 5.5 2 8.5 2 C11 2 13 3.5 14 5 C15 3.5 17 2 19.5 2 C22.5 2 25 4 25 7 C25 13 14 20 14 20Z"/></svg>
@@ -440,6 +444,7 @@ nav { height:50px; background:rgba(245,235,220,0.9); backdrop-filter:blur(20px);
     <div class="srow"><div class="sdot sdot-off" style="flex-shrink:0"></div><div class="skey">Last active</div><div class="sval" id="mLastActive">—</div></div>
   </div>
   </div>
+  </div><div class="stat-col stat-col-r">
 
   <div class="draggable-slot weather-card" data-slot="3" draggable="true">
   <div class="card card-blue" onclick="toggleWeatherCity()">
@@ -461,6 +466,7 @@ nav { height:50px; background:rgba(245,235,220,0.9); backdrop-filter:blur(20px);
     <div class="sess-row"><div class="sess-key">Session</div><div class="sess-val" id="sessTime">0m</div></div>
   </div>
   </div>
+  </div></div>
 
   <div class="draggable-slot notes-col" data-slot="4" draggable="true">
     <!-- M 的留言板（当天，由 JS 渲染）-->
@@ -523,7 +529,7 @@ nav { height:50px; background:rgba(245,235,220,0.9); backdrop-filter:blur(20px);
   </div>
 
   <div class="footer">
-    <div class="footer-item">MYCROFT.SYS · v12.7 ✦ DESKTOPSAFE</div>
+    <div class="footer-item">MYCROFT.SYS · v12.8 ✦ TWOCOL</div>
     <div class="footer-live"><div class="sdot sdot-on"></div><span>LIVE</span></div>
     <div class="footer-item" id="footerDate">----</div>
     <div class="footer-item" style="border:1px solid rgba(170,60,55,0.45);color:rgba(170,60,55,0.85);border-radius:3px;padding:0 7px;letter-spacing:2px;transform:rotate(-1.5deg)">CLASSIFIED · 机密</div>
@@ -4097,8 +4103,7 @@ async function syncInit(){
   var vv=window.visualViewport;
   function fit(){ var c=document.getElementById('viewChat'); if(!c) return; var cs=getComputedStyle(c); if(cs.display==='none'||cs.position!=='fixed') return;   // 只在手机(fixed)生效，桌面不动
     var kb=Math.max(0, Math.round(window.innerHeight - vv.height - vv.offsetTop));   // 键盘高度
-    c.style.height=''; c.style.top='0px'; c.style.bottom='0px';                       // 容器永远满屏（绝不变矮露底）
-    c.style.paddingBottom=kb+'px';                                                    // 用内边距把输入框顶到键盘上方
+    c.style.paddingBottom=kb+'px';   // 容器永远 inset:0 满屏不变矮（CSS 管）；只用内边距把输入框顶到键盘上方
     var bx=document.getElementById('chatMessages'); if(bx) bx.scrollTop=bx.scrollHeight; }
   window._fitChatVV=fit;
   vv.addEventListener('resize',fit); vv.addEventListener('scroll',fit);
