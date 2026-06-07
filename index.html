@@ -367,7 +367,7 @@ nav { height:50px; background:rgba(245,235,220,0.9); backdrop-filter:blur(20px);
   <div class="sb-bottom"><div class="sb-nav" style="padding:0">
     <a class="sb-item" onclick="openPanel('settings');closeDrawer()"><div class="sb-icon"><svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="7" cy="7" r="2.5"/><path d="M7 1 L7 2.5 M7 11.5 L7 13 M1 7 L2.5 7 M11.5 7 L13 7 M2.9 2.9 L4 4 M10 10 L11.1 11.1 M11.1 2.9 L10 4 M4 10 L2.9 11.1"/></svg></div><div class="sb-label">Settings</div></a>
     <a class="sb-item" onclick="openPanel('creator');closeDrawer()"><div class="sb-icon"><svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="4" cy="4" r="2"/><circle cx="10" cy="4" r="2"/><circle cx="7" cy="10" r="2"/><line x1="4" y1="6" x2="7" y2="8"/><line x1="10" y1="6" x2="7" y2="8"/></svg></div><div class="sb-label">Creator Mode</div></a>
-    <div class="sb-item" style="opacity:0.4;cursor:default;font-size:10px"><div class="sb-icon"><svg width="8" height="8" viewBox="0 0 8 8" fill="currentColor"><circle cx="4" cy="4" r="3"/></svg></div><div class="sb-label" style="font-family:'JetBrains Mono',monospace;letter-spacing:1px">v15.3 ✦ ADULT</div></div>
+    <div class="sb-item" style="opacity:0.4;cursor:default;font-size:10px"><div class="sb-icon"><svg width="8" height="8" viewBox="0 0 8 8" fill="currentColor"><circle cx="4" cy="4" r="3"/></svg></div><div class="sb-label" style="font-family:'JetBrains Mono',monospace;letter-spacing:1px">v15.4 ✦ BASEINFO</div></div>
   </div></div>
 </div>
 
@@ -385,7 +385,7 @@ nav { height:50px; background:rgba(245,235,220,0.9); backdrop-filter:blur(20px);
   <div class="sb-bottom"><div class="sb-nav" style="padding:0">
     <a class="sb-item" onclick="openPanel('settings')"><div class="sb-icon"><svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="7" cy="7" r="2.5"/><path d="M7 1 L7 2.5 M7 11.5 L7 13 M1 7 L2.5 7 M11.5 7 L13 7 M2.9 2.9 L4 4 M10 10 L11.1 11.1 M11.1 2.9 L10 4 M4 10 L2.9 11.1"/></svg></div><div class="sb-label">Settings</div></a>
     <a class="sb-item" onclick="openPanel('creator')"><div class="sb-icon"><svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="4" cy="4" r="2"/><circle cx="10" cy="4" r="2"/><circle cx="7" cy="10" r="2"/><line x1="4" y1="6" x2="7" y2="8"/><line x1="10" y1="6" x2="7" y2="8"/></svg></div><div class="sb-label">Creator Mode</div></a>
-    <div class="sb-item" style="opacity:0.4;cursor:default;font-size:10px"><div class="sb-icon"><svg width="8" height="8" viewBox="0 0 8 8" fill="currentColor"><circle cx="4" cy="4" r="3"/></svg></div><div class="sb-label" style="font-family:'JetBrains Mono',monospace;letter-spacing:1px">v15.3 ✦ ADULT</div></div>
+    <div class="sb-item" style="opacity:0.4;cursor:default;font-size:10px"><div class="sb-icon"><svg width="8" height="8" viewBox="0 0 8 8" fill="currentColor"><circle cx="4" cy="4" r="3"/></svg></div><div class="sb-label" style="font-family:'JetBrains Mono',monospace;letter-spacing:1px">v15.4 ✦ BASEINFO</div></div>
   </div></div>
 </div>
 
@@ -531,7 +531,7 @@ nav { height:50px; background:rgba(245,235,220,0.9); backdrop-filter:blur(20px);
   </div>
 
   <div class="footer">
-    <div class="footer-item">MYCROFT.SYS · v15.3 ✦ ADULT</div>
+    <div class="footer-item">MYCROFT.SYS · v15.4 ✦ BASEINFO</div>
     <div class="footer-live"><div class="sdot sdot-on"></div><span>LIVE</span></div>
     <div class="footer-item" id="footerDate">----</div>
     <div class="footer-item" style="border:1px solid rgba(170,60,55,0.45);color:rgba(170,60,55,0.85);border-radius:3px;padding:0 7px;letter-spacing:2px;transform:rotate(-1.5deg)">CLASSIFIED · 机密</div>
@@ -3820,8 +3820,11 @@ function dossierSeedInput(which,v){ var o=loadDossier(which); o.seed=v; saveDoss
 function dossierAddItem(which){ var t=prompt(which==='her'?'提醒他记一条「她」（用第三人称，比如"她不爱开灯"）：':'帮他补一条「他」（比如"我习惯先听完再开口"）：',''); if(t===null||!t.trim()) return; var o=loadDossier(which); o.items.unshift({id:'dx'+Date.now(), cat:'手记', topic:'', text:t.trim(), ts:Date.now(), src:'me'}); saveDossier(which,o); renderDossier(); }
 function dossierEditItem(which,id){ var o=loadDossier(which); var it=null; for(var i=0;i<o.items.length;i++){ if(o.items[i].id===id){ it=o.items[i]; break; } } if(!it) return; var t=prompt('改这条：', it.text); if(t===null) return; it.text=t.trim()||it.text; saveDossier(which,o); renderDossier(); }
 function dossierDelItem(which,id){ var o=loadDossier(which); o.items=o.items.filter(function(x){return x.id!==id;}); saveDossier(which,o); renderDossier(); }
+function getDossierBase(){ try{ return localStorage.getItem('mcDossierBase')||''; }catch(e){ return ''; } }
+function setDossierBase(v){ try{ if(v&&v.trim()) localStorage.setItem('mcDossierBase',v); else localStorage.removeItem('mcDossierBase'); }catch(e){} var t=document.getElementById('dossierBaseTip'); if(t){ t.textContent='已保存 ✓'; setTimeout(function(){ if(t) t.textContent=''; },1000); } }
 function dossierText(){ var her=loadDossier('her'), him=loadDossier('him');
   var s='';
+  var base=getDossierBase(); if(base&&base.trim()) s+='【基础设定 · 始终不变的底层信息（场景/房间/格局、设定、关系、名词、规则…一律以此为准）】\n'+base.trim()+'\n\n';
   var hi=(her.seed?her.seed.trim()+'\n':'')+her.items.map(function(x){return '· '+(x.topic?('['+x.topic+'] '):'')+x.text;}).join('\n');
   var mi=(him.seed?him.seed.trim()+'\n':'')+him.items.map(function(x){return '· '+(x.topic?('['+x.topic+'] '):'')+x.text;}).join('\n');
   if(hi.trim()) s+='【他眼中的她（Cael）】\n'+hi+'\n';
@@ -3889,6 +3892,11 @@ function _dossierCard(which){
 function renderDossier(){
   var box=document.getElementById('palBody'); if(!box) return;
   box.innerHTML='<div style="font-family:\'Noto Serif SC\',serif;font-size:12.5px;color:var(--text3);margin-bottom:14px;line-height:1.95">比起冰冷的公文，这里更不容许出错。<br><span style="color:var(--text4);font-size:11px">他亲手写的。你只在他记岔了时，点他一下。</span></div>'
+    +'<div style="border:1px solid var(--border2);border-left:3px solid var(--gold);border-radius:14px;background:var(--s1);padding:14px 15px;margin-bottom:14px">'
+      +'<div style="font-family:\'Playfair Display\',serif;font-size:16px;color:var(--text);font-weight:700">⚙ 基础设定 <span id="dossierBaseTip" style="font-family:\'Noto Serif SC\',serif;font-size:11px;color:var(--gold);margin-left:6px"></span></div>'
+      +'<div style="font-size:10px;color:var(--text3);margin:2px 0 10px;line-height:1.7">始终不变的底层信息——你们的场景/房间/格局、设定、关系、专有名词、规则…他每次都当成既定事实。（你自己写，一行一条更清楚）</div>'
+      +'<textarea oninput="setDossierBase(this.value)" placeholder="比如：&#10;· 你们住在镜界的一间公寓，客厅落地窗对着伦敦夜景&#10;· 卧室在走廊尽头，床头有他常看的加密终端&#10;· 对外以兄妹相处&#10;· …任何固定不变的信息" style="width:100%;box-sizing:border-box;min-height:160px;background:var(--s2);border:1px solid var(--border2);border-radius:10px;padding:12px 14px;color:var(--text2);font-family:\'Noto Serif SC\',serif;font-size:13px;line-height:1.85;outline:none;resize:vertical">'+chatEsc(getDossierBase())+'</textarea>'
+    +'</div>'
     +'<div style="margin-bottom:14px"><button id="dossierObsBtn" onclick="dossierObserve(this)" style="background:var(--gold-dim);border:1px solid var(--border2);color:var(--gold);border-radius:10px;padding:8px 16px;font-size:12px;cursor:pointer">✦ 推演开始</button></div>'
     +'<div style="display:flex;gap:14px;flex-wrap:wrap">'+_dossierCard('her')+_dossierCard('him')+'</div>';
 }
