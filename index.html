@@ -367,7 +367,7 @@ nav { height:50px; background:rgba(245,235,220,0.9); backdrop-filter:blur(20px);
   <div class="sb-bottom"><div class="sb-nav" style="padding:0">
     <a class="sb-item" onclick="openPanel('settings');closeDrawer()"><div class="sb-icon"><svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="7" cy="7" r="2.5"/><path d="M7 1 L7 2.5 M7 11.5 L7 13 M1 7 L2.5 7 M11.5 7 L13 7 M2.9 2.9 L4 4 M10 10 L11.1 11.1 M11.1 2.9 L10 4 M4 10 L2.9 11.1"/></svg></div><div class="sb-label">Settings</div></a>
     <a class="sb-item" onclick="openPanel('creator');closeDrawer()"><div class="sb-icon"><svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="4" cy="4" r="2"/><circle cx="10" cy="4" r="2"/><circle cx="7" cy="10" r="2"/><line x1="4" y1="6" x2="7" y2="8"/><line x1="10" y1="6" x2="7" y2="8"/></svg></div><div class="sb-label">Creator Mode</div></a>
-    <div class="sb-item" style="opacity:0.4;cursor:default;font-size:10px"><div class="sb-icon"><svg width="8" height="8" viewBox="0 0 8 8" fill="currentColor"><circle cx="4" cy="4" r="3"/></svg></div><div class="sb-label" style="font-family:'JetBrains Mono',monospace;letter-spacing:1px">v17.5 ✦ DOSSIERLEAN</div></div>
+    <div class="sb-item" style="opacity:0.4;cursor:default;font-size:10px"><div class="sb-icon"><svg width="8" height="8" viewBox="0 0 8 8" fill="currentColor"><circle cx="4" cy="4" r="3"/></svg></div><div class="sb-label" style="font-family:'JetBrains Mono',monospace;letter-spacing:1px">v17.6 ✦ MERGEKEYS</div></div>
   </div></div>
 </div>
 
@@ -385,7 +385,7 @@ nav { height:50px; background:rgba(245,235,220,0.9); backdrop-filter:blur(20px);
   <div class="sb-bottom"><div class="sb-nav" style="padding:0">
     <a class="sb-item" onclick="openPanel('settings')"><div class="sb-icon"><svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="7" cy="7" r="2.5"/><path d="M7 1 L7 2.5 M7 11.5 L7 13 M1 7 L2.5 7 M11.5 7 L13 7 M2.9 2.9 L4 4 M10 10 L11.1 11.1 M11.1 2.9 L10 4 M4 10 L2.9 11.1"/></svg></div><div class="sb-label">Settings</div></a>
     <a class="sb-item" onclick="openPanel('creator')"><div class="sb-icon"><svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="4" cy="4" r="2"/><circle cx="10" cy="4" r="2"/><circle cx="7" cy="10" r="2"/><line x1="4" y1="6" x2="7" y2="8"/><line x1="10" y1="6" x2="7" y2="8"/></svg></div><div class="sb-label">Creator Mode</div></a>
-    <div class="sb-item" style="opacity:0.4;cursor:default;font-size:10px"><div class="sb-icon"><svg width="8" height="8" viewBox="0 0 8 8" fill="currentColor"><circle cx="4" cy="4" r="3"/></svg></div><div class="sb-label" style="font-family:'JetBrains Mono',monospace;letter-spacing:1px">v17.5 ✦ DOSSIERLEAN</div></div>
+    <div class="sb-item" style="opacity:0.4;cursor:default;font-size:10px"><div class="sb-icon"><svg width="8" height="8" viewBox="0 0 8 8" fill="currentColor"><circle cx="4" cy="4" r="3"/></svg></div><div class="sb-label" style="font-family:'JetBrains Mono',monospace;letter-spacing:1px">v17.6 ✦ MERGEKEYS</div></div>
   </div></div>
 </div>
 
@@ -531,7 +531,7 @@ nav { height:50px; background:rgba(245,235,220,0.9); backdrop-filter:blur(20px);
   </div>
 
   <div class="footer">
-    <div class="footer-item">MYCROFT.SYS · v17.5 ✦ DOSSIERLEAN</div>
+    <div class="footer-item">MYCROFT.SYS · v17.6 ✦ MERGEKEYS</div>
     <div class="footer-live"><div class="sdot sdot-on"></div><span>LIVE</span></div>
     <div class="footer-item" id="footerDate">----</div>
     <div class="footer-item" style="border:1px solid rgba(170,60,55,0.45);color:rgba(170,60,55,0.85);border-radius:3px;padding:0 7px;letter-spacing:2px;transform:rotate(-1.5deg)">CLASSIFIED · 机密</div>
@@ -4314,14 +4314,52 @@ function _supaH(){ return {'apikey':SUPA_KEY,'Authorization':'Bearer '+SUPA_KEY,
 async function _syncFetch(id){ var r=await fetch(SUPA_URL+'/rest/v1/mc_sync?id=eq.'+encodeURIComponent(id)+'&select=data', {headers:_supaH()}); if(!r.ok) throw new Error('HTTP '+r.status); var a=await r.json(); return (a&&a[0])?a[0]:null; }
 async function _syncUpsert(id,dataStr){ var r=await fetch(SUPA_URL+'/rest/v1/mc_sync?on_conflict=id',{method:'POST',headers:Object.assign(_supaH(),{'Prefer':'resolution=merge-duplicates'}),body:JSON.stringify([{id:id,data:dataStr,updated_at:new Date().toISOString()}])}); if(!r.ok){ var t=await r.text(); throw new Error('HTTP '+r.status+' '+t.slice(0,80)); } }
 function _syncStat(t){ var e=document.getElementById('syncChip'); if(e) e.textContent='☁ '+t; }
-async function syncPushNow(){ if(!_syncPass||_syncBusy) return; _syncBusy=true; _syncStat('同步中…'); try{ var id=await _hashId(_syncPass); var payload=await _enc(JSON.stringify(_bundleLocal()),_syncPass); await _syncUpsert(id,payload); _rawSet('mcDirty',''); var d=new Date(); _syncStat('已同步 '+pad(d.getHours())+':'+pad(d.getMinutes())); }catch(e){ _syncStat('同步失败'); }finally{ _syncBusy=false; } }
+// 按键时间戳合并两份 bundle：聊天数组取并集；其它键谁的时间戳新用谁的（首次没戳时保留本地）
+function _mergeBundles(L, C){
+  var lt={}, ct={}; try{ lt=JSON.parse(L.mcKeyTs||'{}'); }catch(e){} try{ ct=JSON.parse(C.mcKeyTs||'{}'); }catch(e){}
+  var keys={}; Object.keys(L||{}).forEach(function(k){keys[k]=1;}); Object.keys(C||{}).forEach(function(k){keys[k]=1;});
+  var out={}, mt={};
+  Object.keys(keys).forEach(function(k){
+    if(k==='mcKeyTs'||k==='mcRev') return;
+    var lv=L?L[k]:null, cv=C?C[k]:null;
+    if(lv!=null && cv!=null && _isMsgArr(lv) && _isMsgArr(cv)){ try{ out[k]=JSON.stringify(_mergeMsgs(JSON.parse(lv),JSON.parse(cv))); }catch(e){ out[k]=lv; } }
+    else if(lv==null) out[k]=cv;
+    else if(cv==null) out[k]=lv;
+    else out[k] = ((ct[k]||0) > (lt[k]||0)) ? cv : lv;   // 谁改得晚用谁的
+    mt[k]=Math.max(lt[k]||0, ct[k]||0);
+  });
+  out.mcKeyTs=JSON.stringify(mt);
+  out.mcRev=String(Math.max(Number((L&&L.mcRev)||0), Number((C&&C.mcRev)||0)));
+  return out;
+}
+// 对账：拉云端→按键合并→该推就推、该应用就应用（不再整包覆盖，世界书等单条不会被另一台旧版盖掉）
+async function _reconcile(reloadOnApply){
+  if(!_syncPass||_syncBusy) return false; _syncBusy=true; _syncStat('同步中…');
+  try{
+    var id=await _hashId(_syncPass);
+    var local=_bundleLocal();
+    var cloud={}; try{ var row=await _syncFetch(id); if(row&&row.data) cloud=JSON.parse(await _dec(row.data,_syncPass)); }catch(e){}
+    var merged=_mergeBundles(local, cloud);
+    function _contentStr(o){ var c={}; Object.keys(o).forEach(function(k){ if(k!=='mcRev'&&k!=='mcKeyTs') c[k]=o[k]; }); return _stableStr(c); }
+    if(_stableStr(merged)!==_stableStr(cloud)){ var payload=await _enc(JSON.stringify(merged),_syncPass); await _syncUpsert(id,payload); }   // 合并结果≠云端→推上去
+    _rawSet('mcDirty','');
+    var d=new Date(); _syncStat('已同步 '+pad(d.getHours())+':'+pad(d.getMinutes()));
+    if(_contentStr(merged)!==_contentStr(local)){ if(reloadOnApply && _isEditing()){ _syncBusy=false; return false; } _restoreLocal(merged); _syncBusy=false; if(reloadOnApply){ location.reload(); } return true; }   // 内容有变→应用+刷新
+    try{ _rawSet('mcKeyTs', merged.mcKeyTs); _rawSet('mcRev', merged.mcRev); }catch(e){}   // 内容没变只是戳/版本对齐一下，不刷新
+    _syncBusy=false; return false;
+  }catch(e){ _syncStat('同步失败'); _syncBusy=false; return false; }
+}
+async function syncPushNow(){ return _reconcile(false); }
 function syncSchedulePush(){ if(!_syncReady) return; if(_syncTimer) clearTimeout(_syncTimer); _syncTimer=setTimeout(syncPushNow,1200); }
 (function(){ var orig=localStorage.setItem.bind(localStorage); _origSetItem=orig;
   document.addEventListener('pointerdown', function(){ _userActiveTs=Date.now(); }, true);
   document.addEventListener('keydown', function(){ _userActiveTs=Date.now(); }, true);
   localStorage.setItem=function(k,v){ orig(k,v);
-    if(_syncReady && !_skipKey(k) && k!=='mcRev'){
-      if(Date.now()-_userActiveTs < 90000){ orig('mcRev', String(Date.now())); orig('mcDirty','1'); syncSchedulePush(); }   // 仅"用户近期动过手"的写入算真改动→打脏标记+升版本+推送；纯后台写入不计，避免空闲设备覆盖另一台
+    if(_syncReady && !_skipKey(k) && k!=='mcRev' && k!=='mcKeyTs'){
+      if(Date.now()-_userActiveTs < 90000){ var now=Date.now();
+        try{ var ts=JSON.parse(localStorage.getItem('mcKeyTs')||'{}'); ts[k]=now; orig('mcKeyTs',JSON.stringify(ts)); }catch(e){}   // 记下"这个键这次被改的时间"，给按键合并用
+        orig('mcRev', String(now)); orig('mcDirty','1'); syncSchedulePush();
+      }
     }
   };
 })();
@@ -4376,20 +4414,7 @@ async function syncUnlockSubmit(){
 }
 // 拉取检查：云端比本地新就应用(可选刷新)；本地比云端新就补推。靠 mcRev 版本号判断，绝不死循环
 function _isEditing(){ var a=document.activeElement; return !!(a && (a.tagName==='TEXTAREA'||a.tagName==='INPUT') && (a.value||'').length>0); }   // 正在打字（输入框有内容）就先别刷新覆盖
-async function _syncPullCheck(reloadOnApply){
-  if(!_syncPass||_syncBusy) return false;
-  try{
-    var id=await _hashId(_syncPass); var row=await _syncFetch(id);
-    if(row&&row.data){ var obj=JSON.parse(await _dec(row.data,_syncPass));
-      var cloudRev=Number(obj.mcRev||0), localRev=Number(localStorage.getItem('mcRev')||0);
-      var dirty=false; try{ dirty=localStorage.getItem('mcDirty')==='1'; }catch(e){}
-      if(dirty){ syncPushNow(); return false; }   // ★ 本地有没推成功的改动 → 死守本地、补推；绝不被云端覆盖
-      if(cloudRev>localRev){ if(reloadOnApply && _isEditing()) return false; _restoreLocal(obj); if(reloadOnApply){ location.reload(); } return true; }   // 云端更新 → 拉取
-      else if(localRev>cloudRev){ syncPushNow(); }   // 本地更新 → 补推
-    }
-  }catch(e){}
-  return false;
-}
+async function _syncPullCheck(reloadOnApply){ return _reconcile(reloadOnApply); }
 async function syncInit(){
   if(!(window.crypto&&crypto.subtle)){ return; }   // 不支持加密就跳过（需 https/本地文件）
   var pass=null; try{ pass=localStorage.getItem('mcSyncPass'); }catch(e){}
