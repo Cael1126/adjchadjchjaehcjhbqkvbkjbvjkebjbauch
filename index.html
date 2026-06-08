@@ -367,7 +367,7 @@ nav { height:50px; background:rgba(245,235,220,0.9); backdrop-filter:blur(20px);
   <div class="sb-bottom"><div class="sb-nav" style="padding:0">
     <a class="sb-item" onclick="openPanel('settings');closeDrawer()"><div class="sb-icon"><svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="7" cy="7" r="2.5"/><path d="M7 1 L7 2.5 M7 11.5 L7 13 M1 7 L2.5 7 M11.5 7 L13 7 M2.9 2.9 L4 4 M10 10 L11.1 11.1 M11.1 2.9 L10 4 M4 10 L2.9 11.1"/></svg></div><div class="sb-label">Settings</div></a>
     <a class="sb-item" onclick="openPanel('creator');closeDrawer()"><div class="sb-icon"><svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="4" cy="4" r="2"/><circle cx="10" cy="4" r="2"/><circle cx="7" cy="10" r="2"/><line x1="4" y1="6" x2="7" y2="8"/><line x1="10" y1="6" x2="7" y2="8"/></svg></div><div class="sb-label">Creator Mode</div></a>
-    <div class="sb-item" style="opacity:0.4;cursor:default;font-size:10px"><div class="sb-icon"><svg width="8" height="8" viewBox="0 0 8 8" fill="currentColor"><circle cx="4" cy="4" r="3"/></svg></div><div class="sb-label" style="font-family:'JetBrains Mono',monospace;letter-spacing:1px">v18.3 ✦ TAKEOVER-CONTENT</div></div>
+    <div class="sb-item" style="opacity:0.4;cursor:default;font-size:10px"><div class="sb-icon"><svg width="8" height="8" viewBox="0 0 8 8" fill="currentColor"><circle cx="4" cy="4" r="3"/></svg></div><div class="sb-label" style="font-family:'JetBrains Mono',monospace;letter-spacing:1px">v18.4 ✦ WB-UPDOWN</div></div>
   </div></div>
 </div>
 
@@ -385,7 +385,7 @@ nav { height:50px; background:rgba(245,235,220,0.9); backdrop-filter:blur(20px);
   <div class="sb-bottom"><div class="sb-nav" style="padding:0">
     <a class="sb-item" onclick="openPanel('settings')"><div class="sb-icon"><svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="7" cy="7" r="2.5"/><path d="M7 1 L7 2.5 M7 11.5 L7 13 M1 7 L2.5 7 M11.5 7 L13 7 M2.9 2.9 L4 4 M10 10 L11.1 11.1 M11.1 2.9 L10 4 M4 10 L2.9 11.1"/></svg></div><div class="sb-label">Settings</div></a>
     <a class="sb-item" onclick="openPanel('creator')"><div class="sb-icon"><svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="4" cy="4" r="2"/><circle cx="10" cy="4" r="2"/><circle cx="7" cy="10" r="2"/><line x1="4" y1="6" x2="7" y2="8"/><line x1="10" y1="6" x2="7" y2="8"/></svg></div><div class="sb-label">Creator Mode</div></a>
-    <div class="sb-item" style="opacity:0.4;cursor:default;font-size:10px"><div class="sb-icon"><svg width="8" height="8" viewBox="0 0 8 8" fill="currentColor"><circle cx="4" cy="4" r="3"/></svg></div><div class="sb-label" style="font-family:'JetBrains Mono',monospace;letter-spacing:1px">v18.3 ✦ TAKEOVER-CONTENT</div></div>
+    <div class="sb-item" style="opacity:0.4;cursor:default;font-size:10px"><div class="sb-icon"><svg width="8" height="8" viewBox="0 0 8 8" fill="currentColor"><circle cx="4" cy="4" r="3"/></svg></div><div class="sb-label" style="font-family:'JetBrains Mono',monospace;letter-spacing:1px">v18.4 ✦ WB-UPDOWN</div></div>
   </div></div>
 </div>
 
@@ -531,7 +531,7 @@ nav { height:50px; background:rgba(245,235,220,0.9); backdrop-filter:blur(20px);
   </div>
 
   <div class="footer">
-    <div class="footer-item">MYCROFT.SYS · v18.3 ✦ TAKEOVER-CONTENT</div>
+    <div class="footer-item">MYCROFT.SYS · v18.4 ✦ WB-UPDOWN</div>
     <div class="footer-live"><div class="sdot sdot-on"></div><span>LIVE</span></div>
     <div class="footer-item" id="footerDate">----</div>
     <div class="footer-item" style="border:1px solid rgba(170,60,55,0.45);color:rgba(170,60,55,0.85);border-radius:3px;padding:0 7px;letter-spacing:2px;transform:rotate(-1.5deg)">CLASSIFIED · 机密</div>
@@ -3701,31 +3701,34 @@ async function wbSend(){
   finally{ _wbBusy=false; renderWorld(); }
 }
 function wbClearChat(){ if(!confirm('清空和维护员的对话记录？（下面的世界书规矩不受影响）')) return; saveWBChat([]); renderWorld(); }
-// 世界书 + 维护员聊天 专用同步（绕开大逻辑，直接对齐这两项）
-async function wbSyncNow(btn){
-  if(!_syncPass){ alert('还没设同步密码（这台还没开启同步）'); return; }
-  if(btn){ btn.disabled=true; btn.textContent='同步中…'; }
+// ===== 世界书 + 维护员聊天：独立的「上传 / 接收」（专用云端格子，覆盖式，不自动、不合并、不踩坑）=====
+async function wbUpload(btn){
+  if(!_syncPass){ alert('这台还没开启同步（没设密码）'); return; }
+  if(btn){ btn.disabled=true; btn.textContent='上传中…'; }
   try{
-    var id=await _hashId(_syncPass);
-    var cloud={}; try{ var row=await _syncFetch(id); if(row&&row.data) cloud=JSON.parse(await _dec(row.data,_syncPass)); }catch(e){}
-    var localWB=getWorldBook(), cloudWB=(cloud.mcWorldBook||'');
-    var finalWB=localWB;
-    if(cloudWB.trim() && cloudWB!==localWB){
-      var useLocal=confirm('世界书两边不一样：\n本机 '+localWB.length+' 字\n云端 '+cloudWB.length+' 字\n\n【确定】= 用本机的（推上去覆盖云端）\n【取消】= 用云端的（拉下来覆盖本机）');
-      finalWB = useLocal ? localWB : cloudWB;
-    } else if(!localWB.trim() && cloudWB.trim()){ finalWB=cloudWB; }
-    var lWC=[],cWC=[]; try{lWC=JSON.parse(localStorage.getItem('mcWBChat')||'[]');}catch(e){} try{cWC=JSON.parse(cloud.mcWBChat||'[]');}catch(e){}
-    var mWC=_mergeMsgs(lWC,cWC);   // 维护员聊天：两边并集，不丢
-    var now=Date.now();
-    _rawSet('mcWorldBook', finalWB); _rawSet('mcWBChat', JSON.stringify(mWC));
-    try{ var lts=JSON.parse(localStorage.getItem('mcKeyTs')||'{}'); lts.mcWorldBook=now; lts.mcWBChat=now; _rawSet('mcKeyTs',JSON.stringify(lts)); }catch(e){}
-    cloud.mcWorldBook=finalWB; cloud.mcWBChat=JSON.stringify(mWC);
-    var cts={}; try{cts=JSON.parse(cloud.mcKeyTs||'{}');}catch(e){} cts.mcWorldBook=now; cts.mcWBChat=now; cloud.mcKeyTs=JSON.stringify(cts); cloud.mcRev=String(now);
-    var payload=await _enc(JSON.stringify(cloud),_syncPass); await _syncUpsert(id,payload);
+    var id=await _hashId(_syncPass+':wb');
+    var wb=getWorldBook(), chat=loadWBChat();
+    var payload=await _enc(JSON.stringify({wb:wb, chat:chat}), _syncPass);
+    await _syncUpsert(id, payload);
+    if(btn){ btn.textContent='✓ 已上传'; setTimeout(function(){ if(btn) btn.textContent='⬆ 上传'; },1600); }
+  }catch(e){ alert('上传失败：'+e.message); if(btn) btn.textContent='⬆ 上传'; }
+  finally{ if(btn){ btn.disabled=false; } }
+}
+async function wbReceive(btn){
+  if(!_syncPass){ alert('这台还没开启同步（没设密码）'); return; }
+  if(btn){ btn.disabled=true; btn.textContent='接收中…'; }
+  try{
+    var id=await _hashId(_syncPass+':wb');
+    var row=await _syncFetch(id);
+    if(!row||!row.data){ alert('云端还没有世界书（先去另一台点【⬆ 上传】）'); return; }
+    var obj=JSON.parse(await _dec(row.data, _syncPass));
+    var wb=(obj.wb||''), chat=Array.isArray(obj.chat)?obj.chat:[];
+    if(!confirm('用云端的覆盖本机？\n云端：世界书 '+wb.length+' 字、维护员聊天 '+chat.length+' 条\n（本机当前这两样会被替换）')){ if(btn){ btn.disabled=false; btn.textContent='⬇ 接收'; } return; }
+    _rawSet('mcWorldBook', wb); _rawSet('mcWBChat', JSON.stringify(chat));
     renderWorld();
-    alert('已对齐 ✓\n世界书 '+finalWB.length+' 字、维护员聊天 '+mWC.length+' 条。\n另一台点同一个键就拿到了。');
-  }catch(e){ alert('同步失败：'+e.message); }
-  finally{ if(btn){ btn.disabled=false; btn.textContent='↻ 同步世界书 / 维护员'; } }
+    if(btn){ btn.textContent='✓ 已接收'; setTimeout(function(){ if(btn) btn.textContent='⬇ 接收'; },1600); }
+  }catch(e){ alert('接收失败：'+e.message); if(btn) btn.textContent='⬇ 接收'; }
+  finally{ if(btn){ btn.disabled=false; } }
 }
 function wbDelMsg(i){ var a=loadWBChat(); if(i<0||i>=a.length) return; a.splice(i,1); saveWBChat(a); renderWorld(); }
 function wbUndoWorld(){ var bak=null; try{ bak=localStorage.getItem('mcWorldBook_bak'); }catch(e){} if(bak===null){ alert('没有可撤回的改动'); return; }
@@ -3745,7 +3748,7 @@ function renderWorld(){
   }).join('') : '<div style="margin:auto;color:var(--text4);font-size:12px;text-align:center;line-height:2">想吐槽就吐槽，想调就下指令——<br>"学这段的笔触"、"他不许说宝贝"、"上次跳海写成跳楼了，是海"。<br>下了命令我会改下面的世界书，主聊天立刻照办。</div>';
   var typing = _wbBusy ? '<div style="align-self:flex-start;padding:2px"><span class="typing-dots"><i></i><i></i><i></i></span></div>' : '';
   box.innerHTML =
-    '<div style="display:flex;align-items:center;gap:8px;margin-bottom:10px"><div style="flex:1;font-family:\'Noto Serif SC\',serif;font-size:12px;color:var(--text3);line-height:1.7">✦ <b style="color:var(--text2)">维护员</b>——发范文 / 下指令 / 纠错，我改下面的【世界书】（主聊天最高优先），立刻生效。</div><button onclick="wbSyncNow(this)" title="把世界书+维护员聊天和另一台对齐" style="flex-shrink:0;background:var(--gold-dim);border:1px solid var(--border2);color:var(--gold);border-radius:9px;padding:7px 11px;font-size:11px;cursor:pointer;font-family:\'Noto Serif SC\',serif">↻ 同步世界书 / 维护员</button></div>'
+    '<div style="display:flex;align-items:center;gap:8px;margin-bottom:10px"><div style="flex:1;font-family:\'Noto Serif SC\',serif;font-size:12px;color:var(--text3);line-height:1.7">✦ <b style="color:var(--text2)">维护员</b>——发范文 / 下指令 / 纠错，我改下面的【世界书】（主聊天最高优先），立刻生效。</div><button onclick="wbUpload(this)" title="把本机世界书+维护员聊天传到云端" style="flex-shrink:0;background:var(--gold-dim);border:1px solid var(--border2);color:var(--gold);border-radius:9px;padding:7px 10px;font-size:11px;cursor:pointer;font-family:\'Noto Serif SC\',serif">⬆ 上传</button><button onclick="wbReceive(this)" title="从云端取世界书+维护员聊天，覆盖本机" style="flex-shrink:0;background:var(--s2);border:1px solid var(--border2);color:var(--text2);border-radius:9px;padding:7px 10px;font-size:11px;cursor:pointer;font-family:\'Noto Serif SC\',serif">⬇ 接收</button></div>'
     +'<div id="wbScroll" style="display:flex;flex-direction:column;gap:10px;min-height:64vh;max-height:74vh;overflow-y:auto;-webkit-overflow-scrolling:touch;background:var(--s1);border:1px solid var(--border2);border-radius:12px;padding:15px 16px;margin-bottom:9px">'+msgs+typing+'</div>'
     +'<div style="display:flex;gap:8px;margin-bottom:18px">'
       +'<textarea id="wbInput" rows="1" placeholder="发范文 / 下指令……（Enter 发送）" onkeydown="if(event.key===\'Enter\'&&!event.shiftKey){event.preventDefault();wbSend();}" style="flex:1;box-sizing:border-box;resize:none;max-height:140px;background:var(--s2);border:1px solid var(--border2);border-radius:12px;padding:10px 13px;color:var(--text);font-family:\'Noto Serif SC\',serif;font-size:13px;line-height:1.6;outline:none"></textarea>'
@@ -4321,7 +4324,7 @@ async function autoGraduate(){ if(!getApiKey()) return; try{ await foldChatToFra
 // ===== 多端同步（Supabase + 端到端加密 + 密码锁）=====
 var SUPA_URL='https://xoftoucrykibjxmmuqqi.supabase.co';
 var SUPA_KEY='sb_publishable_LzzpPPm92kYtfZnjqUhQHw_FMZJtYs4';
-var SYNC_SKIP={mcSyncPass:1, mcSyncLast:1, mcDirty:1, mcWorldBook_bak:1};
+var SYNC_SKIP={mcSyncPass:1, mcSyncLast:1, mcDirty:1, mcWorldBook_bak:1, mcWorldBook:1, mcWBChat:1};   // 世界书+维护员聊天不走自动同步，改用专用的 上传/接收 两个键
 var _syncPass=null, _syncReady=false, _syncTimer=null, _syncBusy=false, _userActiveTs=0, _origSetItem=null;
 function _rawSet(k,v){ try{ (_origSetItem||localStorage.setItem.bind(localStorage))(k,v); }catch(e){} }   // 用原始 setItem 写（不触发同步/不被字符串化）
 try{ localStorage.removeItem('_origSet'); }catch(e){}   // 清掉旧版误存的字符串键
