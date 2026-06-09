@@ -367,7 +367,7 @@ nav { height:50px; background:rgba(245,235,220,0.9); backdrop-filter:blur(20px);
   <div class="sb-bottom"><div class="sb-nav" style="padding:0">
     <a class="sb-item" onclick="openPanel('settings');closeDrawer()"><div class="sb-icon"><svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="7" cy="7" r="2.5"/><path d="M7 1 L7 2.5 M7 11.5 L7 13 M1 7 L2.5 7 M11.5 7 L13 7 M2.9 2.9 L4 4 M10 10 L11.1 11.1 M11.1 2.9 L10 4 M4 10 L2.9 11.1"/></svg></div><div class="sb-label">Settings</div></a>
     <a class="sb-item" onclick="openPanel('creator');closeDrawer()"><div class="sb-icon"><svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="4" cy="4" r="2"/><circle cx="10" cy="4" r="2"/><circle cx="7" cy="10" r="2"/><line x1="4" y1="6" x2="7" y2="8"/><line x1="10" y1="6" x2="7" y2="8"/></svg></div><div class="sb-label">Creator Mode</div></a>
-    <div class="sb-item" style="opacity:0.4;cursor:default;font-size:10px"><div class="sb-icon"><svg width="8" height="8" viewBox="0 0 8 8" fill="currentColor"><circle cx="4" cy="4" r="3"/></svg></div><div class="sb-label" style="font-family:'JetBrains Mono',monospace;letter-spacing:1px">v18.6 ✦ QUOTAFIX</div></div>
+    <div class="sb-item" style="opacity:0.4;cursor:default;font-size:10px"><div class="sb-icon"><svg width="8" height="8" viewBox="0 0 8 8" fill="currentColor"><circle cx="4" cy="4" r="3"/></svg></div><div class="sb-label" style="font-family:'JetBrains Mono',monospace;letter-spacing:1px">v18.7 ✦ FAV-FOLDERS</div></div>
   </div></div>
 </div>
 
@@ -385,7 +385,7 @@ nav { height:50px; background:rgba(245,235,220,0.9); backdrop-filter:blur(20px);
   <div class="sb-bottom"><div class="sb-nav" style="padding:0">
     <a class="sb-item" onclick="openPanel('settings')"><div class="sb-icon"><svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="7" cy="7" r="2.5"/><path d="M7 1 L7 2.5 M7 11.5 L7 13 M1 7 L2.5 7 M11.5 7 L13 7 M2.9 2.9 L4 4 M10 10 L11.1 11.1 M11.1 2.9 L10 4 M4 10 L2.9 11.1"/></svg></div><div class="sb-label">Settings</div></a>
     <a class="sb-item" onclick="openPanel('creator')"><div class="sb-icon"><svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="4" cy="4" r="2"/><circle cx="10" cy="4" r="2"/><circle cx="7" cy="10" r="2"/><line x1="4" y1="6" x2="7" y2="8"/><line x1="10" y1="6" x2="7" y2="8"/></svg></div><div class="sb-label">Creator Mode</div></a>
-    <div class="sb-item" style="opacity:0.4;cursor:default;font-size:10px"><div class="sb-icon"><svg width="8" height="8" viewBox="0 0 8 8" fill="currentColor"><circle cx="4" cy="4" r="3"/></svg></div><div class="sb-label" style="font-family:'JetBrains Mono',monospace;letter-spacing:1px">v18.6 ✦ QUOTAFIX</div></div>
+    <div class="sb-item" style="opacity:0.4;cursor:default;font-size:10px"><div class="sb-icon"><svg width="8" height="8" viewBox="0 0 8 8" fill="currentColor"><circle cx="4" cy="4" r="3"/></svg></div><div class="sb-label" style="font-family:'JetBrains Mono',monospace;letter-spacing:1px">v18.7 ✦ FAV-FOLDERS</div></div>
   </div></div>
 </div>
 
@@ -531,7 +531,7 @@ nav { height:50px; background:rgba(245,235,220,0.9); backdrop-filter:blur(20px);
   </div>
 
   <div class="footer">
-    <div class="footer-item">MYCROFT.SYS · v18.6 ✦ QUOTAFIX</div>
+    <div class="footer-item">MYCROFT.SYS · v18.7 ✦ FAV-FOLDERS</div>
     <div class="footer-live"><div class="sdot sdot-on"></div><span>LIVE</span></div>
     <div class="footer-item" id="footerDate">----</div>
     <div class="footer-item" style="border:1px solid rgba(170,60,55,0.45);color:rgba(170,60,55,0.85);border-radius:3px;padding:0 7px;letter-spacing:2px;transform:rotate(-1.5deg)">CLASSIFIED · 机密</div>
@@ -2560,7 +2560,7 @@ function favCurrentPopup(){
   saveFavPopups(arr);
   var fb=document.getElementById('popupFavBtn'); if(fb){ fb.textContent='★ 已收藏'; fb.style.color='var(--gold)'; }
 }
-function openFavorites(){ showView('favorites'); }
+function openFavorites(){ _favNav={mode:'home'}; _favSelMode=false; showView('favorites'); }
 function unfavPopup(id){ saveFavPopups(loadFavPopups().filter(function(n){ return n.id!==id; })); renderFavorites(); }
 function favUnfavChat(key, ts){ try{ var a=JSON.parse(localStorage.getItem(key)||'[]'); for(var i=0;i<a.length;i++){ if((a[i].ts||0)===ts){ a[i].fav=false; } } localStorage.setItem(key, JSON.stringify(a)); }catch(e){} renderFavorites(); }
 function _favCard(body, meta, ts, unfav){
@@ -2569,25 +2569,116 @@ function _favCard(body, meta, ts, unfav){
     +'<div style="flex:1;min-width:0"><div style="font-family:\'Noto Serif SC\',serif;font-size:13px;color:var(--text2);line-height:1.65;white-space:pre-wrap">'+body+'</div>'
     +'<div style="font-size:9px;color:var(--text4);margin-top:5px;letter-spacing:0.5px">'+(meta||'')+' · '+fmtNoteDate(ts)+'</div></div></div>';
 }
+// ===== 收藏：首页两类（弹窗 / 聊天记录）→ 聊天记录=自建收藏夹·多选成块 =====
+var _favNav={mode:'home'}, _favSelMode=false, _favSel={}, _favPendingMsgs=null;
+function loadFavFolders(){ try{ var a=JSON.parse(localStorage.getItem('mcFavFolders')||'[]'); return Array.isArray(a)?a:[]; }catch(e){ return []; } }
+function saveFavFolders(a){ try{ localStorage.setItem('mcFavFolders',JSON.stringify(a)); }catch(e){} }
+function favGo(mode,fid,bid){ _favNav={mode:mode,folderId:fid||null,blockId:bid||null}; renderFavorites(); }
+function _favBack(label,onclick){ return '<div onclick="'+onclick+'" style="cursor:pointer;color:var(--text4);font-size:12px;margin-bottom:14px;display:inline-flex;align-items:center;gap:5px">‹ '+label+'</div>'; }
+function favNewFolder(){ var n=prompt('新收藏夹的名字（比如 温情）：',''); if(n===null||!n.trim()) return null; var a=loadFavFolders(); var f={id:newId(),name:n.trim(),ts:Date.now(),blocks:[]}; a.push(f); saveFavFolders(a); return f.id; }
+function favNewFolderUI(){ if(favNewFolder()) renderFavorites(); }
+function favRenameFolder(id){ var a=loadFavFolders(),f=null; for(var i=0;i<a.length;i++) if(a[i].id===id) f=a[i]; if(!f) return; var n=prompt('收藏夹改名：',f.name); if(n===null||!n.trim()) return; f.name=n.trim(); saveFavFolders(a); renderFavorites(); }
+function favDelFolder(id){ if(!confirm('删掉这个收藏夹？里面收的剧情会一起没。')) return; saveFavFolders(loadFavFolders().filter(function(f){return f.id!==id;})); favGo('folders'); }
+function favDelBlock(fid,bid){ if(!confirm('删掉这一段收藏？')) return; var a=loadFavFolders(); for(var i=0;i<a.length;i++){ if(a[i].id===fid) a[i].blocks=a[i].blocks.filter(function(b){return b.id!==bid;}); } saveFavFolders(a); favGo('folder',fid); }
 function renderFavorites(){
   var box=document.getElementById('favBody'); if(!box) return;
-  function sec(title,items){ return '<div style="font-family:\'Playfair Display\',serif;font-size:13px;color:var(--gold);font-weight:600;margin:16px 0 10px;letter-spacing:1px">'+title+' <span style="color:var(--text4);font-size:11px;font-weight:400">· '+items.length+'</span></div>'+(items.length?items.join(''):'<div style="color:var(--text4);font-size:12px;padding:0 2px 4px">（还没有）</div>'); }
-  // 1) 弹窗收藏
+  var nav=_favNav||{mode:'home'};
+  if(nav.mode==='popups'){ box.innerHTML=_favPopupsHTML(); return; }
+  if(nav.mode==='folders'){ box.innerHTML=_favFoldersHTML(); return; }
+  if(nav.mode==='folder'){ box.innerHTML=_favFolderHTML(nav.folderId); return; }
+  if(nav.mode==='block'){ box.innerHTML=_favBlockHTML(nav.folderId,nav.blockId); return; }
+  var pops=loadFavPopups().filter(function(n){ return n.source!=='mstate'; }).length;
+  var folders=loadFavFolders();
+  function card(onclick,title,sub,count){ return '<div onclick="'+onclick+'" style="cursor:pointer;border:1px solid var(--border2);border-radius:16px;background:var(--s1);padding:20px 18px;margin-bottom:14px;display:flex;justify-content:space-between;align-items:center">'
+    +'<div><div style="font-family:\'Playfair Display\',serif;font-size:19px;color:var(--text);font-weight:700">'+title+'</div><div style="font-size:11px;color:var(--text3);margin-top:4px">'+sub+'</div></div>'
+    +'<div style="color:var(--gold);font-size:13px;white-space:nowrap">'+count+' ›</div></div>'; }
+  box.innerHTML='<div style="max-width:560px;margin:0 auto">'
+    + card("favGo('popups')",'弹窗收藏','留言 · 独白 · 被你留住的瞬间', pops)
+    + card("favGo('folders')",'聊天记录','你自己建的收藏夹，一段段剧情', folders.length+' 夹')
+    +'</div>';
+}
+function _favPopupsHTML(){
   var pops=loadFavPopups().filter(function(n){ return n.source!=='mstate'; }).sort(function(a,b){ return b.ts-a.ts; });
-  var popItems=pops.map(function(n){ var src=(POPUP_LABELS[n.source]||n.source||''); return _favCard((n.b||''), (n.t?n.t:'')+(src?(((n.t)?' · ':'')+src):''), n.ts, 'unfavPopup(\''+n.id+'\')'); });
-  // 2) Chat（主线）收藏
-  var mc=[]; try{ mc=JSON.parse(localStorage.getItem('mcChat')||'[]'); }catch(e){}
-  var chatItems=mc.filter(function(m){ return m.fav; }).sort(function(a,b){ return (b.ts||0)-(a.ts||0); }).map(function(m){ var who=(m.role==='user')?'你':'Mycroft'; var txt=(m.role==='user')?(m.text||''):mcCleanText(m.text||''); return _favCard(chatEsc(txt), who, m.ts, 'favUnfavChat(\'mcChat\','+(m.ts||0)+')'); });
-  // 3) IF 线收藏（含每条线的所有分支）
-  var ifItems=[];
-  loadIfLines().forEach(function(ln){
-    var keys=[ifChatKey(ln.id,'main')];
-    ifBranchList(ln.id).forEach(function(b){ if(b.id!=='main') keys.push(ifChatKey(ln.id,b.id)); });
-    keys.forEach(function(k){ var arr=[]; try{ arr=JSON.parse(localStorage.getItem(k)||'[]'); }catch(e){}
-      arr.forEach(function(m){ if(m.fav){ var who=(m.role==='user')?'你':'Mycroft'; var txt=(m.role==='user')?(m.text||''):mcCleanText(m.text||''); ifItems.push(_favCard(chatEsc(txt), who+' · '+(ln.title||'IF 线'), m.ts, 'favUnfavChat(\''+k+'\','+(m.ts||0)+')')); } });
-    });
-  });
-  box.innerHTML=sec('✦ 弹窗收藏', popItems)+sec('✦ Chat 收藏', chatItems)+sec('✦ IF 线收藏', ifItems);
+  var items=pops.map(function(n){ var src=(POPUP_LABELS[n.source]||n.source||''); return _favCard((n.b||''), (n.t?n.t:'')+(src?(((n.t)?' · ':'')+src):''), n.ts, 'unfavPopup(\''+n.id+'\')'); });
+  return '<div style="max-width:560px;margin:0 auto">'+_favBack('返回',"favGo('home')")+'<div style="font-family:\'Playfair Display\',serif;font-size:16px;color:var(--gold);margin-bottom:12px">弹窗收藏 <span style="color:var(--text4);font-size:11px">· '+pops.length+'</span></div>'+(items.length?items.join(''):'<div style="color:var(--text4);font-size:12px">（还没有）</div>')+'</div>';
+}
+function _favFoldersHTML(){
+  var folders=loadFavFolders().slice().sort(function(a,b){ return (b.ts||0)-(a.ts||0); });
+  var cards=folders.map(function(f){ return '<div style="border:1px solid var(--border2);border-radius:14px;background:var(--s1);padding:14px 16px;margin-bottom:11px;display:flex;justify-content:space-between;align-items:center">'
+    +'<div onclick="favGo(\'folder\',\''+f.id+'\')" style="cursor:pointer;flex:1;min-width:0"><div style="font-family:\'Noto Serif SC\',serif;font-size:15px;color:var(--text);font-weight:600">'+chatEsc(f.name)+'</div><div style="font-size:11px;color:var(--text4);margin-top:3px">'+f.blocks.length+' 段</div></div>'
+    +'<span onclick="favRenameFolder(\''+f.id+'\')" style="cursor:pointer;color:var(--text4);font-size:11px;margin-right:10px">改名</span>'
+    +'<span onclick="favDelFolder(\''+f.id+'\')" style="cursor:pointer;color:var(--text4);font-size:11px">删</span></div>'; }).join('');
+  return '<div style="max-width:560px;margin:0 auto">'+_favBack('返回',"favGo('home')")
+    +'<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:14px"><div style="font-family:\'Playfair Display\',serif;font-size:16px;color:var(--gold)">聊天记录 · 收藏夹</div><span onclick="favNewFolderUI()" style="cursor:pointer;color:var(--gold);font-size:12px;border:1px solid var(--border2);border-radius:8px;padding:5px 11px">+ 新建</span></div>'
+    +(cards||'<div style="color:var(--text4);font-size:12px;line-height:1.9">还没有收藏夹。<br>点右上「+ 新建」建一个，再去聊天里多选收藏。</div>')+'</div>';
+}
+function _favFolderHTML(fid){
+  var a=loadFavFolders(),f=null; for(var i=0;i<a.length;i++) if(a[i].id===fid) f=a[i]; if(!f) return _favBack('返回',"favGo('folders')")+'<div style="color:var(--text4)">收藏夹不在了</div>';
+  var blocks=f.blocks.slice().sort(function(x,y){ return (y.ts||0)-(x.ts||0); });
+  var cards=blocks.map(function(b){ var first=(b.msgs&&b.msgs[0])?((b.msgs[0].role==='user'?'你：':'')+mcCleanText(b.msgs[0].text||'').slice(0,38)):''; return '<div style="border:1px solid var(--border2);border-radius:14px;background:var(--s1);padding:13px 15px;margin-bottom:10px;display:flex;justify-content:space-between;align-items:center">'
+    +'<div onclick="favGo(\'block\',\''+fid+'\',\''+b.id+'\')" style="cursor:pointer;flex:1;min-width:0"><div style="font-family:\'Noto Serif SC\',serif;font-size:14px;color:var(--text);font-weight:600">'+chatEsc(b.name||'片段')+'</div><div style="font-size:11px;color:var(--text4);margin-top:3px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">'+(b.msgs?b.msgs.length:0)+' 条 · '+chatEsc(first)+'…</div></div>'
+    +'<span onclick="favDelBlock(\''+fid+'\',\''+b.id+'\')" style="cursor:pointer;color:var(--text4);font-size:11px;margin-left:10px">删</span></div>'; }).join('');
+  return '<div style="max-width:560px;margin:0 auto">'+_favBack('返回 收藏夹',"favGo('folders')")
+    +'<div style="font-family:\'Playfair Display\',serif;font-size:17px;color:var(--text);margin-bottom:14px">'+chatEsc(f.name)+' <span style="color:var(--text4);font-size:11px">· '+f.blocks.length+' 段</span></div>'
+    +(cards||'<div style="color:var(--text4);font-size:12px">这个收藏夹还是空的。去聊天里多选 → 收藏到这里。</div>')+'</div>';
+}
+function _favBlockHTML(fid,bid){
+  var a=loadFavFolders(),f=null; for(var i=0;i<a.length;i++) if(a[i].id===fid) f=a[i]; if(!f) return '';
+  var b=null; for(var j=0;j<f.blocks.length;j++) if(f.blocks[j].id===bid) b=f.blocks[j]; if(!b) return _favBack('返回',"favGo('folder','"+fid+"')")+'<div style="color:var(--text4)">这段不在了</div>';
+  var rows=(b.msgs||[]).map(function(m){ var who=(m.role==='user'); var txt=who?(m.text||''):mcCleanText(m.text||''); return '<div style="align-self:'+(who?'flex-end':'stretch')+';max-width:'+(who?'82%':'100%')+';'+(who?'background:var(--s2);border:1px solid var(--border2);border-radius:14px;padding:9px 13px;':'')+'color:'+(who?'var(--text)':'var(--text2)')+';font-size:14px;line-height:1.6;white-space:pre-wrap;font-family:\'Noto Serif SC\',serif">'+chatEsc(txt)+'</div>'; }).join('');
+  return '<div style="max-width:680px;margin:0 auto">'+_favBack('返回 '+chatEsc(f.name),"favGo('folder','"+fid+"')")
+    +'<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:16px"><div style="font-family:\'Playfair Display\',serif;font-size:17px;color:var(--text)">'+chatEsc(b.name||'片段')+'</div><span onclick="favDelBlock(\''+fid+'\',\''+bid+'\')" style="cursor:pointer;color:var(--text4);font-size:11px">删除这段</span></div>'
+    +'<div style="display:flex;flex-direction:column;gap:14px">'+rows+'</div></div>';
+}
+// ----- 聊天多选收藏 -----
+function favStartSelect(i){ _favSelMode=true; _favSel={}; if(typeof i==='number'&&i>=0) _favSel[i]=true; var mm=document.querySelectorAll('[id^="chatMenu"]'); mm.forEach(function(x){x.style.display='none';}); renderChat(); }
+function favCancelSelect(){ _favSelMode=false; _favSel={}; renderChat(); }
+function favToggleSel(i){ var box=document.getElementById('chatMessages'); var sc=box?box.scrollTop:0; if(_favSel[i]) delete _favSel[i]; else _favSel[i]=true; renderChat(); if(box) box.scrollTop=sc; }
+function _favSelectChatHTML(hist){
+  var rows=hist.map(function(m,i){
+    if(m.pending) return '';
+    var sel=!!_favSel[i], who=(m.role==='user'); var txt=who?(m.text||''):mcCleanText(m.text||'');
+    return '<div onclick="favToggleSel('+i+')" style="cursor:pointer;align-self:'+(who?'flex-end':'stretch')+';max-width:'+(who?'82%':'100%')+';box-sizing:border-box;border:1.5px solid '+(sel?'var(--gold)':'var(--border2)')+';background:'+(sel?'var(--gold-dim)':'var(--s1)')+';border-radius:13px;padding:9px 12px;display:flex;gap:9px;align-items:flex-start">'
+      +'<span style="flex-shrink:0;color:'+(sel?'var(--gold)':'var(--text4)')+';font-size:15px;line-height:1.5">'+(sel?'◉':'○')+'</span>'
+      +'<div style="flex:1;min-width:0;color:var(--text2);font-size:13.5px;line-height:1.55;white-space:pre-wrap;font-family:\'Noto Serif SC\',serif">'+chatEsc(txt)+'</div></div>';
+  }).join('');
+  var bar='<div style="position:fixed;left:0;right:0;bottom:0;z-index:55;background:var(--s1);border-top:1px solid var(--border2);padding:11px 18px;display:flex;align-items:center;justify-content:space-between">'
+    +'<span style="color:var(--text3);font-size:13px">多选收藏 · 已选 <b style="color:var(--gold)">'+Object.keys(_favSel).length+'</b> 条</span>'
+    +'<span><span onclick="favCancelSelect()" style="cursor:pointer;color:var(--text4);font-size:13px;margin-right:18px">取消</span><span onclick="favSaveSelection()" style="cursor:pointer;color:var(--gold);font-weight:700;font-size:13px">✦ 收藏到…</span></span></div>';
+  return '<div style="max-width:740px;width:100%;margin:0 auto;display:flex;flex-direction:column;gap:9px;padding-bottom:64px">'+rows+'</div>'+bar;
+}
+function favSaveSelection(){
+  var idxs=Object.keys(_favSel).map(Number).sort(function(a,b){return a-b;});
+  if(!idxs.length){ alert('还没选消息'); return; }
+  var h=loadChat(), msgs=[];
+  idxs.forEach(function(i){ var m=h[i]; if(m&&!m.pending) msgs.push({role:m.role,text:m.text,ts:m.ts||0}); });
+  if(!msgs.length){ alert('没选到内容'); return; }
+  _favPendingMsgs=msgs; _showFolderPicker();
+}
+function _closeFolderPicker(){ var e=document.getElementById('favPicker'); if(e) e.remove(); }
+function _showFolderPicker(){
+  _closeFolderPicker();
+  var folders=loadFavFolders();
+  var list=folders.map(function(f){ return '<div onclick="_favPickFolder(\''+f.id+'\')" style="cursor:pointer;border:1px solid var(--border2);border-radius:10px;padding:11px 13px;background:var(--s2);font-family:\'Noto Serif SC\',serif;font-size:14px;color:var(--text)">'+chatEsc(f.name)+' <span style="color:var(--text4);font-size:11px">· '+f.blocks.length+'</span></div>'; }).join('');
+  var html='<div id="favPicker" style="position:fixed;inset:0;z-index:6000;background:rgba(0,0,0,.55);display:flex;align-items:center;justify-content:center" onclick="if(event.target===this)_closeFolderPicker()">'
+    +'<div style="width:min(330px,88vw);max-height:80vh;overflow-y:auto;background:var(--s1);border:1px solid var(--border2);border-radius:18px;padding:18px">'
+      +'<div style="font-family:\'Playfair Display\',serif;font-size:16px;color:var(--text);margin-bottom:4px">收进哪个收藏夹？</div>'
+      +'<div style="font-size:11px;color:var(--text3);margin-bottom:14px">已选 '+_favPendingMsgs.length+' 条，会作为一段收进去</div>'
+      +'<div style="display:flex;flex-direction:column;gap:8px">'+list
+        +'<div onclick="_favPickNewFolder()" style="cursor:pointer;border:1px dashed var(--border2);border-radius:10px;padding:11px;text-align:center;color:var(--gold);font-size:13px">+ 新建收藏夹</div>'
+      +'</div>'
+      +'<div onclick="_closeFolderPicker()" style="text-align:center;margin-top:14px;color:var(--text4);font-size:12px;cursor:pointer">取消</div>'
+    +'</div></div>';
+  var d=document.createElement('div'); d.innerHTML=html; document.body.appendChild(d.firstChild);
+}
+function _favPickNewFolder(){ var id=favNewFolder(); if(id) _favPickFolder(id); }
+function _favPickFolder(fid){
+  if(!_favPendingMsgs||!_favPendingMsgs.length){ _closeFolderPicker(); return; }
+  var name=prompt('给这段剧情起个名字：',''); if(name===null) return; name=name.trim()||('片段 '+fmtNoteDate(Date.now()));
+  var a=loadFavFolders(),f=null; for(var i=0;i<a.length;i++) if(a[i].id===fid) f=a[i]; if(!f){ _closeFolderPicker(); return; }
+  f.blocks.push({id:newId(),name:name,ts:Date.now(),msgs:_favPendingMsgs});
+  saveFavFolders(a); _closeFolderPicker(); _favPendingMsgs=null; favCancelSelect();
+  alert('已收进「'+f.name+'」');
 }
 
 // ===== INIT SAVED DATA =====
@@ -2993,6 +3084,7 @@ function renderChat(){
   if(!_chatBusy){ var _hp=loadChat(), _rm=false; for(var _z=_hp.length-1;_z>=0;_z--){ if(_hp[_z]&&_hp[_z].pending){ _hp.splice(_z,1); _rm=true; } } if(_rm) saveChat(_hp); }   // 没在生成却残留的"三个点"占位泡 → 清掉（防卡死多个）
   var hist=loadChat();
   if(!hist.length){ box.innerHTML='<div style="margin:auto;text-align:center;color:var(--text3);font-size:14px;font-family:\'Noto Serif SC\',serif;line-height:1.95">伞，总在最需要的时候撑开。</div>'; return; }
+  if(_favSelMode){ box.innerHTML=_favSelectChatHTML(hist); return; }   // 多选收藏模式
   var rows=hist.map(function(m,i){
     if(i===_chatEditIdx){   // 编辑模式
       var isU=(m.role==='user');
@@ -3026,7 +3118,7 @@ var _SVG_COPY='<svg width="18" height="18" viewBox="0 0 16 16" fill="none" strok
 var _SVG_DOTS='<svg width="18" height="18" viewBox="0 0 16 16" fill="currentColor"><circle cx="3" cy="8" r="1.3"/><circle cx="8" cy="8" r="1.3"/><circle cx="13" cy="8" r="1.3"/></svg>';
 function _toolBtn(onclick,title,svg,active){ return '<span onclick="'+onclick+'" title="'+title+'" style="cursor:pointer;color:'+(active?'var(--gold)':'var(--text4)')+';padding:4px;display:inline-flex;align-items:center;border-radius:7px">'+svg+'</span>'; }
 function _msgTools(i, isUser, fav){
-  var favBtn=_toolBtn('chatFav('+i+')','收藏',fav?_SVG_BMF:_SVG_BM,fav);
+  var favBtn=_toolBtn('favStartSelect('+i+')','多选收藏',_SVG_BM,false);
   var regenBtn=isUser?'':_toolBtn('chatRegen('+i+')','重新输出',_SVG_REGEN,false);
   var copyBtn=_toolBtn('chatCopyMsg('+i+')','复制',_SVG_COPY,false);
   var mItem='padding:8px 12px;font-size:12px;color:var(--text2);cursor:pointer;border-radius:7px;font-family:\'Noto Serif SC\',serif;display:block';
