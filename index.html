@@ -367,7 +367,7 @@ nav { height:50px; background:rgba(245,235,220,0.9); backdrop-filter:blur(20px);
   <div class="sb-bottom"><div class="sb-nav" style="padding:0">
     <a class="sb-item" onclick="openPanel('settings');closeDrawer()"><div class="sb-icon"><svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="7" cy="7" r="2.5"/><path d="M7 1 L7 2.5 M7 11.5 L7 13 M1 7 L2.5 7 M11.5 7 L13 7 M2.9 2.9 L4 4 M10 10 L11.1 11.1 M11.1 2.9 L10 4 M4 10 L2.9 11.1"/></svg></div><div class="sb-label">Settings</div></a>
     <a class="sb-item" onclick="openPanel('creator');closeDrawer()"><div class="sb-icon"><svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="4" cy="4" r="2"/><circle cx="10" cy="4" r="2"/><circle cx="7" cy="10" r="2"/><line x1="4" y1="6" x2="7" y2="8"/><line x1="10" y1="6" x2="7" y2="8"/></svg></div><div class="sb-label">Creator Mode</div></a>
-    <div class="sb-item" style="opacity:0.4;cursor:default;font-size:10px"><div class="sb-icon"><svg width="8" height="8" viewBox="0 0 8 8" fill="currentColor"><circle cx="4" cy="4" r="3"/></svg></div><div class="sb-label" style="font-family:'JetBrains Mono',monospace;letter-spacing:1px">v18.5 ✦ SYNC-REVERT</div></div>
+    <div class="sb-item" style="opacity:0.4;cursor:default;font-size:10px"><div class="sb-icon"><svg width="8" height="8" viewBox="0 0 8 8" fill="currentColor"><circle cx="4" cy="4" r="3"/></svg></div><div class="sb-label" style="font-family:'JetBrains Mono',monospace;letter-spacing:1px">v18.6 ✦ QUOTAFIX</div></div>
   </div></div>
 </div>
 
@@ -385,7 +385,7 @@ nav { height:50px; background:rgba(245,235,220,0.9); backdrop-filter:blur(20px);
   <div class="sb-bottom"><div class="sb-nav" style="padding:0">
     <a class="sb-item" onclick="openPanel('settings')"><div class="sb-icon"><svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="7" cy="7" r="2.5"/><path d="M7 1 L7 2.5 M7 11.5 L7 13 M1 7 L2.5 7 M11.5 7 L13 7 M2.9 2.9 L4 4 M10 10 L11.1 11.1 M11.1 2.9 L10 4 M4 10 L2.9 11.1"/></svg></div><div class="sb-label">Settings</div></a>
     <a class="sb-item" onclick="openPanel('creator')"><div class="sb-icon"><svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="4" cy="4" r="2"/><circle cx="10" cy="4" r="2"/><circle cx="7" cy="10" r="2"/><line x1="4" y1="6" x2="7" y2="8"/><line x1="10" y1="6" x2="7" y2="8"/></svg></div><div class="sb-label">Creator Mode</div></a>
-    <div class="sb-item" style="opacity:0.4;cursor:default;font-size:10px"><div class="sb-icon"><svg width="8" height="8" viewBox="0 0 8 8" fill="currentColor"><circle cx="4" cy="4" r="3"/></svg></div><div class="sb-label" style="font-family:'JetBrains Mono',monospace;letter-spacing:1px">v18.5 ✦ SYNC-REVERT</div></div>
+    <div class="sb-item" style="opacity:0.4;cursor:default;font-size:10px"><div class="sb-icon"><svg width="8" height="8" viewBox="0 0 8 8" fill="currentColor"><circle cx="4" cy="4" r="3"/></svg></div><div class="sb-label" style="font-family:'JetBrains Mono',monospace;letter-spacing:1px">v18.6 ✦ QUOTAFIX</div></div>
   </div></div>
 </div>
 
@@ -531,7 +531,7 @@ nav { height:50px; background:rgba(245,235,220,0.9); backdrop-filter:blur(20px);
   </div>
 
   <div class="footer">
-    <div class="footer-item">MYCROFT.SYS · v18.5 ✦ SYNC-REVERT</div>
+    <div class="footer-item">MYCROFT.SYS · v18.6 ✦ QUOTAFIX</div>
     <div class="footer-live"><div class="sdot sdot-on"></div><span>LIVE</span></div>
     <div class="footer-item" id="footerDate">----</div>
     <div class="footer-item" style="border:1px solid rgba(170,60,55,0.45);color:rgba(170,60,55,0.85);border-radius:3px;padding:0 7px;letter-spacing:2px;transform:rotate(-1.5deg)">CLASSIFIED · 机密</div>
@@ -4336,17 +4336,24 @@ async function _enc(plain,pass){ var salt=crypto.getRandomValues(new Uint8Array(
 async function _dec(payload,pass){ var o=JSON.parse(payload); var key=await _deriveKey(pass,_ub64(o.s)); var pt=await crypto.subtle.decrypt({name:'AES-GCM',iv:_ub64(o.iv)},key,_ub64(o.c)); return new TextDecoder().decode(pt); }
 function _skipKey(k){ return !!(SYNC_SKIP[k] || k==='_origSet' || /_bak$/.test(k) || k.indexOf('mcSnap')===0); }   // 备份/快照键：不参与同步、不被覆盖
 function _bundleLocal(){ var o={}; for(var i=0;i<localStorage.length;i++){ var k=localStorage.key(i); if(_skipKey(k)) continue; o[k]=localStorage.getItem(k); } return o; }
-function _snapBeforeRestore(){ try{ var snaps=[]; try{ snaps=JSON.parse(localStorage.getItem('mcSnaps')||'[]'); }catch(e){} snaps.push({ts:Date.now(), data:_bundleLocal()}); if(snaps.length>3) snaps=snaps.slice(-3); _rawSet('mcSnaps', JSON.stringify(snaps)); }catch(e){} }   // 任何覆盖前先留一份当前快照（最多3份）
+function _snapBeforeRestore(){ try{ var o={}; for(var i=0;i<localStorage.length;i++){ var k=localStorage.key(i); if(_skipKey(k)) continue; var v=localStorage.getItem(k); if(v&&_isMsgArr(v)) o[k]=v; } _rawSet('mcSnaps', JSON.stringify([{ts:Date.now(), data:o}])); }catch(e){} }   // 只快照聊天类、且只留 1 份——省空间，防 iOS 存储配额爆掉
 function _stableStr(o){ return JSON.stringify(Object.keys(o).sort().map(function(k){return [k,o[k]];})); }
 function _isMsgArr(v){ try{ var a=JSON.parse(v); return Array.isArray(a)&&a.length>0&&a[0]&&typeof a[0]==='object'&&('role' in a[0]); }catch(e){ return false; } }
 function _mergeMsgs(a, b){ var seen={}, out=[]; function key(m){ return (m.role||'')+'|'+(m.ts||0)+'|'+((m.text||'').slice(0,60)); } var all=(a||[]).concat(b||[]); all.sort(function(x,y){ return (x.ts||0)-(y.ts||0); }); for(var i=0;i<all.length;i++){ var m=all[i], k=key(m); if(!seen[k]){ seen[k]=1; out.push(m); } } return out; }   // 并集：按时间排，按(角色+时间+内容)去重，绝不丢
 function _restoreLocal(o){
+  try{ localStorage.removeItem('mcSnaps'); }catch(e){}   // 先清掉旧的大快照，腾出空间
   _snapBeforeRestore();
   var set=_origSetItem||localStorage.setItem.bind(localStorage);
   // ★ 聊天类数组（mcChat / IF 各线）：本地∪云端取并集 → 消息只增不减，旧/空云端删不掉本地
   Object.keys(o).forEach(function(k){ if(_skipKey(k)) return; var lv=localStorage.getItem(k); if(lv&&_isMsgArr(lv)&&_isMsgArr(o[k])){ try{ o[k]=JSON.stringify(_mergeMsgs(JSON.parse(lv), JSON.parse(o[k]))); }catch(e){} } });
-  // ★ 拉取【只新增/更新，永不删除】：云端缺某个键就保留本地（世界书/人设/卷宗等才不会被误删/丢同步）
-  Object.keys(o).forEach(function(k){ if(!_skipKey(k)) set(k,o[k]); });
+  // ★ 拉取【只新增/更新，永不删除】：云端缺某个键就保留本地
+  function _writeAll(){ Object.keys(o).forEach(function(k){ if(!_skipKey(k)) set(k,o[k]); }); }
+  try{ _writeAll(); }
+  catch(qe){   // 空间满（iOS 配额）：清掉所有 *_bak 备份和快照，再写一次
+    try{ localStorage.removeItem('mcSnaps'); }catch(e){}
+    for(var i=localStorage.length-1;i>=0;i--){ var bk=localStorage.key(i); if(bk&&/_bak$/.test(bk)){ try{ localStorage.removeItem(bk); }catch(e){} } }
+    try{ _writeAll(); }catch(e2){ throw qe; }
+  }
 }
 function _supaH(){ return {'apikey':SUPA_KEY,'Authorization':'Bearer '+SUPA_KEY,'Content-Type':'application/json'}; }
 async function _syncFetch(id){ var r=await fetch(SUPA_URL+'/rest/v1/mc_sync?id=eq.'+encodeURIComponent(id)+'&select=data', {headers:_supaH()}); if(!r.ok) throw new Error('HTTP '+r.status); var a=await r.json(); return (a&&a[0])?a[0]:null; }
