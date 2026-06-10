@@ -367,7 +367,7 @@ nav { height:50px; background:rgba(245,235,220,0.9); backdrop-filter:blur(20px);
   <div class="sb-bottom"><div class="sb-nav" style="padding:0">
     <a class="sb-item" onclick="openPanel('settings');closeDrawer()"><div class="sb-icon"><svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="7" cy="7" r="2.5"/><path d="M7 1 L7 2.5 M7 11.5 L7 13 M1 7 L2.5 7 M11.5 7 L13 7 M2.9 2.9 L4 4 M10 10 L11.1 11.1 M11.1 2.9 L10 4 M4 10 L2.9 11.1"/></svg></div><div class="sb-label">Settings</div></a>
     <a class="sb-item" onclick="openPanel('creator');closeDrawer()"><div class="sb-icon"><svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="4" cy="4" r="2"/><circle cx="10" cy="4" r="2"/><circle cx="7" cy="10" r="2"/><line x1="4" y1="6" x2="7" y2="8"/><line x1="10" y1="6" x2="7" y2="8"/></svg></div><div class="sb-label">Creator Mode</div></a>
-    <div class="sb-item" style="opacity:0.4;cursor:default;font-size:10px"><div class="sb-icon"><svg width="8" height="8" viewBox="0 0 8 8" fill="currentColor"><circle cx="4" cy="4" r="3"/></svg></div><div class="sb-label" style="font-family:'JetBrains Mono',monospace;letter-spacing:1px">v18.7 ✦ FAV-FOLDERS</div></div>
+    <div class="sb-item" style="opacity:0.4;cursor:default;font-size:10px"><div class="sb-icon"><svg width="8" height="8" viewBox="0 0 8 8" fill="currentColor"><circle cx="4" cy="4" r="3"/></svg></div><div class="sb-label" style="font-family:'JetBrains Mono',monospace;letter-spacing:1px">v18.9 ✦ STREAMFIX</div></div>
   </div></div>
 </div>
 
@@ -385,7 +385,7 @@ nav { height:50px; background:rgba(245,235,220,0.9); backdrop-filter:blur(20px);
   <div class="sb-bottom"><div class="sb-nav" style="padding:0">
     <a class="sb-item" onclick="openPanel('settings')"><div class="sb-icon"><svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="7" cy="7" r="2.5"/><path d="M7 1 L7 2.5 M7 11.5 L7 13 M1 7 L2.5 7 M11.5 7 L13 7 M2.9 2.9 L4 4 M10 10 L11.1 11.1 M11.1 2.9 L10 4 M4 10 L2.9 11.1"/></svg></div><div class="sb-label">Settings</div></a>
     <a class="sb-item" onclick="openPanel('creator')"><div class="sb-icon"><svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="4" cy="4" r="2"/><circle cx="10" cy="4" r="2"/><circle cx="7" cy="10" r="2"/><line x1="4" y1="6" x2="7" y2="8"/><line x1="10" y1="6" x2="7" y2="8"/></svg></div><div class="sb-label">Creator Mode</div></a>
-    <div class="sb-item" style="opacity:0.4;cursor:default;font-size:10px"><div class="sb-icon"><svg width="8" height="8" viewBox="0 0 8 8" fill="currentColor"><circle cx="4" cy="4" r="3"/></svg></div><div class="sb-label" style="font-family:'JetBrains Mono',monospace;letter-spacing:1px">v18.7 ✦ FAV-FOLDERS</div></div>
+    <div class="sb-item" style="opacity:0.4;cursor:default;font-size:10px"><div class="sb-icon"><svg width="8" height="8" viewBox="0 0 8 8" fill="currentColor"><circle cx="4" cy="4" r="3"/></svg></div><div class="sb-label" style="font-family:'JetBrains Mono',monospace;letter-spacing:1px">v18.9 ✦ STREAMFIX</div></div>
   </div></div>
 </div>
 
@@ -531,7 +531,7 @@ nav { height:50px; background:rgba(245,235,220,0.9); backdrop-filter:blur(20px);
   </div>
 
   <div class="footer">
-    <div class="footer-item">MYCROFT.SYS · v18.7 ✦ FAV-FOLDERS</div>
+    <div class="footer-item">MYCROFT.SYS · v18.9 ✦ STREAMFIX</div>
     <div class="footer-live"><div class="sdot sdot-on"></div><span>LIVE</span></div>
     <div class="footer-item" id="footerDate">----</div>
     <div class="footer-item" style="border:1px solid rgba(170,60,55,0.45);color:rgba(170,60,55,0.85);border-radius:3px;padding:0 7px;letter-spacing:2px;transform:rotate(-1.5deg)">CLASSIFIED · 机密</div>
@@ -558,7 +558,7 @@ nav { height:50px; background:rgba(245,235,220,0.9); backdrop-filter:blur(20px);
     <div onclick="clearChat()" title="清空对话" style="cursor:pointer;color:var(--text4);font-size:11px;padding:5px 10px;border:1px solid var(--border2);border-radius:7px">清空</div>
   </div>
   <div id="chatMessages" style="flex:1;overflow-y:auto;padding:18px 22px;display:flex;flex-direction:column;gap:13px;background:var(--bg)"></div>
-  <div style="padding:10px 18px 28px;flex-shrink:0;background:var(--bg)">
+  <div id="chatFooter" style="padding:10px 18px 28px;flex-shrink:0;background:var(--bg)">
     <div id="ombreSoonBar" style="display:none;max-width:740px;margin:0 auto 9px;font-size:11px;color:var(--gold);background:var(--gold-dim);border:1px solid var(--border2);border-radius:13px;padding:8px 14px;line-height:1.55">✦ 上面有一段聊了一会儿的内容，<b>快要进入他的长期记忆 (Ombre) 了</b>——不想留的、不满意的，趁现在往上翻、用 ··· 删 / 改它。<span onclick="_dismissOmbreSoon()" style="cursor:pointer;color:var(--text3);margin-left:8px;text-decoration:underline">知道了</span></div>
     <div id="voiceBar" style="display:none;max-width:740px;margin:0 auto;align-items:center;gap:10px;background:var(--s2);border:1px solid var(--border2);border-radius:24px;padding:7px 10px 7px 18px">
       <canvas id="voiceWave" style="flex:1;height:34px;display:block"></canvas>
@@ -2631,9 +2631,17 @@ function _favBlockHTML(fid,bid){
     +'<div style="display:flex;flex-direction:column;gap:14px">'+rows+'</div></div>';
 }
 // ----- 聊天多选收藏 -----
-function favStartSelect(i){ _favSelMode=true; _favSel={}; if(typeof i==='number'&&i>=0) _favSel[i]=true; var mm=document.querySelectorAll('[id^="chatMenu"]'); mm.forEach(function(x){x.style.display='none';}); renderChat(); }
-function favCancelSelect(){ _favSelMode=false; _favSel={}; renderChat(); }
-function favToggleSel(i){ var box=document.getElementById('chatMessages'); var sc=box?box.scrollTop:0; if(_favSel[i]) delete _favSel[i]; else _favSel[i]=true; renderChat(); if(box) box.scrollTop=sc; }
+function favStartSelect(i){ _favSelMode=true; _favSel={}; if(typeof i==='number'&&i>=0) _favSel[i]=true; document.querySelectorAll('[id^="chatMenu"]').forEach(function(x){x.style.display='none';}); var f=document.getElementById('chatFooter'); if(f) f.style.display='none'; renderChat(); _favSelBar(); }
+function favCancelSelect(){ _favSelMode=false; _favSel={}; _favSelBarRemove(); var f=document.getElementById('chatFooter'); if(f) f.style.display=''; renderChat(); }
+function favToggleSel(i){ var box=document.getElementById('chatMessages'); var sc=box?box.scrollTop:0; if(_favSel[i]) delete _favSel[i]; else _favSel[i]=true; renderChat(); if(box) box.scrollTop=sc; _favSelBar(); }
+function _favSelBar(){
+  var n=Object.keys(_favSel).length;
+  var html='<span style="color:var(--text3);font-size:13px">多选收藏 · 已选 <b style="color:var(--gold)">'+n+'</b> 条</span>'
+    +'<span><span onclick="favCancelSelect()" style="cursor:pointer;color:var(--text4);font-size:13px;margin-right:18px">取消</span><span onclick="favSaveSelection()" style="cursor:pointer;color:var(--gold);font-weight:700;font-size:14px">✦ 收藏到…</span></span>';
+  var e=document.getElementById('favSelBar'); if(e){ e.innerHTML=html; return; }
+  var d=document.createElement('div'); d.id='favSelBar'; d.style.cssText='position:fixed;left:0;right:0;bottom:0;z-index:6500;background:var(--s1);border-top:1px solid var(--border2);padding:14px 18px;padding-bottom:calc(14px + env(safe-area-inset-bottom,0px));display:flex;align-items:center;justify-content:space-between'; d.innerHTML=html; document.body.appendChild(d);
+}
+function _favSelBarRemove(){ var e=document.getElementById('favSelBar'); if(e) e.remove(); }
 function _favSelectChatHTML(hist){
   var rows=hist.map(function(m,i){
     if(m.pending) return '';
@@ -2642,10 +2650,7 @@ function _favSelectChatHTML(hist){
       +'<span style="flex-shrink:0;color:'+(sel?'var(--gold)':'var(--text4)')+';font-size:15px;line-height:1.5">'+(sel?'◉':'○')+'</span>'
       +'<div style="flex:1;min-width:0;color:var(--text2);font-size:13.5px;line-height:1.55;white-space:pre-wrap;font-family:\'Noto Serif SC\',serif">'+chatEsc(txt)+'</div></div>';
   }).join('');
-  var bar='<div style="position:fixed;left:0;right:0;bottom:0;z-index:55;background:var(--s1);border-top:1px solid var(--border2);padding:11px 18px;display:flex;align-items:center;justify-content:space-between">'
-    +'<span style="color:var(--text3);font-size:13px">多选收藏 · 已选 <b style="color:var(--gold)">'+Object.keys(_favSel).length+'</b> 条</span>'
-    +'<span><span onclick="favCancelSelect()" style="cursor:pointer;color:var(--text4);font-size:13px;margin-right:18px">取消</span><span onclick="favSaveSelection()" style="cursor:pointer;color:var(--gold);font-weight:700;font-size:13px">✦ 收藏到…</span></span></div>';
-  return '<div style="max-width:740px;width:100%;margin:0 auto;display:flex;flex-direction:column;gap:9px;padding-bottom:64px">'+rows+'</div>'+bar;
+  return '<div style="max-width:740px;width:100%;margin:0 auto;display:flex;flex-direction:column;gap:9px;padding-bottom:84px">'+rows+'</div>';
 }
 function favSaveSelection(){
   var idxs=Object.keys(_favSel).map(Number).sort(function(a,b){return a-b;});
@@ -2660,7 +2665,7 @@ function _showFolderPicker(){
   _closeFolderPicker();
   var folders=loadFavFolders();
   var list=folders.map(function(f){ return '<div onclick="_favPickFolder(\''+f.id+'\')" style="cursor:pointer;border:1px solid var(--border2);border-radius:10px;padding:11px 13px;background:var(--s2);font-family:\'Noto Serif SC\',serif;font-size:14px;color:var(--text)">'+chatEsc(f.name)+' <span style="color:var(--text4);font-size:11px">· '+f.blocks.length+'</span></div>'; }).join('');
-  var html='<div id="favPicker" style="position:fixed;inset:0;z-index:6000;background:rgba(0,0,0,.55);display:flex;align-items:center;justify-content:center" onclick="if(event.target===this)_closeFolderPicker()">'
+  var html='<div id="favPicker" style="position:fixed;inset:0;z-index:7000;background:rgba(0,0,0,.55);display:flex;align-items:center;justify-content:center" onclick="if(event.target===this)_closeFolderPicker()">'
     +'<div style="width:min(330px,88vw);max-height:80vh;overflow-y:auto;background:var(--s1);border:1px solid var(--border2);border-radius:18px;padding:18px">'
       +'<div style="font-family:\'Playfair Display\',serif;font-size:16px;color:var(--text);margin-bottom:4px">收进哪个收藏夹？</div>'
       +'<div style="font-size:11px;color:var(--text3);margin-bottom:14px">已选 '+_favPendingMsgs.length+' 条，会作为一段收进去</div>'
@@ -2743,7 +2748,13 @@ function ifChatKey(lineId,br){ return (br&&br!=='main') ? ('mcIfChat_'+lineId+'_
 function ifFramedKey(lineId,br){ return (br&&br!=='main') ? ('mcIfFramed_'+lineId+'__'+br) : ('mcIfFramed_'+lineId); }
 function chatKey(){ return _activeChat.type==='if' ? ifChatKey(_activeChat.id, _activeChat.branch||'main') : 'mcChat'; }
 function loadChat(){ try{ return JSON.parse(localStorage.getItem(chatKey())||'[]'); }catch(e){ return []; } }
-function saveChat(arr){ try{ var k=chatKey(); var prev=localStorage.getItem(k); if(prev&&prev!=='[]'&&prev!=='null'){ try{ _rawSet(k+'_bak', prev); }catch(e){} } localStorage.setItem(k, JSON.stringify(arr.slice(-500))); }catch(e){} }   // 每次存聊天先留上一版到 _bak（不参与同步，可一键找回）
+function saveChat(arr){ var k=chatKey(); var data=JSON.stringify(arr.slice(-500));
+  try{ var prev=localStorage.getItem(k); if(prev&&prev!=='[]'&&prev!=='null'){ try{ _rawSet(k+'_bak', prev); }catch(e){} } localStorage.setItem(k, data); }
+  catch(e){   // 空间满：清掉所有 *_bak 备份和快照，再写一次正本（保证消息不丢）
+    try{ for(var i=localStorage.length-1;i>=0;i--){ var bk=localStorage.key(i); if(bk&&(/_bak$/.test(bk)||bk==='mcSnaps')){ try{ localStorage.removeItem(bk); }catch(e2){} } } }catch(e3){}
+    try{ localStorage.setItem(k, data); }catch(e4){ try{ alert('手机存储空间满了，这条可能没存上。建议清理一些旧对话/存档。'); }catch(e5){} }
+  }
+}
 // 永远读/写主线聊天（不受当前 IF 上下文影响）—— 主线 Mind Palace / 闭环 / 日程惊喜专用
 function loadMainChat(){ try{ return JSON.parse(localStorage.getItem('mcChat')||'[]'); }catch(e){ return []; } }
 function saveMainChat(arr){ try{ localStorage.setItem('mcChat', JSON.stringify(arr.slice(-500))); }catch(e){} }
@@ -2785,6 +2796,7 @@ function chatKeydown(e){ if(e.key==='Enter'&&!e.shiftKey){ e.preventDefault(); s
 var _curView='dashboard';
 function showView(name){
   _curView=name;
+  if(_favSelMode && name!=='chat'){ _favSelMode=false; _favSel={}; if(typeof _favSelBarRemove==='function') _favSelBarRemove(); var _cf=document.getElementById('chatFooter'); if(_cf) _cf.style.display=''; }   // 离开聊天 → 退出多选、清掉选择栏
   var d=document.getElementById('viewDashboard'), c=document.getElementById('viewChat'), m=document.getElementById('viewMemory'), pl=document.getElementById('viewPalace'), fv=document.getElementById('viewIf'), fav=document.getElementById('viewFavorites'), wd=document.getElementById('viewWorld');
   if(d) d.style.display=(name==='dashboard')?'':'none';
   if(c) c.style.display=(name==='chat')?'flex':'none';
@@ -3078,7 +3090,8 @@ function _ubWrap(text, uid){
 }
 function _ubToggle(id, el){ var d=document.getElementById(id); if(!d) return; var open=d.classList.toggle('ub-open'); el.innerHTML=open?'收起 ▴':'展开 ▾'; }
 // 流式刷新：只在用户【本来就贴着底部】时才跟随到底；他往上翻看历史时绝不把他拽回去
-function _streamPaint(text){ var bx=document.getElementById('chatMessages'); var near=bx?(bx.scrollHeight-bx.scrollTop-bx.clientHeight<120):true; var el=document.getElementById('chatStreamBubble'); if(el) el.innerHTML=chatEsc(mcCleanText(text)); if(near&&bx) bx.scrollTop=bx.scrollHeight; }
+var _streamText='';
+function _streamPaint(text){ _streamText=text; var bx=document.getElementById('chatMessages'); var near=bx?(bx.scrollHeight-bx.scrollTop-bx.clientHeight<120):true; var el=document.getElementById('chatStreamBubble'); if(el) el.innerHTML=chatEsc(mcCleanText(text)); if(near&&bx) bx.scrollTop=bx.scrollHeight; }
 function renderChat(){
   var box=document.getElementById('chatMessages'); if(!box) return;
   if(!_chatBusy){ var _hp=loadChat(), _rm=false; for(var _z=_hp.length-1;_z>=0;_z--){ if(_hp[_z]&&_hp[_z].pending){ _hp.splice(_z,1); _rm=true; } } if(_rm) saveChat(_hp); }   // 没在生成却残留的"三个点"占位泡 → 清掉（防卡死多个）
@@ -3097,8 +3110,9 @@ function renderChat(){
       var ub='<div style="background:var(--s2);border:1px solid var(--border2);border-radius:16px;padding:10px 14px;color:var(--text);font-size:14px;font-weight:600;line-height:1.5;white-space:pre-wrap;font-family:\'Noto Serif SC\',serif">'+_ubWrap(m.text,'ub'+i)+'</div>';
       return '<div style="align-self:flex-end;max-width:82%;display:flex;flex-direction:column;align-items:flex-end;gap:2px">'+ub+_msgTools(i,true,m.fav)+'</div>';
     }
-    if(m.pending){   // 打字中：空=三点跳动+✕取消，有字=流式填入
-      var inner=m.text?chatEsc(mcCleanText(m.text)):'<span class="typing-dots"><i></i><i></i><i></i></span><span onclick="chatDelPending('+i+')" title="取消 / 删掉" style="cursor:pointer;color:var(--text4);font-size:12px;margin-left:10px">✕</span>';
+    if(m.pending){   // 打字中：有字（含正在流式的半成品）=填入；真的还没字才显示三点跳动+✕
+      var _partial=(m.text||(_chatBusy?_streamText:'')||'');
+      var inner=_partial?chatEsc(mcCleanText(_partial)):'<span class="typing-dots"><i></i><i></i><i></i></span><span onclick="chatDelPending('+i+')" title="取消 / 删掉" style="cursor:pointer;color:var(--text4);font-size:12px;margin-left:10px">✕</span>';
       return '<div style="align-self:stretch;display:flex;flex-direction:column;gap:2px"><div id="chatStreamBubble" style="color:var(--text2);font-size:14px;font-weight:600;line-height:1.55;white-space:pre-wrap;font-family:\'Noto Serif SC\',serif;padding:2px 0">'+inner+'</div></div>';
     }
     var bubble='<div style="color:var(--text2);font-size:14px;font-weight:600;line-height:1.55;white-space:pre-wrap;font-family:\'Noto Serif SC\',serif;padding:2px 0">'+chatEsc(mcCleanText(m.text))+'</div>';
@@ -3186,7 +3200,7 @@ async function chatRegen(i){
   if(!getApiKey()){ alert('先在 Settings 填 Gemini API key'); return; }
   var sub=document.getElementById('chatSubtitle'); _chatBusy=true; _setSendBtn(true); if(sub) sub.textContent='重新斟酌……';
   // 标记该条"重说中"→显示三个点；存原文以便回滚；保留后文不删
-  var hh=loadChat(); if(!hh[i].variants||!hh[i].variants.length) hh[i].variants=[hh[i].text]; hh[i]._saved=hh[i].text; hh[i].text=''; hh[i].pending=true; saveChat(hh); renderChat();
+  _streamText=''; var hh=loadChat(); if(!hh[i].variants||!hh[i].variants.length) hh[i].variants=[hh[i].text]; hh[i]._saved=hh[i].text; hh[i].text=''; hh[i].pending=true; saveChat(hh); renderChat();
   var reply=''; _chatAbort=new AbortController();
   try{
     var ctxHist=h.slice(0,i);
@@ -3405,7 +3419,7 @@ async function sendChat(){
     var contents=recent.map(function(m){ return { role:(m.role==='user'?'user':'model'), parts:[{ text:m.text }] }; });
     var sys=await _chatBuildSys(text);
     // 占位"打字中"泡
-    var hp=loadChat(); hp.push({role:'model', text:'', ts:Date.now(), pending:true}); saveChat(hp); renderChat();
+    _streamText=''; var hp=loadChat(); hp.push({role:'model', text:'', ts:Date.now(), pending:true}); saveChat(hp); renderChat();
     var reply=''; _chatAbort=new AbortController();
     try{
       reply=await callGeminiChatStream(sys, contents, function(partial){ _streamPaint(partial); }, {signal:_chatAbort.signal});
