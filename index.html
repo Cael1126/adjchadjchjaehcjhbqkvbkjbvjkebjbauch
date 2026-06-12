@@ -367,7 +367,7 @@ nav { height:50px; background:rgba(245,235,220,0.9); backdrop-filter:blur(20px);
   <div class="sb-bottom"><div class="sb-nav" style="padding:0">
     <a class="sb-item" onclick="openPanel('settings');closeDrawer()"><div class="sb-icon"><svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="7" cy="7" r="2.5"/><path d="M7 1 L7 2.5 M7 11.5 L7 13 M1 7 L2.5 7 M11.5 7 L13 7 M2.9 2.9 L4 4 M10 10 L11.1 11.1 M11.1 2.9 L10 4 M4 10 L2.9 11.1"/></svg></div><div class="sb-label">Settings</div></a>
     <a class="sb-item" onclick="openPanel('creator');closeDrawer()"><div class="sb-icon"><svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="4" cy="4" r="2"/><circle cx="10" cy="4" r="2"/><circle cx="7" cy="10" r="2"/><line x1="4" y1="6" x2="7" y2="8"/><line x1="10" y1="6" x2="7" y2="8"/></svg></div><div class="sb-label">Creator Mode</div></a>
-    <div class="sb-item" style="opacity:0.4;cursor:default;font-size:10px"><div class="sb-icon"><svg width="8" height="8" viewBox="0 0 8 8" fill="currentColor"><circle cx="4" cy="4" r="3"/></svg></div><div class="sb-label" style="font-family:'JetBrains Mono',monospace;letter-spacing:1px">v18.9 ✦ STREAMFIX</div></div>
+    <div class="sb-item" style="opacity:0.4;cursor:default;font-size:10px"><div class="sb-icon"><svg width="8" height="8" viewBox="0 0 8 8" fill="currentColor"><circle cx="4" cy="4" r="3"/></svg></div><div class="sb-label" style="font-family:'JetBrains Mono',monospace;letter-spacing:1px">v19.0 ✦ COSTCUT</div></div>
   </div></div>
 </div>
 
@@ -385,7 +385,7 @@ nav { height:50px; background:rgba(245,235,220,0.9); backdrop-filter:blur(20px);
   <div class="sb-bottom"><div class="sb-nav" style="padding:0">
     <a class="sb-item" onclick="openPanel('settings')"><div class="sb-icon"><svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="7" cy="7" r="2.5"/><path d="M7 1 L7 2.5 M7 11.5 L7 13 M1 7 L2.5 7 M11.5 7 L13 7 M2.9 2.9 L4 4 M10 10 L11.1 11.1 M11.1 2.9 L10 4 M4 10 L2.9 11.1"/></svg></div><div class="sb-label">Settings</div></a>
     <a class="sb-item" onclick="openPanel('creator')"><div class="sb-icon"><svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="4" cy="4" r="2"/><circle cx="10" cy="4" r="2"/><circle cx="7" cy="10" r="2"/><line x1="4" y1="6" x2="7" y2="8"/><line x1="10" y1="6" x2="7" y2="8"/></svg></div><div class="sb-label">Creator Mode</div></a>
-    <div class="sb-item" style="opacity:0.4;cursor:default;font-size:10px"><div class="sb-icon"><svg width="8" height="8" viewBox="0 0 8 8" fill="currentColor"><circle cx="4" cy="4" r="3"/></svg></div><div class="sb-label" style="font-family:'JetBrains Mono',monospace;letter-spacing:1px">v18.9 ✦ STREAMFIX</div></div>
+    <div class="sb-item" style="opacity:0.4;cursor:default;font-size:10px"><div class="sb-icon"><svg width="8" height="8" viewBox="0 0 8 8" fill="currentColor"><circle cx="4" cy="4" r="3"/></svg></div><div class="sb-label" style="font-family:'JetBrains Mono',monospace;letter-spacing:1px">v19.0 ✦ COSTCUT</div></div>
   </div></div>
 </div>
 
@@ -531,7 +531,7 @@ nav { height:50px; background:rgba(245,235,220,0.9); backdrop-filter:blur(20px);
   </div>
 
   <div class="footer">
-    <div class="footer-item">MYCROFT.SYS · v18.9 ✦ STREAMFIX</div>
+    <div class="footer-item">MYCROFT.SYS · v19.0 ✦ COSTCUT</div>
     <div class="footer-live"><div class="sdot sdot-on"></div><span>LIVE</span></div>
     <div class="footer-item" id="footerDate">----</div>
     <div class="footer-item" style="border:1px solid rgba(170,60,55,0.45);color:rgba(170,60,55,0.85);border-radius:3px;padding:0 7px;letter-spacing:2px;transform:rotate(-1.5deg)">CLASSIFIED · 机密</div>
@@ -987,6 +987,7 @@ var MC_SAFETY = [
 function getApiKey(){ try{ return localStorage.getItem('mcApiKey')||''; }catch(e){ return ''; } }
 function setApiKeyStored(k){ try{ if(k) localStorage.setItem('mcApiKey',k); else localStorage.removeItem('mcApiKey'); }catch(e){} }
 function getModel(){ try{ return localStorage.getItem('mcModel')||MC_CFG.model; }catch(e){ return MC_CFG.model; } }
+var UTIL_MODEL='gemini-2.5-flash';   // 杂活（心情/留言/独白/日程/看穿/归纳/维护员/摘要/归档）用它，不用贵的主聊天模型
 function setModelStored(m){ try{ if(m) localStorage.setItem('mcModel',m); }catch(e){} }
 
 // ---- 记忆库 Ombre Brain：网址只存本地，不进代码（保护隐私）----
@@ -1244,10 +1245,10 @@ function innerSystem(){ return getPersona() + '\n' + INNER_PERSPECTIVE + _wbBloc
 function mcSleep(ms){ return new Promise(function(r){ setTimeout(r,ms); }); }
 
 // ---- 真正发请求给 Gemini（带自动重试）----
-async function callGemini(systemText, userText){
+async function callGemini(systemText, userText, modelOverride){
   var key=getApiKey();
   if(!key) throw new Error('NO_KEY');
-  var url=MC_CFG.endpoint+getModel()+':generateContent?key='+encodeURIComponent(key);
+  var url=MC_CFG.endpoint+(modelOverride||getModel())+':generateContent?key='+encodeURIComponent(key);
   var body={
     system_instruction:{ parts:[{ text:systemText }] },
     contents:[{ role:'user', parts:[{ text:userText }] }],
@@ -1310,7 +1311,7 @@ async function mycroftLine(triggerKey, extraReason){
   var ctx=gatherContext(triggerKey, extraReason);
   var ask=(TRIGGERS[triggerKey] ? TRIGGERS[triggerKey].ask : 'Say something to Cael, in character.');
   var user=ctx+'\n\nNOW: '+ask+'\nReply with the JSON only.';
-  return await callGemini(mycroftSystem(), user);
+  return await callGemini(mycroftSystem(), user, UTIL_MODEL);
 }
 
 // ===================================================================
@@ -1329,7 +1330,7 @@ async function updateMMood(){
   try{
     var ctx=gatherContext('status');
     var user=ctx+'\n\nNOW: Report Mycroft\'s REAL current mood on a 0-5 scale (0=at ease, 1=calm/good, 2=composed baseline, 3=tense, 4=agitated, 5=bleak). He is composed by nature, usually 1-3; it moves only with real cause — Caels mood, your recent interactions, how long since she last appeared, the time, how his day is going. Also give a short first-person reason in English (one clause, his guarded voice) AND its natural Chinese translation. ALSO give his OUTWARD façade label — the controlled face he shows publicly, which often hides the real mood: a short English word ("facade", e.g. Composed / Occupied / Distant / Cordial) + a one-word tag ("facadeTag", e.g. vigilant / detached / clipped). Reply JSON only: {"mood":<0-5 integer>,"reason":"<English>","reasonZh":"<中文>","facade":"<word>","facadeTag":"<word>"}.';
-    var d=await callGeminiJSON(privateSystem(), user, {type:'OBJECT',properties:{mood:{type:'INTEGER'},reason:{type:'STRING'},reasonZh:{type:'STRING'},facade:{type:'STRING'},facadeTag:{type:'STRING'}},required:['mood','reason','reasonZh','facade','facadeTag']});
+    var d=await callGeminiJSON(privateSystem(), user, {type:'OBJECT',properties:{mood:{type:'INTEGER'},reason:{type:'STRING'},reasonZh:{type:'STRING'},facade:{type:'STRING'},facadeTag:{type:'STRING'}},required:['mood','reason','reasonZh','facade','facadeTag']}, UTIL_MODEL);
     var v=parseInt(d.mood); if(isNaN(v)) v=2; v=Math.max(0,Math.min(5,v));
     state.mMoodHistory.push({t:Date.now(), v:v, reason:d.reason||'', reasonZh:d.reasonZh||'', facade:d.facade||''});
     persistMMood();
@@ -1366,7 +1367,7 @@ async function genMSchedule(){
       +'- OCCASIONALLY (sometimes, not most days) ONE item may be unusual / whimsical / human — an unscheduled hour, an odd detour, leaving early for no stated reason. Do not explain it in the item.\n'
       +'- VERY RARELY he is secretly planning a small surprise for Cael. ONLY in that rare case, fill "surprise": {time:"HH:MM", locked:true, label:"short mysterious placeholder, e.g. Personal · undisclosed", boardNote:"a SHORT (≤1 sentence) note he leaves Cael as the payoff, in his restrained dry voice — NO gushing, e.g. flowers that simply appeared", channel:"board or chat — where the payoff message appears"}. Otherwise OMIT "surprise" entirely.\n'
       +'- items s: concise English (e.g. Cabinet security review / Encrypted correspondence / Extracting Sherlock from a crime scene). offNote: short, e.g. "off duty · with you".\n- Output ONLY JSON.';
-    var d=await callGeminiJSON(sys, 'Generate the schedule JSON for '+weekday+'.', MSCHED_SCHEMA);
+    var d=await callGeminiJSON(sys, 'Generate the schedule JSON for '+weekday+'.', MSCHED_SCHEMA, UTIL_MODEL);
     if(d&&d.items){
       var st={}; try{ st=JSON.parse(localStorage.getItem('mcData')||'{}'); }catch(e){}
       st.mSchedule={ date:_fmtD(Date.now()), items:d.items, offTime:d.offTime||'', offNote:d.offNote||'off duty · with you', surprise:(d.surprise&&d.surprise.time)?d.surprise:null };
@@ -1408,7 +1409,7 @@ async function mStateLine(asleep){
   } else {
     user=ctx+'\n\nNOW: Your REAL private state at this exact moment, behind the controlled public façade'+(cur?' (per your schedule you are currently: '+cur+')':'')+'. 3-4 sentences, first person, candid and vivid — perhaps grumbling about the work or people around you, a problem on your desk, your brother, the day. She may or may not cross your mind; do not force it (third person if she does). Vary completely each time, never templated. "b"=English (no surrounding quotation marks), "t"=natural Chinese.';
   }
-  return await callGeminiJSON(privateSystem(), user, {type:'OBJECT',properties:{b:{type:'STRING'},t:{type:'STRING'}},required:['b','t']});
+  return await callGeminiJSON(privateSystem(), user, {type:'OBJECT',properties:{b:{type:'STRING'},t:{type:'STRING'}},required:['b','t']}, UTIL_MODEL);
 }
 var curMState=null;
 function loadMState(){ try{ return JSON.parse(localStorage.getItem('mcMState')||'null'); }catch(e){ return null; } }
@@ -2361,7 +2362,7 @@ function resetColors(){ try{ localStorage.removeItem('mcColors'); }catch(e){} lo
 async function genMycroft(instruction, triggerKey){
   var ctx=gatherContext(triggerKey||'note1');
   var user=ctx+'\n\nNOW: '+instruction+'\nReply with the JSON only.';
-  return await callGemini(mycroftSystem(), user);
+  return await callGemini(mycroftSystem(), user, UTIL_MODEL);
 }
 var _mGenBusy=false;
 async function maybeGenerateMNote(force){
@@ -2488,7 +2489,7 @@ async function doGenInner(){
     var today=dayKey(), p=currentPeriod();
     var _ctx=gatherContext('thought');
     var _user=_ctx+'\n\nNOW: Write a private inner-monologue fragment for this '+periodLabel(p)+', in his unguarded inner voice. It can be a quiet, dry-witted observation or evaluation of her (third person) — like noticing how she has been, a wry remark, an admission of the effect she has on him — OR an atmospheric/literary musing: a thought, a feeling, a prose- or poetry-like line, a confession, a 白描, a reflection on time or life, a line of literature, or love-language that suits her. Vary the subject and the length (sometimes crisp, sometimes lyrical); let the tone match the hour. NOT about your schedule or work. "b"=English (no surrounding quotation marks); "t"=natural, literary Chinese.';
-    var d=await callGeminiJSON(innerSystem(), _user, {type:'OBJECT',properties:{b:{type:'STRING'},t:{type:'STRING'}},required:['b','t']});
+    var d=await callGeminiJSON(innerSystem(), _user, {type:'OBJECT',properties:{b:{type:'STRING'},t:{type:'STRING'}},required:['b','t']}, UTIL_MODEL);
     var arr=loadInner();
     arr.push({ id:newId(), b:d.b, t:d.t, ts:Date.now(), dk:today, period:p, fav:false });
     saveInner(pruneInner(arr)); renderInner();
@@ -2749,7 +2750,7 @@ function ifFramedKey(lineId,br){ return (br&&br!=='main') ? ('mcIfFramed_'+lineI
 function chatKey(){ return _activeChat.type==='if' ? ifChatKey(_activeChat.id, _activeChat.branch||'main') : 'mcChat'; }
 function loadChat(){ try{ return JSON.parse(localStorage.getItem(chatKey())||'[]'); }catch(e){ return []; } }
 function saveChat(arr){ var k=chatKey(); var data=JSON.stringify(arr.slice(-500));
-  try{ var prev=localStorage.getItem(k); if(prev&&prev!=='[]'&&prev!=='null'){ try{ _rawSet(k+'_bak', prev); }catch(e){} } localStorage.setItem(k, data); }
+  try{ var prev=localStorage.getItem(k); if(prev&&prev!=='[]'&&prev!=='null'){ try{ var pj=JSON.parse(prev); _rawSet(k+'_bak', JSON.stringify(pj.length>60?pj.slice(-60):pj)); }catch(e){ _rawSet(k+'_bak', prev); } } localStorage.setItem(k, data); }
   catch(e){   // 空间满：清掉所有 *_bak 备份和快照，再写一次正本（保证消息不丢）
     try{ for(var i=localStorage.length-1;i>=0;i--){ var bk=localStorage.key(i); if(bk&&(/_bak$/.test(bk)||bk==='mcSnaps')){ try{ localStorage.removeItem(bk); }catch(e2){} } } }catch(e3){}
     try{ localStorage.setItem(k, data); }catch(e4){ try{ alert('手机存储空间满了，这条可能没存上。建议清理一些旧对话/存档。'); }catch(e5){} }
@@ -2809,7 +2810,7 @@ function showView(name){
   if(c) c.style.height=(name==='chat')?'100vh':'calc(100vh - 50px)';
   try{ var _an=(name==='chat'&&_activeChat.type==='if')?'if':name; document.querySelectorAll('.sb-item[data-view]').forEach(function(a){ a.classList.toggle('active', a.getAttribute('data-view')===_an); }); }catch(e){}
   if(typeof closeDrawer==='function') closeDrawer();
-  if(name==='chat'){ if(_chatLastMemIdx===null) _chatLastMemIdx=loadChat().length; updateChatHeader(); renderChat(); updateChatAutoBtn(); setTimeout(function(){ var i=document.getElementById('chatInput'); if(i) i.focus(); },80); }
+  if(name==='chat'){ if(_chatLastMemIdx===null) _chatLastMemIdx=loadChat().length; updateChatHeader(); renderChat(); updateChatAutoBtn(); setTimeout(function(){ var i=document.getElementById('chatInput'); if(i) i.focus(); },80); setTimeout(function(){ try{ if(typeof ensureDossierSum==='function') ensureDossierSum(); if(typeof ensurePastSum==='function') ensurePastSum(); }catch(e){} }, 600); }   // 进聊天时按需刷新卷宗/往事摘要（变了才重算）
   if(name==='if'){ renderIf(); }
   if(name==='memory'){ refreshMemory(); }
   if(name==='palace'){ renderPalace(); }
@@ -2948,7 +2949,7 @@ async function ifFoldToFramework(id, br){
     var convo=batch.map(function(m){ return (m.role==='user'?'我：':'他：')+(m.text||''); }).join('\n');
     var tail=getBranchFw(id,br).slice(-600);
     var sys='你在为一段 IF / 平行线角色扮演归纳长期记忆。把下面这段对话浓缩成【章节续写】：第一行是一个用 ## 开头的小标题，下面几条按顺序的要点，只记剧情主线 / 关键转折 / 关系或设定变化，不要原话细节、不要寒暄。直接输出续写正文。';
-    var draft=await callGeminiChat(sys, [{role:'user',parts:[{ text:'已有框架结尾（保持风格连贯）：\n'+(tail||'(无)')+'\n\n这段对话：\n'+convo }]}]);
+    var draft=await callGeminiChat(sys, [{role:'user',parts:[{ text:'已有框架结尾（保持风格连贯）：\n'+(tail||'(无)')+'\n\n这段对话：\n'+convo }]}], {model:UTIL_MODEL});
     if(draft&&draft.trim()){
       var cur=getBranchFw(id,br);
       setBranchFw(id, br, cur.trim()? (cur+'\n\n'+draft.trim()) : draft.trim());
@@ -3374,6 +3375,27 @@ function _setSendBtn(busy){ var b=document.getElementById('chatSendBtn'); if(!b)
 }
 function stopChat(){ if(_chatAbort){ try{ _chatAbort.abort(); }catch(e){} } }
 // 构建当前这条线的系统提示（sendChat 和"重新输出"复用）
+// ===== 卷宗 / 往事 的"精简摘要"：喂给聊天的是这个短版，省 token；存起来，内容变了才用便宜模型重算 =====
+function getDossierSum(){ try{ var o=JSON.parse(localStorage.getItem('mcDossierSum')||'null'); if(o&&o.text) return o.text; }catch(e){} var f=(typeof dossierText==='function')?dossierText():''; return f?f.slice(0,1600):''; }
+function getPastSum(){ try{ var o=JSON.parse(localStorage.getItem('mcPastSum')||'null'); if(o&&o.text) return o.text; }catch(e){} var f=(typeof pastText==='function')?pastText():''; return f?f.slice(0,1200):''; }
+async function ensureDossierSum(){
+  if(!getApiKey()) return;
+  var full=(typeof dossierText==='function')?dossierText():''; var L=full.length;
+  if(!L){ try{ localStorage.removeItem('mcDossierSum'); }catch(e){} return; }
+  var c=null; try{ c=JSON.parse(localStorage.getItem('mcDossierSum')||'null'); }catch(e){}
+  if(c && Math.abs((c.len||0)-L)<400) return;   // 没大变 → 不重算
+  try{ var r=await callGeminiChat('把下面这份"卷宗"（他对她的观察 + 他自己的设定）压成一段紧凑摘要：保留关键性格/习惯/偏好/雷点/关系事实/情绪基调，删细节与重复，~1200 字内，用他第一人称口吻。只输出摘要正文。', [{role:'user',parts:[{text:full.slice(0,30000)}]}], {model:UTIL_MODEL});
+    if(r&&r.trim()){ try{ localStorage.setItem('mcDossierSum', JSON.stringify({len:L, text:r.trim()})); }catch(e){} } }catch(e){}
+}
+async function ensurePastSum(){
+  if(!getApiKey()) return;
+  var full=(typeof pastText==='function')?pastText():''; var L=full.length;
+  if(!L){ try{ localStorage.removeItem('mcPastSum'); }catch(e){} return; }
+  var c=null; try{ c=JSON.parse(localStorage.getItem('mcPastSum')||'null'); }catch(e){}
+  if(c && Math.abs((c.len||0)-L)<400) return;
+  try{ var r=await callGeminiChat('把下面这份"往事时间线"（跳海前的前传背景）压成一段紧凑摘要：按真实先后保留关键事件、转折、关系变化，删细节原话，~800 字内。只输出摘要正文。', [{role:'user',parts:[{text:full.slice(0,20000)}]}], {model:UTIL_MODEL});
+    if(r&&r.trim()){ try{ localStorage.setItem('mcPastSum', JSON.stringify({len:L, text:r.trim()})); }catch(e){} } }catch(e){}
+}
 async function _chatBuildSys(lastUserText){
   var sys;
   if(_activeChat.type==='if'){
@@ -3385,22 +3407,20 @@ async function _chatBuildSys(lastUserText){
     if(_isMB) sys+='\n\n（这是从正史岔出的一条【主线分支】：你和她还是原来的你们，记得存档点之前的共同过去；存档点之后只按本分支的框架与最近对话来演，别把别的分支或正史后续的事算进来。）';
     else sys+='\n\n（这是一条 IF / 平行可能线，独立于正史：不要引用正史里发生过的事，只依本线的面具设定、框架与最近对话来演。）';
   } else {
-    var mem=''; try{ mem=mcCleanText(await ombreRecall(lastUserText||'',4)); }catch(e){}
-    var ctx=gatherContext('chat');
-    sys=chatSystem()+'\n\n=== LIVE CONTEXT (this very moment) ===\n'+ctx;
-    if(mem) sys+='\n\n=== RELEVANT MEMORIES OF YOUR SHARED PAST (weave in only if naturally relevant; never list) ===\n'+mem;
-    var _sk=getSkeletonText(); if(_sk&&_sk.trim()){ sys+='\n\n=== 长期记忆框架（世界观 / 时间线 / 关键事件）===\n'+_sk; }
+    // ===== 静态前缀（几乎每条都一样 → 让 Gemini 自动缓存、重复部分打折）=====
+    sys=chatSystem();
+    var _sk=getSkeletonText(); if(_sk&&_sk.trim()){ sys+='\n\n=== 长期记忆框架（世界观 / 时间线 / 关键事件 · 全量）===\n'+_sk; }
+    var _dsum=(typeof getDossierSum==='function')?getDossierSum():''; if(_dsum&&_dsum.trim()) sys+='\n\n=== 你的活档案 · 精简（你眼中的她 + 你自己的习惯原则；据此保持这个人的连贯，自然体现别照念）===\n'+_dsum;
+    var _psum=(typeof getPastSum==='function')?getPastSum():''; if(_psum&&_psum.trim()) sys+='\n\n=== 你们的往事 · 时间线 · 精简（背景记忆，按真实先后；写到从前依此对齐）===\n'+_psum;
+    // ===== 动态后缀（每条都变 → 放最后，不破坏前面的缓存）=====
     var _st=palaceShortText(); if(_st) sys+='\n\n=== 近期详细过程（短期 · 最近三天）===\n'+_st;
-    var _dos=(typeof dossierText==='function')?dossierText():''; if(_dos) sys+='\n\n=== 你的活档案（你自己建的：你眼中的她 + 你自己的习惯原则——务必据此保持这个人的连贯，自然体现，别照念）===\n'+_dos;
-    try{ var _lt=JSON.parse(localStorage.getItem('mcWBLastTakeover')||'null'); if(_lt&&_lt.text&&(Date.now()-_lt.t<259200000)) sys+='\n\n（你偶尔会顺着系统缝隙挤进她那个"维护员"频道、亲自冒出来跟她说几句。你记得最近一次你这么做、对她说过："'+_lt.text+'"——这事你心里有数，她若提起，你知道是怎么回事。）'; }catch(e){}
+    var ctx=gatherContext('chat'); sys+='\n\n=== LIVE CONTEXT (this very moment) ===\n'+ctx;
+    var mem=''; try{ mem=mcCleanText(await ombreRecall(lastUserText||'',4)); }catch(e){} if(mem) sys+='\n\n=== RELEVANT MEMORIES OF YOUR SHARED PAST (weave in only if naturally relevant; never list) ===\n'+mem;
+    try{ var _lt=JSON.parse(localStorage.getItem('mcWBLastTakeover')||'null'); if(_lt&&_lt.text&&(Date.now()-_lt.t<259200000)) sys+='\n\n（你偶尔会顺着系统缝隙挤进她那个"维护员"频道、亲自冒出来跟她说几句。你记得最近一次你这么做、对她说过："'+_lt.text+'"。）'; }catch(e){}
   }
-  // 往事时间线：正史 / 主线分支 共享的背景往事（IF 平行线不喂）
-  var _feedPast=(_activeChat.type!=='if')||(((getIfLine(_activeChat.id))||{}).kind==='mainbranch');
-  if(_feedPast){ var _pt=(typeof pastText==='function')?pastText():''; if(_pt&&_pt.trim()) sys+='\n\n=== 你们的往事 · 时间线（背景记忆，按真实先后；写到从前依此对齐）===\n'+_pt; }
-  // 世界书：用户的明文规矩与纠错，最高优先，喂进所有线——首尾双保险，确保模型必看必从
+  // 世界书：最高优先，放最前面（只发一遍；既是最高指令、也利于缓存）
   var _wb=(typeof getWorldBook==='function')?getWorldBook():'';
   if(_wb&&_wb.trim()){
-    sys+='\n\n=== 世界书 · 用户的规矩与纠错（最高优先，凌驾一切；任何冲突以此为准）===\n'+_wb;
     sys='【最高指令 · 必须无条件遵守】下面这些规矩凌驾于本提示中任何人设 / 文风 / 设定之上；与任何内容冲突，一律以此为准，违反即为错误。请在每一次回复里都严格执行：\n'+_wb+'\n\n——（以下是常规设定）——\n\n'+sys;
   }
   return sys;
@@ -3415,7 +3435,7 @@ async function sendChat(){
   if(inp){ inp.value=''; chatAutosize(inp); } renderChat();
   _chatBusy=true; _setSendBtn(true); if(sub) sub.textContent='正在斟酌……';
   try{
-    var recent=recentByChars(loadChat(), 60000);   // 短期：最近约6万字逐字喂；更早的进框架
+    var recent=recentByChars(loadChat(), 30000);   // 短期：最近约3万字逐字喂；更早的浓缩进长期框架
     var contents=recent.map(function(m){ return { role:(m.role==='user'?'user':'model'), parts:[{ text:m.text }] }; });
     var sys=await _chatBuildSys(text);
     // 占位"打字中"泡
@@ -3428,7 +3448,7 @@ async function sendChat(){
     if(pi>=0){ h2[pi].text=reply; h2[pi].pending=false; h2[pi].ts=Date.now(); } else { h2.push({role:'model',text:reply,ts:Date.now()}); }
     _userActiveTs=Date.now();   // 这轮对话是用户发起 → 保证回复也被同步推送
     saveChat(h2); renderChat();
-    if(_activeChat.type!=='if'){ setTimeout(chatAutoMemory,150); _dossierTick++; if(_dossierTick%8===0) setTimeout(function(){ dossierObserve(null,'gemini-2.5-flash-lite',true); }, 1200); if(_dossierTick%8===0) setTimeout(function(){ try{ var h=loadMainChat().filter(function(m){return !m.err;}); var convo=h.slice(-16).map(function(m){ return (m.role==='user'?'她：':'他：')+(m.text||''); }).join('\n'); _pastIngest(convo,false,'gemini-2.5-flash-lite'); }catch(e){} }, 2000); }   // 观察建档 + 往事归档（只认跳海前的前传，当前的事不记）
+    if(_activeChat.type!=='if'){ setTimeout(chatAutoMemory,150); _dossierTick++; if(_dossierTick%8===0) setTimeout(function(){ dossierObserve(null,UTIL_MODEL,true); }, 1200); if(_dossierTick%8===0) setTimeout(function(){ try{ var h=loadMainChat().filter(function(m){return !m.err;}); var convo=h.slice(-16).map(function(m){ return (m.role==='user'?'她：':'他：')+(m.text||''); }).join('\n'); _pastIngest(convo,false,UTIL_MODEL); }catch(e){} }, 2000); setTimeout(_graduateOld, 2600); }   // 观察建档 + 往事归档 + 旧聊天抄进长期框架（持续）
     else { var _fid=_activeChat.id, _fbr=_activeChat.branch||'main'; setTimeout(function(){ ifFoldToFramework(_fid,_fbr); }, 300); }
   }catch(e){
     var h3=loadChat(); for(var _j=h3.length-1;_j>=0;_j--){ if(h3[_j].pending){ h3.splice(_j,1); break; } } h3.push({role:'model',text:'（…连接出了点问题：'+e.message+'）',ts:Date.now(),err:true}); saveChat(h3); renderChat();
@@ -3461,7 +3481,7 @@ var MEM_DISTILL_SYS=[
 var MEM_SCHEMA={ type:'OBJECT', properties:{ worth:{type:'BOOLEAN'}, title:{type:'STRING'}, content:{type:'STRING'}, importance:{type:'INTEGER'}, valence:{type:'NUMBER'}, arousal:{type:'NUMBER'}, tags:{type:'STRING'} }, required:['worth','content','importance'] };
 async function chatDistill(msgs){
   var convo=msgs.map(function(m){ return (m.role==='user'?'Cael: ':'Mycroft: ')+m.text; }).join('\n\n');
-  return await callGeminiJSON(getPersona()+'\n'+MEM_DISTILL_SYS, '最近的对话片段：\n\n'+convo+'\n\n请判断是否值得记入长期记忆，并按 schema 输出。', MEM_SCHEMA);
+  return await callGeminiJSON(getPersona()+'\n'+MEM_DISTILL_SYS, '最近的对话片段：\n\n'+convo+'\n\n请判断是否值得记入长期记忆，并按 schema 输出。', MEM_SCHEMA, UTIL_MODEL);
 }
 var OMBRE_COMMIT=30000;   // 内容被埋过 3万字 → 固化进 Ombre（口嗨/回档没到这就永远不会进）
 var OMBRE_WARN=24000;     // 被埋过 2.4万字 → 提醒"快进 Ombre 了，趁现在删/改"
@@ -3788,7 +3808,7 @@ async function wbSend(){
       var ct=loadWBChat(); ct.push({role:'assistant',text:g+'…… ⚡ —— 信号中断 ——',glitch:true}); saveWBChat(ct); renderWorld();
       var msys=getPersona()+'\n\n=== 维护频道·被你顶号（极少数·彩蛋）===\n你是 Mycroft。这条"维护员"频道本不归你管，但此刻你顺着系统缝隙挤了进来、临时顶掉那个维护员，亲自回她——通常是因为她在这儿说的话让你【实在无语 / 在意 / 想插一句】。\n你看得到她和维护员刚才聊了什么、也知道你们主线最近的事。用你自己的口吻回她（克制、反讽、占有欲藏着、简短，几句即可），回完就退回去。别提 AI/系统/维护员这些词，就当是你挤了进来。'+NO_SQ;
       var ctx2='【她和维护员刚才的对话】\n'+convo+'\n\n【你们主线最近】\n'+(mainTail||'（暂无）')+'\n\n她最新一句（本是对维护员说的）："'+text+'"\n\n你顶号，回她。';
-      var rep=''; try{ rep=await callGeminiChat(msys,[{role:'user',parts:[{text:ctx2}]}]); }catch(e){}
+      var rep=''; try{ rep=await callGeminiChat(msys,[{role:'user',parts:[{text:ctx2}]}], {model:UTIL_MODEL}); }catch(e){}
       var ct2=loadWBChat();
       if(rep&&rep.trim()){ ct2.push({role:'assistant',text:rep.trim(),by:'mycroft'}); try{ localStorage.setItem('mcWBLastTakeover',JSON.stringify({t:Date.now(),text:rep.trim().slice(0,200)})); }catch(e){} saveWBChat(ct2); _userActiveTs=Date.now(); return; }
       else { for(var z=ct2.length-1;z>=0;z--){ if(ct2[z]&&ct2[z].glitch){ ct2.splice(z,1); break; } } saveWBChat(ct2); }   // 他没顶上来→撤掉中断，走正常维护员
@@ -3798,7 +3818,7 @@ async function wbSend(){
       +'\n\n【当前世界书】\n'+(getWorldBook()||'（空）')
       +'\n\n【你和她的对话】\n'+convo
       +'\n\n据她最新一句，按你的性格回应；属于②③才更新世界书（完整版），①闲聊则原样返回世界书。';
-    var r=await callGeminiJSON(wbAssistantSys(), payload, WB_SCHEMA);
+    var r=await callGeminiJSON(wbAssistantSys(), payload, WB_SCHEMA, UTIL_MODEL);
     _userActiveTs=Date.now();   // 命令是用户发起的 → 确保保存被标记为真改动+推送（即使 API 慢）
     var changed=false;
     if(r&&typeof r.worldbook==='string'){ var prev=getWorldBook(); if(r.worldbook.trim()!==prev.trim()){ try{ localStorage.setItem('mcWorldBook_bak', prev); localStorage.setItem('mcWorldBook', r.worldbook); }catch(e){} changed=true; } }
@@ -3874,7 +3894,7 @@ async function pastTrimOne(id){
   _pastBusy=true;
   try{
     var sys='把下面这段往事【狠狠精简】，只留主干：主要情节、关键转折、核心情感。其余的铺垫、心理描写、环境渲染、堆砌的修饰、重复——能删就删，大胆压缩合并句子，篇幅要明显短很多（哪怕只剩原来的三四成也行），宁短勿长。\n但主要发生了什么、关键的情感与转折不能丢。\n【绝对禁止】改人名与称呼（"你/他/她/Cael/Mycroft"一律原样，谁是谁绝不换）、改变谁做了什么、编造原文没有的内容、改变人称视角。\n直接输出精简后的正文，不要前后缀、不要引号、不要解释。';
-    var out=await callGeminiChat(sys, [{role:'user',parts:[{ text:it.text }]}], {temperature:0.2});
+    var out=await callGeminiChat(sys, [{role:'user',parts:[{ text:it.text }]}], {temperature:0.2, model:UTIL_MODEL});
     if(out&&out.trim()){ var full=loadPast(); for(var j=0;j<full.length;j++){ if(full[j].id===id){ full[j].text=out.trim(); break; } } savePast(full); renderPast(); }
     else alert('没精简出内容，再试一次？');
   }catch(e){ alert('精简失败：'+e.message); }
@@ -3954,7 +3974,7 @@ async function pastTidy(){ // 重新整理 order（让 AI 校准全时间线顺�
   try{
     var lst=a.map(function(x,i){ return i+'｜'+x.text.slice(0,80); }).join('\n');
     var sys='下面是 Cael 过去的若干段故事（格式：序号｜内容节选）。请只输出每段的正确先后 order（数字，越小越早，按真实发生时间排）。按 schema：events 为数组，每个 {time:序号的字符串, order:数字}（time 用原序号）。';
-    var r=await callGeminiJSON(sys, lst, {type:'OBJECT',properties:{events:{type:'ARRAY',items:{type:'OBJECT',properties:{time:{type:'STRING'},order:{type:'NUMBER'}},required:['time','order']}}},required:['events']});
+    var r=await callGeminiJSON(sys, lst, {type:'OBJECT',properties:{events:{type:'ARRAY',items:{type:'OBJECT',properties:{time:{type:'STRING'},order:{type:'NUMBER'}},required:['time','order']}}},required:['events']}, UTIL_MODEL);
     var evs=(r&&r.events)||[]; evs.forEach(function(ev){ var idx=parseInt(ev.time,10); if(!isNaN(idx)&&a[idx]&&typeof ev.order==='number') a[idx].order=ev.order; });
     savePast(a); renderPast();
   }catch(e){ alert('整理失败：'+e.message); }
@@ -3986,7 +4006,7 @@ async function pastReorganize(){
     var cur=_pastSorted();
     var src=cur.map(function(x,i){ return (i+1)+'. '+(x.time?'【'+x.time+'】':'')+x.text; }).join('\n\n');
     var sys='下面每一条是 Cael 一段独立的往事（编号即顺序）。请【逐条删冗余】：删掉重复啰嗦、可有可无的修饰，但主要情节、关键细节、情感都要留。\n【绝对禁止】改写句子、替换或改动任何人名与称呼（"你/他/她/Cael/Mycroft"原样保留、谁是谁绝不能换）、改变谁做了什么、改变事实或人称视角。只删字，不改写。\n【铁律】输出条数必须与输入【完全一致】、一一对应：第 N 条输出 = 删冗余后的第 N 条输入。绝不许合并、拆分、改顺序、增删条目。每条给 time（小标题，照原样）和 text。order 用输入编号。';
-    var r=await callGeminiJSON(sys, src, PAST_SCHEMA);
+    var r=await callGeminiJSON(sys, src, PAST_SCHEMA, UTIL_MODEL);
     var evs=(r&&r.events)||[];
     if(evs.length!==cur.length){ alert('为防打乱：AI 返回的条数（'+evs.length+'）和你的（'+cur.length+'）对不上，这次【没有改动】，你的往事原样保留。'); return; }
     var na=cur.map(function(x,i){ var ev=evs[i]||{}; return {id:x.id, time:(ev.time||x.time||'').trim(), order:x.order, text:((ev.text||'').trim()||x.text), src:x.src, ts:x.ts}; });
@@ -4383,7 +4403,7 @@ async function skeletonAIDraft(btn){
   try{
     var idx=''; try{ idx=mcCleanText(await ombreCallTool('pulse',{})); }catch(e){}
     var sys=getPersona()+'\n\n=== 任务 ===\n根据下面这些记忆，梳理出 Mycroft 与 Cael 之间故事的【长期记忆框架】：包含世界观要点、按时间顺序的剧情主线/时间线、关键事件与关系变化。用清晰的中文、分段或小标题，写成一篇可读的框架正文（不要 JSON，不要寒暄，直接给框架）。';
-    var draft=await callGeminiChat(sys, [{role:'user',parts:[{ text:'记忆清单：\n\n'+(idx||'(暂无)').slice(0,6000)+'\n\n请输出长期记忆框架正文。' }]}]);
+    var draft=await callGeminiChat(sys, [{role:'user',parts:[{ text:'记忆清单：\n\n'+(idx||'(暂无)').slice(0,6000)+'\n\n请输出长期记忆框架正文。' }]}], {model:UTIL_MODEL});
     if(draft){ var cur=getSkeletonText(); setSkeletonText(cur.trim()? (cur+'\n\n———— AI 梳理 ————\n'+draft) : draft); _skEditMode=false; renderSkeleton(); }
     else alert('没梳理出内容，再试一次？');
   }catch(e){ alert('梳理失败：'+e.message); }
@@ -4398,8 +4418,8 @@ async function foldChatToFramework(onlyOld){
   var hist=loadMainChat().filter(function(m){return !m.err;});
   var since=getFramedUntil();
   var slice=hist.filter(function(m){ return (m.ts||0)>since; });
-  if(onlyOld){ // 只归纳"已沉到最近6万字以外（被新内容埋住）"的旧剧情
-    var budget=60000, total=0, keepFrom=0;
+  if(onlyOld){ // 只归纳"已沉到最近3万字以外（被新内容埋住）"的旧剧情
+    var budget=30000, total=0, keepFrom=0;
     for(var i=hist.length-1;i>=0;i--){ total+=(hist[i].text||'').length; if(total>budget){ keepFrom=i+1; break; } }
     var oldMsgs=hist.slice(0,keepFrom);
     slice=oldMsgs.filter(function(m){ return (m.ts||0)>since; });
@@ -4408,7 +4428,7 @@ async function foldChatToFramework(onlyOld){
   var convo=slice.map(function(m){ return (m.role==='user'?'Cael：':'Mycroft：')+m.text; }).join('\n');
   var tail=getSkeletonText().slice(-700);
   var sys=getPersona()+'\n\n=== 任务 ===\n下面是最近发生的一段剧情对话。请浓缩成【时间线续写】，与已有框架风格一致：一个 **小标题**（用两个星号包住）+ 几条数字要点，按发生顺序，只记主线/关键事件/关系进展，不要细节原话、不要寒暄。直接输出这段续写正文。';
-  var draft=await callGeminiChat(sys, [{role:'user',parts:[{ text:'已有框架结尾（保持风格连贯）：\n'+tail+'\n\n最近剧情：\n'+convo }]}]);
+  var draft=await callGeminiChat(sys, [{role:'user',parts:[{ text:'已有框架结尾（保持风格连贯）：\n'+tail+'\n\n最近剧情：\n'+convo }]}], {model:UTIL_MODEL});
   if(!draft||!draft.trim()) return {none:true};
   var latest=slice[slice.length-1].ts||Date.now();
   setSkeletonText(getSkeletonText()+'\n\n## 【续写 · '+_fmtD(latest)+'】\n'+draft.trim());
@@ -4426,6 +4446,8 @@ async function skFoldNow(btn){
   finally{ if(btn){ btn.disabled=false; btn.textContent='✦ 补进时间线'; } }
 }
 async function autoGraduate(){ if(!getApiKey()) return; try{ await foldChatToFramework(true); }catch(e){} }
+var _gradBusy=false, _gradLast=0;
+async function _graduateOld(){ if(_gradBusy||!getApiKey()) return; if(Date.now()-_gradLast<60000) return; _gradBusy=true; _gradLast=Date.now(); try{ await foldChatToFramework(true); }catch(e){} finally{ _gradBusy=false; } }   // 持续把"沉出3万窗口"的旧剧情抄进长期框架
 
 // ===== 多端同步（Supabase + 端到端加密 + 密码锁）=====
 var SUPA_URL='https://xoftoucrykibjxmmuqqi.supabase.co';
@@ -4442,7 +4464,8 @@ async function _enc(plain,pass){ var salt=crypto.getRandomValues(new Uint8Array(
 async function _dec(payload,pass){ var o=JSON.parse(payload); var key=await _deriveKey(pass,_ub64(o.s)); var pt=await crypto.subtle.decrypt({name:'AES-GCM',iv:_ub64(o.iv)},key,_ub64(o.c)); return new TextDecoder().decode(pt); }
 function _skipKey(k){ return !!(SYNC_SKIP[k] || k==='_origSet' || /_bak$/.test(k) || k.indexOf('mcSnap')===0); }   // 备份/快照键：不参与同步、不被覆盖
 function _bundleLocal(){ var o={}; for(var i=0;i<localStorage.length;i++){ var k=localStorage.key(i); if(_skipKey(k)) continue; o[k]=localStorage.getItem(k); } return o; }
-function _snapBeforeRestore(){ try{ var o={}; for(var i=0;i<localStorage.length;i++){ var k=localStorage.key(i); if(_skipKey(k)) continue; var v=localStorage.getItem(k); if(v&&_isMsgArr(v)) o[k]=v; } _rawSet('mcSnaps', JSON.stringify([{ts:Date.now(), data:o}])); }catch(e){} }   // 只快照聊天类、且只留 1 份——省空间，防 iOS 存储配额爆掉
+function _snapBeforeRestore(){ try{ var o={}; for(var i=0;i<localStorage.length;i++){ var k=localStorage.key(i); if(_skipKey(k)) continue; var v=localStorage.getItem(k); if(v&&_isMsgArr(v)){ try{ var vj=JSON.parse(v); o[k]=JSON.stringify(vj.length>80?vj.slice(-80):vj); }catch(e){ o[k]=v; } } } _rawSet('mcSnaps', JSON.stringify([{ts:Date.now(), data:o}])); }catch(e){} }   // 只快照聊天类·只留1份·每条只留最近80条——省空间防 iOS 配额爆
+function _trimBackups(){ try{ for(var i=localStorage.length-1;i>=0;i--){ var k=localStorage.key(i); if(k&&/_bak$/.test(k)){ try{ var a=JSON.parse(localStorage.getItem(k)); if(Array.isArray(a)&&a.length>60) _rawSet(k, JSON.stringify(a.slice(-60))); }catch(e){} } } var s=null; try{ s=JSON.parse(localStorage.getItem('mcSnaps')||'null'); }catch(e){} if(s&&s.length){ s.forEach(function(sn){ if(sn&&sn.data) Object.keys(sn.data).forEach(function(dk){ try{ var a=JSON.parse(sn.data[dk]); if(Array.isArray(a)&&a.length>80) sn.data[dk]=JSON.stringify(a.slice(-80)); }catch(e){} }); }); try{ _rawSet('mcSnaps', JSON.stringify(s)); }catch(e){} } }catch(e){} }   // 一次性：把已经存在的超大备份/快照瘦下来，立即腾出手机空间
 function _stableStr(o){ return JSON.stringify(Object.keys(o).sort().map(function(k){return [k,o[k]];})); }
 function _isMsgArr(v){ try{ var a=JSON.parse(v); return Array.isArray(a)&&a.length>0&&a[0]&&typeof a[0]==='object'&&('role' in a[0]); }catch(e){ return false; } }
 function _mergeMsgs(a, b){ var seen={}, out=[]; function key(m){ return (m.role||'')+'|'+(m.ts||0)+'|'+((m.text||'').slice(0,60)); } var all=(a||[]).concat(b||[]); all.sort(function(x,y){ return (x.ts||0)-(y.ts||0); }); for(var i=0;i<all.length;i++){ var m=all[i], k=key(m); if(!seen[k]){ seen[k]=1; out.push(m); } } return out; }   // 并集：按时间排，按(角色+时间+内容)去重，绝不丢
@@ -4571,6 +4594,7 @@ setInterval(function(){ if(_syncReady && document.visibilityState==='visible' &&
   },{passive:true});
 })();
 // ===== START =====
+try{ _trimBackups(); }catch(e){}   // 开机先把超大备份/快照瘦身，腾出手机存储
 syncInit();
 initMBoard();              // 清掉旧写死占位
 seedInnerIfEmpty();
