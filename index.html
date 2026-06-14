@@ -367,7 +367,7 @@ nav { height:50px; background:rgba(245,235,220,0.9); backdrop-filter:blur(20px);
   <div class="sb-bottom"><div class="sb-nav" style="padding:0">
     <a class="sb-item" onclick="openPanel('settings');closeDrawer()"><div class="sb-icon"><svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="7" cy="7" r="2.5"/><path d="M7 1 L7 2.5 M7 11.5 L7 13 M1 7 L2.5 7 M11.5 7 L13 7 M2.9 2.9 L4 4 M10 10 L11.1 11.1 M11.1 2.9 L10 4 M4 10 L2.9 11.1"/></svg></div><div class="sb-label">Settings</div></a>
     <a class="sb-item" onclick="openPanel('creator');closeDrawer()"><div class="sb-icon"><svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="4" cy="4" r="2"/><circle cx="10" cy="4" r="2"/><circle cx="7" cy="10" r="2"/><line x1="4" y1="6" x2="7" y2="8"/><line x1="10" y1="6" x2="7" y2="8"/></svg></div><div class="sb-label">Creator Mode</div></a>
-    <div class="sb-item" style="opacity:0.4;cursor:default;font-size:10px"><div class="sb-icon"><svg width="8" height="8" viewBox="0 0 8 8" fill="currentColor"><circle cx="4" cy="4" r="3"/></svg></div><div class="sb-label" style="font-family:'JetBrains Mono',monospace;letter-spacing:1px">v23.7 ✦ PULL-RETRY</div></div>
+    <div class="sb-item" style="opacity:0.4;cursor:default;font-size:10px"><div class="sb-icon"><svg width="8" height="8" viewBox="0 0 8 8" fill="currentColor"><circle cx="4" cy="4" r="3"/></svg></div><div class="sb-label" style="font-family:'JetBrains Mono',monospace;letter-spacing:1px">v23.8 ✦ VOICE-UNSTICK</div></div>
   </div></div>
 </div>
 
@@ -385,7 +385,7 @@ nav { height:50px; background:rgba(245,235,220,0.9); backdrop-filter:blur(20px);
   <div class="sb-bottom"><div class="sb-nav" style="padding:0">
     <a class="sb-item" onclick="openPanel('settings')"><div class="sb-icon"><svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="7" cy="7" r="2.5"/><path d="M7 1 L7 2.5 M7 11.5 L7 13 M1 7 L2.5 7 M11.5 7 L13 7 M2.9 2.9 L4 4 M10 10 L11.1 11.1 M11.1 2.9 L10 4 M4 10 L2.9 11.1"/></svg></div><div class="sb-label">Settings</div></a>
     <a class="sb-item" onclick="openPanel('creator')"><div class="sb-icon"><svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="4" cy="4" r="2"/><circle cx="10" cy="4" r="2"/><circle cx="7" cy="10" r="2"/><line x1="4" y1="6" x2="7" y2="8"/><line x1="10" y1="6" x2="7" y2="8"/></svg></div><div class="sb-label">Creator Mode</div></a>
-    <div class="sb-item" style="opacity:0.4;cursor:default;font-size:10px"><div class="sb-icon"><svg width="8" height="8" viewBox="0 0 8 8" fill="currentColor"><circle cx="4" cy="4" r="3"/></svg></div><div class="sb-label" style="font-family:'JetBrains Mono',monospace;letter-spacing:1px">v23.7 ✦ PULL-RETRY</div></div>
+    <div class="sb-item" style="opacity:0.4;cursor:default;font-size:10px"><div class="sb-icon"><svg width="8" height="8" viewBox="0 0 8 8" fill="currentColor"><circle cx="4" cy="4" r="3"/></svg></div><div class="sb-label" style="font-family:'JetBrains Mono',monospace;letter-spacing:1px">v23.8 ✦ VOICE-UNSTICK</div></div>
   </div></div>
 </div>
 
@@ -531,7 +531,7 @@ nav { height:50px; background:rgba(245,235,220,0.9); backdrop-filter:blur(20px);
   </div>
 
   <div class="footer">
-    <div class="footer-item">MYCROFT.SYS · v23.7 ✦ PULL-RETRY</div>
+    <div class="footer-item">MYCROFT.SYS · v23.8 ✦ VOICE-UNSTICK</div>
     <div class="footer-live"><div class="sdot sdot-on"></div><span>LIVE</span></div>
     <div class="footer-item" id="footerDate">----</div>
     <div class="footer-item" style="border:1px solid rgba(170,60,55,0.45);color:rgba(170,60,55,0.85);border-radius:3px;padding:0 7px;letter-spacing:2px;transform:rotate(-1.5deg)">CLASSIFIED · 机密</div>
@@ -1064,7 +1064,8 @@ async function ttsSyncWebsite(btn){   // 拉取你这把声音在 ElevenLabs 的
   }catch(e){ if(btn) alert('拉取失败：'+e.message); }
   finally{ if(btn) btn.disabled=false; }
 }
-var _ttsAudio=null, _ttsBusy=false, _ttsCache={};
+var _ttsAudio=null, _ttsBusy=false, _ttsCache={}, _ttsBusyAt=0;
+function _ttsLocked(){ if(_ttsBusy && (Date.now()-_ttsBusyAt)<40000) return true; _ttsBusy=false; return false; }   // 自愈：忙超过 40s 视为卡死、强制解锁，避免一次卡死后语音永远点不动
 function _extractDialogue(text){
   text=(typeof mcCleanText==='function'?mcCleanText(text||''):(text||'')); var out=[];
   var re=/"([^"]+)"|“([^”]+)”|「([^」]+)」|『([^』]+)』/g, m;
@@ -1096,7 +1097,10 @@ async function _elevenSpeak(text, model, vsOverride){
   else if(model==='eleven_v3'){ vs={stability:getTtsStab(), speed:getTtsSpeed(), use_speaker_boost:true}; }   // v3 情绪靠[标签]，不发 style(克隆声会被 style 扭曲变不像)；稳定度保住像他
   else { vs={stability:getTtsStab(), similarity_boost:getTtsSim(), style:getTtsStyle(), use_speaker_boost:true}; }   // v2 默认
   var body={ text:text, model_id:model }; if(vs) body.voice_settings=vs;
-  var r=await fetch('https://api.elevenlabs.io/v1/text-to-speech/'+encodeURIComponent(vid)+'?output_format=mp3_44100_128',{ method:'POST', headers:{'xi-api-key':key,'Content-Type':'application/json'}, body:JSON.stringify(body) });
+  var _ac=new AbortController(), _to=setTimeout(function(){ try{ _ac.abort(); }catch(e){} }, 30000);   // 30s 超时，避免请求卡死把语音锁死
+  var r; try{ r=await fetch('https://api.elevenlabs.io/v1/text-to-speech/'+encodeURIComponent(vid)+'?output_format=mp3_44100_128',{ method:'POST', headers:{'xi-api-key':key,'Content-Type':'application/json'}, body:JSON.stringify(body), signal:_ac.signal }); }
+  catch(e){ clearTimeout(_to); throw new Error(_ac.signal.aborted?'生成超时（30秒没响应）':('网络错误：'+e.message)); }
+  clearTimeout(_to);
   if(!r.ok){ var t=''; try{ t=await r.text(); }catch(e){} throw new Error('HTTP '+r.status+' '+t.slice(0,140)); }
   var buf=await r.arrayBuffer(); return URL.createObjectURL(new Blob([buf],{type:'audio/mpeg'}));
 }
@@ -1108,7 +1112,7 @@ async function chatSpeak(i){
   var dlg=_extractDialogue(m.text); if(!dlg) return;   // 这条没台词就不读
   var ck=(m.ts||i)+'|'+dlg.length+'|'+getTtsStab()+'|'+getTtsStyle()+'|'+getTtsSim();
   if(_ttsCache[ck]){ _ttsPlay(_ttsCache[ck]); return; }   // 重听免费（改了情绪参数会重生成）
-  _ttsBusy=true; var btn=document.getElementById('spk'+i); if(btn) btn.style.opacity='.35';
+  _ttsBusy=true; _ttsBusyAt=Date.now(); var btn=document.getElementById('spk'+i); if(btn) btn.style.opacity='.35';
   try{
     var en=await _prepLine(dlg, m.text);   // 翻英文 + 标情绪（亲密→温柔）
     var mdl=getTtsModel(), url;
@@ -1182,26 +1186,26 @@ async function _voiceGenSeg(key, idx){ var d=_voiceData[key]; if(!d) return null
   var url; try{ url=await _elevenSpeak(txt, mdl, vsOv); }catch(e){ url=await _elevenSpeak(_stripTags(seg.en),'eleven_multilingual_v2'); }   // 失败回退保真模型(去标签)
   seg.url=url; return url; }
 async function chatVoice(i){   // "▶ 全部朗读"：依次念他的每句，句间按旁白长短停顿
-  if(_ttsBusy) return; if(!getElevenKey()||!getElevenVoice()){ alert('先在 Settings 填 ElevenLabs key 和 Voice ID'); return; }
+  if(_ttsLocked()) return; if(!getElevenKey()||!getElevenVoice()){ alert('先在 Settings 填 ElevenLabs key 和 Voice ID'); return; }
   var m=loadChat()[i]; if(!m) return; var key=String(m.ts||i); if(!_voiceData[key]) await _voiceTranslateNow(i); var d=_voiceData[key]; if(!d) return;
   var gaps=_voiceNarrGaps(d.parts);
-  _ttsBusy=true; var btn=document.getElementById('spk'+i); if(btn) btn.style.opacity='.35';
+  _ttsBusy=true; _ttsBusyAt=Date.now(); var btn=document.getElementById('spk'+i); if(btn) btn.style.opacity='.35';
   try{ for(var idx=0; idx<d.segs.length; idx++){ if(!d.segs[idx].mine) continue; var url=await _voiceGenSeg(key, idx); if(url) await _playAndWait(url); if(idx<d.segs.length-1) await _sleep(Math.min(450, 50+(gaps[idx]||0)*2)); } }   // 句间间隔再缩短
   catch(e){ alert('朗读失败：'+e.message); }
   finally{ _ttsBusy=false; if(btn) btn.style.opacity=''; }
 }
 async function chatLineSpeak(i, idx){
-  if(_ttsBusy) return; if(!getElevenKey()||!getElevenVoice()){ alert('先在 Settings 填 ElevenLabs key 和 Voice ID'); return; }
+  if(_ttsLocked()) return; if(!getElevenKey()||!getElevenVoice()){ alert('先在 Settings 填 ElevenLabs key 和 Voice ID'); return; }
   var m=loadChat()[i]; if(!m) return; var key=String(m.ts||i); if(!_voiceData[key]) await _voiceTranslateNow(i);
   var d=_voiceData[key]; if(!d) return; var seg=d.segs[idx]; if(!seg||!seg.mine) return;
   if(seg.url){ _ttsPlayUrl(seg.url); return; }
-  _ttsBusy=true; try{ var url=await _voiceGenSeg(key, idx); if(url) _ttsPlayUrl(url); }catch(e){ alert('朗读失败：'+e.message); } finally{ _ttsBusy=false; }
+  _ttsBusy=true; _ttsBusyAt=Date.now(); try{ var url=await _voiceGenSeg(key, idx); if(url) _ttsPlayUrl(url); }catch(e){ alert('朗读失败：'+e.message); } finally{ _ttsBusy=false; }
 }
 async function chatLineReroll(i, idx){   // ↻ 重新生成：丢掉这条、用当前设置重生成一条（v3 是随机的→换个味道；v2 也会重出）
-  if(_ttsBusy) return; if(!getElevenKey()||!getElevenVoice()){ alert('先在 Settings 填 ElevenLabs key 和 Voice ID'); return; }
+  if(_ttsLocked()) return; if(!getElevenKey()||!getElevenVoice()){ alert('先在 Settings 填 ElevenLabs key 和 Voice ID'); return; }
   var m=loadChat()[i]; if(!m) return; var key=String(m.ts||i); if(!_voiceData[key]) await _voiceTranslateNow(i);
   var d=_voiceData[key]; if(!d) return; var seg=d.segs[idx]; if(!seg||!seg.mine) return;
-  _ttsBusy=true; var rb=document.getElementById('rr'+i+'_'+idx); if(rb) rb.style.opacity='.3';
+  _ttsBusy=true; _ttsBusyAt=Date.now(); var rb=document.getElementById('rr'+i+'_'+idx); if(rb) rb.style.opacity='.3';
   try{ try{ if(seg.url) URL.revokeObjectURL(seg.url); }catch(e){} seg.url=null; var url=await _voiceGenSeg(key, idx); if(url) _ttsPlayUrl(url); }
   catch(e){ alert('重新生成失败：'+e.message); } finally{ _ttsBusy=false; if(rb) rb.style.opacity='.5'; }
 }
@@ -4910,6 +4914,7 @@ setInterval(function(){ maybeGenerateMNote(false); maybeGenerateInner(); updateM
 </script>
 </body>
 </html>
+
 
 
 
