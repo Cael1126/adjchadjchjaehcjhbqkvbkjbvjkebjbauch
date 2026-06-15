@@ -367,7 +367,7 @@ nav { height:50px; background:rgba(245,235,220,0.9); backdrop-filter:blur(20px);
   <div class="sb-bottom"><div class="sb-nav" style="padding:0">
     <a class="sb-item" onclick="openPanel('settings');closeDrawer()"><div class="sb-icon"><svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="7" cy="7" r="2.5"/><path d="M7 1 L7 2.5 M7 11.5 L7 13 M1 7 L2.5 7 M11.5 7 L13 7 M2.9 2.9 L4 4 M10 10 L11.1 11.1 M11.1 2.9 L10 4 M4 10 L2.9 11.1"/></svg></div><div class="sb-label">Settings</div></a>
     <a class="sb-item" onclick="openPanel('creator');closeDrawer()"><div class="sb-icon"><svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="4" cy="4" r="2"/><circle cx="10" cy="4" r="2"/><circle cx="7" cy="10" r="2"/><line x1="4" y1="6" x2="7" y2="8"/><line x1="10" y1="6" x2="7" y2="8"/></svg></div><div class="sb-label">Creator Mode</div></a>
-    <div class="sb-item" style="opacity:0.4;cursor:default;font-size:10px"><div class="sb-icon"><svg width="8" height="8" viewBox="0 0 8 8" fill="currentColor"><circle cx="4" cy="4" r="3"/></svg></div><div class="sb-label" style="font-family:'JetBrains Mono',monospace;letter-spacing:1px">v24.1 ✦ MOOD-REAL</div></div>
+    <div class="sb-item" style="opacity:0.4;cursor:default;font-size:10px"><div class="sb-icon"><svg width="8" height="8" viewBox="0 0 8 8" fill="currentColor"><circle cx="4" cy="4" r="3"/></svg></div><div class="sb-label" style="font-family:'JetBrains Mono',monospace;letter-spacing:1px">v24.5 ✦ FAST-NOCUT</div></div>
   </div></div>
 </div>
 
@@ -385,7 +385,7 @@ nav { height:50px; background:rgba(245,235,220,0.9); backdrop-filter:blur(20px);
   <div class="sb-bottom"><div class="sb-nav" style="padding:0">
     <a class="sb-item" onclick="openPanel('settings')"><div class="sb-icon"><svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="7" cy="7" r="2.5"/><path d="M7 1 L7 2.5 M7 11.5 L7 13 M1 7 L2.5 7 M11.5 7 L13 7 M2.9 2.9 L4 4 M10 10 L11.1 11.1 M11.1 2.9 L10 4 M4 10 L2.9 11.1"/></svg></div><div class="sb-label">Settings</div></a>
     <a class="sb-item" onclick="openPanel('creator')"><div class="sb-icon"><svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="4" cy="4" r="2"/><circle cx="10" cy="4" r="2"/><circle cx="7" cy="10" r="2"/><line x1="4" y1="6" x2="7" y2="8"/><line x1="10" y1="6" x2="7" y2="8"/></svg></div><div class="sb-label">Creator Mode</div></a>
-    <div class="sb-item" style="opacity:0.4;cursor:default;font-size:10px"><div class="sb-icon"><svg width="8" height="8" viewBox="0 0 8 8" fill="currentColor"><circle cx="4" cy="4" r="3"/></svg></div><div class="sb-label" style="font-family:'JetBrains Mono',monospace;letter-spacing:1px">v24.1 ✦ MOOD-REAL</div></div>
+    <div class="sb-item" style="opacity:0.4;cursor:default;font-size:10px"><div class="sb-icon"><svg width="8" height="8" viewBox="0 0 8 8" fill="currentColor"><circle cx="4" cy="4" r="3"/></svg></div><div class="sb-label" style="font-family:'JetBrains Mono',monospace;letter-spacing:1px">v24.5 ✦ FAST-NOCUT</div></div>
   </div></div>
 </div>
 
@@ -531,7 +531,7 @@ nav { height:50px; background:rgba(245,235,220,0.9); backdrop-filter:blur(20px);
   </div>
 
   <div class="footer">
-    <div class="footer-item">MYCROFT.SYS · v24.1 ✦ MOOD-REAL</div>
+    <div class="footer-item">MYCROFT.SYS · v24.5 ✦ FAST-NOCUT</div>
     <div class="footer-live"><div class="sdot sdot-on"></div><span>LIVE</span></div>
     <div class="footer-item" id="footerDate">----</div>
     <div class="footer-item" style="border:1px solid rgba(170,60,55,0.45);color:rgba(170,60,55,0.85);border-radius:3px;padding:0 7px;letter-spacing:2px;transform:rotate(-1.5deg)">CLASSIFIED · 机密</div>
@@ -585,6 +585,7 @@ nav { height:50px; background:rgba(245,235,220,0.9); backdrop-filter:blur(20px);
       <div style="font-family:'Playfair Display',serif;font-size:15px;color:var(--text);font-weight:600">记忆库 · Ombre Brain</div>
       <div id="memSubtitle" style="font-size:10px;color:var(--text3)">泛黄褶皱里尘封的旧账</div>
     </div>
+    <div id="memPrivBtn" onclick="memTogglePrivacy()" title="给朋友看时遮住内容，只留标题" style="cursor:pointer;color:var(--gold);font-size:11px;padding:5px 10px;border:1px solid var(--border2);border-radius:7px">🔒 已遮住 · 点击显示</div>
     <div onclick="refreshMemory()" title="刷新" style="cursor:pointer;color:var(--text4);font-size:11px;padding:5px 10px;border:1px solid var(--border2);border-radius:7px">刷新</div>
   </div>
   <div style="padding:12px 22px 8px;flex-shrink:0">
@@ -831,6 +832,7 @@ nav { height:50px; background:rgba(245,235,220,0.9); backdrop-filter:blur(20px);
 .mem-card:hover{ transform:translateY(-2px); box-shadow:0 5px 16px rgba(140,100,60,0.11); }
 .mem-stripe{ position:absolute; top:0; left:0; right:0; height:2px; opacity:0.75; }
 .mem-title{ font-family:'Noto Serif SC',serif; font-size:15px; font-weight:500; color:var(--text); line-height:1.6; }
+.mem-private .mem-title{ filter:blur(7px); user-select:none; }   /* 隐私模式：只糊标题，其它保持清晰 */
 .mem-meta{ font-family:'Noto Serif SC',serif; font-size:10px; color:var(--text3); margin-top:7px; letter-spacing:.5px; }
 .mem-summary{ font-family:'Noto Serif SC',serif; font-weight:400; font-size:12.5px; color:var(--text2); line-height:1.9; margin-top:10px; }
 .mem-tags{ display:flex; flex-wrap:wrap; gap:5px; margin-top:12px; }
@@ -1278,7 +1280,12 @@ async function ombreCallTool(name,args){
   return '';
 }
 // 回忆：按当前话题精准检索（返回纯文本摘要）
-async function ombreRecall(query,n){ if(!ombreEnabled()||!query) return ''; try{ return await ombreCallTool('breath',{query:query,max_results:(n||3)}); }catch(e){ return ''; } }
+async function ombreRecall(query,n){ if(!ombreEnabled()||!query) return '';
+  try{
+    var _race=new Promise(function(_,rej){ setTimeout(function(){ rej(new Error('ombre-timeout')); }, 5000); });   // 记忆库 5s 没回就放弃，免得免费服务器冷启动把回复拖慢
+    return await Promise.race([ ombreCallTool('breath',{query:query,max_results:(n||3)}), _race ]);
+  }catch(e){ return ''; }
+}
 // 存储：把一件事记进记忆库
 async function ombreHold(content,opts){
   if(!ombreEnabled()||!content) return false; opts=opts||{};
@@ -3191,7 +3198,7 @@ function _renderOutlineInto(box,text){
   var bl=_skParse(text), html='', open=false;
   bl.forEach(function(b){
     if(b.t==='h1'){ if(open){ html+='</div></div>'; open=false; } html+='<div style="font-family:\'Noto Serif SC\',serif;font-size:17px;font-weight:700;color:var(--text);margin:2px 0 14px">'+_skInline(b.x)+'</div>'; return; }
-    if(b.t==='h2'){ if(open){ html+='</div></div>'; } html+='<div style="margin-bottom:11px;border:1px solid var(--border2);border-radius:11px;overflow:hidden"><div onclick="palToggleSec(this)" style="cursor:pointer;padding:11px 14px;display:flex;align-items:center;gap:9px;background:var(--gold-dim)"><span class="pal-caret" style="color:var(--gold);font-size:10px">▼</span><span style="font-family:\'Noto Serif SC\',serif;font-size:14px;font-weight:600;color:var(--text2)">'+_skInline(b.x)+'</span></div><div class="pal-sec-body" style="padding:11px 15px;background:var(--s1)">'; open=true; return; }
+    if(b.t==='h2'){ if(open){ html+='</div></div>'; } html+='<div style="margin-bottom:11px;border:1px solid var(--border2);border-radius:11px;overflow:hidden"><div onclick="palToggleSec(this)" style="cursor:pointer;padding:11px 14px;display:flex;align-items:center;gap:9px;background:var(--gold-dim)"><span class="pal-caret" style="color:var(--gold);font-size:10px">▶</span><span style="font-family:\'Noto Serif SC\',serif;font-size:14px;font-weight:600;color:var(--text2)">'+_skInline(b.x)+'</span></div><div class="pal-sec-body" style="display:none;padding:11px 15px;background:var(--s1)">'; open=true; return; }
     var inner='';
     if(b.t==='sub') inner='<div style="font-family:\'Noto Serif SC\',serif;font-size:13px;font-weight:600;color:var(--gold);margin:13px 0 6px">'+_skInline(b.x)+'</div>';
     else if(b.t==='item') inner='<div style="display:flex;gap:9px;margin:6px 0;font-family:\'Noto Serif SC\',serif;font-size:13px;line-height:1.8;color:var(--text3)"><span style="color:var(--gold);font-size:11px;min-width:17px;text-align:right">'+b.n+'</span><span style="flex:1">'+_skInline(b.x)+'</span></div>';
@@ -3514,7 +3521,7 @@ async function callGeminiChat(systemText, contents, opts){
   opts=opts||{};
   var key=getApiKey(); if(!key) throw new Error('NO_KEY');
   var url=MC_CFG.endpoint+(opts.model||getModel())+':generateContent?key='+encodeURIComponent(key);
-  var body={ system_instruction:{ parts:[{ text:systemText }] }, contents:contents, safetySettings:MC_SAFETY, generationConfig:{ temperature:(opts.temperature!=null?opts.temperature:MC_CFG.temperature) } };
+  var body={ system_instruction:{ parts:[{ text:systemText }] }, contents:contents, safetySettings:MC_SAFETY, generationConfig:{ temperature:(opts.temperature!=null?opts.temperature:MC_CFG.temperature), maxOutputTokens:8192 } };   // 显式调高输出上限，避免长回复被截断
   for(var attempt=0; attempt<3; attempt++){
     if(attempt>0) await mcSleep(800*attempt);
     var resp;
@@ -3536,7 +3543,7 @@ async function callGeminiChatStream(systemText, contents, onChunk, opts){
   opts=opts||{};
   var key=getApiKey(); if(!key) throw new Error('NO_KEY');
   var url=MC_CFG.endpoint+(opts.model||getModel())+':streamGenerateContent?alt=sse&key='+encodeURIComponent(key);
-  var body={ system_instruction:{ parts:[{ text:systemText }] }, contents:contents, safetySettings:MC_SAFETY, generationConfig:{ temperature:(opts.temperature!=null?opts.temperature:MC_CFG.temperature) } };
+  var body={ system_instruction:{ parts:[{ text:systemText }] }, contents:contents, safetySettings:MC_SAFETY, generationConfig:{ temperature:(opts.temperature!=null?opts.temperature:MC_CFG.temperature), maxOutputTokens:8192 } };   // 显式调高输出上限，避免长回复被截断
   var resp=await fetch(url,{ method:'POST', headers:{ 'Content-Type':'application/json' }, body:JSON.stringify(body), signal:opts.signal });
   if(!resp.ok){ var t=await resp.text(); throw new Error('HTTP '+resp.status+'：'+t.slice(0,120)); }
   if(!resp.body||!resp.body.getReader) throw new Error('NO_STREAM');
@@ -3997,8 +4004,11 @@ async function memCardImp(btn, id, delta){
   if(valEl) valEl.textContent=nv;
   try{ await ombreCallTool('trace',{bucket_id:id,importance:nv}); for(var j=0;j<_memAll.length;j++){ if(_memAll[j].id===id){ _memAll[j].imp=String(nv); break; } } }catch(e){ if(valEl) valEl.textContent='!'; }
 }
+var _memPrivacy=true;   // 进记忆库默认遮住（给朋友看时）
+function memTogglePrivacy(){ _memPrivacy=!_memPrivacy; var l=document.getElementById('memList'); if(l) l.classList.toggle('mem-private',_memPrivacy); var b=document.getElementById('memPrivBtn'); if(b){ b.textContent=_memPrivacy?'🔒 已遮住 · 点击显示':'👁 已显示 · 点击遮回'; b.style.color=_memPrivacy?'var(--gold)':'var(--text4)'; } }
 function renderMemCards(arr){
   var list=document.getElementById('memList'); if(!list) return;
+  list.classList.toggle('mem-private',_memPrivacy);   // 每次渲染都保持当前遮挡状态
   if(!arr||!arr.length){ list.innerHTML='<div style="margin:auto;color:var(--text3);font-size:12px;padding:30px;text-align:center">暂无记忆</div>'; return; }
   list.innerHTML='<div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:11px;align-items:start;width:100%">'+arr.map(memCardHTML).join('')+'</div>';
   list.scrollTop=0;
@@ -4512,7 +4522,7 @@ function renderSkeletonView(box){
   var bl=_skParse(getSkeletonText()), html='', open=false;
   bl.forEach(function(b){
     if(b.t==='h1'){ if(open){ html+='</div></div>'; open=false; } html+='<div style="font-family:\'Noto Serif SC\',serif;font-size:17px;font-weight:700;color:var(--text);margin:2px 0 14px">'+_skInline(b.x)+'</div>'; return; }
-    if(b.t==='h2'){ if(open){ html+='</div></div>'; } html+='<div style="margin-bottom:11px;border:1px solid var(--border2);border-radius:11px;overflow:hidden"><div onclick="palToggleSec(this)" style="cursor:pointer;padding:11px 14px;display:flex;align-items:center;gap:9px;background:var(--gold-dim)"><span class="pal-caret" style="color:var(--gold);font-size:10px">▼</span><span style="font-family:\'Noto Serif SC\',serif;font-size:14px;font-weight:600;color:var(--text2)">'+_skInline(b.x)+'</span></div><div class="pal-sec-body" style="padding:11px 15px;background:var(--s1)">'; open=true; return; }
+    if(b.t==='h2'){ if(open){ html+='</div></div>'; } html+='<div style="margin-bottom:11px;border:1px solid var(--border2);border-radius:11px;overflow:hidden"><div onclick="palToggleSec(this)" style="cursor:pointer;padding:11px 14px;display:flex;align-items:center;gap:9px;background:var(--gold-dim)"><span class="pal-caret" style="color:var(--gold);font-size:10px">▶</span><span style="font-family:\'Noto Serif SC\',serif;font-size:14px;font-weight:600;color:var(--text2)">'+_skInline(b.x)+'</span></div><div class="pal-sec-body" style="display:none;padding:11px 15px;background:var(--s1)">'; open=true; return; }
     var inner='';
     if(b.t==='sub') inner='<div style="font-family:\'Noto Serif SC\',serif;font-size:13px;font-weight:600;color:var(--gold);margin:13px 0 6px">'+_skInline(b.x)+'</div>';
     else if(b.t==='item') inner='<div style="display:flex;gap:9px;margin:6px 0;font-family:\'Noto Serif SC\',serif;font-size:13px;line-height:1.8;color:var(--text3)"><span style="color:var(--gold);font-size:11px;min-width:17px;text-align:right">'+b.n+'</span><span style="flex:1">'+_skInline(b.x)+'</span></div>';
@@ -4926,6 +4936,10 @@ setInterval(function(){ maybeGenerateMNote(false); maybeGenerateInner(); updateM
 </script>
 </body>
 </html>
+
+
+
+
 
 
 
