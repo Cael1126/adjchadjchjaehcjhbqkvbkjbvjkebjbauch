@@ -367,7 +367,7 @@ nav { height:50px; background:rgba(245,235,220,0.9); backdrop-filter:blur(20px);
   <div class="sb-bottom"><div class="sb-nav" style="padding:0">
     <a class="sb-item" onclick="openPanel('settings');closeDrawer()"><div class="sb-icon"><svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="7" cy="7" r="2.5"/><path d="M7 1 L7 2.5 M7 11.5 L7 13 M1 7 L2.5 7 M11.5 7 L13 7 M2.9 2.9 L4 4 M10 10 L11.1 11.1 M11.1 2.9 L10 4 M4 10 L2.9 11.1"/></svg></div><div class="sb-label">Settings</div></a>
     <a class="sb-item" onclick="openPanel('creator');closeDrawer()"><div class="sb-icon"><svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="4" cy="4" r="2"/><circle cx="10" cy="4" r="2"/><circle cx="7" cy="10" r="2"/><line x1="4" y1="6" x2="7" y2="8"/><line x1="10" y1="6" x2="7" y2="8"/></svg></div><div class="sb-label">Creator Mode</div></a>
-    <div class="sb-item" style="opacity:0.4;cursor:default;font-size:10px"><div class="sb-icon"><svg width="8" height="8" viewBox="0 0 8 8" fill="currentColor"><circle cx="4" cy="4" r="3"/></svg></div><div class="sb-label" style="font-family:'JetBrains Mono',monospace;letter-spacing:1px">v23.8 ✦ VOICE-UNSTICK</div></div>
+    <div class="sb-item" style="opacity:0.4;cursor:default;font-size:10px"><div class="sb-icon"><svg width="8" height="8" viewBox="0 0 8 8" fill="currentColor"><circle cx="4" cy="4" r="3"/></svg></div><div class="sb-label" style="font-family:'JetBrains Mono',monospace;letter-spacing:1px">v24.1 ✦ MOOD-REAL</div></div>
   </div></div>
 </div>
 
@@ -385,7 +385,7 @@ nav { height:50px; background:rgba(245,235,220,0.9); backdrop-filter:blur(20px);
   <div class="sb-bottom"><div class="sb-nav" style="padding:0">
     <a class="sb-item" onclick="openPanel('settings')"><div class="sb-icon"><svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="7" cy="7" r="2.5"/><path d="M7 1 L7 2.5 M7 11.5 L7 13 M1 7 L2.5 7 M11.5 7 L13 7 M2.9 2.9 L4 4 M10 10 L11.1 11.1 M11.1 2.9 L10 4 M4 10 L2.9 11.1"/></svg></div><div class="sb-label">Settings</div></a>
     <a class="sb-item" onclick="openPanel('creator')"><div class="sb-icon"><svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="4" cy="4" r="2"/><circle cx="10" cy="4" r="2"/><circle cx="7" cy="10" r="2"/><line x1="4" y1="6" x2="7" y2="8"/><line x1="10" y1="6" x2="7" y2="8"/></svg></div><div class="sb-label">Creator Mode</div></a>
-    <div class="sb-item" style="opacity:0.4;cursor:default;font-size:10px"><div class="sb-icon"><svg width="8" height="8" viewBox="0 0 8 8" fill="currentColor"><circle cx="4" cy="4" r="3"/></svg></div><div class="sb-label" style="font-family:'JetBrains Mono',monospace;letter-spacing:1px">v23.8 ✦ VOICE-UNSTICK</div></div>
+    <div class="sb-item" style="opacity:0.4;cursor:default;font-size:10px"><div class="sb-icon"><svg width="8" height="8" viewBox="0 0 8 8" fill="currentColor"><circle cx="4" cy="4" r="3"/></svg></div><div class="sb-label" style="font-family:'JetBrains Mono',monospace;letter-spacing:1px">v24.1 ✦ MOOD-REAL</div></div>
   </div></div>
 </div>
 
@@ -531,7 +531,7 @@ nav { height:50px; background:rgba(245,235,220,0.9); backdrop-filter:blur(20px);
   </div>
 
   <div class="footer">
-    <div class="footer-item">MYCROFT.SYS · v23.8 ✦ VOICE-UNSTICK</div>
+    <div class="footer-item">MYCROFT.SYS · v24.1 ✦ MOOD-REAL</div>
     <div class="footer-live"><div class="sdot sdot-on"></div><span>LIVE</span></div>
     <div class="footer-item" id="footerDate">----</div>
     <div class="footer-item" style="border:1px solid rgba(170,60,55,0.45);color:rgba(170,60,55,0.85);border-radius:3px;padding:0 7px;letter-spacing:2px;transform:rotate(-1.5deg)">CLASSIFIED · 机密</div>
@@ -750,8 +750,11 @@ nav { height:50px; background:rgba(245,235,220,0.9); backdrop-filter:blur(20px);
       <div class="panel-section">
         <div class="panel-section-title">✦ 存储用量（本机）</div>
         <div id="storageUsage" style="font-size:11px;color:var(--text3);line-height:1.7">—</div>
-        <button class="panel-save-btn" style="margin-top:8px;padding:7px;font-size:11px;background:var(--s2)" onclick="refreshStorageUsage()">↻ 刷新用量</button>
-        <div style="font-size:9px;color:var(--text4);margin-top:6px;line-height:1.6">手机浏览器一般上限约 5 MB。超过约 80% 我会提醒你清理（备份/快照会自动裁剪）。语音不占这里（只在内存）。</div>
+        <div style="display:flex;gap:8px;margin-top:8px">
+          <button class="panel-save-btn" style="flex:1;padding:7px;font-size:11px;background:var(--s2)" onclick="refreshStorageUsage()">↻ 刷新用量</button>
+          <button class="panel-save-btn" style="flex:1;padding:7px;font-size:11px;background:var(--s2)" onclick="cleanupBackups()">🧹 清理备份/快照</button>
+        </div>
+        <div style="font-size:9px;color:var(--text4);margin-top:6px;line-height:1.6">手机浏览器一般上限约 5 MB。「清理备份/快照」<b>只删应急复制品（*_bak / 快照），不动你的聊天/设定/世界书</b>。语音不占这里（只在内存）。</div>
       </div>
       <div class="panel-section">
         <div class="panel-section-title">✦ 记忆库 · Ombre Brain</div>
@@ -1386,7 +1389,7 @@ function gatherContext(triggerKey, extraReason){
   var _cms=caelMoodSummary();
   if(_cms) lines.push('- (Quiet background only. Usually say nothing about it and speak of other things — even an extreme mood you rarely raise in these passing notes/remarks; deeper response to her feelings belongs in real conversation, not here. Only once in a long while, quietly.) Her mood today: '+_cms+'.');
   var _mm=getMMoodInfo();
-  lines.push('- Your (Mycroft\'s) own mood right now: '+_mm.label+'. Let it quietly colour your tone — do not state it.');
+  lines.push('- 你（Mycroft）此刻的真实心境：'+_mm.label+(_mm.reasonZh?'（缘由：'+_mm.reasonZh+'）':'')+'。别明说出来，但要让它【真实地改变你的分寸】，让她能从你的语气里察觉到：心境好（舒展/平静）时更松、更愿意靠近、话里多一分暖；克制是常态；紧绷/烦躁/阴沉时明显更短、更冷、更锋利或干脆沉默几分——绝不是毫无变化的同一副腔调。');
   // 他今天的日程 + 此刻在做什么（让 Chat 等都"知道"他的一天；但和她在一起时时间不硬约束）
   var _sch2=(typeof getMSchedule==='function')?getMSchedule():null;
   if(_sch2){
@@ -1571,7 +1574,8 @@ async function updateMMood(){
   _mMoodBusy=true;
   try{
     var ctx=gatherContext('status');
-    var user=ctx+'\n\nNOW: Report Mycroft\'s REAL current mood on a 0-5 scale (0=at ease, 1=calm/good, 2=composed baseline, 3=tense, 4=agitated, 5=bleak). He is composed by nature, usually 1-3; it moves only with real cause — Caels mood, your recent interactions, how long since she last appeared, the time, how his day is going. Also give a short first-person reason in English (one clause, his guarded voice) AND its natural Chinese translation. ALSO give his OUTWARD façade label — the controlled face he shows publicly, which often hides the real mood: a short English word ("facade", e.g. Composed / Occupied / Distant / Cordial) + a one-word tag ("facadeTag", e.g. vigilant / detached / clipped). Reply JSON only: {"mood":<0-5 integer>,"reason":"<English>","reasonZh":"<中文>","facade":"<word>","facadeTag":"<word>"}.';
+    var _rc=''; try{ var _h=loadMainChat().filter(function(m){return !m.err&&!m.pending;}); _rc=_h.slice(-8).map(function(m){ return (m.role==='user'?'她：':'他：')+(m.text||'').slice(0,220); }).join('\n'); }catch(e){}
+    var user=ctx+(_rc?('\n\n最近你们的对话（他此刻的心境主要被这些影响，要随对话真实起伏、别老停在同一档）：\n'+_rc):'')+'\n\nNOW: Report Mycroft\'s REAL current mood on a 0-5 scale (0=at ease, 1=calm/good, 2=composed baseline, 3=tense, 4=agitated, 5=bleak). He is composed by nature, usually 1-3; it moves only with real cause — Caels mood, your recent interactions, how long since she last appeared, the time, how his day is going. Also give a short first-person reason in English (one clause, his guarded voice) AND its natural Chinese translation. ALSO give his OUTWARD façade label — the controlled face he shows publicly, which often hides the real mood: a short English word ("facade", e.g. Composed / Occupied / Distant / Cordial) + a one-word tag ("facadeTag", e.g. vigilant / detached / clipped). Reply JSON only: {"mood":<0-5 integer>,"reason":"<English>","reasonZh":"<中文>","facade":"<word>","facadeTag":"<word>"}.';
     var d=await callGeminiJSON(privateSystem(), user, {type:'OBJECT',properties:{mood:{type:'INTEGER'},reason:{type:'STRING'},reasonZh:{type:'STRING'},facade:{type:'STRING'},facadeTag:{type:'STRING'}},required:['mood','reason','reasonZh','facade','facadeTag']}, UTIL_MODEL);
     var v=parseInt(d.mood); if(isNaN(v)) v=2; v=Math.max(0,Math.min(5,v));
     state.mMoodHistory.push({t:Date.now(), v:v, reason:d.reason||'', reasonZh:d.reasonZh||'', facade:d.facade||''});
@@ -2366,6 +2370,15 @@ function refreshStorageUsage(){   // 只读：算本机 localStorage 用量（UT
   var col=pct>=80?'var(--red,#e06)':(pct>=60?'var(--gold)':'var(--green,#6c6)');
   var el=document.getElementById('storageUsage');
   if(el) el.innerHTML='共 <b style="color:'+col+'">'+_fmtKB(total)+'</b> / 约 5 MB（'+pct.toFixed(1)+'%）· '+n+' 项'+(pct>=80?' <b style="color:var(--red,#e06)">⚠ 偏满，建议清理</b>':'')+'<br><span style="color:var(--text4);font-size:9px">占用最多：<br>'+big+'</span>';
+}
+function cleanupBackups(){   // 只删安全网（*_bak / mcSnap*），绝不动真数据
+  var keys=[], freed=0;
+  for(var i=0;i<localStorage.length;i++){ var k=localStorage.key(i); if(k && (/_bak$/.test(k) || k.indexOf('mcSnap')===0)){ keys.push(k); freed+=(k.length+(localStorage.getItem(k)||'').length)*2/1024; } }
+  if(!keys.length){ alert('没有备份/快照可清——已经很干净了。'); return; }
+  if(!confirm('将清理 '+keys.length+' 个【备份/快照副本】，腾出约 '+_fmtKB(freed)+'。\n\n这些只是应急复制品；你的聊天 / 设定 / 世界书 / IF 各线【一条都不会动】。\n\n确定清理？')) return;
+  keys.forEach(function(k){ try{ localStorage.removeItem(k); }catch(e){} });
+  try{ refreshStorageUsage(); }catch(e){}
+  alert('✓ 已清理 '+keys.length+' 项，腾出约 '+_fmtKB(freed)+'。你的数据完好无损。');
 }
 function loadPanelData(){
   try{ refreshStorageUsage(); }catch(e){}
@@ -3683,7 +3696,7 @@ async function _chatBuildSys(lastUserText){
     sys=chatSystem();
     var _sk=getSkeletonText(); if(_sk&&_sk.trim()){ sys+='\n\n=== 长期记忆框架（世界观 / 时间线 / 关键事件 · 全量）===\n'+_sk; }
     var _dsum=(typeof getDossierSum==='function')?getDossierSum():''; if(_dsum&&_dsum.trim()) sys+='\n\n=== 你的活档案 · 精简（你眼中的她 + 你自己的习惯原则；据此保持这个人的连贯，自然体现别照念）===\n'+_dsum;
-    var _psum=(typeof getPastSum==='function')?getPastSum():''; if(_psum&&_psum.trim()) sys+='\n\n=== 你们的往事 · 时间线 · 精简（背景记忆，按真实先后；写到从前依此对齐）===\n'+_psum;
+    // 往事时间线：只记录、不喂进对话（省 token）——它仍在「往事」页保存/整理，需要时人工查
     // ===== 动态后缀（每条都变 → 放最后，不破坏前面的缓存）=====
     var _st=palaceShortText(); if(_st) sys+='\n\n=== 近期详细过程（短期 · 最近三天）===\n'+_st;
     var ctx=gatherContext('chat'); sys+='\n\n=== LIVE CONTEXT (this very moment) ===\n'+ctx;
@@ -3722,7 +3735,6 @@ async function sendChat(){
     saveChat(h2);
     if(getElevenKey()){ var _vi=(pi>=0?pi:h2.length-1); try{ await _voiceTranslateNow(_vi); }catch(e){} }   // 先翻好这条 → 双语台词+▶ 跟文本一起出现，不再先出原文再跳变
     renderChat();
-    if(getElevenKey()&&getElevenVoice()&&getAutoVoice()){ var _vi=(pi>=0?pi:h2.length-1); setTimeout(function(){ try{ chatVoice(_vi); }catch(e){} }, 120); }   // 新回复跟文本一起：自动朗读他这条的台词
     if(_activeChat.type!=='if'){ setTimeout(chatAutoMemory,150); _dossierTick++; if(_dossierTick%8===0) setTimeout(function(){ dossierObserve(null,UTIL_MODEL,true); }, 1200); if(_dossierTick%8===0) setTimeout(function(){ try{ var h=loadMainChat().filter(function(m){return !m.err;}); var convo=h.slice(-16).map(function(m){ return (m.role==='user'?'她：':'他：')+(m.text||''); }).join('\n'); _pastIngest(convo,false,UTIL_MODEL); }catch(e){} }, 2000); setTimeout(_graduateOld, 2600); }   // 观察建档 + 往事归档 + 旧聊天抄进长期框架（持续）
     else { var _fid=_activeChat.id, _fbr=_activeChat.branch||'main'; setTimeout(function(){ ifFoldToFramework(_fid,_fbr); }, 300); }
   }catch(e){
@@ -4372,7 +4384,7 @@ async function dossierObserve(btn, model, silent){
     var hist=loadMainChat().filter(function(m){return !m.err;});
     var convo=hist.slice(-40).map(function(m){ return (m.role==='user'?'她：':'他：')+(m.text||''); }).join('\n'); if(convo.length>9000) convo=convo.slice(convo.length-9000);
     var sk=(typeof getSkeletonText==='function'?getSkeletonText():'').slice(-1500);
-    var sys=getPersona()+'\n\n你是 Mycroft，在为你和 Cael 悄悄建档（你本就爱观察、推理、建档）。\n【人称·统一】整本卷宗都用【你自己的第一人称「我」】口吻来写；提到 Cael 时一律用「她」。her 栏＝我对她的记录，him 栏＝我对我自己的记录——但口吻都是"我"。\n【分档·严格】her / him / base 三档【只记稳定的特质 / 信息 / 设定】（习惯、偏好、雷点、作息、外貌、长期设定、待她的固定做法…）——【绝不记"发生了什么事/剧情/事件"，也绝不记情绪感受】。情绪/心境/情感动态 → 只进 emo 档；具体发生过的事件 → 根本不进卷宗（那是时间线/记忆库的事）。不要空泛套话、不复述对话。\n每条带：cat=大类，topic=具体小标，text=内容。【text 务必精简、信息密度高、一句话说清，删掉废话/修饰/铺垫，只留干货】。\n【处理变化】某事变了→用【同一个 topic】输出【最新】text 覆盖旧的（别新旧都留）。\n① her：关于她的【信息事实】（我的口吻记）。\n② him：关于我自己的【信息事实】。\n③ emo（情绪档）：你和她之间的情绪、心境、感受、情感的起伏与变化——只放这里，别混进上面三档。\n④ base（基础设定）：只在注意到【固定不变的底层信息】时记——场景/房间/格局、世界设定、关系定位、专有名词、长期规则；每条一句话；没有就空数组，别把会变的日常塞进来。\n【宁缺毋滥·只记重要的】只记【真正重要、稳定、值得长期留】的；琐碎、临时、一次性、有事没事的小事一律【不记】。大多数轮次根本没有值得记的新东西 → 就【全部空数组】，这很正常，别为了记而记。emo / base 同理：只在确实重要时才记，别硬凑。\n只输出【新的、且重要的】；宁可不记，也不要灌水。';
+    var sys=getPersona()+'\n\n你是 Mycroft，在为你和 Cael 悄悄建档（你本就爱观察、推理、建档）。\n【人称·统一】整本卷宗都用【你自己的第一人称「我」】口吻来写；提到 Cael 时一律用「她」。her 栏＝我对她的记录，him 栏＝我对我自己的记录——但口吻都是"我"。\n【分档·严格】her / him / base 三档【只记稳定的特质 / 信息 / 设定】（习惯、偏好、雷点、作息、外貌、长期设定、待她的固定做法…）——【绝不记"发生了什么事/剧情/事件"，也绝不记情绪感受】。情绪/心境/情感动态 → 只进 emo 档；具体发生过的事件 → 根本不进卷宗（那是时间线/记忆库的事）。不要空泛套话、不复述对话。\n每条带：cat=大类，topic=具体小标，text=内容。【text 必须极简——一句话一个事实，像清单条目：不解释、不铺垫、不加形容词。范式：「她喜欢吃水果」「她会在晚上出门散步」「她洗澡不喜欢开灯」「我处理工作时习惯把灯调暗，因为她喜欢暗」。至多带一个简短因果（…因为…），别展开】。\n【处理变化】某事变了→用【同一个 topic】输出【最新】text 覆盖旧的（别新旧都留）。\n【自动优化】若发现已有某条写得啰嗦/重复/能合并，就用它的 topic 输出一句【更精简】的版本覆盖掉——让卷宗越用越干净，而不是越堆越多。\n① her：关于她的【信息事实】（我的口吻记）。\n② him：关于我自己的【信息事实】。\n③ emo（情绪档）：你和她之间的情绪、心境、感受、情感的起伏与变化——只放这里，别混进上面三档。\n④ base（基础设定）：只在注意到【固定不变的底层信息】时记——场景/房间/格局、世界设定、关系定位、专有名词、长期规则；每条一句话；没有就空数组，别把会变的日常塞进来。\n【宁缺毋滥·只记重要的】只记【真正重要、稳定、值得长期留】的；琐碎、临时、一次性、有事没事的小事一律【不记】。大多数轮次根本没有值得记的新东西 → 就【全部空数组】，这很正常，别为了记而记。emo / base 同理：只在确实重要时才记，别硬凑。\n只输出【新的、且重要的】；宁可不记，也不要灌水。';
     var u='已有·她：\n'+(her.items.map(function(x){return x.text;}).join('\n')||'(空)')+'\n\n已有·他：\n'+(him.items.map(function(x){return x.text;}).join('\n')||'(空)')+'\n\n时间线节选：\n'+(sk||'(无)')+'\n\n最近相处：\n'+(convo||'(还没聊)')+'\n\n请按 schema 输出新条目。';
     var r=await callGeminiJSON(sys, u, DOSSIER_SCHEMA, model);
     var added=0;
@@ -4914,6 +4926,9 @@ setInterval(function(){ maybeGenerateMNote(false); maybeGenerateInner(); updateM
 </script>
 </body>
 </html>
+
+
+
 
 
 
