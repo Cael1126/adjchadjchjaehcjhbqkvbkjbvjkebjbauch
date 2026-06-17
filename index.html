@@ -367,7 +367,7 @@ nav { height:50px; background:rgba(245,235,220,0.9); backdrop-filter:blur(20px);
   <div class="sb-bottom"><div class="sb-nav" style="padding:0">
     <a class="sb-item" onclick="openPanel('settings');closeDrawer()"><div class="sb-icon"><svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="7" cy="7" r="2.5"/><path d="M7 1 L7 2.5 M7 11.5 L7 13 M1 7 L2.5 7 M11.5 7 L13 7 M2.9 2.9 L4 4 M10 10 L11.1 11.1 M11.1 2.9 L10 4 M4 10 L2.9 11.1"/></svg></div><div class="sb-label">Settings</div></a>
     <a class="sb-item" onclick="openPanel('creator');closeDrawer()"><div class="sb-icon"><svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="4" cy="4" r="2"/><circle cx="10" cy="4" r="2"/><circle cx="7" cy="10" r="2"/><line x1="4" y1="6" x2="7" y2="8"/><line x1="10" y1="6" x2="7" y2="8"/></svg></div><div class="sb-label">Creator Mode</div></a>
-    <div class="sb-item" style="opacity:0.4;cursor:default;font-size:10px"><div class="sb-icon"><svg width="8" height="8" viewBox="0 0 8 8" fill="currentColor"><circle cx="4" cy="4" r="3"/></svg></div><div class="sb-label" style="font-family:'JetBrains Mono',monospace;letter-spacing:1px">v24.7 ✦ VOICE-TAP</div></div>
+    <div class="sb-item" style="opacity:0.4;cursor:default;font-size:10px"><div class="sb-icon"><svg width="8" height="8" viewBox="0 0 8 8" fill="currentColor"><circle cx="4" cy="4" r="3"/></svg></div><div class="sb-label" style="font-family:'JetBrains Mono',monospace;letter-spacing:1px">v25.7 ✦ SYNC</div></div>
   </div></div>
 </div>
 
@@ -385,7 +385,7 @@ nav { height:50px; background:rgba(245,235,220,0.9); backdrop-filter:blur(20px);
   <div class="sb-bottom"><div class="sb-nav" style="padding:0">
     <a class="sb-item" onclick="openPanel('settings')"><div class="sb-icon"><svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="7" cy="7" r="2.5"/><path d="M7 1 L7 2.5 M7 11.5 L7 13 M1 7 L2.5 7 M11.5 7 L13 7 M2.9 2.9 L4 4 M10 10 L11.1 11.1 M11.1 2.9 L10 4 M4 10 L2.9 11.1"/></svg></div><div class="sb-label">Settings</div></a>
     <a class="sb-item" onclick="openPanel('creator')"><div class="sb-icon"><svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="4" cy="4" r="2"/><circle cx="10" cy="4" r="2"/><circle cx="7" cy="10" r="2"/><line x1="4" y1="6" x2="7" y2="8"/><line x1="10" y1="6" x2="7" y2="8"/></svg></div><div class="sb-label">Creator Mode</div></a>
-    <div class="sb-item" style="opacity:0.4;cursor:default;font-size:10px"><div class="sb-icon"><svg width="8" height="8" viewBox="0 0 8 8" fill="currentColor"><circle cx="4" cy="4" r="3"/></svg></div><div class="sb-label" style="font-family:'JetBrains Mono',monospace;letter-spacing:1px">v24.7 ✦ VOICE-TAP</div></div>
+    <div class="sb-item" style="opacity:0.4;cursor:default;font-size:10px"><div class="sb-icon"><svg width="8" height="8" viewBox="0 0 8 8" fill="currentColor"><circle cx="4" cy="4" r="3"/></svg></div><div class="sb-label" style="font-family:'JetBrains Mono',monospace;letter-spacing:1px">v25.7 ✦ SYNC</div></div>
   </div></div>
 </div>
 
@@ -531,7 +531,7 @@ nav { height:50px; background:rgba(245,235,220,0.9); backdrop-filter:blur(20px);
   </div>
 
   <div class="footer">
-    <div class="footer-item">MYCROFT.SYS · v24.7 ✦ VOICE-TAP</div>
+    <div class="footer-item">MYCROFT.SYS · v25.7 ✦ SYNC</div>
     <div class="footer-live"><div class="sdot sdot-on"></div><span>LIVE</span></div>
     <div class="footer-item" id="footerDate">----</div>
     <div class="footer-item" style="border:1px solid rgba(170,60,55,0.45);color:rgba(170,60,55,0.85);border-radius:3px;padding:0 7px;letter-spacing:2px;transform:rotate(-1.5deg)">CLASSIFIED · 机密</div>
@@ -553,8 +553,14 @@ nav { height:50px; background:rgba(245,235,220,0.9); backdrop-filter:blur(20px);
     <div id="chatFwBtn" onclick="openIfFramework()" title="这条 IF 的剧情框架" style="display:none;cursor:pointer;color:var(--text3);font-size:11px;padding:5px 10px;border:1px solid var(--border2);border-radius:7px">框架</div>
     <div id="chatSaveBtn" onclick="openIfSaves()" title="这条 IF 的存档" style="display:none;cursor:pointer;color:var(--text3);font-size:11px;padding:5px 10px;border:1px solid var(--border2);border-radius:7px">存档</div>
     <div id="chatWinBtn" onclick="openWinPanel()" title="窗口：记忆不变、对话重开" style="display:none;cursor:pointer;color:var(--text3);font-size:11px;padding:5px 10px;border:1px solid var(--border2);border-radius:7px">窗口</div>
+    <div id="chatCount" title="当前对话条数 / 上限（接近上限请点「备份」）" style="font-size:11px;color:var(--text4);padding:5px 8px;font-family:'JetBrains Mono',monospace">— / 500</div>
     <div id="chatAutoBtn" onclick="toggleChatAuto()" title="自动把重要对话存进记忆库" style="cursor:pointer;color:var(--gold);font-size:11px;padding:5px 10px;border:1px solid var(--border2);border-radius:7px">自动记忆 ✓</div>
-    <div onclick="exportChat()" title="导出全部对话为 txt" style="cursor:pointer;color:var(--text3);font-size:11px;padding:5px 10px;border:1px solid var(--border2);border-radius:7px">导出</div>
+    <div onclick="exportChat()" title="导出全部对话为 txt（给人读的）" style="cursor:pointer;color:var(--text3);font-size:11px;padding:5px 10px;border:1px solid var(--border2);border-radius:7px">导出</div>
+    <div onclick="backupChatJSON()" title="备份成可导回的文件（JSON·无损）" style="cursor:pointer;color:var(--gold);font-size:11px;padding:5px 10px;border:1px solid var(--border2);border-radius:7px">⬇ 备份</div>
+    <div onclick="document.getElementById('chatImportFile').click()" title="从备份/存档文件导回（只新增、不覆盖）" style="cursor:pointer;color:var(--gold);font-size:11px;padding:5px 10px;border:1px solid var(--border2);border-radius:7px">⬆ 导入</div>
+    <div onclick="chatLoadArchive()" title="把超过500自动归档的老聊天下载成文件（可清出本机腾空间）" style="cursor:pointer;color:var(--text3);font-size:11px;padding:5px 10px;border:1px solid var(--border2);border-radius:7px">📦 读档</div>
+    <div onclick="openArchiveBrowse()" title="浏览已归档的老聊天（只读·可改字·退出即清出内存）" style="cursor:pointer;color:var(--text3);font-size:11px;padding:5px 10px;border:1px solid var(--border2);border-radius:7px">📜 浏览存档</div>
+    <input type="file" id="chatImportFile" accept=".json,.txt,application/json,text/plain" style="display:none" onchange="importChatJSON(this)"/>
     <div onclick="clearChat()" title="清空对话" style="cursor:pointer;color:var(--text4);font-size:11px;padding:5px 10px;border:1px solid var(--border2);border-radius:7px">清空</div>
   </div>
   <div id="chatMessages" style="flex:1;overflow-y:auto;padding:18px 22px;display:flex;flex-direction:column;gap:13px;background:var(--bg)"></div>
@@ -575,6 +581,19 @@ nav { height:50px; background:rgba(245,235,220,0.9); backdrop-filter:blur(20px);
       </div>
     </div>
   </div>
+</div>
+
+<!-- ===== 存档浏览浮层（只读·可改字·懒加载·退出即清出内存）===== -->
+<div id="archBrowseOverlay" style="display:none;position:fixed;inset:0;z-index:5000;background:var(--bg);flex-direction:column">
+  <div style="display:flex;align-items:center;gap:11px;padding:13px 22px;border-bottom:1px solid var(--border2);flex-shrink:0">
+    <div onclick="exitArchiveBrowse()" title="退出浏览（清出内存·回到聊天）" style="cursor:pointer;color:var(--text3);font-size:18px;padding:0 4px">←</div>
+    <div style="flex:1;min-width:0">
+      <div style="font-family:'Playfair Display',serif;font-size:15px;color:var(--text);font-weight:600">📜 存档浏览</div>
+      <div id="archBrowseSub" style="font-size:10px;color:var(--text3)">只读 · 点开可改字 · 不能续聊</div>
+    </div>
+    <div onclick="exitArchiveBrowse()" title="退出" style="cursor:pointer;color:var(--text4);font-size:12px;padding:5px 12px;border:1px solid var(--border2);border-radius:7px">退出</div>
+  </div>
+  <div id="archBrowseList" style="flex:1;overflow-y:auto;padding:18px 22px;background:var(--bg)"></div>
 </div>
 
 <!-- ===== MEMORY VIEW (内嵌页面, 暖色系) ===== -->
@@ -1164,17 +1183,29 @@ async function _elevenSpeakTS(text, model){
   return { url:url, cs:(al.character_start_times_seconds||[]), ce:(al.character_end_times_seconds||[]) };
 }
 // 翻译（便宜 flash）：只做双语，不生成音频。默认就给每条他消息做好，所以双语+▶一打开就在
+// 翻译持久缓存（只存文本不存音频；绑定原文，文本变了就失效；有上限、不进云同步）
+function _loadVoiceCache(){ try{ return JSON.parse(localStorage.getItem('mcVoiceTrans')||'{}'); }catch(e){ return {}; } }
+function _saveVoiceCacheEntry(key, src, segs){ try{ var c=_loadVoiceCache(); c[key]={src:src, segs:segs.map(function(s){ return {zh:s.zh, raw:s.raw, en:s.en, tag:s.tag, mine:s.mine}; })};
+  var ks=Object.keys(c); if(ks.length>50){ ks.sort(function(a,b){ return (parseInt(a)||0)-(parseInt(b)||0); }); ks.slice(0, ks.length-50).forEach(function(k){ delete c[k]; }); }   // 只留最近 50 条翻译缓存（更老的滚回去会自动重翻，不丢原文）
+  _rawSet('mcVoiceTrans', JSON.stringify(c)); }catch(e){} }
+function _voiceCurrent(key, src){ var d=_voiceData[key]; return (d && d.src===src) ? d : null; }   // 内存里且是当前文本才算有效
 async function _voiceTranslateNow(i){
-  var h=loadChat(); var m=h[i]; if(!m||m.role==='user') return; var key=String(m.ts||i); if(_voiceData[key]) return;
+  var h=loadChat(); var m=h[i]; if(!m||m.role==='user') return; var key=String(m.ts||i);
+  if(_voiceCurrent(key, m.text)) return;   // 已是当前文本 → 不重翻
   var parts=_msgSegments(m.text); var lines=parts.filter(function(p){return p.type==='line';}); if(!lines.length) return;
+  var pc=_loadVoiceCache();   // 先看持久缓存：同一文本翻过 → 直接复用，不调 Gemini
+  if(pc[key] && pc[key].src===m.text && pc[key].segs){
+    _voiceData[key]={ parts:parts, segs:pc[key].segs.map(function(s){ return {zh:s.zh, raw:s.raw, en:s.en, tag:s.tag, mine:s.mine, url:null}; }), open:true, src:m.text }; return;
+  }
   var trans=await _transLines(lines.map(function(p){return p.zh;}), m.text);
   var segs=lines.map(function(p,k){ return {zh:p.zh, raw:p.raw, en:(trans[k].en||p.zh), tag:(trans[k].tag||''), mine:(trans[k].mine!==false), url:null}; });
-  _voiceData[key]={ parts:parts, segs:segs, open:true };
+  _voiceData[key]={ parts:parts, segs:segs, open:true, src:m.text };
+  _saveVoiceCacheEntry(key, m.text, segs);   // 存起来，下次进来/刷新不用重翻
 }
 // 后台翻译队列：进聊天 / 新回复时，自动把最近的他消息翻好（双语默认显示）
 var _vtQueue=[], _vtBusy=false;
-function _voiceEnsureTrans(i){ if(!getApiKey()) return; var h=loadChat(); var m=h[i]; if(!m||m.role==='user'||m.pending) return; var key=String(m.ts||i); if(_voiceData[key]) return; if(!/["“「『]/.test(m.text||'')) return; if(_vtQueue.indexOf(i)<0) _vtQueue.push(i); _voiceTransPump(); }
-async function _voiceTransPump(){ if(_vtBusy||!_vtQueue.length) return; _vtBusy=true; var i=_vtQueue.shift(); try{ await _voiceTranslateNow(i); if(_curView==='chat') renderChat(); }catch(e){} finally{ _vtBusy=false; if(_vtQueue.length) setTimeout(_voiceTransPump, 350); } }
+function _voiceEnsureTrans(i){ if(!getApiKey()) return; var h=loadChat(); var m=h[i]; if(!m||m.role==='user'||m.pending) return; var key=String(m.ts||i); if(_voiceCurrent(key, m.text)) return; if(!/["“「『]/.test(m.text||'')) return; if(_vtQueue.indexOf(i)<0) _vtQueue.push(i); _voiceTransPump(); }
+async function _voiceTransPump(){ if(_vtBusy||!_vtQueue.length) return; _vtBusy=true; var i=_vtQueue.shift(); try{ await _voiceTranslateNow(i); }catch(e){} finally{ _vtBusy=false; if(_vtQueue.length){ setTimeout(_voiceTransPump, 350); } else if(_curView==='chat'){ renderChat(); } } }   // 整批翻完只重渲染一次，避免逐条重渲 500 条卡死
 // 每句台词【独立生成】一小段音频、缓存：点哪句生成哪句、立刻能单独点、重听免费、不重生成
 function _voiceStopAll(){ try{ if(_voiceAudio) _voiceAudio.pause(); }catch(e){} if(_voiceTimer){ clearTimeout(_voiceTimer); _voiceTimer=null; } }
 function _ttsPlayUrl(url){ _voiceStopAll(); _voiceAudio=new Audio(url); _voiceAudio.play().catch(function(){}); }
@@ -1192,7 +1223,8 @@ async function _voiceGenSeg(key, idx){ var d=_voiceData[key]; if(!d) return null
   seg.url=url; return url; }
 async function chatVoice(i){   // "▶ 全部朗读"：依次念他的每句，句间按旁白长短停顿
   if(_ttsLocked()) return; if(!getElevenKey()||!getElevenVoice()){ alert('先在 Settings 填 ElevenLabs key 和 Voice ID'); return; }
-  var m=loadChat()[i]; if(!m) return; var key=String(m.ts||i); if(!_voiceData[key]) await _voiceTranslateNow(i); var d=_voiceData[key]; if(!d) return;
+  var m=loadChat()[i]; if(!m) return; var key=String(m.ts||i); if(!_voiceCurrent(key,m.text)) await _voiceTranslateNow(i); var d=_voiceData[key]; if(!d) return;
+  if(_curView==='chat'){ try{ renderChat(); }catch(e){} }   // 翻好后立刻刷新显示双语（自动翻译已关，点喇叭这条才出双语）
   var gaps=_voiceNarrGaps(d.parts);
   _ttsBusy=true; _ttsBusyAt=Date.now(); var btn=document.getElementById('spk'+i); if(btn) btn.style.opacity='.35';
   try{ for(var idx=0; idx<d.segs.length; idx++){ if(!d.segs[idx].mine) continue; var url=await _voiceGenSeg(key, idx); if(url) await _playAndWait(url); if(idx<d.segs.length-1) await _sleep(Math.min(450, 50+(gaps[idx]||0)*2)); } }   // 句间间隔再缩短
@@ -1203,7 +1235,7 @@ async function chatLineSpeak(i, idx){
   if(!getElevenKey()||!getElevenVoice()){ alert('先在 Settings 填 ElevenLabs key 和 Voice ID'); return; }
   _voiceStopAll(); _ttsBusy=false;   // 单句一点：先停掉正在放/卡住的，保证这一下一定有反应（不再被"正在忙"挡死）
   var m=loadChat()[i]; if(!m) return; var key=String(m.ts||i);
-  if(!_voiceData[key]){ try{ await _voiceTranslateNow(i); }catch(e){} }
+  if(!_voiceCurrent(key,m.text)){ try{ await _voiceTranslateNow(i); }catch(e){} }
   var d=_voiceData[key]; if(!d){ alert('这条还在准备（翻译中），稍等一两秒再点'); return; }
   var seg=d.segs[idx]; if(!seg||!seg.mine) return;
   if(seg.url){ _ttsPlayUrl(seg.url); return; }
@@ -1213,7 +1245,7 @@ async function chatLineReroll(i, idx){   // ↻ 重新生成：丢掉这条、�
   if(!getElevenKey()||!getElevenVoice()){ alert('先在 Settings 填 ElevenLabs key 和 Voice ID'); return; }
   _voiceStopAll(); _ttsBusy=false;   // 先停掉当前/卡住的，保证响应
   var m=loadChat()[i]; if(!m) return; var key=String(m.ts||i);
-  if(!_voiceData[key]){ try{ await _voiceTranslateNow(i); }catch(e){} }
+  if(!_voiceCurrent(key,m.text)){ try{ await _voiceTranslateNow(i); }catch(e){} }
   var d=_voiceData[key]; if(!d){ alert('这条还在准备（翻译中），稍等再点'); return; } var seg=d.segs[idx]; if(!seg||!seg.mine) return;
   _ttsBusy=true; _ttsBusyAt=Date.now(); var rb=document.getElementById('rr'+i+'_'+idx); if(rb) rb.style.opacity='.3';
   try{ try{ if(seg.url) URL.revokeObjectURL(seg.url); }catch(e){} seg.url=null; var url=await _voiceGenSeg(key, idx); if(url) _ttsPlayUrl(url); }
@@ -1222,7 +1254,7 @@ async function chatLineReroll(i, idx){   // ↻ 重新生成：丢掉这条、�
 // 渲染：翻好了→他的台词 "英文"(上,双引号)+▶ + 中文(下)；别人的台词原样；没翻好→原样文本
 function _modelMsgHTML(m, i){
   var key=String(m.ts||i); var d=_voiceData[key];
-  if(!d) return chatEsc(mcCleanText(m.text));   // 还没翻 → 原样（翻译队列稍后会补上）
+  if(!d || d.src!==m.text) return chatEsc(mcCleanText(m.text));   // 没翻 / 翻的是旧版本(切了变体) → 先原样，队列会按当前文本重翻
   var html='', li=0, hisAny=false;
   d.parts.forEach(function(p){
     if(p.type==='narr'){ html+=chatEsc(p.text); return; }   // 旁白：原样行内文本，不动
@@ -3040,16 +3072,26 @@ function ifChatKey(lineId,br){ return (br&&br!=='main') ? ('mcIfChat_'+lineId+'_
 function ifFramedKey(lineId,br){ return (br&&br!=='main') ? ('mcIfFramed_'+lineId+'__'+br) : ('mcIfFramed_'+lineId); }
 function chatKey(){ return _activeChat.type==='if' ? ifChatKey(_activeChat.id, _activeChat.branch||'main') : 'mcChat'; }
 function loadChat(){ try{ return JSON.parse(localStorage.getItem(chatKey())||'[]'); }catch(e){ return []; } }
-function saveChat(arr){ var k=chatKey(); var data=JSON.stringify(arr.slice(-500));
+var LIVE_KEEP=500;   // 活跃聊天最多留 500 条；更早的不删，自动移进"存档区"(<key>_arch)，与活跃窗口分开算
+var _archCache={};   // chatKey -> 存档数组（内存缓存，避免每次渲染都解析大 JSON 卡死）
+function _archiveOverflow(k, arr){
+  if(!arr || arr.length<=LIVE_KEEP) return arr;
+  var overflow=arr.slice(0, arr.length-LIVE_KEEP);   // 溢出的（最早那批）→ 进存档，绝不丢
+  try{ var ak=k+'_arch', ex=[]; try{ ex=JSON.parse(localStorage.getItem(ak)||'[]')||[]; }catch(_ae){} var merged=_mergeMsgs(ex, overflow); _rawSet(ak, JSON.stringify(merged)); _rawSet(k+'_archN', String(merged.length)); delete _archCache[k]; }catch(e){}   // 溢出落盘+只更计数，不把存档常驻内存（懒加载）
+  return arr.slice(-LIVE_KEEP);
+}
+function chatArchive(k){ k=k||chatKey(); if(_archCache[k]) return _archCache[k]; var a=[]; try{ a=JSON.parse(localStorage.getItem(k+'_arch')||'[]')||[]; }catch(e){} _archCache[k]=a; return a; }   // 读一次缓存住，渲染不再反复解析
+function archCount(k){ k=k||chatKey(); var n=localStorage.getItem(k+'_archN'); if(n!==null) return (+n||0); var c=0; try{ c=(JSON.parse(localStorage.getItem(k+'_arch')||'[]')||[]).length; }catch(e){} try{ _rawSet(k+'_archN', String(c)); }catch(e2){} return c; }   // 轻量存档计数：只读数字，不把整份存档缓进内存（给计数显示用）
+function saveChat(arr){ var k=chatKey(); arr=_archiveOverflow(k, arr); var data=JSON.stringify(arr);
   try{ var prev=localStorage.getItem(k); if(prev&&prev!=='[]'&&prev!=='null'){ try{ var pj=JSON.parse(prev); _rawSet(k+'_bak', JSON.stringify(pj.length>60?pj.slice(-60):pj)); }catch(e){ _rawSet(k+'_bak', prev); } } localStorage.setItem(k, data); }
-  catch(e){   // 空间满：清掉所有 *_bak 备份和快照，再写一次正本（保证消息不丢）
+  catch(e){   // 空间满：清掉所有 *_bak 备份和快照，再写一次正本（保证消息不丢；存档区不动）
     try{ for(var i=localStorage.length-1;i>=0;i--){ var bk=localStorage.key(i); if(bk&&(/_bak$/.test(bk)||bk==='mcSnaps')){ try{ localStorage.removeItem(bk); }catch(e2){} } } }catch(e3){}
-    try{ localStorage.setItem(k, data); }catch(e4){ try{ alert('手机存储空间满了，这条可能没存上。建议清理一些旧对话/存档。'); }catch(e5){} }
+    try{ localStorage.setItem(k, data); }catch(e4){ try{ alert('手机存储空间满了。建议进聊天点「📦读档」把存档下载成文件并清出本机，腾空间。'); }catch(e5){} }
   }
 }
 // 永远读/写主线聊天（不受当前 IF 上下文影响）—— 主线 Mind Palace / 闭环 / 日程惊喜专用
 function loadMainChat(){ try{ return JSON.parse(localStorage.getItem('mcChat')||'[]'); }catch(e){ return []; } }
-function saveMainChat(arr){ try{ localStorage.setItem('mcChat', JSON.stringify(arr.slice(-500))); }catch(e){} }
+function saveMainChat(arr){ try{ arr=_archiveOverflow('mcChat', arr); localStorage.setItem('mcChat', JSON.stringify(arr)); }catch(e){} }
 // 短期记忆：按字数取最近消息（默认约 9 万字）
 function recentByChars(hist, budget){ budget=budget||90000; var out=[], total=0; for(var i=hist.length-1;i>=0;i--){ var m=hist[i]; if(m.err) continue; var len=(m.text||'').length; if(total+len>budget && out.length>=2) break; out.unshift(m); total+=len; } return out; }
 // ----- IF 线数据 -----
@@ -3374,6 +3416,108 @@ function exportChat(){
     setTimeout(function(){ URL.revokeObjectURL(url); },1500);
   }catch(e){ alert('导出失败：'+e.message); }
 }
+// 备份全部对话为 JSON（无损：角色/时间/各版本都在）→ 可随时「导入」原样导回
+function backupChatJSON(){
+  var hist=loadChat();
+  if(!hist.length){ alert('还没有对话可备份。'); return; }
+  try{
+    var payload={ app:'mc-terminal', kind:'chat-backup', v:1, savedAt:new Date().toISOString(), count:hist.length, chat:hist };
+    var blob=new Blob([JSON.stringify(payload)],{type:'application/json;charset=utf-8'});
+    var url=URL.createObjectURL(blob), a=document.createElement('a'), now=new Date();
+    a.href=url; a.download='MC对话备份_'+now.getFullYear()+pad(now.getMonth()+1)+pad(now.getDate())+'_'+pad(now.getHours())+pad(now.getMinutes())+'.json';
+    document.body.appendChild(a); a.click(); document.body.removeChild(a);
+    setTimeout(function(){ URL.revokeObjectURL(url); },1500);
+    try{ _rawSet('mcChatBakAt', String(hist.length)); }catch(e){}   // 记下"已备份到这个条数"→ 条数显示不再爆红
+    renderChat();
+  }catch(e){ alert('备份失败：'+e.message); }
+}
+// 把旧的 txt 导出（「我：」「他：」分隔）解析成消息（ts=0→当最早的处理）
+function _parseChatTxt(text){
+  text=(text||'').replace(/\r/g,'');
+  var out=[], re=/(?:^|\n)(我|他)[:：]\s*([\s\S]*?)(?=\n(?:我|他)[:：]|$)/g, m;
+  while((m=re.exec(text))!==null){
+    var role=(m[1]==='我')?'user':'model';
+    var t=(m[2]||'').replace(/^[—\-\s]+$/gm,'').replace(/\n{3,}/g,'\n\n').trim();
+    if(t) out.push({role:role, text:t, ts:0});
+  }
+  return out;
+}
+// 从文件导回：JSON 备份(无损) 或 旧 txt 导出 都认；与当前取并集（只增不覆盖，超 500 的自动进存档、不丢）
+function importChatJSON(input){
+  var f=input&&input.files&&input.files[0]; if(!f) return;
+  var r=new FileReader();
+  r.onload=function(e){
+    try{
+      var raw=e.target.result||'', arr=null;
+      try{ var obj=JSON.parse(raw); arr=Array.isArray(obj)?obj:(obj.chat||null); }catch(je){ arr=null; }   // 先当 JSON
+      if(!arr || !arr.length || !arr[0] || typeof arr[0]!=='object' || !('role' in arr[0])) arr=_parseChatTxt(raw);   // 不是 JSON → 当 txt 解析
+      arr=(arr||[]).filter(function(m){ return m && m.text && (''+m.text).trim(); });
+      if(!arr.length){ alert('没从文件里解析出对话。\n支持：JSON 备份、或导出的 txt（「我：」「他：」那种）。'); return; }
+      var cur=loadChat(); var merged=_mergeMsgs(cur, arr);   // 并集：只增不删
+      if(!confirm('从文件解析出 '+arr.length+' 条。\n合并去重后共 '+merged.length+' 条（只新增、不覆盖；超过 '+LIVE_KEEP+' 的会自动进📦存档，绝不丢）。\n\n确定导入？')) return;
+      saveChat(merged); renderChat();
+      alert('✓ 已导入。活跃 '+Math.min(merged.length,LIVE_KEEP)+' 条，其余在📦存档（点「读档」可下载/查看）。');
+    }catch(err){ alert('导入失败：'+err.message); }
+    finally{ input.value=''; }
+  };
+  r.readAsText(f,'utf-8');
+}
+// 📦 读档：把"存档区"（超过 500 自动归档的老聊天）下载成文件，并可选清出本机腾空间
+function chatLoadArchive(){
+  var k=chatKey(); var arch=chatArchive(k);
+  if(!arch.length){ alert('还没有存档——聊天还没超过 '+LIVE_KEEP+' 条，没有归档的老聊天。'); return; }
+  try{
+    var payload={ app:'mc-terminal', kind:'chat-archive', v:1, savedAt:new Date().toISOString(), count:arch.length, chat:arch };
+    var blob=new Blob([JSON.stringify(payload)],{type:'application/json;charset=utf-8'}), url=URL.createObjectURL(blob), a=document.createElement('a'), now=new Date();
+    a.href=url; a.download='MC存档_'+now.getFullYear()+pad(now.getMonth()+1)+pad(now.getDate())+'_'+pad(now.getHours())+pad(now.getMinutes())+'.json';
+    document.body.appendChild(a); a.click(); document.body.removeChild(a); setTimeout(function(){ URL.revokeObjectURL(url); },1500);
+  }catch(e){ alert('读档下载失败：'+e.message); return; }
+  if(confirm('已把 '+arch.length+' 条存档下载成文件📄。\n\n要把这些存档【清出本机】腾出存储空间吗？\n（文件已在你手上，以后用「⬆ 导入」就能把它们看回来）')){ _rawSet(k+'_arch','[]'); _rawSet(k+'_archN','0'); delete _archCache[k]; renderChat(); }
+}
+// ===== 存档浏览（只读 · 可改字 · 懒加载进内存 · 退出即清出）=====
+var _archBrowseKey='', _archBrowseEditIdx=-1;
+function openArchiveBrowse(){
+  var k=chatKey(); var arch=chatArchive(k);   // 点进来才懒加载进内存
+  if(!arch || !arch.length){ alert('还没有存档——聊天还没超过 '+LIVE_KEEP+' 条，没有归档的老聊天。'); delete _archCache[k]; return; }
+  _archBrowseKey=k; _archBrowseEditIdx=-1;
+  var ov=document.getElementById('archBrowseOverlay'); if(ov) ov.style.display='flex';
+  var sub=document.getElementById('archBrowseSub'); if(sub) sub.textContent='只读 · 点开可改字 · 不能续聊 · 共 '+arch.length+' 条';
+  archBrowseRender();
+}
+function exitArchiveBrowse(){
+  var ov=document.getElementById('archBrowseOverlay'); if(ov) ov.style.display='none';
+  if(_archBrowseKey){ delete _archCache[_archBrowseKey]; }   // 退出 → 清出内存
+  _archBrowseKey=''; _archBrowseEditIdx=-1;
+}
+function _archMsgText(m){ if(!m) return ''; return (m.role!=='user' && typeof mcCleanText==='function') ? mcCleanText(m.text||'') : (m.text||''); }
+function archBrowseRender(){
+  var box=document.getElementById('archBrowseList'); if(!box) return;
+  var arch=_archCache[_archBrowseKey]||[];
+  if(!arch.length){ box.innerHTML='<div style="margin:auto;text-align:center;color:var(--text3);font-size:14px">（空）</div>'; return; }
+  var rows=arch.map(function(m,i){
+    var isU=(m.role==='user');
+    if(i===_archBrowseEditIdx){
+      return '<div style="width:100%;display:flex;flex-direction:column;gap:6px;margin-bottom:14px">'
+        +'<textarea id="archEditTA" style="width:100%;box-sizing:border-box;background:var(--s2);border:1px solid var(--gold-dim);border-radius:12px;padding:10px 13px;color:var(--text);font-family:\'Noto Serif SC\',serif;font-size:15px;line-height:1.65;outline:none;min-height:90px;resize:vertical">'+chatEsc(m.text||'')+'</textarea>'
+        +'<div style="display:flex;gap:12px;justify-content:flex-end"><span onclick="archBrowseCancel()" style="cursor:pointer;font-size:11px;color:var(--text4)">取消</span><span onclick="archBrowseSave('+i+')" style="cursor:pointer;font-size:11px;color:var(--gold)">保存</span></div>'
+      +'</div>';
+    }
+    var inner='<div onclick="archBrowseEdit('+i+')" title="点开改字" style="cursor:text;white-space:pre-wrap;font-family:\'Noto Serif SC\',serif;font-size:14px;line-height:1.55">'+chatEsc(_archMsgText(m))+'</div>';
+    if(isU) return '<div style="margin:0 0 14px auto;max-width:82%;width:fit-content;background:var(--s2);border:1px solid var(--border2);border-radius:16px;padding:10px 14px;color:var(--text);font-weight:600">'+inner+'</div>';
+    return '<div style="margin-bottom:14px;color:var(--text2);font-weight:600;padding:2px 0">'+inner+'</div>';
+  }).join('');
+  box.innerHTML='<div style="max-width:740px;width:100%;margin:0 auto;display:flex;flex-direction:column">'+rows+'</div>';
+}
+function archBrowseEdit(i){ _archBrowseEditIdx=i; archBrowseRender(); setTimeout(function(){ var t=document.getElementById('archEditTA'); if(t) t.focus(); },30); }
+function archBrowseCancel(){ _archBrowseEditIdx=-1; archBrowseRender(); }
+function archBrowseSave(i){
+  var ta=document.getElementById('archEditTA'); if(!ta) return;
+  var k=_archBrowseKey; var arch=_archCache[k]||[]; if(i<0||i>=arch.length) return;
+  try{ _rawSet(k+'_arch_bak', JSON.stringify(arch)); }catch(e){}   // 改前整份备份一次（防误改丢字）
+  arch[i].text=ta.value;
+  try{ _rawSet(k+'_arch', JSON.stringify(arch)); }catch(e){ alert('存档保存失败：'+e.message); return; }
+  _archCache[k]=arch; _archBrowseEditIdx=-1; archBrowseRender();
+}
 // 长消息折叠：超过阈值的用户消息默认只露几行，可展开/收起（所有聊天界面通用）
 function _ubWrap(text, uid){
   var esc=chatEsc(text||'');
@@ -3388,6 +3532,10 @@ function renderChat(){
   var box=document.getElementById('chatMessages'); if(!box) return;
   if(!_chatBusy){ var _hp=loadChat(), _rm=false; for(var _z=_hp.length-1;_z>=0;_z--){ if(_hp[_z]&&_hp[_z].pending){ _hp.splice(_z,1); _rm=true; } } if(_rm) saveChat(_hp); }   // 没在生成却残留的"三个点"占位泡 → 清掉（防卡死多个）
   var hist=loadChat();
+  var _cc=document.getElementById('chatCount'); if(_cc){ var _n=hist.length, _am=archCount(), _txt='💬'+_n+(_am?(' · 📦'+_am+'存档'):''), _col='var(--text4)';
+    if(_am>=1200){ _col='var(--rose)'; _txt+=' ⚠读档清空'; }   // 存档很多→建议读档下载+清空腾空间
+    else if(_am>=600){ _col='var(--gold)'; }
+    _cc.textContent=_txt; _cc.style.color=_col; }   // 💬活跃 · 📦已自动归档（不丢、不占活跃窗口）
   if(!hist.length){ box.innerHTML='<div style="margin:auto;text-align:center;color:var(--text3);font-size:14px;font-family:\'Noto Serif SC\',serif;line-height:1.95">伞，总在最需要的时候撑开。</div>'; return; }
   if(_favSelMode){ box.innerHTML=_favSelectChatHTML(hist); return; }   // 多选收藏模式
   var rows=hist.map(function(m,i){
@@ -3419,7 +3567,7 @@ function renderChat(){
   if(_atBottom){ box.scrollTop=box.scrollHeight; }   // 你在底部 → 跟着往下
   else if(_aIdx>=0){ var _in2=box.firstElementChild, _ks2=_in2?_in2.children:null; if(_ks2&&_ks2[_aIdx]){ var _bt2=box.getBoundingClientRect().top, _cur=_ks2[_aIdx].getBoundingClientRect().top-_bt2; box.scrollTop+=(_cur-_aOff); } else box.scrollTop=_prevTop; }   // 你在看历史 → 钉住那条不动
   else box.scrollTop=_prevTop;
-  if(getElevenKey()){ try{ var _cn=0; for(var _z=hist.length-1; _z>=0 && _cn<12; _z--){ var _mm=hist[_z]; if(_mm && _mm.role!=='user' && !_mm.pending && /["“「『]/.test(_mm.text||'')){ if(!_voiceData[String(_mm.ts||_z)]) _voiceEnsureTrans(_z); _cn++; } } }catch(e){} }   // 自动把最近的他消息翻成双语（默认显示 + 每句 ▶）
+  // 已关闭"自动翻译双语"：默认只出纯台词；双语+逐句语音仅在点小喇叭(chatVoice/chatLineSpeak)时、按【当前版本】生成。切版本回不去/默认就双语的问题由此根治。
 }
 // ===== 逐条消息操作：收藏 / 重新输出 / 复制 / ···(编辑·删除) — Gemini 风格小图标 =====
 var _chatEditIdx=-1;
@@ -4753,9 +4901,9 @@ var _gradBusy=false, _gradLast=0;
 async function _graduateOld(){ if(_gradBusy||!getApiKey()) return; if(Date.now()-_gradLast<60000) return; _gradBusy=true; _gradLast=Date.now(); try{ await foldChatToFramework(true); }catch(e){} finally{ _gradBusy=false; } }   // 持续把"沉出3万窗口"的旧剧情抄进长期框架
 
 // ===== 多端同步（Supabase + 端到端加密 + 密码锁）=====
-var SUPA_URL='https://xoftoucrykibjxmmuqqi.supabase.co';
-var SUPA_KEY='sb_publishable_LzzpPPm92kYtfZnjqUhQHw_FMZJtYs4';
-var SYNC_SKIP={mcSyncPass:1, mcSyncLast:1, mcDirty:1, mcWorldBook_bak:1, mcWorldBook:1, mcWBChat:1};   // 世界书+维护员聊天不走自动同步，改用专用的 上传/接收 两个键
+var SUPA_URL='https://oklafosuxtollzjpytxv.supabase.co';
+var SUPA_KEY='sb_publishable_FynU5ipJq8qWnQ0-Pr7FHg_vlGzYAsM';
+var SYNC_SKIP={mcSyncPass:1, mcSyncLast:1, mcDirty:1, mcSyncRemoteAt:1, mcWorldBook_bak:1, mcWorldBook:1, mcWBChat:1, mcVoiceTrans:1};   // 世界书+维护员聊天不走自动同步；翻译缓存(mcVoiceTrans)是本地派生数据；mcSyncRemoteAt=本地记的云端时间戳，本地用、不上传
 var _syncPass=null, _syncReady=false, _syncTimer=null, _syncBusy=false, _userActiveTs=0, _origSetItem=null;
 function _rawSet(k,v){ try{ (_origSetItem||localStorage.setItem.bind(localStorage))(k,v); }catch(e){} }   // 用原始 setItem 写（不触发同步/不被字符串化）
 try{ localStorage.removeItem('_origSet'); }catch(e){}   // 清掉旧版误存的字符串键
@@ -4765,7 +4913,7 @@ async function _deriveKey(pass,salt){ var base=await crypto.subtle.importKey('ra
 async function _hashId(pass){ var h=await crypto.subtle.digest('SHA-256',new TextEncoder().encode('mc-sync-id:'+pass)); return _b64(h).replace(/[^a-zA-Z0-9]/g,'').slice(0,44); }
 async function _enc(plain,pass){ var salt=crypto.getRandomValues(new Uint8Array(16)),iv=crypto.getRandomValues(new Uint8Array(12)); var key=await _deriveKey(pass,salt); var ct=await crypto.subtle.encrypt({name:'AES-GCM',iv:iv},key,new TextEncoder().encode(plain)); return JSON.stringify({s:_b64(salt),iv:_b64(iv),c:_b64(ct)}); }
 async function _dec(payload,pass){ var o=JSON.parse(payload); var key=await _deriveKey(pass,_ub64(o.s)); var pt=await crypto.subtle.decrypt({name:'AES-GCM',iv:_ub64(o.iv)},key,_ub64(o.c)); return new TextDecoder().decode(pt); }
-function _skipKey(k){ return !!(SYNC_SKIP[k] || k==='_origSet' || /_bak$/.test(k) || k.indexOf('mcSnap')===0); }   // 备份/快照键：不参与同步、不被覆盖
+function _skipKey(k){ return !!(SYNC_SKIP[k] || k==='_origSet' || /_bak$/.test(k) || /_arch$/.test(k) || k.indexOf('mcSnap')===0); }   // 备份/快照/存档键：不参与同步、不被覆盖（存档大、上云会撞超时）
 function _bundleLocal(){ var o={}; for(var i=0;i<localStorage.length;i++){ var k=localStorage.key(i); if(_skipKey(k)) continue; o[k]=localStorage.getItem(k); } return o; }
 function _snapBeforeRestore(){ try{ var o={}; for(var i=0;i<localStorage.length;i++){ var k=localStorage.key(i); if(_skipKey(k)) continue; var v=localStorage.getItem(k); if(v&&_isMsgArr(v)){ try{ var vj=JSON.parse(v); o[k]=JSON.stringify(vj.length>80?vj.slice(-80):vj); }catch(e){ o[k]=v; } } } _rawSet('mcSnaps', JSON.stringify([{ts:Date.now(), data:o}])); }catch(e){} }   // 只快照聊天类·只留1份·每条只留最近80条——省空间防 iOS 配额爆
 function _trimBackups(){ try{ for(var i=localStorage.length-1;i>=0;i--){ var k=localStorage.key(i); if(k&&/_bak$/.test(k)){ try{ var a=JSON.parse(localStorage.getItem(k)); if(Array.isArray(a)&&a.length>60) _rawSet(k, JSON.stringify(a.slice(-60))); }catch(e){} } } var s=null; try{ s=JSON.parse(localStorage.getItem('mcSnaps')||'null'); }catch(e){} if(s&&s.length){ s.forEach(function(sn){ if(sn&&sn.data) Object.keys(sn.data).forEach(function(dk){ try{ var a=JSON.parse(sn.data[dk]); if(Array.isArray(a)&&a.length>80) sn.data[dk]=JSON.stringify(a.slice(-80)); }catch(e){} }); }); try{ _rawSet('mcSnaps', JSON.stringify(s)); }catch(e){} } }catch(e){} }   // 一次性：把已经存在的超大备份/快照瘦下来，立即腾出手机空间
@@ -4793,7 +4941,7 @@ async function _syncFetch(id){   // 撞到超时/5xx 就退避重试几次（读
   for(var a=0;a<3;a++){
     if(a>0) await new Promise(function(res){ setTimeout(res, 700*a); });
     try{
-      var r=await fetch(SUPA_URL+'/rest/v1/mc_sync?id=eq.'+encodeURIComponent(id)+'&select=data', {headers:_supaH()});
+      var r=await fetch(SUPA_URL+'/rest/v1/mc_sync?id=eq.'+encodeURIComponent(id)+'&select=data,updated_at', {headers:_supaH()});
       if(r.ok){ var arr=await r.json(); return (arr&&arr[0])?arr[0]:null; }
       var t=''; try{ t=await r.text(); }catch(e){} lastErr=new Error('HTTP '+r.status+' '+t.slice(0,80));
       if(r.status<500&&!/57014|timeout|statement/.test(t)) throw lastErr;   // 非超时/非5xx → 不重试
@@ -4801,12 +4949,15 @@ async function _syncFetch(id){   // 撞到超时/5xx 就退避重试几次（读
   }
   throw lastErr;
 }
-async function _syncUpsert(id,dataStr){   // upsert 同一行是幂等的 → 撞到超时/锁(57014)就退避重试几次
+async function _syncFetchAt(id){   // 只取更新时间戳（几十字节）→ 判断云端有没有变，避免每次轮询都下载整个库（省 egress 流量的核心）
+  try{ var r=await fetch(SUPA_URL+'/rest/v1/mc_sync?id=eq.'+encodeURIComponent(id)+'&select=updated_at', {headers:_supaH()}); if(r.ok){ var arr=await r.json(); return (arr&&arr[0]&&arr[0].updated_at)?arr[0].updated_at:''; } }catch(e){} return '';
+}
+async function _syncUpsert(id,dataStr,atIso){   // upsert 同一行是幂等的 → 撞到超时/锁(57014)就退避重试几次
   var lastErr;
   for(var a=0;a<3;a++){
     if(a>0) await new Promise(function(res){ setTimeout(res, 700*a); });   // 退避：0.7s、1.4s
     try{
-      var r=await fetch(SUPA_URL+'/rest/v1/mc_sync?on_conflict=id',{method:'POST',headers:Object.assign(_supaH(),{'Prefer':'resolution=merge-duplicates'}),body:JSON.stringify([{id:id,data:dataStr,updated_at:new Date().toISOString()}])});
+      var r=await fetch(SUPA_URL+'/rest/v1/mc_sync?on_conflict=id',{method:'POST',headers:Object.assign(_supaH(),{'Prefer':'resolution=merge-duplicates'}),body:JSON.stringify([{id:id,data:dataStr,updated_at:(atIso||new Date().toISOString())}])});
       if(r.ok) return;
       var t=await r.text(); lastErr=new Error('HTTP '+r.status+' '+t.slice(0,80));
       if(!/57014|timeout|statement|^5/.test(t)&&r.status<500) throw lastErr;   // 非超时/非5xx → 不重试，直接抛
@@ -4815,7 +4966,7 @@ async function _syncUpsert(id,dataStr){   // upsert 同一行是幂等的 → �
   throw lastErr;
 }
 function _syncStat(t){ var e=document.getElementById('syncChip'); if(e) e.textContent='☁ '+t; }
-async function syncPushNow(){ if(!_syncPass||_syncBusy) return; _syncBusy=true; _syncStat('同步中…'); try{ var id=await _hashId(_syncPass); var payload=await _enc(JSON.stringify(_bundleLocal()),_syncPass); await _syncUpsert(id,payload); _rawSet('mcDirty',''); var d=new Date(); _syncStat('已同步 '+pad(d.getHours())+':'+pad(d.getMinutes())); }catch(e){ _syncStat('同步失败'); }finally{ _syncBusy=false; } }
+async function syncPushNow(){ if(!_syncPass||_syncBusy) return; _syncBusy=true; _syncStat('同步中…'); try{ var id=await _hashId(_syncPass); var _at=new Date().toISOString(); var payload=await _enc(JSON.stringify(_bundleLocal()),_syncPass); await _syncUpsert(id,payload,_at); _rawSet('mcSyncRemoteAt',_at); _rawSet('mcDirty',''); var d=new Date(); _syncStat('已同步 '+pad(d.getHours())+':'+pad(d.getMinutes())); }catch(e){ _syncStat('同步失败'); }finally{ _syncBusy=false; } }
 function syncSchedulePush(){ if(!_syncReady) return; if(_syncTimer) clearTimeout(_syncTimer); _syncTimer=setTimeout(syncPushNow,1200); }
 (function(){ var orig=localStorage.setItem.bind(localStorage); _origSetItem=orig;
   document.addEventListener('pointerdown', function(){ _userActiveTs=Date.now(); }, true);
@@ -4840,7 +4991,7 @@ function syncMenu(){
   document.body.appendChild(m);
   setTimeout(function(){ document.addEventListener('pointerdown', function _h(e){ var mm=document.getElementById('syncMenu'); if(mm&&!mm.contains(e.target)&&e.target.id!=='syncChip'){ mm.remove(); document.removeEventListener('pointerdown',_h,true); } }, true); }, 50);
 }
-async function syncForcePush(){ if(!_syncPass){ alert('还没设同步密码'); return; } _syncStat('上传中…'); try{ var id=await _hashId(_syncPass); _rawSet('mcRev', String(Date.now())); var payload=await _enc(JSON.stringify(_bundleLocal()),_syncPass); await _syncUpsert(id,payload); _rawSet('mcDirty',''); var d=new Date(); _syncStat('已上传 '+pad(d.getHours())+':'+pad(d.getMinutes())); }catch(e){ _syncStat('上传失败'); alert('上传失败：'+e.message); } }
+async function syncForcePush(){ if(!_syncPass){ alert('还没设同步密码'); return; } _syncStat('上传中…'); try{ var id=await _hashId(_syncPass); _rawSet('mcRev', String(Date.now())); var _at=new Date().toISOString(); var payload=await _enc(JSON.stringify(_bundleLocal()),_syncPass); await _syncUpsert(id,payload,_at); _rawSet('mcSyncRemoteAt',_at); _rawSet('mcDirty',''); var d=new Date(); _syncStat('已上传 '+pad(d.getHours())+':'+pad(d.getMinutes())); }catch(e){ _syncStat('上传失败'); alert('上传失败：'+e.message); } }
 function syncRecover(){
   var cand=[];
   try{ var snaps=JSON.parse(localStorage.getItem('mcSnaps')||'[]'); snaps.forEach(function(s){ var n=0; try{ n=(JSON.parse((s.data&&s.data.mcChat)||'[]')||[]).length; }catch(e){} cand.push({label:'快照', ts:s.ts||0, n:n, data:s.data}); }); }catch(e){}
@@ -4854,7 +5005,7 @@ function syncRecover(){
   else if(best.chatBak){ _snapBeforeRestore(); try{ _rawSet('mcChat', best.chatBak); }catch(e){} }
   location.reload();
 }
-async function syncForcePull(){ if(!_syncPass){ alert('还没设同步密码'); return; } if(!confirm('用云端数据覆盖本机？\n（本机当前未上传的改动会被替换成云端版本）')) return; _syncStat('拉取中…'); try{ var id=await _hashId(_syncPass); var row=await _syncFetch(id); if(row&&row.data){ var obj=JSON.parse(await _dec(row.data,_syncPass)); _restoreLocal(obj); location.reload(); } else { _syncStat('云端是空的'); alert('云端还没有数据'); } }catch(e){ _syncStat('拉取失败'); alert('拉取失败：'+e.message); } }
+async function syncForcePull(){ if(!_syncPass){ alert('还没设同步密码'); return; } if(!confirm('用云端数据覆盖本机？\n（本机当前未上传的改动会被替换成云端版本）')) return; _syncStat('拉取中…'); try{ var id=await _hashId(_syncPass); var row=await _syncFetch(id); if(row&&row.data){ var obj=JSON.parse(await _dec(row.data,_syncPass)); _restoreLocal(obj); try{ if(row.updated_at) _rawSet('mcSyncRemoteAt', row.updated_at); }catch(e){} location.reload(); } else { _syncStat('云端是空的'); alert('云端还没有数据'); } }catch(e){ _syncStat('拉取失败'); alert('拉取失败：'+e.message); } }
 function _syncLockHTML(msg,setup){ return '<div id="syncLock" style="position:fixed;inset:0;z-index:5000;background:#0e0d0c;display:flex;align-items:center;justify-content:center">'
   +'<div style="width:min(340px,88vw);text-align:center;font-family:\'Noto Serif SC\',serif">'
     +'<div style="font-family:\'Playfair Display\',serif;font-size:30px;color:#c87a30;font-weight:700;margin-bottom:6px">M · C</div>'
@@ -4871,7 +5022,7 @@ async function syncUnlockSubmit(){
   try{
     var id=await _hashId(pass); var row=await _syncFetch(id);
     if(row&&row.data){ var plain; try{ plain=await _dec(row.data,pass); }catch(de){ if(msg) msg.textContent='密码不对，再试试'; return; }
-      var obj=JSON.parse(plain); try{ localStorage.setItem('mcSyncPass',pass); }catch(e){} _restoreLocal(obj); sessionStorage.setItem('mcSyncDidApply','1'); location.reload(); return; }
+      var obj=JSON.parse(plain); try{ localStorage.setItem('mcSyncPass',pass); }catch(e){} _restoreLocal(obj); try{ if(row.updated_at) _rawSet('mcSyncRemoteAt', row.updated_at); }catch(e){} sessionStorage.setItem('mcSyncDidApply','1'); location.reload(); return; }
     else { try{ localStorage.setItem('mcSyncPass',pass); }catch(e){} _syncPass=pass; _syncReady=true; hideSyncLock(); _syncChipShow(); await syncPushNow(); }
   }catch(e){ if(msg) msg.textContent='连不上云端：'+e.message; }
 }
@@ -4880,13 +5031,25 @@ function _isEditing(){ var a=document.activeElement; return !!(a && (a.tagName==
 async function _syncPullCheck(reloadOnApply){
   if(!_syncPass||_syncBusy) return false;
   try{
-    var id=await _hashId(_syncPass); var row=await _syncFetch(id);
+    var id=await _hashId(_syncPass);
+    var dirty=false; try{ dirty=localStorage.getItem('mcDirty')==='1'; }catch(e){}
+    if(dirty){ syncPushNow(); return false; }   // 本地有没推成功的改动 → 死守本地、补推（不拉）
+    var srvAt=await _syncFetchAt(id);   // 轻量：只读云端时间戳（几十字节），不下整库
+    var locAt=''; try{ locAt=localStorage.getItem('mcSyncRemoteAt')||''; }catch(e){}
+    if(!srvAt) return false;            // 云端没数据
+    if(srvAt===locAt) return false;     // ★ 云端没变 → 不下载整库（省流量的核心）
+    var row=await _syncFetch(id);       // 云端确实更新了，这才下整库
     if(row&&row.data){ var obj=JSON.parse(await _dec(row.data,_syncPass));
       var cloudRev=Number(obj.mcRev||0), localRev=Number(localStorage.getItem('mcRev')||0);
-      var dirty=false; try{ dirty=localStorage.getItem('mcDirty')==='1'; }catch(e){}
-      if(dirty){ syncPushNow(); return false; }   // 本地有没推成功的改动 → 死守本地、补推
-      if(cloudRev>localRev){ if(reloadOnApply && _isEditing()) return false; _restoreLocal(obj); if(reloadOnApply){ location.reload(); } return true; }   // 云端更新 → 拉取
-      else if(localRev>cloudRev){ syncPushNow(); }   // 本地更新 → 补推
+      if(cloudRev>localRev){
+        if(reloadOnApply && _isEditing()) return false;   // 用户正在打字 → 先不应用，且【不】记时间戳，下轮再拉（防漏同步）
+        _restoreLocal(obj);
+        try{ if(row.updated_at) _rawSet('mcSyncRemoteAt', row.updated_at); }catch(e){}   // ★ 必须"应用成功之后"才记时间戳
+        if(reloadOnApply){ location.reload(); } return true;
+      } else {
+        try{ if(row.updated_at) _rawSet('mcSyncRemoteAt', row.updated_at); }catch(e){}   // 云端不比本地新 → 已是最新，记下免得重复下载
+        if(localRev>cloudRev){ syncPushNow(); }   // 本地更新 → 补推
+      }
     }
   }catch(e){}
   return false;
@@ -4909,7 +5072,7 @@ document.addEventListener('visibilitychange', function(){
 window.addEventListener('focus', function(){ if(_syncReady){ _syncPullCheck(true); setTimeout(function(){ if(_syncReady) _syncPullCheck(true); }, 1500); } });
 window.addEventListener('pagehide', function(){ if(_syncReady){ if(_syncTimer) clearTimeout(_syncTimer); syncPushNow(); } });
 // 定时轮询：页面可见时每 12 秒自动查云端，另一台改了几秒内就同步过来（即使窗口一直开着没切换）
-setInterval(function(){ if(_syncReady && document.visibilityState==='visible' && !_isEditing()) _syncPullCheck(true); }, 12000);
+setInterval(function(){ if(_syncReady && document.visibilityState==='visible' && !_isEditing()) _syncPullCheck(true); }, 30000);   // 轮询 30s 查一次；且每次只读时间戳，云端没变就不下整库（省流量）
 // ===== 手机手势：左滑关侧栏抽屉 / 右滑关右侧弹窗 =====
 (function(){
   var sx=0,sy=0,tr=false;
@@ -4942,6 +5105,13 @@ setInterval(function(){ maybeGenerateMNote(false); maybeGenerateInner(); updateM
 </script>
 </body>
 </html>
+
+
+
+
+
+
+
 
 
 
