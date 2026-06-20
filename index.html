@@ -367,7 +367,7 @@ nav { height:50px; background:rgba(245,235,220,0.9); backdrop-filter:blur(20px);
   <div class="sb-bottom"><div class="sb-nav" style="padding:0">
     <a class="sb-item" onclick="openPanel('settings');closeDrawer()"><div class="sb-icon"><svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="7" cy="7" r="2.5"/><path d="M7 1 L7 2.5 M7 11.5 L7 13 M1 7 L2.5 7 M11.5 7 L13 7 M2.9 2.9 L4 4 M10 10 L11.1 11.1 M11.1 2.9 L10 4 M4 10 L2.9 11.1"/></svg></div><div class="sb-label">Settings</div></a>
     <a class="sb-item" onclick="openPanel('creator');closeDrawer()"><div class="sb-icon"><svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="4" cy="4" r="2"/><circle cx="10" cy="4" r="2"/><circle cx="7" cy="10" r="2"/><line x1="4" y1="6" x2="7" y2="8"/><line x1="10" y1="6" x2="7" y2="8"/></svg></div><div class="sb-label">Creator Mode</div></a>
-    <div class="sb-item" style="opacity:0.4;cursor:default;font-size:10px"><div class="sb-icon"><svg width="8" height="8" viewBox="0 0 8 8" fill="currentColor"><circle cx="4" cy="4" r="3"/></svg></div><div class="sb-label" style="font-family:'JetBrains Mono',monospace;letter-spacing:1px">v26.6 ✦ BIGBOX</div></div>
+    <div class="sb-item" style="opacity:0.4;cursor:default;font-size:10px"><div class="sb-icon"><svg width="8" height="8" viewBox="0 0 8 8" fill="currentColor"><circle cx="4" cy="4" r="3"/></svg></div><div class="sb-label" style="font-family:'JetBrains Mono',monospace;letter-spacing:1px">v26.8 ✦ QUOTAFIX</div></div>
   </div></div>
 </div>
 
@@ -385,7 +385,7 @@ nav { height:50px; background:rgba(245,235,220,0.9); backdrop-filter:blur(20px);
   <div class="sb-bottom"><div class="sb-nav" style="padding:0">
     <a class="sb-item" onclick="openPanel('settings')"><div class="sb-icon"><svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="7" cy="7" r="2.5"/><path d="M7 1 L7 2.5 M7 11.5 L7 13 M1 7 L2.5 7 M11.5 7 L13 7 M2.9 2.9 L4 4 M10 10 L11.1 11.1 M11.1 2.9 L10 4 M4 10 L2.9 11.1"/></svg></div><div class="sb-label">Settings</div></a>
     <a class="sb-item" onclick="openPanel('creator')"><div class="sb-icon"><svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="4" cy="4" r="2"/><circle cx="10" cy="4" r="2"/><circle cx="7" cy="10" r="2"/><line x1="4" y1="6" x2="7" y2="8"/><line x1="10" y1="6" x2="7" y2="8"/></svg></div><div class="sb-label">Creator Mode</div></a>
-    <div class="sb-item" style="opacity:0.4;cursor:default;font-size:10px"><div class="sb-icon"><svg width="8" height="8" viewBox="0 0 8 8" fill="currentColor"><circle cx="4" cy="4" r="3"/></svg></div><div class="sb-label" style="font-family:'JetBrains Mono',monospace;letter-spacing:1px">v26.6 ✦ BIGBOX</div></div>
+    <div class="sb-item" style="opacity:0.4;cursor:default;font-size:10px"><div class="sb-icon"><svg width="8" height="8" viewBox="0 0 8 8" fill="currentColor"><circle cx="4" cy="4" r="3"/></svg></div><div class="sb-label" style="font-family:'JetBrains Mono',monospace;letter-spacing:1px">v26.8 ✦ QUOTAFIX</div></div>
   </div></div>
 </div>
 
@@ -531,7 +531,7 @@ nav { height:50px; background:rgba(245,235,220,0.9); backdrop-filter:blur(20px);
   </div>
 
   <div class="footer">
-    <div class="footer-item">MYCROFT.SYS · v26.6 ✦ BIGBOX</div>
+    <div class="footer-item">MYCROFT.SYS · v26.8 ✦ QUOTAFIX</div>
     <div class="footer-live"><div class="sdot sdot-on"></div><span>LIVE</span></div>
     <div class="footer-item" id="footerDate">----</div>
     <div class="footer-item" style="border:1px solid rgba(170,60,55,0.45);color:rgba(170,60,55,0.85);border-radius:3px;padding:0 7px;letter-spacing:2px;transform:rotate(-1.5deg)">CLASSIFIED · 机密</div>
@@ -3156,9 +3156,14 @@ async function _migrateArchivesToIDB(){   // 一次性：把 localStorage 里旧
 }
 function saveChat(arr){ var k=chatKey(); arr=_archiveOverflow(k, arr); var data=JSON.stringify(arr);
   try{ var prev=localStorage.getItem(k); if(prev&&prev!=='[]'&&prev!=='null'){ try{ var pj=JSON.parse(prev); _rawSet(k+'_bak', JSON.stringify(pj.length>60?pj.slice(-60):pj)); }catch(e){ _rawSet(k+'_bak', prev); } } localStorage.setItem(k, data); }
-  catch(e){   // 空间满：清掉所有 *_bak 备份和快照，再写一次正本（保证消息不丢；存档区不动）
+  catch(e){   // 空间满：尽量腾地方再写——清翻译缓存/备份/快照，并把存档搬进 IndexedDB 腾出大块
+    try{ localStorage.removeItem('mcVoiceTrans'); }catch(e0){}
     try{ for(var i=localStorage.length-1;i>=0;i--){ var bk=localStorage.key(i); if(bk&&(/_bak$/.test(bk)||bk==='mcSnaps')){ try{ localStorage.removeItem(bk); }catch(e2){} } } }catch(e3){}
-    try{ localStorage.setItem(k, data); }catch(e4){ try{ alert('手机存储空间满了。建议点聊天里的「⬇ 备份」把记录导出留底，再到 设置 → 清理备份/快照 腾空间。'); }catch(e5){} }
+    try{ localStorage.setItem(k, data); }
+    catch(e4){
+      try{ _migrateArchivesToIDB(); }catch(em){}   // 把存档(可能 1MB+)搬进 IndexedDB 大抽屉腾空间（异步，下一次保存就有地方了）
+      try{ localStorage.setItem(k, data); }catch(e5){ try{ alert('手机存储空间满了，这条暂时没存住。请刷新一下（新版会自动把存档搬进大容量库腾空间），或到 外联→存储用量 清理。'); }catch(e6){} }
+    }
   }
 }
 // 永远读/写主线聊天（不受当前 IF 上下文影响）—— 主线 Mind Palace / 闭环 / 日程惊喜专用
@@ -3380,7 +3385,7 @@ function maskToggle(f,v){ if(_activeChat.type!=='if') return; var cur=getIfMask(
 function maskRefreshToggles(m){ try{ document.querySelectorAll('.mask-opt').forEach(function(el){ var q=el.getAttribute('data-q'), v=el.getAttribute('data-v')==='1'; el.classList.toggle('on', m[q]===v); }); }catch(e){} }
 // ===== IF 存档（IndexedDB · 大容量）=====
 var _idb=null, _ifSaveSeq=0;
-function ifDB(){ return new Promise(function(res,rej){ if(_idb) return res(_idb); try{ var rq=indexedDB.open('mcIfDB',2); rq.onupgradeneeded=function(e){ var db=e.target.result; if(!db.objectStoreNames.contains('saves')){ var st=db.createObjectStore('saves',{keyPath:'id'}); st.createIndex('lineId','lineId',{unique:false}); } if(!db.objectStoreNames.contains('archives')){ db.createObjectStore('archives',{keyPath:'k'}); } }; rq.onsuccess=function(e){ _idb=e.target.result; res(_idb); }; rq.onerror=function(){ rej(rq.error); }; }catch(e){ rej(e); } }); }
+function ifDB(){ return new Promise(function(res,rej){ if(_idb) return res(_idb); try{ var rq=indexedDB.open('mcIfDB',2); rq.onupgradeneeded=function(e){ var db=e.target.result; if(!db.objectStoreNames.contains('saves')){ var st=db.createObjectStore('saves',{keyPath:'id'}); st.createIndex('lineId','lineId',{unique:false}); } if(!db.objectStoreNames.contains('archives')){ db.createObjectStore('archives',{keyPath:'k'}); } }; rq.onsuccess=function(e){ _idb=e.target.result; res(_idb); }; rq.onerror=function(){ rej(rq.error); }; rq.onblocked=function(){ rej(new Error('IDB_BLOCKED')); }; setTimeout(function(){ rej(new Error('IDB_OPEN_TIMEOUT')); }, 8000); }catch(e){ rej(e); } }); }
 // ===== 存档存进 IndexedDB（大抽屉，不占 localStorage 那 5MB）=====
 function archDbGet(k){ return ifDB().then(function(db){ return new Promise(function(res){ try{ var tx=db.transaction('archives','readonly'); var rq=tx.objectStore('archives').get(k); rq.onsuccess=function(){ res((rq.result&&rq.result.arr)||null); }; rq.onerror=function(){ res(null); }; }catch(e){ res(null); } }); }).catch(function(){ return null; }); }
 function archDbPut(k,arr){ return ifDB().then(function(db){ return new Promise(function(res){ try{ var tx=db.transaction('archives','readwrite'); tx.objectStore('archives').put({k:k,arr:arr||[]}); tx.oncomplete=function(){ res(true); }; tx.onerror=function(){ res(false); }; }catch(e){ res(false); } }); }).catch(function(){ return false; }); }
@@ -3831,13 +3836,14 @@ function pickModel(prov,model){
   var sub=document.getElementById('chatSubtitle'); if(sub){ sub.textContent='已切到 '+activeModelLabel()+(_switchRetry?'（正在重试…）':'（下一条生效）'); setTimeout(updateChatHeader,2200); }
   if(_switchRetry){ _switchRetry=false; setTimeout(chatRetryLast,80); }
 }
-function chatRetryLast(){   // 重试上一条：只删报错泡(绝不删用户消息)，为末尾那条 user 原地重新生成
+function chatRetryLast(){   // 重试上一条：清掉尾部 报错泡/卡住的占位泡，再对症重生（绝不删用户消息）
   if(_chatBusy) return;
   var h=loadChat(), changed=false;
-  while(h.length && h[h.length-1].err){ h.pop(); changed=true; }
-  if(changed) saveChat(h);
+  while(h.length && (h[h.length-1].err || h[h.length-1].pending)){ h.pop(); changed=true; }   // 报错泡 + 卡死的 pending 一起清
+  if(changed){ saveChat(h); h=loadChat(); }   // 重读，防 saveChat 满存储失败时拿到旧结构
   renderChat();
-  if(h.length && h[h.length-1].role==='user'){ _genReplyForLast(); }
+  if(h.length && h[h.length-1].role==='user'){ _genReplyForLast(); return; }
+  for(var i=h.length-1;i>=0;i--){ if(h[i].role==='model'&&!h[i].err){ chatRegen(i); return; } }   // 末尾是已有回复 → 重生最后那条
 }
 // 为"当前末尾那条 user"生成回复（不追加新 user）——给重试/换模型重试复用，避免误删消息
 async function _genReplyForLast(){
@@ -3958,18 +3964,19 @@ async function callGeminiChatStream(systemText, contents, onChunk, opts){
   var resp=await Promise.race([ fetch(url,{ method:'POST', headers:{ 'Content-Type':'application/json' }, body:JSON.stringify(body), signal:opts.signal }), new Promise(function(_,rej){ setTimeout(function(){ rej(new Error('STREAM_TIMEOUT')); }, FIRST_MS); }) ]);
   if(!resp.ok){ var t=await resp.text(); throw new Error('HTTP '+resp.status+'：'+t.slice(0,120)); }
   if(!resp.body||!resp.body.getReader) throw new Error('NO_STREAM');
-  var reader=resp.body.getReader(), dec=new TextDecoder(), buf='', full='', fin='';
+  var reader=resp.body.getReader(), dec=new TextDecoder(), buf='', full='', fin='', _lastProg=Date.now();
   function _readTO(ms){ return new Promise(function(resolve,reject){ var to=setTimeout(function(){ try{ reader.cancel(); }catch(e){} reject(new Error('STREAM_TIMEOUT')); }, ms); reader.read().then(function(r){ clearTimeout(to); resolve(r); }, function(e){ clearTimeout(to); reject(e); }); }); }
   try{
     var got=false;
     while(true){
+      if(Date.now()-_lastProg>45000){ try{ reader.cancel(); }catch(e){} throw new Error('STREAM_TIMEOUT'); }   // ★硬超时：45秒没有新文字(只发心跳空包也算卡死)→ 判死，不再三个点跳到天荒地老
       var r=await _readTO(got?IDLE_MS:FIRST_MS); if(r.done) break; got=true;   // 看门狗：超时会 reject(STREAM_TIMEOUT)，跳出到下面 catch
       buf+=dec.decode(r.value,{stream:true});
       var lines=buf.split('\n'); buf=lines.pop();
       for(var i=0;i<lines.length;i++){ var line=lines[i].trim(); if(line.indexOf('data:')!==0) continue; var js=line.slice(5).trim(); if(!js||js==='[DONE]') continue;
-        try{ var o=JSON.parse(js); var c0=o&&o.candidates&&o.candidates[0]; if(c0&&c0.finishReason) fin=c0.finishReason; var part=c0&&c0.content&&c0.content.parts; if(part){ var seg=part.map(function(p){return p.text||'';}).join(''); if(seg){ full+=seg; if(onChunk) onChunk(full); } } }catch(e){}
+        try{ var o=JSON.parse(js); var c0=o&&o.candidates&&o.candidates[0]; if(c0&&c0.finishReason) fin=c0.finishReason; var part=c0&&c0.content&&c0.content.parts; if(part){ var seg=part.map(function(p){return p.text||'';}).join(''); if(seg){ full+=seg; _lastProg=Date.now(); if(onChunk) onChunk(full); } } }catch(e){}
       }
-      if(fin) break;   // ★收到 finishReason=已生成完 → 立刻收尾，别傻等流关闭/心跳，修"文本出完却一直像在生成、不弹工具栏"
+      if(fin) break;   // ★收到 finishReason=已生成完 → 立刻收尾
     }
   }catch(abortErr){ if(opts.signal&&opts.signal.aborted){ _lastFinishReason='ABORT'; return full; }  /* 用户主动中断：保留已生成的部分 */ throw abortErr; }   // STREAM_TIMEOUT / 其它错误 → 抛出，sendChat 会回退到一次性请求
   _lastFinishReason=fin||'STOP';
@@ -4007,17 +4014,18 @@ async function callClaudeStream(systemText, contents, onChunk, opts){
   var resp=await Promise.race([ fetch('https://api.anthropic.com/v1/messages',{ method:'POST', headers:{ 'content-type':'application/json','x-api-key':key,'anthropic-version':'2023-06-01','anthropic-dangerous-direct-browser-access':'true' }, body:JSON.stringify({ model:(opts.model||getClaudeModel()), max_tokens:8192, system:systemText, messages:msgs, temperature:(opts.temperature!=null?opts.temperature:1.0), stream:true }), signal:opts.signal }), new Promise(function(_,rej){ setTimeout(function(){ rej(new Error('STREAM_TIMEOUT')); }, FIRST_MS); }) ]);
   if(!resp.ok){ var t0=await resp.text(); throw new Error('Claude HTTP '+resp.status+'：'+t0.slice(0,140)); }
   if(!resp.body||!resp.body.getReader) throw new Error('NO_STREAM');
-  var reader=resp.body.getReader(), dec=new TextDecoder(), buf='', full='', stop='';
+  var reader=resp.body.getReader(), dec=new TextDecoder(), buf='', full='', stop='', _lastProg=Date.now();
   function _readTO(ms){ return new Promise(function(resolve,reject){ var to=setTimeout(function(){ try{ reader.cancel(); }catch(e){} reject(new Error('STREAM_TIMEOUT')); }, ms); reader.read().then(function(r){ clearTimeout(to); resolve(r); }, function(e){ clearTimeout(to); reject(e); }); }); }
   try{
     var got=false;
     while(true){
+      if(Date.now()-_lastProg>45000){ try{ reader.cancel(); }catch(e){} throw new Error('STREAM_TIMEOUT'); }   // ★硬超时：45秒没新文字就判死
       var r=await _readTO(got?IDLE_MS:FIRST_MS); if(r.done) break; got=true;
       buf+=dec.decode(r.value,{stream:true});
       var lines=buf.split('\n'); buf=lines.pop();
       for(var i=0;i<lines.length;i++){ var line=lines[i].trim(); if(line.indexOf('data:')!==0) continue; var js=line.slice(5).trim(); if(!js) continue;
         try{ var o=JSON.parse(js);
-          if(o.type==='content_block_delta' && o.delta && o.delta.type==='text_delta'){ full+=(o.delta.text||''); if(onChunk) onChunk(full); }
+          if(o.type==='content_block_delta' && o.delta && o.delta.type==='text_delta'){ full+=(o.delta.text||''); _lastProg=Date.now(); if(onChunk) onChunk(full); }
           else if(o.type==='message_delta' && o.delta && o.delta.stop_reason){ stop=o.delta.stop_reason; }
           else if(o.type==='error'){ throw new Error('Claude: '+((o.error&&o.error.message)||'stream error')); }
         }catch(pe){ if(/^Claude:/.test(pe.message)) throw pe; }
