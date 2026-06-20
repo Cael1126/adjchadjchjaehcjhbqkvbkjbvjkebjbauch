@@ -367,7 +367,7 @@ nav { height:50px; background:rgba(245,235,220,0.9); backdrop-filter:blur(20px);
   <div class="sb-bottom"><div class="sb-nav" style="padding:0">
     <a class="sb-item" onclick="openPanel('settings');closeDrawer()"><div class="sb-icon"><svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="7" cy="7" r="2.5"/><path d="M7 1 L7 2.5 M7 11.5 L7 13 M1 7 L2.5 7 M11.5 7 L13 7 M2.9 2.9 L4 4 M10 10 L11.1 11.1 M11.1 2.9 L10 4 M4 10 L2.9 11.1"/></svg></div><div class="sb-label">Settings</div></a>
     <a class="sb-item" onclick="openPanel('creator');closeDrawer()"><div class="sb-icon"><svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="4" cy="4" r="2"/><circle cx="10" cy="4" r="2"/><circle cx="7" cy="10" r="2"/><line x1="4" y1="6" x2="7" y2="8"/><line x1="10" y1="6" x2="7" y2="8"/></svg></div><div class="sb-label">Creator Mode</div></a>
-    <div class="sb-item" style="opacity:0.4;cursor:default;font-size:10px"><div class="sb-icon"><svg width="8" height="8" viewBox="0 0 8 8" fill="currentColor"><circle cx="4" cy="4" r="3"/></svg></div><div class="sb-label" style="font-family:'JetBrains Mono',monospace;letter-spacing:1px">v26.8 ✦ QUOTAFIX</div></div>
+    <div class="sb-item" style="opacity:0.4;cursor:default;font-size:10px"><div class="sb-icon"><svg width="8" height="8" viewBox="0 0 8 8" fill="currentColor"><circle cx="4" cy="4" r="3"/></svg></div><div class="sb-label" style="font-family:'JetBrains Mono',monospace;letter-spacing:1px">v27.0 ✦ SAFEMIGRATE</div></div>
   </div></div>
 </div>
 
@@ -385,7 +385,7 @@ nav { height:50px; background:rgba(245,235,220,0.9); backdrop-filter:blur(20px);
   <div class="sb-bottom"><div class="sb-nav" style="padding:0">
     <a class="sb-item" onclick="openPanel('settings')"><div class="sb-icon"><svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="7" cy="7" r="2.5"/><path d="M7 1 L7 2.5 M7 11.5 L7 13 M1 7 L2.5 7 M11.5 7 L13 7 M2.9 2.9 L4 4 M10 10 L11.1 11.1 M11.1 2.9 L10 4 M4 10 L2.9 11.1"/></svg></div><div class="sb-label">Settings</div></a>
     <a class="sb-item" onclick="openPanel('creator')"><div class="sb-icon"><svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="4" cy="4" r="2"/><circle cx="10" cy="4" r="2"/><circle cx="7" cy="10" r="2"/><line x1="4" y1="6" x2="7" y2="8"/><line x1="10" y1="6" x2="7" y2="8"/></svg></div><div class="sb-label">Creator Mode</div></a>
-    <div class="sb-item" style="opacity:0.4;cursor:default;font-size:10px"><div class="sb-icon"><svg width="8" height="8" viewBox="0 0 8 8" fill="currentColor"><circle cx="4" cy="4" r="3"/></svg></div><div class="sb-label" style="font-family:'JetBrains Mono',monospace;letter-spacing:1px">v26.8 ✦ QUOTAFIX</div></div>
+    <div class="sb-item" style="opacity:0.4;cursor:default;font-size:10px"><div class="sb-icon"><svg width="8" height="8" viewBox="0 0 8 8" fill="currentColor"><circle cx="4" cy="4" r="3"/></svg></div><div class="sb-label" style="font-family:'JetBrains Mono',monospace;letter-spacing:1px">v27.0 ✦ SAFEMIGRATE</div></div>
   </div></div>
 </div>
 
@@ -531,7 +531,7 @@ nav { height:50px; background:rgba(245,235,220,0.9); backdrop-filter:blur(20px);
   </div>
 
   <div class="footer">
-    <div class="footer-item">MYCROFT.SYS · v26.8 ✦ QUOTAFIX</div>
+    <div class="footer-item">MYCROFT.SYS · v27.0 ✦ SAFEMIGRATE</div>
     <div class="footer-live"><div class="sdot sdot-on"></div><span>LIVE</span></div>
     <div class="footer-item" id="footerDate">----</div>
     <div class="footer-item" style="border:1px solid rgba(170,60,55,0.45);color:rgba(170,60,55,0.85);border-radius:3px;padding:0 7px;letter-spacing:2px;transform:rotate(-1.5deg)">CLASSIFIED · 机密</div>
@@ -3144,10 +3144,12 @@ async function _migrateArchivesToIDB(){   // 一次性：把 localStorage 里旧
   try{
     var keys=[]; for(var i=0;i<localStorage.length;i++){ var kk=localStorage.key(i); if(kk && /_arch$/.test(kk) && kk!=='_arch') keys.push(kk); }
     for(var j=0;j<keys.length;j++){ var ak=keys[j], base=ak.slice(0,-5); var arr=[]; try{ arr=JSON.parse(localStorage.getItem(ak)||'[]')||[]; }catch(e){}
-      if(Array.isArray(arr)&&arr.length){ var ex=(await archDbGet(base))||[]; var merged=_mergeMsgs(ex, arr); await archDbPut(base, merged); try{ _rawSet(base+'_archN', String(merged.length)); }catch(e){} }
-      try{ localStorage.removeItem(ak); }catch(e){}
-      try{ localStorage.removeItem(ak+'_bak'); }catch(e){}
-      try{ delete _archCache[base]; }catch(e){}
+      var safeToRemove=true;
+      if(Array.isArray(arr)&&arr.length){ var ex=(await archDbGet(base))||[]; var merged=_mergeMsgs(ex, arr); var ok=await archDbPut(base, merged);
+        if(ok){ var verify=(await archDbGet(base))||[]; if(verify.length>=merged.length){ try{ _rawSet(base+'_archN', String(merged.length)); }catch(e){} } else safeToRemove=false; }
+        else safeToRemove=false;   // ★IndexedDB 没写成功 → 绝不删 localStorage 副本，宁可不腾空间也不丢存档
+      }
+      if(safeToRemove){ try{ localStorage.removeItem(ak); }catch(e){} try{ localStorage.removeItem(ak+'_bak'); }catch(e){} try{ delete _archCache[base]; }catch(e){} }
     }
     var pk=[]; for(var p=0;p<localStorage.length;p++){ var kp=localStorage.key(p); if(kp && /_archPend$/.test(kp)) pk.push(kp); }
     pk.forEach(function(kp){ try{ _flushArchPend(kp.slice(0,-9)); }catch(e){} });   // 把任何残留的 WAL 待写合进 IndexedDB
@@ -3455,7 +3457,7 @@ async function ifForkFromSave(saveId){
   if(rec.main || lineId==='__main__' || srcKind==='mainbranch'){
     var nmM=prompt('从这个主线存档岔出一条【主线分支】：\n原来那条完全不动，这条独立往下聊、各自记忆。\n暂不接入 Ombre（等以后把它设为正线才接）。\n\n给这条主线分支起个名：',''); if(nmM===null) return;
     var newId='mb'+Date.now();
-    try{ localStorage.setItem(ifChatKey(newId,'main'), JSON.stringify(rec.chat||[])); }catch(e){}
+    try{ localStorage.setItem(ifChatKey(newId,'main'), JSON.stringify((rec.chat||[]).slice(-20))); }catch(e){}   // 只带最近20条进主线分支（够他记得近况、又省地方）
     try{ localStorage.setItem(ifFramedKey(newId,'main'), String(rec.framed||0)); }catch(e){}
     var la=loadIfLines(); la.unshift({id:newId, kind:'mainbranch', title:(nmM.trim()||'主线分支'), framework:rec.framework||'', forkTrunkLen:(rec.framework||'').length, forkOmbreSeq:(rec.ombreSeq||0), parent:lineId, forkFrom:saveId, ts:Date.now()}); saveIfLines(la);
     _activeChat={type:'if',id:newId,branch:'main'}; _lastIfId=newId; _lastIfBranch[newId]='main';
@@ -3463,7 +3465,7 @@ async function ifForkFromSave(saveId){
   }
   var nm=prompt('从这个存档岔出一条新分支（原来那条完全不动，两条各自独立往下聊、各自记忆）。\n给新分支起个名：',''); if(nm===null) return;
   var brId='br'+Date.now()+'_'+(_ifSaveSeq++);
-  try{ localStorage.setItem(ifChatKey(lineId,brId), JSON.stringify(rec.chat||[])); }catch(e){}
+  try{ localStorage.setItem(ifChatKey(lineId,brId), JSON.stringify((rec.chat||[]).slice(-20))); }catch(e){}   // 只带最近20条
   try{ localStorage.setItem(ifFramedKey(lineId,brId), String(rec.framed||0)); }catch(e){}
   var a=ifBranchList(lineId).slice();
   a.push({id:brId, name:(nm.trim()||'新分支'), ts:Date.now(), parent:(rec.branch||'main'), forkFrom:saveId, framework:rec.framework||''});
