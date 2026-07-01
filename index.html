@@ -3232,7 +3232,25 @@ function saveMainChat(arr){ if(_migActive()) return; _writeChatKey('mcChat', arr
 //  Codex 交叉审查通过（弱去重→精确全等、整覆盖→带锁、length→精确成员、pinned刷新、状态机可恢复）
 // ===================================================================
 var MIG_STATE_KEY='mcMigrationState', MIG_LOCK_KEY='mcMigLock', _migLock=false;
-function _migActive(){ return _migLock || !!localStorage.getItem(MIG_LOCK_KEY); }
+function _migReadLock(){
+  try{ return JSON.parse(localStorage.getItem(MIG_LOCK_KEY)||'null'); }catch(e){ return localStorage.getItem(MIG_LOCK_KEY)?{bad:1}:null; }
+}
+function _migDropStaleLock(){
+  try{ localStorage.removeItem(MIG_LOCK_KEY); }catch(e){}
+}
+function _migActive(){
+  if(_migLock) return true;
+  var lk=_migReadLock();
+  if(!lk) return false;
+  var st=_migState();
+  // 自愈：锁残了但根本没有迁移状态，或迁移其实已经 committed，只会把聊天永久锁死 → 直接清锁
+  if(!st || st.phase==='committed'){
+    if(st&&st.phase==='committed') _clearMigState();
+    _migDropStaleLock();
+    return false;
+  }
+  return true;
+}
 function _migState(){ try{ return JSON.parse(localStorage.getItem(MIG_STATE_KEY)||'null'); }catch(e){ return null; } }
 function _setMigState(s){ try{ _rawSet(MIG_STATE_KEY, JSON.stringify(s)); }catch(e){} }
 function _clearMigState(){ try{ localStorage.removeItem(MIG_STATE_KEY); }catch(e){} }
@@ -3308,8 +3326,17 @@ async function runArchiveMigration(){
     if(fa.length + ffresh.length !== total.length) throw new Error('对账D失败(归档+未归档≠合计)');
     if(!assertPinnedPrefix(fl)) throw new Error('对账E失败(pinned非前缀)');
     _migPhase('committed');
+    // 迁移里用 _rawSet 直写了 mcChat，绕过了同步包装；这里必须显式 bump 版本并标脏，
+    // 否则云端若还留着迁移前的旧 live，下一次拉取会把它重新并回本地，导致 fresh 从 49 变 480 之类的膨胀。
+    try{
+      var _rev=String(Date.now());
+      _rawSet('mcRev', _rev);
+      _rawSet('mcDirty', '1');
+      _userActiveTs=Date.now();
+    }catch(e){}
     localStorage.removeItem(MIG_LOCK_KEY); _migLock=false;
-    try{ _archSchedulePush(); }catch(e){}   // 把干净归档推云（并集式，安全）
+    try{ if(_syncReady) syncSchedulePush(); }catch(e){}   // 主同步：把新的 mcChat / mcRev 推上去，别再被旧云端 live 并回来
+    try{ _archSchedulePush(); }catch(e){}   // 存档同步：把干净归档推云（并集式，安全）
     if(_curView==='chat'){ try{ renderChat(); }catch(e){} }
     return { before: oldMeta.liveLen+oldMeta.archLen, after: total.length, archived: archiveClean.length,
       live: newLive.length, fresh: freshSeg.length, pinned: pinnedSeg.length, backupKey:bkey };
@@ -5710,8 +5737,6 @@ try{ _trimBackups(); }catch(e){}   // 开机先把超大备份/快照瘦身，�
 </script>
 </body>
 </html>
-
-
 
 
 
