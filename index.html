@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="zh-CN">
 <head>
 <meta charset="UTF-8">
@@ -367,7 +367,7 @@ nav { height:50px; background:rgba(245,235,220,0.9); backdrop-filter:blur(20px);
   <div class="sb-bottom"><div class="sb-nav" style="padding:0">
     <a class="sb-item" onclick="openPanel('settings');closeDrawer()"><div class="sb-icon"><svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="7" cy="7" r="2.5"/><path d="M7 1 L7 2.5 M7 11.5 L7 13 M1 7 L2.5 7 M11.5 7 L13 7 M2.9 2.9 L4 4 M10 10 L11.1 11.1 M11.1 2.9 L10 4 M4 10 L2.9 11.1"/></svg></div><div class="sb-label">Settings</div></a>
     <a class="sb-item" onclick="openPanel('creator');closeDrawer()"><div class="sb-icon"><svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="4" cy="4" r="2"/><circle cx="10" cy="4" r="2"/><circle cx="7" cy="10" r="2"/><line x1="4" y1="6" x2="7" y2="8"/><line x1="10" y1="6" x2="7" y2="8"/></svg></div><div class="sb-label">Creator Mode</div></a>
-    <div class="sb-item" style="opacity:0.4;cursor:default;font-size:10px"><div class="sb-icon"><svg width="8" height="8" viewBox="0 0 8 8" fill="currentColor"><circle cx="4" cy="4" r="3"/></svg></div><div class="sb-label" style="font-family:'JetBrains Mono',monospace;letter-spacing:1px">v27.2 ✦ WBFORCE</div></div>
+    <div class="sb-item" style="opacity:0.4;cursor:default;font-size:10px"><div class="sb-icon"><svg width="8" height="8" viewBox="0 0 8 8" fill="currentColor"><circle cx="4" cy="4" r="3"/></svg></div><div class="sb-label" style="font-family:'JetBrains Mono',monospace;letter-spacing:1px">v27.4 ✦ HARDEN2</div></div>
   </div></div>
 </div>
 
@@ -385,7 +385,7 @@ nav { height:50px; background:rgba(245,235,220,0.9); backdrop-filter:blur(20px);
   <div class="sb-bottom"><div class="sb-nav" style="padding:0">
     <a class="sb-item" onclick="openPanel('settings')"><div class="sb-icon"><svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="7" cy="7" r="2.5"/><path d="M7 1 L7 2.5 M7 11.5 L7 13 M1 7 L2.5 7 M11.5 7 L13 7 M2.9 2.9 L4 4 M10 10 L11.1 11.1 M11.1 2.9 L10 4 M4 10 L2.9 11.1"/></svg></div><div class="sb-label">Settings</div></a>
     <a class="sb-item" onclick="openPanel('creator')"><div class="sb-icon"><svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="4" cy="4" r="2"/><circle cx="10" cy="4" r="2"/><circle cx="7" cy="10" r="2"/><line x1="4" y1="6" x2="7" y2="8"/><line x1="10" y1="6" x2="7" y2="8"/></svg></div><div class="sb-label">Creator Mode</div></a>
-    <div class="sb-item" style="opacity:0.4;cursor:default;font-size:10px"><div class="sb-icon"><svg width="8" height="8" viewBox="0 0 8 8" fill="currentColor"><circle cx="4" cy="4" r="3"/></svg></div><div class="sb-label" style="font-family:'JetBrains Mono',monospace;letter-spacing:1px">v27.2 ✦ WBFORCE</div></div>
+    <div class="sb-item" style="opacity:0.4;cursor:default;font-size:10px"><div class="sb-icon"><svg width="8" height="8" viewBox="0 0 8 8" fill="currentColor"><circle cx="4" cy="4" r="3"/></svg></div><div class="sb-label" style="font-family:'JetBrains Mono',monospace;letter-spacing:1px">v27.4 ✦ HARDEN2</div></div>
   </div></div>
 </div>
 
@@ -531,7 +531,7 @@ nav { height:50px; background:rgba(245,235,220,0.9); backdrop-filter:blur(20px);
   </div>
 
   <div class="footer">
-    <div class="footer-item">MYCROFT.SYS · v27.2 ✦ WBFORCE</div>
+    <div class="footer-item">MYCROFT.SYS · v27.4 ✦ HARDEN2</div>
     <div class="footer-live"><div class="sdot sdot-on"></div><span>LIVE</span></div>
     <div class="footer-item" id="footerDate">----</div>
     <div class="footer-item" style="border:1px solid rgba(170,60,55,0.45);color:rgba(170,60,55,0.85);border-radius:3px;padding:0 7px;letter-spacing:2px;transform:rotate(-1.5deg)">CLASSIFIED · 机密</div>
@@ -808,6 +808,13 @@ nav { height:50px; background:rgba(245,235,220,0.9); backdrop-filter:blur(20px);
           <button class="panel-save-btn" style="flex:1;padding:7px;font-size:11px;background:var(--s2)" onclick="cleanupBackups()">🧹 清理备份/快照</button>
         </div>
         <div style="font-size:9px;color:var(--text4);margin-top:6px;line-height:1.6">手机浏览器一般上限约 5 MB。「清理备份/快照」<b>只删应急复制品（*_bak / 快照），不动你的聊天/设定/世界书</b>。语音不占这里（只在内存）。</div>
+      </div>
+      <div class="panel-section">
+        <div class="panel-section-title">✦ 全量备份 &amp; 归档重构</div>
+        <button class="panel-save-btn" style="width:100%;padding:9px;font-size:12px;background:var(--s2)" onclick="exportFullBackup()">⬇ 导出全量备份（所有聊天+存档+世界书+设定）</button>
+        <div style="font-size:9px;color:var(--text4);margin:6px 0 12px;line-height:1.6">一个 json 文件 = 你的完整数据。<b>迁移/重构前务必先导出并存到安全的地方</b>（云盘/相册/发给自己）。</div>
+        <button class="panel-save-btn" id="migBtn" style="width:100%;padding:9px;font-size:12px;background:var(--s2)" onclick="doArchiveMigration()">🔧 归档重构（五百进制）</button>
+        <div style="font-size:9px;color:var(--text4);margin-top:6px;line-height:1.6">把主线聊天整理成<b>整千归档 + 界面保留最近缓冲</b>（前=已归档500倍数、后=界面新攒）。<b>无损：只搬位置不改内容，失败自动还原</b>。<span style="color:var(--gold)">先导出备份再点。</span></div>
       </div>
       <div class="panel-section">
         <div class="panel-section-title">✦ 记忆库 · Ombre Brain</div>
@@ -1196,7 +1203,9 @@ async function _elevenSpeakTS(text, model){
   var key=getElevenKey(), vid=getElevenVoice(); if(!key||!vid) throw new Error('没填 ElevenLabs key/Voice ID');
   model=model||getTtsModel(); var body={ text:text, model_id:model };
   if(!getTtsNative()){ var vs; if(model==='eleven_v3'){ var st=getTtsStab(); vs={stability:(st<0.34?0:(st<0.67?0.5:1)), similarity_boost:getTtsSim(), use_speaker_boost:true}; } else { vs={stability:getTtsStab(), similarity_boost:getTtsSim(), style:getTtsStyle(), use_speaker_boost:true}; } body.voice_settings=vs; }
-  var r=await fetch('https://api.elevenlabs.io/v1/text-to-speech/'+encodeURIComponent(vid)+'/with-timestamps?output_format=mp3_44100_128',{ method:'POST', headers:{'xi-api-key':key,'Content-Type':'application/json'}, body:JSON.stringify(body) });
+  var _ac=new AbortController(), _tt=setTimeout(function(){ try{_ac.abort();}catch(e){} }, 30000);   // 30s 超时，别永久挂死
+  var r; try{ r=await fetch('https://api.elevenlabs.io/v1/text-to-speech/'+encodeURIComponent(vid)+'/with-timestamps?output_format=mp3_44100_128',{ method:'POST', headers:{'xi-api-key':key,'Content-Type':'application/json'}, body:JSON.stringify(body), signal:_ac.signal }); }
+  finally{ clearTimeout(_tt); }
   if(!r.ok){ var t=''; try{t=await r.text();}catch(e){} throw new Error('HTTP '+r.status+' '+t.slice(0,140)); }
   var j=await r.json(); var b64=j.audio_base64||''; var bin=atob(b64); var u8=new Uint8Array(bin.length); for(var i=0;i<bin.length;i++) u8[i]=bin.charCodeAt(i);
   var url=URL.createObjectURL(new Blob([u8],{type:'audio/mpeg'}));
@@ -1611,7 +1620,9 @@ async function callGeminiJSON(systemText, userText, schema, modelOverride){
     var resp;
     try{ resp=await fetch(url,{ method:'POST', headers:{ 'Content-Type':'application/json' }, body:JSON.stringify(body) }); }
     catch(ne){ last='网络错误'; await new Promise(function(r){ setTimeout(r,1000); }); continue; }
-    if(resp.ok){ var data=await resp.json(); var txt=data&&data.candidates&&data.candidates[0]&&data.candidates[0].content&&data.candidates[0].content.parts&&data.candidates[0].content.parts[0]&&data.candidates[0].content.parts[0].text; return JSON.parse(txt); }
+    if(resp.ok){ var data=await resp.json(); var txt=data&&data.candidates&&data.candidates[0]&&data.candidates[0].content&&data.candidates[0].content.parts&&data.candidates[0].content.parts[0]&&data.candidates[0].content.parts[0].text;
+      if(!txt){ last='空响应/被拦'; await new Promise(function(r){ setTimeout(r,1200*(attempt+1)); }); continue; }   // 空响应→重试，不再 JSON.parse(undefined) 崩溃
+      try{ return JSON.parse(txt); }catch(pe){ last='JSON解析失败'; if(attempt<3){ await new Promise(function(r){ setTimeout(r,800); }); continue; } throw new Error('JSON解析失败'); } }
     last='HTTP '+resp.status;
     if(resp.status===503||resp.status===500||resp.status===429){ await new Promise(function(r){ setTimeout(r, 1300*(attempt+1)); }); continue; }   // 过载/限流 → 等一下重试
     throw new Error(last);
@@ -1775,8 +1786,8 @@ function openMStateFavs(){
     if(!a.length){ body.style.maxHeight=''; body.style.overflowY=''; body.innerHTML=back+'<div style="font-style:normal;font-size:13px;color:var(--text3)">还没有收藏的「看穿」瞬间。点开看穿时按 ☆ 收藏。</div>'; return; }
     body.innerHTML=back+a.map(function(n){
       return '<div style="border-bottom:1px solid var(--border);padding:11px 0">'
-        +'<div style="font-style:italic">'+n.b+'</div>'
-        +(n.t?'<div style="font-family:Noto Serif SC,serif;font-size:12px;color:var(--tr);margin-top:5px;font-style:normal">'+n.t+'</div>':'')
+        +'<div style="font-style:italic">'+chatEsc(n.b||'')+'</div>'
+        +(n.t?'<div style="font-family:Noto Serif SC,serif;font-size:12px;color:var(--tr);margin-top:5px;font-style:normal">'+chatEsc(n.t)+'</div>':'')
         +'<div style="font-size:9px;color:var(--text4);margin-top:6px;font-style:normal;display:flex;justify-content:space-between"><span>'+fmtNoteDate(n.ts)+'</span><span style="cursor:pointer" onclick="unfavMState(\''+n.id+'\')">移除 ✕</span></div></div>';
     }).join('');
     body.style.maxHeight='54vh'; body.style.overflowY='auto';
@@ -1854,7 +1865,7 @@ async function testApiKey(){
   if(statusEl){ statusEl.style.color='var(--text3)'; statusEl.textContent='⏳ 正在联系 Mycroft...'; }
   try{
     var r=await mycroftLine('session');
-    if(statusEl){ statusEl.style.color='var(--green)'; statusEl.innerHTML='✓ 连接成功！Mycroft 说：<br><i style="color:var(--text2)">'+r.b+'</i>'; }
+    if(statusEl){ statusEl.style.color='var(--green)'; statusEl.innerHTML='✓ 连接成功！Mycroft 说：<br><i style="color:var(--text2)">'+chatEsc(r.b||'')+'</i>'; }
   }catch(e){
     if(statusEl){ statusEl.style.color='var(--rose)'; statusEl.textContent='✗ 失败：'+e.message; }
   }
@@ -2068,11 +2079,11 @@ function showDetail(who){
       var isNow=cur>=st&&cur<nt,isPast=cur>=nt;
       var sty=isPast?'opacity:0.35;text-decoration:line-through':isNow?'color:var(--gold);font-weight:700':'';
       if(s._sur) sty=(isPast?'opacity:0.5;':'')+'color:var(--gold);font-style:italic';
-      html+='<div class="detail-item"><div class="detail-time">'+s.t+'</div><div class="detail-dot'+(isNow?' now':'')+'"></div><span style="'+sty+'">'+s.s+'</span></div>';
+      html+='<div class="detail-item"><div class="detail-time">'+chatEsc(s.t||'')+'</div><div class="detail-dot'+(isNow?' now':'')+'"></div><span style="'+sty+'">'+chatEsc(s.s||'')+'</span></div>';
     }
     if(sch&&sch.offTime){
       var offNow=cur>=offMin;
-      html+='<div class="detail-item"><div class="detail-time">'+sch.offTime+'</div><div class="detail-dot'+(offNow?' now':'')+'"></div><span style="'+(offNow?'color:var(--gold);font-weight:700':'opacity:0.6;font-style:italic')+'">—— '+(sch.offNote||'off duty · with you')+' ——</span></div>';
+      html+='<div class="detail-item"><div class="detail-time">'+sch.offTime+'</div><div class="detail-dot'+(offNow?' now':'')+'"></div><span style="'+(offNow?'color:var(--gold);font-weight:700':'opacity:0.6;font-style:italic')+'">—— '+chatEsc(sch.offNote||'off duty · with you')+' ——</span></div>';
     }
     // M's mood trace — same UI as C's, but labeled as API-controlled
     html+='</div><div class="detail-section"><div class="detail-title">M. Mood Trace · Today</div>';
@@ -2080,8 +2091,8 @@ function showDetail(who){
     // M's mood faces (same UI, dimmed to show API-only)
     var _mmi=getMMoodInfo();
     html+='<div class="mood-current-label" style="margin-top:6px">'+_mmi.label+'</div>';
-    if(_mmi.reason) html+='<div style="font-size:12px;color:var(--text2);margin-top:5px;font-style:italic;font-family:Playfair Display,serif;line-height:1.5">"'+_mmi.reason+'"</div>';
-    if(_mmi.reasonZh) html+='<div style="font-family:Noto Serif SC,serif;font-size:11px;color:var(--tr);margin-top:3px;line-height:1.5">'+_mmi.reasonZh+'</div>';
+    if(_mmi.reason) html+='<div style="font-size:12px;color:var(--text2);margin-top:5px;font-style:italic;font-family:Playfair Display,serif;line-height:1.5">"'+chatEsc(_mmi.reason)+'"</div>';
+    if(_mmi.reasonZh) html+='<div style="font-family:Noto Serif SC,serif;font-size:11px;color:var(--tr);margin-top:3px;line-height:1.5">'+chatEsc(_mmi.reasonZh)+'</div>';
     html+='<div style="font-size:9px;color:var(--text4);margin-top:7px;letter-spacing:1.5px">REAL · 装不了 · 每小时更新</div></div>';
   } else {
     var de=document.getElementById('detailEyebrow'); if(de) de.textContent='Cael (Asaka) · Main World';
@@ -2584,8 +2595,8 @@ function boardCardHTML(who, n, idx){
   var tilt=(who==='M')?[-0.8,0.6,-0.4][idx%3]:[-0.5,0.5][idx%2];
   var from=(who==='M')?'✦ From M —':'✦ From C —';
   var star=n.fav?'★':'☆';
-  var txt=(who==='M')?(n.b||''):('"'+(n.text||'')+'"');
-  var tr=(who==='M'&&n.t)?('<div class="note-tr">'+n.t+'</div>'):'';
+  var txt=(who==='M')?chatEsc(n.b||''):('"'+chatEsc(n.text||'')+'"');
+  var tr=(who==='M'&&n.t)?('<div class="note-tr">'+chatEsc(n.t)+'</div>'):'';
   var sig=(who==='M')?'— M':'— C';
   var rc=(n.replies&&n.replies.length)?('<span style="font-size:9px;color:'+col+';margin-left:6px">💬'+n.replies.length+'</span>'):'';
   var oc='openNote(\''+who+'\',\''+n.id+'\')';
@@ -2621,13 +2632,13 @@ function openNote(who,id){
   var ey=document.getElementById('popupEyebrow'); if(ey) ey.textContent=(who==='M'?'M.H. · Note':'C. · Note')+' · '+fmtNoteDate(n.ts);
   var pd=document.getElementById('popupDetail'); if(pd) pd.style.display='none';
   var ov=document.getElementById('popupOverlay'); if(ov) ov.classList.add('open');
-  var main=(who==='M')?('<div class="popup-body">'+(n.b||'')+'</div>'+(n.t?'<div class="popup-tr">'+n.t+'</div>':'')):('<div class="popup-body">"'+(n.text||'')+'"</div>');
+  var main=(who==='M')?('<div class="popup-body">'+chatEsc(n.b||'')+'</div>'+(n.t?'<div class="popup-tr">'+chatEsc(n.t)+'</div>':'')):('<div class="popup-body">"'+chatEsc(n.text||'')+'"</div>');
   var thread='';
   (n.replies||[]).forEach(function(r){
     var isC=(r.from==='C');
     var lbl=isC?'C':'M';
-    var rtxt=isC?('"'+(r.text||'')+'"'):(r.b||'');
-    var rtr=(!isC&&r.t)?('<div style="font-family:Noto Serif SC,serif;font-size:10px;color:var(--text3);margin-top:2px">'+r.t+'</div>'):'';
+    var rtxt=isC?('"'+chatEsc(r.text||'')+'"'):chatEsc(r.b||'');
+    var rtr=(!isC&&r.t)?('<div style="font-family:Noto Serif SC,serif;font-size:10px;color:var(--text3);margin-top:2px">'+chatEsc(r.t)+'</div>'):'';
     thread+='<div style="margin-top:8px;padding:7px 10px;border-radius:10px;background:'+(isC?'rgba(45,138,90,0.08)':'rgba(200,122,48,0.08)')+'"><div style="font-size:8px;font-weight:700;letter-spacing:1.5px;color:'+(isC?'var(--mint)':'var(--gold)')+'">'+lbl+'</div><div style="font-family:Caveat,cursive;font-size:15px;color:var(--text2);line-height:1.4">'+rtxt+'</div>'+rtr+'</div>';
   });
   var starTxt=n.fav?'★ 已收藏':'☆ 收藏';
@@ -2747,7 +2758,8 @@ async function genMNotesBatch(count, instruction){
   if(!resp.ok) throw new Error('HTTP '+resp.status);
   var data=await resp.json();
   var txt=data&&data.candidates&&data.candidates[0]&&data.candidates[0].content&&data.candidates[0].content.parts&&data.candidates[0].content.parts[0]&&data.candidates[0].content.parts[0].text;
-  var arr=JSON.parse(txt);
+  if(!txt) throw new Error('空响应/被拦');   // 别 JSON.parse(undefined) 崩
+  var arr; try{ arr=JSON.parse(txt); }catch(pe){ throw new Error('JSON解析失败'); }
   if(!Array.isArray(arr)) throw new Error('BAD_ARRAY');
   return arr;
 }
@@ -2860,8 +2872,8 @@ function renderInner(){
   el.innerHTML='<div class="card" style="'+cardStyleFor(col)+'cursor:pointer;position:relative" onclick="openInner(\''+n.id+'\')">'
     +'<div class="note-fav'+(n.fav?' on':'')+'" onclick="event.stopPropagation();toggleFavInner(\''+n.id+'\')">'+star+'</div>'
     +'<div class="clabel"><div class="thought-badge" style="background:'+col+'1f;border-color:'+col+'40;color:'+col+'"><div class="thought-dot" style="background:'+col+'"></div>Inner Monologue · '+periodLabel(n.period)+'</div><span class="thought-ts">'+fmtNoteDate(n.ts)+'</span></div>'
-    +'<div class="thought-body" style="border-left-color:'+col+'55">'+(n.b||'')+'</div>'
-    +(n.t?'<div class="thought-tr">'+n.t+'</div>':'')+'</div>';
+    +'<div class="thought-body" style="border-left-color:'+col+'55">'+chatEsc(n.b||'')+'</div>'
+    +(n.t?'<div class="thought-tr">'+chatEsc(n.t)+'</div>':'')+'</div>';
 }
 function openInner(id){
   var a=loadInner(), n=null; for(var i=0;i<a.length;i++){ if(a[i].id===id){ n=a[i]; break; } } if(!n) return;
@@ -2869,7 +2881,7 @@ function openInner(id){
   var pd=document.getElementById('popupDetail'); if(pd) pd.style.display='none';
   var ov=document.getElementById('popupOverlay'); if(ov) ov.classList.add('open');
   var starTxt=n.fav?'★ 已收藏':'☆ 收藏';
-  fillPopup('<div class="popup-body">'+(n.b||'')+'</div>'+(n.t?'<div class="popup-tr">'+n.t+'</div>':'')+'<div style="margin-top:10px;font-size:11px;color:'+(n.fav?'var(--gold)':'var(--text3)')+';cursor:pointer;text-align:center" onclick="toggleFavInner(\''+id+'\');openInner(\''+id+'\')">'+starTxt+'</div>');
+  fillPopup('<div class="popup-body">'+chatEsc(n.b||'')+'</div>'+(n.t?'<div class="popup-tr">'+chatEsc(n.t)+'</div>':'')+'<div style="margin-top:10px;font-size:11px;color:'+(n.fav?'var(--gold)':'var(--text3)')+';cursor:pointer;text-align:center" onclick="toggleFavInner(\''+id+'\');openInner(\''+id+'\')">'+starTxt+'</div>');
 }
 function toggleFavInner(id){ var a=loadInner(); for(var i=0;i<a.length;i++){ if(a[i].id===id){ a[i].fav=!a[i].fav; break; } } saveInner(a); renderInner(); }
 function openInnerArchive(){
@@ -2885,8 +2897,8 @@ function openInnerArchive(){
     return '<div style="border-bottom:1px solid var(--border);padding:9px 2px;display:flex;gap:8px;align-items:flex-start">'
       +'<span style="cursor:pointer;font-size:14px;color:'+(n.fav?'var(--gold)':'var(--text4)')+'" onclick="'+fc+'">'+star+'</span>'
       +'<div style="flex:1;cursor:pointer" onclick="'+oc+'"><div style="font-size:8px;font-weight:700;letter-spacing:1px;color:'+col+'">'+periodLabel(n.period)+' · '+n.dk+' · 点击放大 →</div>'
-      +'<div style="font-family:Playfair Display,serif;font-style:italic;font-size:14px;color:var(--text);line-height:1.6">'+(n.b||'')+'</div>'
-      +(n.t?'<div style="font-family:Noto Serif SC,serif;font-size:10px;color:var(--text3)">'+n.t+'</div>':'')+'</div></div>';
+      +'<div style="font-family:Playfair Display,serif;font-style:italic;font-size:14px;color:var(--text);line-height:1.6">'+chatEsc(n.b||'')+'</div>'
+      +(n.t?'<div style="font-family:Noto Serif SC,serif;font-size:10px;color:var(--text3)">'+chatEsc(n.t)+'</div>':'')+'</div></div>';
   }).join('');
   fillPopup('<div style="max-height:52vh;overflow-y:auto;text-align:left;width:100%">'+rows+'</div>');
 }
@@ -2916,8 +2928,8 @@ function favUnfavChat(key, ts){ try{ var a=JSON.parse(localStorage.getItem(key)|
 function _favCard(body, meta, ts, unfav){
   return '<div style="border:1px solid var(--border2);border-radius:11px;background:var(--s1);padding:11px 13px;margin-bottom:9px;display:flex;gap:9px;align-items:flex-start">'
     +'<span onclick="'+unfav+'" title="取消收藏" style="cursor:pointer;color:var(--gold);font-size:15px;flex-shrink:0;line-height:1.5">★</span>'
-    +'<div style="flex:1;min-width:0"><div style="font-family:\'Noto Serif SC\',serif;font-size:13px;color:var(--text2);line-height:1.65;white-space:pre-wrap">'+body+'</div>'
-    +'<div style="font-size:9px;color:var(--text4);margin-top:5px;letter-spacing:0.5px">'+(meta||'')+' · '+fmtNoteDate(ts)+'</div></div></div>';
+    +'<div style="flex:1;min-width:0"><div style="font-family:\'Noto Serif SC\',serif;font-size:13px;color:var(--text2);line-height:1.65;white-space:pre-wrap">'+chatEsc(body||'')+'</div>'
+    +'<div style="font-size:9px;color:var(--text4);margin-top:5px;letter-spacing:0.5px">'+chatEsc(meta||'')+' · '+fmtNoteDate(ts)+'</div></div></div>';
 }
 // ===== 收藏：首页两类（弹窗 / 聊天记录）→ 聊天记录=自建收藏夹·多选成块 =====
 var _favNav={mode:'home'}, _favSelMode=false, _favSel={}, _favPendingMsgs=null;
@@ -3098,55 +3110,96 @@ function ifChatKey(lineId,br){ return (br&&br!=='main') ? ('mcIfChat_'+lineId+'_
 function ifFramedKey(lineId,br){ return (br&&br!=='main') ? ('mcIfFramed_'+lineId+'__'+br) : ('mcIfFramed_'+lineId); }
 function chatKey(){ return _activeChat.type==='if' ? ifChatKey(_activeChat.id, _activeChat.branch||'main') : 'mcChat'; }
 function loadChat(){ try{ return JSON.parse(localStorage.getItem(chatKey())||'[]'); }catch(e){ return []; } }
-var LIVE_KEEP=500;   // 活跃聊天最多留 500 条；更早的不删，自动移进"存档区"(<key>_arch)，与活跃窗口分开算
+var LIVE_KEEP=500;   // 旧常量名保留（他处可能引用）；新模型见 ARCHIVE_BATCH
+var ARCHIVE_BATCH=500;   // 五百进制：每满 500 条"未归档"整批归档
+var PINNED_KEEP=20;      // 归档后界面保留"刚归档那批的最后 20 条"当缓冲（已归档、不重复归档）
 var _archCache={};   // chatKey -> 存档数组（内存缓存，避免每次渲染都解析大 JSON 卡死）
-function _archiveOverflow(k, arr){
-  if(!arr || arr.length<=LIVE_KEEP) return arr;
-  var overflow=arr.slice(0, arr.length-LIVE_KEEP);   // 溢出的（最早那批）→ 进存档，绝不丢
-  // 写前日志(WAL)：先把溢出小批同步存进 _archPend(很小)，再异步合进 IndexedDB——断电/关页也不丢
-  try{ var pend=JSON.parse(localStorage.getItem(k+'_archPend')||'[]')||[]; pend=pend.concat(overflow); _rawSet(k+'_archPend', JSON.stringify(pend)); }catch(e){}
-  try{ _rawSet(k+'_archN', String((parseInt(localStorage.getItem(k+'_archN')||'0',10)||0)+overflow.length)); }catch(e){}   // 计数先顶上，badge 立即对
-  _flushArchPend(k);
-  return arr.slice(-LIVE_KEEP);
+function _isPinned(m){ return !!(m&&m._pinned); }
+function _cloneMsg(m){ var c={}; for(var p in m){ if(Object.prototype.hasOwnProperty.call(m,p)) c[p]=m[p]; } return c; }
+function assertPinnedPrefix(live){   // pinned 必须是排序后最前的连续若干条，不能散落在 fresh 之后
+  var seenFresh=false; for(var i=0;i<(live||[]).length;i++){ if(_isPinned(live[i])){ if(seenFresh) return false; } else seenFresh=true; } return true;
 }
-function _flushArchPend(k){   // 把 _archPend 合并进 IndexedDB 正本，成功后清空 pending；失败则留着下次再试
+// 五百进制归档：fresh(未归档)超过 500 → 把最早 500 条整批归档，界面刷新保留刚归档批尾 20 条，旧 pinned 退场(早已在存档、不重复归档)
+function _archiveOverflow(k, arr){
+  if(_migActive()) return arr;   // 迁移期间冻结，绝不动
+  if(!arr || !arr.length) return arr;
+  var pinned=[], fresh=[];
+  for(var i=0;i<arr.length;i++){ if(_isPinned(arr[i])) pinned.push(arr[i]); else fresh.push(arr[i]); }
+  if(fresh.length <= ARCHIVE_BATCH) return arr;   // 后未破 500：原样，不归档
+  // 循环 drain：正常每条只折一批；批量导入/恢复令 fresh 远超 500 时，一次全部折完，绝不留下非法超大 live
+  var toArch=[], lastBatch=null;
+  while(fresh.length > ARCHIVE_BATCH){
+    var batch=fresh.slice(0, ARCHIVE_BATCH);        // 最早 500 条未归档 → 归档
+    for(var b=0;b<batch.length;b++){ toArch.push({role:batch[b].role, ts:batch[b].ts, text:batch[b].text}); }   // 存档副本不带 _pinned
+    lastBatch=batch;   // 记住最后折的这批 → 它的尾 20 条留看
+    fresh=fresh.slice(ARCHIVE_BATCH);
+  }
+  // 写前日志(WAL)：把折出的所有批同步存进 _archPend，再异步合进 IndexedDB——断电/关页也不丢
+  try{ var pend=JSON.parse(localStorage.getItem(k+'_archPend')||'[]')||[]; pend=pend.concat(toArch); _rawSet(k+'_archPend', JSON.stringify(pend)); }catch(e){}
+  try{ _rawSet(k+'_archN', String((parseInt(localStorage.getItem(k+'_archN')||'0',10)||0)+toArch.length)); }catch(e){}   // 计数先顶上
+  _flushArchPend(k);
+  var newPinned=(lastBatch||[]).slice(-PINNED_KEEP).map(function(m){ var c=_cloneMsg(m); c._pinned=true; return c; });   // ★刷新：留最后折那批的最后 20 条
+  var remainFresh=fresh.map(function(m){ if(m._pinned){ var c=_cloneMsg(m); c._pinned=false; return c; } return m; });
+  return newPinned.concat(remainFresh);   // 旧 pinned 丢弃（早已归档，不重复归档）
+}
+var _archFlushBusy={};   // 每个 key 单飞，避免并发 flush 互相覆盖
+function _flushArchPend(k){   // 把 _archPend 合并进 IndexedDB 正本；只清"本次已落库的这批"，绝不无条件清空（防冲掉期间新追加的）
+  if(_migActive()) return;   // 迁移期间冻结
+  if(_archFlushBusy[k]) return;   // 已有一趟在写 → 那趟收尾会自查有没有新的再续
   var pend=[]; try{ pend=JSON.parse(localStorage.getItem(k+'_archPend')||'[]')||[]; }catch(e){}
   if(!pend.length) return;
-  archDbGet(k).then(function(ex){ var merged=_mergeMsgs(ex||[], pend); archDbPut(k, merged).then(function(ok){ if(ok){ try{ _rawSet(k+'_archPend','[]'); }catch(e){} try{ _rawSet(k+'_archN', String(merged.length)); }catch(e){} try{ delete _archCache[k]; }catch(e){} if(k==='mcChat'){ try{ _archSchedulePush(); }catch(e){} } } }); });
+  var n=pend.length;   // 本次要落库的条数（快照）
+  _archFlushBusy[k]=true;
+  archDbGet(k).then(function(ex){ var merged=_mergeMsgs(ex||[], pend); return archDbPut(k, merged).then(function(ok){
+    _archFlushBusy[k]=false;
+    if(!ok) return;   // 写失败：pend 原样留着，下次再试
+    var cur=[]; try{ cur=JSON.parse(localStorage.getItem(k+'_archPend')||'[]')||[]; }catch(e){}
+    var rest=cur.slice(n);   // 期间新追加的（append 在尾部）→ 保留，只移除已落库的前 n 条
+    try{ _rawSet(k+'_archPend', JSON.stringify(rest)); }catch(e){}
+    try{ _rawSet(k+'_archN', String(merged.length + rest.length)); }catch(e){}   // 计数=已落库+未落库，绝不丢
+    try{ delete _archCache[k]; }catch(e){}
+    if(k==='mcChat'){ try{ _archSchedulePush(); }catch(e){} }
+    if(rest.length){ _flushArchPend(k); }   // 还有新的，继续冲干净
+  }); }).catch(function(){ _archFlushBusy[k]=false; });
 }
 // ===== 存档跨端共通：独立云端行(id=hash(密码+':arch'))，合并式只增不覆盖 + 重试，不混进主同步包 =====
 var _archSyncTimer=null;
 function _archSchedulePush(){ if(!_syncReady||!_syncPass) return; if(_archSyncTimer) clearTimeout(_archSyncTimer); _archSyncTimer=setTimeout(_archPushNow, 4000); }
 async function _archPushNow(){
+  if(_migActive()) return;   // 迁移期间冻结
   if(!_syncPass) return;
   try{
     var k='mcChat', loc=(await archDbGet(k))||[]; if(!loc.length) return;
     var id=await _hashId(_syncPass+':arch'), cloud=[];
     try{ var row=await _syncFetch(id); if(row&&row.data) cloud=JSON.parse(await _dec(row.data,_syncPass))||[]; }catch(e){}   // 先并云端，绝不覆盖另一台的存档
     var merged=_mergeMsgs(cloud, loc);
+    if(_migActive()) return;   // await 后复查：迁移已开始就别写/别推，免得覆盖迁移刚落库的归档
     if(merged.length!==loc.length){ await archDbPut(k, merged); _rawSet(k+'_archN', String(merged.length)); delete _archCache[k]; if(_curView==='chat') renderChat(); }
     await _syncUpsert(id, await _enc(JSON.stringify(merged), _syncPass));
   }catch(e){}
 }
 async function _archPull(){
+  if(_migActive()) return;   // 迁移期间冻结
   if(!_syncReady||!_syncPass) return;
   try{
     var id=await _hashId(_syncPass+':arch'), row=await _syncFetch(id); if(!row||!row.data) return;
     var cloud=JSON.parse(await _dec(row.data,_syncPass)); if(!Array.isArray(cloud)||!cloud.length) return;
     var k='mcChat', loc=(await archDbGet(k))||[];
     var merged=_mergeMsgs(loc, cloud);
+    if(_migActive()) return;   // await 后复查：迁移已开始就别写，免得覆盖迁移刚落库的归档
     if(merged.length!==loc.length){ await archDbPut(k, merged); _rawSet(k+'_archN', String(merged.length)); delete _archCache[k]; if(_curView==='chat') renderChat(); }
   }catch(e){}
 }
 async function chatArchive(k){ k=k||chatKey(); if(_archCache[k]) return _archCache[k]; var a=(await archDbGet(k))||[]; _archCache[k]=a; return a; }   // 从 IndexedDB 读一次缓存住（异步）
 function archCount(k){ k=k||chatKey(); var n=localStorage.getItem(k+'_archN'); return n!==null?(+n||0):0; }   // 计数只读 localStorage 里的数字（同步、轻量；正本在 IndexedDB）
 async function _migrateArchivesToIDB(){   // 一次性：把 localStorage 里旧的 *_arch 搬进 IndexedDB 并删掉 → 腾出那 5MB
+  if(_migActive()) return;   // 「归档重构」进行/回滚中，不并发动存档
   try{
     var keys=[]; for(var i=0;i<localStorage.length;i++){ var kk=localStorage.key(i); if(kk && /_arch$/.test(kk) && kk!=='_arch') keys.push(kk); }
     for(var j=0;j<keys.length;j++){ var ak=keys[j], base=ak.slice(0,-5); var arr=[]; try{ arr=JSON.parse(localStorage.getItem(ak)||'[]')||[]; }catch(e){}
       var safeToRemove=true;
       if(Array.isArray(arr)&&arr.length){ var ex=(await archDbGet(base))||[]; var merged=_mergeMsgs(ex, arr); var ok=await archDbPut(base, merged);
-        if(ok){ var verify=(await archDbGet(base))||[]; if(verify.length>=merged.length){ try{ _rawSet(base+'_archN', String(merged.length)); }catch(e){} } else safeToRemove=false; }
+        if(ok){ var verify=(await archDbGet(base))||[]; if(_segEqual(_stripArch(verify), _stripArch(merged))){ try{ _rawSet(base+'_archN', String(merged.length)); }catch(e){} } else safeToRemove=false; }   // 逐条精确核对再删源，长度相同但内容错位也不放过
         else safeToRemove=false;   // ★IndexedDB 没写成功 → 绝不删 localStorage 副本，宁可不腾空间也不丢存档
       }
       if(safeToRemove){ try{ localStorage.removeItem(ak); }catch(e){} try{ localStorage.removeItem(ak+'_bak'); }catch(e){} try{ delete _archCache[base]; }catch(e){} }
@@ -3156,7 +3209,8 @@ async function _migrateArchivesToIDB(){   // 一次性：把 localStorage 里旧
     if(keys.length){ try{ if(typeof refreshStorageUsage==='function') refreshStorageUsage(); }catch(e){} if(_curView==='chat'){ try{ renderChat(); }catch(e){} } }
   }catch(e){}
 }
-function saveChat(arr){ var k=chatKey(); arr=_archiveOverflow(k, arr); var data=JSON.stringify(arr);
+function _writeChatKey(k, arr){   // 统一的健壮写：留备份 + 空间满自救 + 报错，绝不空 catch 静默丢
+  arr=_archiveOverflow(k, arr); var data=JSON.stringify(arr);
   try{ var prev=localStorage.getItem(k); if(prev&&prev!=='[]'&&prev!=='null'){ try{ var pj=JSON.parse(prev); _rawSet(k+'_bak', JSON.stringify(pj.length>60?pj.slice(-60):pj)); }catch(e){ _rawSet(k+'_bak', prev); } } localStorage.setItem(k, data); }
   catch(e){   // 空间满：尽量腾地方再写——清翻译缓存/备份/快照，并把存档搬进 IndexedDB 腾出大块
     try{ localStorage.removeItem('mcVoiceTrans'); }catch(e0){}
@@ -3168,9 +3222,151 @@ function saveChat(arr){ var k=chatKey(); arr=_archiveOverflow(k, arr); var data=
     }
   }
 }
+function saveChat(arr){ if(_migActive()) return; _writeChatKey(chatKey(), arr); }   // 迁移期间冻结所有写入（迁移自己写最终态）
 // 永远读/写主线聊天（不受当前 IF 上下文影响）—— 主线 Mind Palace / 闭环 / 日程惊喜专用
 function loadMainChat(){ try{ return JSON.parse(localStorage.getItem('mcChat')||'[]'); }catch(e){ return []; } }
-function saveMainChat(arr){ try{ arr=_archiveOverflow('mcChat', arr); localStorage.setItem('mcChat', JSON.stringify(arr)); }catch(e){} }
+function saveMainChat(arr){ if(_migActive()) return; _writeChatKey('mcChat', arr); }   // 复用健壮写：不再空 catch 静默丢主线消息
+// ===================================================================
+//  归档重构（五百进制）迁移 —— 状态机 + 独立安全副本 + 强对账 + 崩溃自动还原
+//  只作用于主线 mcChat。全程冻结写入。无损：只搬位置、不改内容、不 AI 重述。
+//  Codex 交叉审查通过（弱去重→精确全等、整覆盖→带锁、length→精确成员、pinned刷新、状态机可恢复）
+// ===================================================================
+var MIG_STATE_KEY='mcMigrationState', MIG_LOCK_KEY='mcMigLock', _migLock=false;
+function _migActive(){ return _migLock || !!localStorage.getItem(MIG_LOCK_KEY); }
+function _migState(){ try{ return JSON.parse(localStorage.getItem(MIG_STATE_KEY)||'null'); }catch(e){ return null; } }
+function _setMigState(s){ try{ _rawSet(MIG_STATE_KEY, JSON.stringify(s)); }catch(e){} }
+function _clearMigState(){ try{ localStorage.removeItem(MIG_STATE_KEY); }catch(e){} }
+function _migPhase(p){ var s=_migState()||{}; s.phase=p; _setMigState(s); }
+// —— 精确工具：稳定排序、精确全等去重、逐条精确比对（不做语义并、不截断）——
+function _sortByTsStable(arr){ return (arr||[]).map(function(m,i){ return {m:m,i:i}; }).sort(function(a,b){ var d=(a.m.ts||0)-(b.m.ts||0); return d!==0?d:a.i-b.i; }).map(function(x){ return x.m; }); }
+function _msgFp(m){ return (m&&m.role||'')+' '+Number(m&&m.ts||0)+' '+String(m&&m.text||''); }
+function _dedupExact(arr){ var seen={}, out=[]; for(var i=0;i<(arr||[]).length;i++){ var f=_msgFp(arr[i]); if(seen[f]) continue; seen[f]=1; out.push(arr[i]); } return out; }   // 只丢"角色+时间+全文完全相同"的真重复
+function _segEqual(a,b){ if(!a||!b||a.length!==b.length) return false; for(var i=0;i<a.length;i++){ var x=a[i]||{},y=b[i]||{}; if((x.role||'')!==(y.role||'')||Number(x.ts||0)!==Number(y.ts||0)||String(x.text||'')!==String(y.text||'')) return false; } return true; }   // 逐条精确
+function _stripArch(arr){ return (arr||[]).map(function(m){ return {role:m.role, ts:m.ts, text:m.text}; }); }
+// —— 独立备份 store（migBackups，绝不与正式 archives 同 key）——
+function migBackupPut(key,obj){ return ifDB().then(function(db){ return new Promise(function(res){ try{ var tx=db.transaction('migBackups','readwrite'); tx.objectStore('migBackups').put({key:key,obj:obj}); tx.oncomplete=function(){res(true);}; tx.onerror=function(){res(false);}; }catch(e){res(false);} }); }).catch(function(){return false;}); }
+function migBackupGet(key){ return ifDB().then(function(db){ return new Promise(function(res){ try{ var tx=db.transaction('migBackups','readonly'); var rq=tx.objectStore('migBackups').get(key); rq.onsuccess=function(){ res((rq.result&&rq.result.obj)||null); }; rq.onerror=function(){res(null);}; }catch(e){res(null);} }); }).catch(function(){return null;}); }
+// —— 从独立备份还原（回滚）——
+async function _restoreMigBackup(){
+  var st=_migState(); if(!st||!st.backupKey) throw new Error('无迁移状态/备份key');
+  var bak=await migBackupGet(st.backupKey); if(!bak) throw new Error('安全副本丢失(key='+st.backupKey+')，不敢乱动');
+  var aok=await archDbPut('mcChat', bak.archive||[]); if(!aok) throw new Error('还原归档失败');
+  _rawSet('mcChat_archN', String((bak.archive||[]).length)); delete _archCache['mcChat'];
+  _rawSet('mcChat', JSON.stringify(bak.mcChat||[]));
+  var a=(await archDbGet('mcChat'))||[]; if(!_segEqual(_stripArch(a), _stripArch(bak.archive||[]))) throw new Error('还原后归档不符');
+  var l=[]; try{ l=JSON.parse(localStorage.getItem('mcChat')||'[]'); }catch(e){} if(!_segEqual(l, bak.mcChat||[])) throw new Error('还原后活跃不符');
+  _clearMigState(); return true;
+}
+// —— 主流程：只在用户确认已导出全量备份后手动触发 ——
+async function runArchiveMigration(){
+  if(_migActive()) throw new Error('已有迁移在进行中');
+  localStorage.setItem(MIG_LOCK_KEY, JSON.stringify({ts:Date.now()})); _migLock=true;
+  try{
+    // 0) 先把任何未提交的 WAL 清干净；清不掉就中止（不带脏 WAL 进迁移）
+    var pend=[]; try{ pend=JSON.parse(localStorage.getItem('mcChat_archPend')||'[]')||[]; }catch(e){}
+    if(pend.length){ var ex0=(await archDbGet('mcChat'))||[], mg0=_dedupExact(_sortByTsStable(ex0.concat(pend))), ok0=await archDbPut('mcChat',mg0);   // 清 WAL 也用强去重，不碰弱去重
+      if(!ok0) throw new Error('未提交的归档写入(WAL)清不掉，已中止，未改任何数据');
+      _rawSet('mcChat_archPend','[]'); _rawSet('mcChat_archN',String(mg0.length)); delete _archCache['mcChat']; }
+    // 1) 快照（原样读，不改字段）
+    var live=[]; try{ live=JSON.parse(localStorage.getItem('mcChat')||'[]')||[]; }catch(e){}
+    var archive=(await archDbGet('mcChat'))||[];
+    var oldMeta={ liveLen:live.length, archLen:archive.length };
+    // 2) 写独立安全副本 + 回读校验（副本不过关就中止，不动正式数据）
+    var bkey='mig_'+Date.now();
+    var bok=await migBackupPut(bkey, { createdAt:Date.now(), mcChat:live, archive:archive, archN:archive.length });
+    if(!bok) throw new Error('安全副本写入失败，已中止（数据未动）');
+    var bck=await migBackupGet(bkey);
+    if(!bck || !_segEqual(bck.mcChat,live) || !_segEqual(_stripArch(bck.archive),_stripArch(archive))) throw new Error('安全副本校验失败，已中止（数据未动）');
+    // 3) 合并全量：存档(老)+活跃(新) → 时间序 → 精确全等去重
+    var total=_dedupExact(_sortByTsStable(archive.concat(live)));
+    if(total.length < Math.max(archive.length, live.length)) throw new Error('合并异常(total<max)，已中止');
+    var archivedCount=Math.floor(total.length/ARCHIVE_BATCH)*ARCHIVE_BATCH;   // 凑整到 500 倍（B 方案）
+    var pinnedStart=Math.max(0, archivedCount-PINNED_KEEP);
+    var archiveSeg=total.slice(0, archivedCount);
+    var pinnedSeg=total.slice(pinnedStart, archivedCount).map(function(m){ var c=_cloneMsg(m); c._pinned=true; return c; });
+    var freshSeg=total.slice(archivedCount).map(function(m){ var c=_cloneMsg(m); delete c._pinned; return c; });
+    var newLive=pinnedSeg.concat(freshSeg);
+    if(!assertPinnedPrefix(newLive)) throw new Error('pinned 非前缀，已中止');
+    _setMigState({ phase:'preparing', startedAt:Date.now(), backupKey:bkey, oldMeta:oldMeta,
+      plan:{ totalLen:total.length, archivedCount:archivedCount, freshLen:freshSeg.length, pinnedLen:pinnedSeg.length } });
+    // 4) 写归档（精确覆盖，锁内独占）+ 逐条回读校验
+    var archiveClean=_stripArch(archiveSeg);
+    var aok=await archDbPut('mcChat', archiveClean); if(!aok) throw new Error('写归档失败');
+    var aback=(await archDbGet('mcChat'))||[]; if(!_segEqual(aback, archiveClean)) throw new Error('归档回读校验不符');
+    _rawSet('mcChat_archN', String(archiveClean.length)); delete _archCache['mcChat']; _migPhase('archives_done');
+    // 5) 写活跃（pinned + fresh）+ 逐条回读校验
+    _rawSet('mcChat', JSON.stringify(newLive));   // rawSet 绕开 overflow/同步
+    var lback=[]; try{ lback=JSON.parse(localStorage.getItem('mcChat')||'[]'); }catch(e){}
+    if(!_segEqual(lback, newLive)) throw new Error('活跃回读校验不符');
+    _migPhase('live_done');
+    // 6) 终局强对账 A/B/C/D（逐条精确）
+    var fa=(await archDbGet('mcChat'))||[]; if(!_segEqual(fa, archiveClean)) throw new Error('对账A失败');
+    var fl=[]; try{ fl=JSON.parse(localStorage.getItem('mcChat')||'[]'); }catch(e){}
+    var fpin=fl.filter(_isPinned), ffresh=fl.filter(function(m){ return !_isPinned(m); });
+    if(!_segEqual(fpin, pinnedSeg)) throw new Error('对账B失败(pinned)');
+    if(!_segEqual(ffresh, freshSeg)) throw new Error('对账C失败(fresh)');
+    if(fa.length + ffresh.length !== total.length) throw new Error('对账D失败(归档+未归档≠合计)');
+    if(!assertPinnedPrefix(fl)) throw new Error('对账E失败(pinned非前缀)');
+    _migPhase('committed');
+    localStorage.removeItem(MIG_LOCK_KEY); _migLock=false;
+    try{ _archSchedulePush(); }catch(e){}   // 把干净归档推云（并集式，安全）
+    if(_curView==='chat'){ try{ renderChat(); }catch(e){} }
+    return { before: oldMeta.liveLen+oldMeta.archLen, after: total.length, archived: archiveClean.length,
+      live: newLive.length, fresh: freshSeg.length, pinned: pinnedSeg.length, backupKey:bkey };
+  }catch(e){
+    try{ await _restoreMigBackup(); }catch(re){ e=new Error(e.message+' ；且自动还原也出错: '+re.message+'（数据仍在 migBackups 独立副本，未丢）'); }
+    localStorage.removeItem(MIG_LOCK_KEY); _migLock=false;
+    throw e;
+  }
+}
+// —— 启动时检测未完成迁移：一律回滚到迁移前（无损），用户可重试 ——
+async function _migResumeOnLoad(){
+  var st=_migState(); if(!st) return;
+  if(st.phase==='committed'){ _clearMigState(); return; }   // 已完成只是没清状态
+  try{ _migLock=true; localStorage.setItem(MIG_LOCK_KEY, JSON.stringify({ts:Date.now(),resume:1}));
+    await _restoreMigBackup();
+    try{ alert('检测到上次「归档重构」未完成，已自动还原到重构前的完整数据（无损）。可稍后在 外联 页重试。'); }catch(e){}
+  }catch(e){ try{ alert('⚠ 上次「归档重构」未完成且自动还原出错：'+e.message+'\n请先别操作，你的数据仍在独立安全副本(migBackups)里。'); }catch(e2){} }
+  finally{ localStorage.removeItem(MIG_LOCK_KEY); _migLock=false; if(_curView==='chat'){ try{ renderChat(); }catch(e){} } }
+}
+// —— 外联页按钮：双重确认（必须先导出全量备份）——
+// —— 只读预演：算出"重构后会变成什么"，不写任何数据 ——
+async function _previewMigration(){
+  var live=[]; try{ live=JSON.parse(localStorage.getItem('mcChat')||'[]')||[]; }catch(e){}
+  var archive=(await archDbGet('mcChat'))||[];
+  var total=_dedupExact(_sortByTsStable(archive.concat(live)));
+  var archivedCount=Math.floor(total.length/ARCHIVE_BATCH)*ARCHIVE_BATCH;
+  var pinnedLen=Math.min(PINNED_KEEP, archivedCount), freshLen=total.length-archivedCount;
+  return { liveNow:live.length, archNow:archive.length, before:live.length+archive.length, total:total.length,
+    dupRemoved:(live.length+archive.length)-total.length, archivedCount:archivedCount, freshLen:freshLen,
+    pinnedLen:pinnedLen, liveShown:pinnedLen+freshLen };
+}
+async function doArchiveMigration(){
+  if(!confirm('归档重构（五百进制）\n\n把主线全部聊天（活跃+存档）重新整理成：整千归档 + 界面保留最近缓冲。过程无损、只搬位置不改内容，失败会自动还原。\n\n【务必先跑“全量备份”并把文件存到安全的地方！】\n已经备份好了吗？')) return;
+  var p; try{ p=await _previewMigration(); }catch(e){ alert('预演失败：'+e.message+'（未改任何数据）'); return; }
+  if(!confirm('📋 预演（未改动任何数据，只是算给你看）\n————————\n现在：活跃 '+p.liveNow+' + 存档 '+p.archNow+' = '+p.before+' 条\n去重后合计：'+p.total+' 条'+(p.dupRemoved?('（去掉 '+p.dupRemoved+' 条完全相同的真重复）'):'  ✓ 无重复')+'\n\n重构后会变成：\n· 前（已归档）：'+p.archivedCount+'\n· 后（界面未归档）：'+p.freshLen+'\n· 界面缓冲：'+p.pinnedLen+' 条\n· 界面共显示：'+p.liveShown+' 条\n\n数字对得上吗？确认全量备份已下好，点“确定”开始真正重构。')) return;
+  var btn=document.getElementById('migBtn'); if(btn){ btn.dataset.txt=btn.textContent; btn.textContent='重构中…请勿操作'; btn.style.pointerEvents='none'; btn.style.opacity='.6'; }
+  try{
+    var r=await runArchiveMigration();
+    alert('✓ 归档重构完成（无损）\n————————\n重构前合计：'+r.before+' 条\n重构后合计：'+r.after+' 条'+(r.before!==r.after?('  （去掉了 '+(r.before-r.after)+' 条完全重复）'):'  ✓ 一致')+'\n\n前（已归档）：'+r.archived+'\n后（界面未归档）：'+r.fresh+'\n界面缓冲：'+r.pinned+' 条\n界面共显示：'+r.live+' 条\n\n安全副本已保留（migBackups/'+r.backupKey+'），暂不删除。');
+  }catch(e){ alert('✗ 归档重构未完成：'+e.message+'\n\n已自动还原到重构前（无损），你的数据没动。'); }
+  finally{ var b=document.getElementById('migBtn'); if(b){ b.textContent=b.dataset.txt||'🔧 归档重构（五百进制）'; b.style.pointerEvents=''; b.style.opacity=''; } try{ if(typeof refreshStorageUsage==='function') refreshStorageUsage(); }catch(e){} }
+}
+// —— 全量备份导出：localStorage 全键 + IndexedDB(saves/archives/migBackups) → 一个 json 文件 ——
+function _idbGetAll(store){ return ifDB().then(function(db){ return new Promise(function(res){ try{ if(!db.objectStoreNames.contains(store)){ res([]); return; } var tx=db.transaction(store,'readonly'); var g=tx.objectStore(store).getAll(); g.onsuccess=function(){ res(g.result||[]); }; g.onerror=function(){ res([]); }; }catch(e){ res([]); } }); }).catch(function(){ return []; }); }
+async function exportFullBackup(){
+  try{
+    var ls={}; for(var i=0;i<localStorage.length;i++){ var k=localStorage.key(i); ls[k]=localStorage.getItem(k); }
+    var saves=await _idbGetAll('saves'), archives=await _idbGetAll('archives');
+    var payload={ app:'mc-terminal', kind:'FULL-BACKUP', v:1, savedAt:new Date().toISOString(), localStorage:ls, idb_saves:saves, idb_archives:archives };
+    var blob=new Blob([JSON.stringify(payload)],{type:'application/json'}), url=URL.createObjectURL(blob), a=document.createElement('a');
+    a.href=url; a.download='MC全量备份_'+Date.now()+'.json'; document.body.appendChild(a); a.click(); document.body.removeChild(a); setTimeout(function(){ URL.revokeObjectURL(url); },2000);
+    var chatN=0; try{ chatN=(JSON.parse(ls.mcChat||'[]')||[]).length; }catch(e){}
+    var archN=0; archives.forEach(function(x){ try{ archN+=(x.arr||[]).length; }catch(e){} });
+    var wbN=0; try{ wbN=(JSON.parse(ls.mcWBChat||'[]')||[]).length; }catch(e){}
+    alert('✓ 全量备份已下载\n————————\nlocalStorage 键数：'+Object.keys(ls).length+'\n主聊天：'+chatN+' 条\n存档(IndexedDB)：'+archN+' 条（'+archives.length+' 批）\nIF 存档点：'+saves.length+'\n世界书：'+((ls.mcWorldBook||'').length)+' 字\n维护员：'+wbN+' 条\n\n把这个文件收到安全的地方（云盘/相册/发给自己）。');
+  }catch(e){ try{ alert('备份出错：'+e.message); }catch(e2){} }
+}
 // 短期记忆：按字数取最近消息（默认约 9 万字）
 function recentByChars(hist, budget){ budget=budget||90000; var out=[], total=0; for(var i=hist.length-1;i>=0;i--){ var m=hist[i]; if(m.err) continue; var len=(m.text||'').length; if(total+len>budget && out.length>=2) break; out.unshift(m); total+=len; } return out; }
 // ----- IF 线数据 -----
@@ -3387,7 +3583,7 @@ function maskToggle(f,v){ if(_activeChat.type!=='if') return; var cur=getIfMask(
 function maskRefreshToggles(m){ try{ document.querySelectorAll('.mask-opt').forEach(function(el){ var q=el.getAttribute('data-q'), v=el.getAttribute('data-v')==='1'; el.classList.toggle('on', m[q]===v); }); }catch(e){} }
 // ===== IF 存档（IndexedDB · 大容量）=====
 var _idb=null, _ifSaveSeq=0;
-function ifDB(){ return new Promise(function(res,rej){ if(_idb) return res(_idb); try{ var rq=indexedDB.open('mcIfDB',2); rq.onupgradeneeded=function(e){ var db=e.target.result; if(!db.objectStoreNames.contains('saves')){ var st=db.createObjectStore('saves',{keyPath:'id'}); st.createIndex('lineId','lineId',{unique:false}); } if(!db.objectStoreNames.contains('archives')){ db.createObjectStore('archives',{keyPath:'k'}); } }; rq.onsuccess=function(e){ _idb=e.target.result; res(_idb); }; rq.onerror=function(){ rej(rq.error); }; rq.onblocked=function(){ rej(new Error('IDB_BLOCKED')); }; setTimeout(function(){ rej(new Error('IDB_OPEN_TIMEOUT')); }, 8000); }catch(e){ rej(e); } }); }
+function ifDB(){ return new Promise(function(res,rej){ if(_idb) return res(_idb); try{ var rq=indexedDB.open('mcIfDB',3); rq.onupgradeneeded=function(e){ var db=e.target.result; if(!db.objectStoreNames.contains('saves')){ var st=db.createObjectStore('saves',{keyPath:'id'}); st.createIndex('lineId','lineId',{unique:false}); } if(!db.objectStoreNames.contains('archives')){ db.createObjectStore('archives',{keyPath:'k'}); } if(!db.objectStoreNames.contains('migBackups')){ db.createObjectStore('migBackups',{keyPath:'key'}); } }; var _to=setTimeout(function(){ rej(new Error('IDB_OPEN_TIMEOUT')); }, 8000); rq.onsuccess=function(e){ clearTimeout(_to); _idb=e.target.result; try{ _idb.onversionchange=function(){ try{_idb.close();}catch(_e){} _idb=null; }; }catch(_e){} res(_idb); }; rq.onerror=function(){ clearTimeout(_to); rej(rq.error); }; rq.onblocked=function(){ clearTimeout(_to); rej(new Error('IDB_BLOCKED')); }; }catch(e){ rej(e); } }); }
 // ===== 存档存进 IndexedDB（大抽屉，不占 localStorage 那 5MB）=====
 function archDbGet(k){ return ifDB().then(function(db){ return new Promise(function(res){ try{ var tx=db.transaction('archives','readonly'); var rq=tx.objectStore('archives').get(k); rq.onsuccess=function(){ res((rq.result&&rq.result.arr)||null); }; rq.onerror=function(){ res(null); }; }catch(e){ res(null); } }); }).catch(function(){ return null; }); }
 function archDbPut(k,arr){ return ifDB().then(function(db){ return new Promise(function(res){ try{ var tx=db.transaction('archives','readwrite'); tx.objectStore('archives').put({k:k,arr:arr||[]}); tx.oncomplete=function(){ res(true); }; tx.onerror=function(){ res(false); }; }catch(e){ res(false); } }); }).catch(function(){ return false; }); }
@@ -3664,11 +3860,12 @@ async function archFoldSel(){
 }
 function archBrowseEdit(i){ _archBrowseEditIdx=i; archBrowseRender(); setTimeout(function(){ var t=document.getElementById('archEditTA'); if(t) t.focus(); },30); }
 function archBrowseCancel(){ _archBrowseEditIdx=-1; archBrowseRender(); }
-function archBrowseSave(i){
+async function archBrowseSave(i){
   var ta=document.getElementById('archEditTA'); if(!ta) return;
   var k=_archBrowseKey; var arch=_archCache[k]||[]; if(i<0||i>=arch.length) return;
   arch[i].text=ta.value;
-  archDbPut(k, arch);   // 存回 IndexedDB
+  var ok=await archDbPut(k, arch);   // 存回 IndexedDB —— 等结果，失败要告诉用户，别静默丢改动
+  if(!ok){ alert('这条改动没存进存档库（可能空间/IndexedDB 出错），请重试。'); return; }
   try{ _rawSet(k+'_archN', String(arch.length)); }catch(e){}
   _archCache[k]=arch; _archBrowseEditIdx=-1; archBrowseRender();
 }
@@ -3686,10 +3883,11 @@ function renderChat(){
   var box=document.getElementById('chatMessages'); if(!box) return;
   if(!_chatBusy){ var _hp=loadChat(), _rm=false; for(var _z=_hp.length-1;_z>=0;_z--){ if(_hp[_z]&&_hp[_z].pending){ _hp.splice(_z,1); _rm=true; } } if(_rm) saveChat(_hp); }   // 没在生成却残留的"三个点"占位泡 → 清掉（防卡死多个）
   var hist=loadChat();
-  var _cc=document.getElementById('chatCount'); if(_cc){ var _n=hist.length, _am=archCount(), _txt=_n+(_am?(' · '+_am+'存档'):''), _col='var(--text4)';
+  var _cc=document.getElementById('chatCount'); if(_cc){ var _am=archCount(), _fresh=0,_pin=0; for(var _q=0;_q<hist.length;_q++){ if(_isPinned(hist[_q]))_pin++; else _fresh++; }
+    var _txt = _am ? ('后'+_fresh+' · 前'+_am+(_pin?(' · 缓冲'+_pin):'')) : (''+hist.length), _col='var(--text4)';
     if(_am>=1200){ _col='var(--rose)'; _txt+=' 建议备份'; }   // 存档很多→建议「⬇备份」导出留底
     else if(_am>=600){ _col='var(--gold)'; }
-    _cc.textContent=_txt; _cc.style.color=_col; }   // 活跃 · 已自动归档（不丢、不占活跃窗口）
+    _cc.textContent=_txt; _cc.style.color=_col; }   // 后=界面未归档 · 前=已归档 · 缓冲=已归档但界面留看
   if(!hist.length){ box.innerHTML='<div style="margin:auto;text-align:center;color:var(--text3);font-size:14px;font-family:\'Noto Serif SC\',serif;line-height:1.95">伞，总在最需要的时候撑开。</div>'; return; }
   if(_favSelMode){ box.innerHTML=_favSelectChatHTML(hist); return; }   // 多选收藏模式
   var rows=hist.map(function(m,i){
@@ -3795,7 +3993,7 @@ function chatCopyMsg(i){ var h=loadChat(); if(i<0||i>=h.length) return; var t=(h
   if(navigator.clipboard&&navigator.clipboard.writeText){ navigator.clipboard.writeText(t).then(done,function(){ _copyFallback(t); done(); }); } else { _copyFallback(t); done(); }
 }
 function _copyFallback(t){ try{ var ta=document.createElement('textarea'); ta.value=t; ta.style.position='fixed'; ta.style.left='-9999px'; document.body.appendChild(ta); ta.select(); document.execCommand('copy'); ta.remove(); }catch(e){} }
-function chatDeleteMsg(i){ var h=loadChat(); if(i<0||i>=h.length) return; if(!confirm('删除这一段？\n它会从对话和【短期记忆】里一起去掉（长期/记忆库还没固化，所以删得干净）。')) return; h.splice(i,1); saveChat(h); if(_chatEditIdx===i) _chatEditIdx=-1; renderChat(); }
+function chatDeleteMsg(i){ var h=loadChat(); if(i<0||i>=h.length) return; if(!confirm('删除这一段？\n它会从对话和【短期记忆】里一起去掉（长期/记忆库还没固化，所以删得干净）。')) return; h.splice(i,1); saveChat(h); if(_chatEditIdx===i) _chatEditIdx=-1; else if(_chatEditIdx>i) _chatEditIdx--; renderChat(); }   // 删中间一条后把打开中的编辑下标跟着挪，避免保存时改错另一条
 function chatEditMsg(i){ _chatEditIdx=i; renderChat(); setTimeout(function(){ var t=document.getElementById('chatEditTA'); if(t){ t.focus(); t.style.height='auto'; t.style.height=Math.min(360,t.scrollHeight)+'px'; } },40); }
 function chatEditCancel(){ _chatEditIdx=-1; renderChat(); }
 function chatEditSave(i){ var ta=document.getElementById('chatEditTA'); if(!ta) return; var v=ta.value; var h=loadChat(); if(h[i]){ h[i].text=v; saveChat(h); } _chatEditIdx=-1; renderChat(); }
@@ -4102,7 +4300,9 @@ async function chatVoiceToggle(){
   try{ _vRec.start(); }catch(e){ alert('开始录音失败：'+e.message); return; }
   _showVoiceBar(true); _startWave();
 }
-function _voiceCancel(){ if(_vRec&&_vRec.state!=='inactive'){ _vRec.onstop=null; try{ _vRec.stop(); }catch(e){} } _vChunks=[]; _stopWave(); _showVoiceBar(false); }
+function _voiceCancel(){ if(_vRec&&_vRec.state!=='inactive'){ _vRec.onstop=null; try{ _vRec.stop(); }catch(e){} } _vChunks=[]; _stopWave(); _showVoiceBar(false);
+  try{ if(_vStream){ _vStream.getTracks().forEach(function(t){ try{t.stop();}catch(e){} }); _vStream=null; } }catch(e){}   // 释放麦克风，别让录音指示灯一直亮着
+}
 function _voiceConfirm(){
   if(!_vRec){ _showVoiceBar(false); return; }
   _vRec.onstop=async function(){
@@ -4221,6 +4421,8 @@ async function sendChat(){
   if(_recOn){ _voiceCancel(); }
   if(!getApiKey()){ if(sub){ sub.textContent='✗ 先在 Settings 填 Gemini API key'; } return; }
   var hist=loadChat(); hist.push({role:'user',text:text,ts:Date.now()}); saveChat(hist);
+  var _saved=false; try{ var _c=loadChat(), _l=_c[_c.length-1]; _saved=!!(_l&&_l.role==='user'&&_l.text===text); }catch(e){}   // 确认存住了再清输入框
+  if(!_saved){ if(sub) sub.textContent='✗ 没存住（存储可能满了）— 已保留你的输入，去 外联→存储用量 清理后重发'; return; }   // 存储满：保留输入，绝不清空丢字
   if(inp){ inp.value=''; chatAutosize(inp); } renderChat();
   _chatBusy=true; var myGen=++_chatGen; _setSendBtn(true); if(sub) sub.textContent='正在斟酌……';
   try{
@@ -4556,7 +4758,11 @@ function renderPalace(){ if(_palTab==='world') _palTab='skeleton'; if(_palTab===
 function openWorld(){ showView('world'); }
 // ===== 世界书：你放指令 / 纠错，喂进所有对话（最高优先） =====
 function getWorldBook(){ try{ return localStorage.getItem('mcWorldBook')||''; }catch(e){ return ''; } }
-function worldInput(v){ _userActiveTs=Date.now(); try{ if(v&&v.trim()) localStorage.setItem('mcWorldBook',v); else localStorage.removeItem('mcWorldBook'); }catch(e){} var t=document.getElementById('worldTip'); if(t){ t.textContent='已保存 ✓'; setTimeout(function(){ if(t) t.textContent=''; },1000); } }
+function worldInput(v){ _userActiveTs=Date.now(); try{
+    var nv=(v||''), prev=localStorage.getItem('mcWorldBook')||'';
+    if(prev && nv.length < prev.length){ var bak=localStorage.getItem('mcWorldBook_bak')||''; if(prev.length > bak.length) _rawSet('mcWorldBook_bak', prev); }   // 收缩前留底(保留见过的最长版)，可「↩ 撤回」；绝不无声删光
+    localStorage.setItem('mcWorldBook', nv);   // 存原样(含空)，永不 removeItem —— 清空可撤回，绝不像以前那样直接删掉整本
+  }catch(e){} var t=document.getElementById('worldTip'); if(t){ t.textContent='已保存 ✓'; setTimeout(function(){ if(t) t.textContent=''; },1000); } }
 // ===== 世界书 = 维护员：你发范文/下指令，它回馈并改写喂给 chat 的规矩 =====
 function loadWBChat(){ try{ var a=JSON.parse(localStorage.getItem('mcWBChat')||'[]'); return Array.isArray(a)?a:[]; }catch(e){ return []; } }
 function saveWBChat(a){ try{ localStorage.setItem('mcWBChat', JSON.stringify(a.slice(-40))); }catch(e){} }
@@ -4645,7 +4851,10 @@ async function wbReceive(btn){
     if(!row||!row.data){ alert('云端还没有世界书（先去另一台点【⬆ 上传】）'); return; }
     var obj=JSON.parse(await _dec(row.data, _syncPass));
     var wb=(obj.wb||''), chat=Array.isArray(obj.chat)?obj.chat:[];
-    if(!confirm('用云端的覆盖本机？\n云端：世界书 '+wb.length+' 字、维护员聊天 '+chat.length+' 条\n（本机当前这两样会被替换）')){ if(btn){ btn.disabled=false; btn.textContent='⬇ 接收'; } return; }
+    var _localWb=getWorldBook();
+    var warn=(wb.length===0 && _localWb.length>0) ? '\n\n⚠️ 云端世界书是【空的】，接收会清掉本机现有的 '+_localWb.length+' 字世界书！（仍可事后「↩ 撤回」）' : '';
+    if(!confirm('用云端的覆盖本机？\n云端：世界书 '+wb.length+' 字、维护员聊天 '+chat.length+' 条\n（本机当前这两样会被替换）'+warn)){ if(btn){ btn.disabled=false; btn.textContent='⬇ 接收'; } return; }
+    try{ if(_localWb) _rawSet('mcWorldBook_bak', _localWb); }catch(e){}   // 覆盖前留底，可撤回
     _rawSet('mcWorldBook', wb); _rawSet('mcWBChat', JSON.stringify(chat));
     renderWorld();
     if(btn){ btn.textContent='✓ 已接收'; setTimeout(function(){ if(btn) btn.textContent='⬇ 接收'; },1600); }
@@ -5251,7 +5460,7 @@ async function foldChatToFramework(onlyOld){
   var since=getFramedUntil();
   var live=loadMainChat().filter(function(m){return !m.err;});
   // ★ 防漏：把"已被挤进存档、但 ts 仍在游标之上=还没归纳"的漏网旧消息也纳入。正常情况存档都在游标之前→这里为空、行为完全不变；只有真出现"没归纳就被归档"的消息时才补归纳，确保长期记忆绝不缺段。
-  var _seen={}; function _foldKey(m){ return (m.role||'')+'|'+(m.ts||0)+'|'+((m.text||'').slice(0,60)); }
+  var _seen={}; function _foldKey(m){ return (m.role||'')+'|'+(m.ts||0)+'|'+(m.text||''); }   // 精确全等：避免把"前60字相同但实为两条"的消息误判为已归纳而漏喂长期框架
   live.forEach(function(m){ _seen[_foldKey(m)]=1; });
   var _archUnfolded=[]; try{ ((await archDbGet('mcChat'))||[]).forEach(function(m){ if(m.err||(m.ts||0)<=since) return; var k=_foldKey(m); if(_seen[k]) return; _seen[k]=1; _archUnfolded.push(m); }); }catch(e){}   // ★防漏+去重：从 IndexedDB 取漏网存档(ts>游标)，对 live 和自身去重，绝不重复喂
   var hist=_archUnfolded.length? _archUnfolded.concat(live) : live;   // 按时间序：漏网存档(老) + 活跃(新)
@@ -5270,6 +5479,7 @@ async function foldChatToFramework(onlyOld){
   var draft=await callGeminiChat(sys, [{role:'user',parts:[{ text:'已有框架结尾（保持风格连贯）：\n'+tail+'\n\n最近剧情：\n'+convo }]}], {model:UTIL_MODEL});
   if(!draft||!draft.trim()) return {none:true};
   var latest=slice[slice.length-1].ts||Date.now();
+  try{ _rawSet('mcSkUndo', getSkeletonText()); }catch(e){}   // 追加前留底，可「↩ 撤销上一步」
   setSkeletonText(getSkeletonText()+'\n\n## 【续写 · '+_fmtD(latest)+'】\n'+draft.trim());
   setFramedUntil(latest);
   return {added:true};
@@ -5307,7 +5517,7 @@ function _snapBeforeRestore(){ try{ var o={}; for(var i=0;i<localStorage.length;
 function _trimBackups(){ try{ for(var i=localStorage.length-1;i>=0;i--){ var k=localStorage.key(i); if(k&&/_bak$/.test(k)){ try{ var a=JSON.parse(localStorage.getItem(k)); if(Array.isArray(a)&&a.length>60) _rawSet(k, JSON.stringify(a.slice(-60))); }catch(e){} } } var s=null; try{ s=JSON.parse(localStorage.getItem('mcSnaps')||'null'); }catch(e){} if(s&&s.length){ s.forEach(function(sn){ if(sn&&sn.data) Object.keys(sn.data).forEach(function(dk){ try{ var a=JSON.parse(sn.data[dk]); if(Array.isArray(a)&&a.length>80) sn.data[dk]=JSON.stringify(a.slice(-80)); }catch(e){} }); }); try{ _rawSet('mcSnaps', JSON.stringify(s)); }catch(e){} } }catch(e){} }   // 一次性：把已经存在的超大备份/快照瘦下来，立即腾出手机空间
 function _stableStr(o){ return JSON.stringify(Object.keys(o).sort().map(function(k){return [k,o[k]];})); }
 function _isMsgArr(v){ try{ var a=JSON.parse(v); return Array.isArray(a)&&a.length>0&&a[0]&&typeof a[0]==='object'&&('role' in a[0]); }catch(e){ return false; } }
-function _mergeMsgs(a, b){ var seen={}, out=[]; function key(m){ return (m.role||'')+'|'+(m.ts||0)+'|'+((m.text||'').slice(0,60)); } var all=(a||[]).concat(b||[]); all.sort(function(x,y){ return (x.ts||0)-(y.ts||0); }); for(var i=0;i<all.length;i++){ var m=all[i], k=key(m); if(!seen[k]){ seen[k]=1; out.push(m); } } return out; }   // 并集：按时间排，按(角色+时间+内容)去重，绝不丢
+function _mergeMsgs(a, b){ var seen={}, out=[]; function key(m){ return (m.role||'')+'|'+(m.ts||0)+'|'+(m.text||''); } var all=(a||[]).concat(b||[]); all.sort(function(x,y){ return (x.ts||0)-(y.ts||0); }); for(var i=0;i<all.length;i++){ var m=all[i], k=key(m); if(!Object.prototype.hasOwnProperty.call(seen,k)){ seen[k]=out.length; out.push(m); } else if(m&&m._pinned){ var _ix=seen[k]; if(out[_ix]) out[_ix]._pinned=true; } } return out; }   // 并集：时间序 + 精确全等(全文)去重，只丢完全相同的真重复，绝不误并；pinned 标记合并保留
 function _restoreLocal(o){
   try{ localStorage.removeItem('mcSnaps'); }catch(e){}   // 先清掉旧的大快照，腾出空间
   _snapBeforeRestore();
@@ -5325,12 +5535,13 @@ function _restoreLocal(o){
   }
 }
 function _supaH(){ return {'apikey':SUPA_KEY,'Authorization':'Bearer '+SUPA_KEY,'Content-Type':'application/json'}; }
+function _fetchTO(url, opts, ms){ opts=opts||{}; var ac=new AbortController(), to=setTimeout(function(){ try{ac.abort();}catch(e){} }, ms||15000); opts.signal=ac.signal; return fetch(url, opts).finally(function(){ clearTimeout(to); }); }   // 带超时的 fetch：网络挂住时会 abort，调用方能释放 _syncBusy 重试
 async function _syncFetch(id){   // 撞到超时/5xx 就退避重试几次（读同一行是安全的）
   var lastErr;
   for(var a=0;a<3;a++){
     if(a>0) await new Promise(function(res){ setTimeout(res, 700*a); });
     try{
-      var r=await fetch(SUPA_URL+'/rest/v1/mc_sync?id=eq.'+encodeURIComponent(id)+'&select=data,updated_at', {headers:_supaH()});
+      var r=await _fetchTO(SUPA_URL+'/rest/v1/mc_sync?id=eq.'+encodeURIComponent(id)+'&select=data,updated_at', {headers:_supaH()}, 20000);
       if(r.ok){ var arr=await r.json(); return (arr&&arr[0])?arr[0]:null; }
       var t=''; try{ t=await r.text(); }catch(e){} lastErr=new Error('HTTP '+r.status+' '+t.slice(0,80));
       if(r.status<500&&!/57014|timeout|statement/.test(t)) throw lastErr;   // 非超时/非5xx → 不重试
@@ -5339,14 +5550,14 @@ async function _syncFetch(id){   // 撞到超时/5xx 就退避重试几次（读
   throw lastErr;
 }
 async function _syncFetchAt(id){   // 只取更新时间戳（几十字节）→ 判断云端有没有变，避免每次轮询都下载整个库（省 egress 流量的核心）
-  try{ var r=await fetch(SUPA_URL+'/rest/v1/mc_sync?id=eq.'+encodeURIComponent(id)+'&select=updated_at', {headers:_supaH()}); if(r.ok){ var arr=await r.json(); return (arr&&arr[0]&&arr[0].updated_at)?arr[0].updated_at:''; } }catch(e){} return '';
+  try{ var r=await _fetchTO(SUPA_URL+'/rest/v1/mc_sync?id=eq.'+encodeURIComponent(id)+'&select=updated_at', {headers:_supaH()}, 12000); if(r.ok){ var arr=await r.json(); return (arr&&arr[0]&&arr[0].updated_at)?arr[0].updated_at:''; } }catch(e){} return '';
 }
 async function _syncUpsert(id,dataStr,atIso){   // upsert 同一行是幂等的 → 撞到超时/锁(57014)就退避重试几次
   var lastErr;
   for(var a=0;a<3;a++){
     if(a>0) await new Promise(function(res){ setTimeout(res, 700*a); });   // 退避：0.7s、1.4s
     try{
-      var r=await fetch(SUPA_URL+'/rest/v1/mc_sync?on_conflict=id',{method:'POST',headers:Object.assign(_supaH(),{'Prefer':'resolution=merge-duplicates'}),body:JSON.stringify([{id:id,data:dataStr,updated_at:(atIso||new Date().toISOString())}])});
+      var r=await _fetchTO(SUPA_URL+'/rest/v1/mc_sync?on_conflict=id',{method:'POST',headers:Object.assign(_supaH(),{'Prefer':'resolution=merge-duplicates'}),body:JSON.stringify([{id:id,data:dataStr,updated_at:(atIso||new Date().toISOString())}])}, 20000);
       if(r.ok) return;
       var t=await r.text(); lastErr=new Error('HTTP '+r.status+' '+t.slice(0,80));
       if(!/57014|timeout|statement|^5/.test(t)&&r.status<500) throw lastErr;   // 非超时/非5xx → 不重试，直接抛
@@ -5474,24 +5685,28 @@ setInterval(function(){ if(_syncReady && document.visibilityState==='visible' &&
 })();
 // ===== START =====
 try{ _trimBackups(); }catch(e){}   // 开机先把超大备份/快照瘦身，腾出手机存储
-syncInit();
-initMBoard();              // 清掉旧写死占位
-seedInnerIfEmpty();
-seedMMoodIfEmpty();        // M 心情种子（避免空图）
-renderBoards(); renderInner(); renderMFacade();
-renderDim(); renderAnniv(); fetchWeather();
-try{ setTheme(localStorage.getItem('mcTheme')||'light'); }catch(e){}   // 恢复上次主题
-initDrag(); initMobileDrag();
-setInterval(tick,1000); tick();
-// 登录就自动生成（有 API key → 用 API 按当前时间生成；没 key → 用中性占位）
-setTimeout(function(){
-  if(getApiKey()){ generateInitialMNotes(); maybeGenerateInner(); updateMMood(); ensureMSchedule(); }
-  else { seedBoardsIfEmpty(); renderBoards(); }
-}, 800);
-setTimeout(_migrateArchivesToIDB, 1500);  // 一次性把旧存档从 localStorage 搬进 IndexedDB，腾空间
-setTimeout(autoGraduate, 4000);  // 3天前的旧聊天剧情自动浓缩进长期框架
-// 定时检查：M 是否该留新言、inner 换时段、M 心情每小时更新
-setInterval(function(){ maybeGenerateMNote(false); maybeGenerateInner(); updateMMood(); renderInner(); ensureMSchedule(); }, 60000);
+// ★ 先把未完成的「归档重构」检测/回滚整套跑完，再做任何会写本地/触发副作用的启动逻辑——否则启动写入可能被回滚覆盖、或运行在半迁移态上
+(async function(){
+  try{ await _migResumeOnLoad(); }catch(e){}
+  try{ syncInit(); }catch(e){}
+  initMBoard();              // 清掉旧写死占位
+  seedInnerIfEmpty();
+  seedMMoodIfEmpty();        // M 心情种子（避免空图）
+  renderBoards(); renderInner(); renderMFacade();
+  renderDim(); renderAnniv(); fetchWeather();
+  try{ setTheme(localStorage.getItem('mcTheme')||'light'); }catch(e){}   // 恢复上次主题
+  initDrag(); initMobileDrag();
+  setInterval(tick,1000); tick();
+  // 登录就自动生成（有 API key → 用 API 按当前时间生成；没 key → 用中性占位）
+  setTimeout(function(){
+    if(getApiKey()){ generateInitialMNotes(); maybeGenerateInner(); updateMMood(); ensureMSchedule(); }
+    else { seedBoardsIfEmpty(); renderBoards(); }
+  }, 800);
+  setTimeout(_migrateArchivesToIDB, 1500);  // 一次性把旧存档从 localStorage 搬进 IndexedDB，腾空间
+  setTimeout(autoGraduate, 4000);  // 3天前的旧聊天剧情自动浓缩进长期框架
+  // 定时检查：M 是否该留新言、inner 换时段、M 心情每小时更新
+  setInterval(function(){ maybeGenerateMNote(false); maybeGenerateInner(); updateMMood(); renderInner(); ensureMSchedule(); }, 60000);
+})();
 </script>
 </body>
 </html>
