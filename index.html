@@ -367,7 +367,7 @@ nav { height:50px; background:rgba(245,235,220,0.9); backdrop-filter:blur(20px);
   <div class="sb-bottom"><div class="sb-nav" style="padding:0">
     <a class="sb-item" onclick="openPanel('settings');closeDrawer()"><div class="sb-icon"><svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="7" cy="7" r="2.5"/><path d="M7 1 L7 2.5 M7 11.5 L7 13 M1 7 L2.5 7 M11.5 7 L13 7 M2.9 2.9 L4 4 M10 10 L11.1 11.1 M11.1 2.9 L10 4 M4 10 L2.9 11.1"/></svg></div><div class="sb-label">Settings</div></a>
     <a class="sb-item" onclick="openPanel('creator');closeDrawer()"><div class="sb-icon"><svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="4" cy="4" r="2"/><circle cx="10" cy="4" r="2"/><circle cx="7" cy="10" r="2"/><line x1="4" y1="6" x2="7" y2="8"/><line x1="10" y1="6" x2="7" y2="8"/></svg></div><div class="sb-label">Creator Mode</div></a>
-    <div class="sb-item" style="opacity:0.4;cursor:default;font-size:10px"><div class="sb-icon"><svg width="8" height="8" viewBox="0 0 8 8" fill="currentColor"><circle cx="4" cy="4" r="3"/></svg></div><div class="sb-label" style="font-family:'JetBrains Mono',monospace;letter-spacing:1px">v27.8 ✦ TOKENFIX</div></div>
+    <div class="sb-item" style="opacity:0.4;cursor:default;font-size:10px"><div class="sb-icon"><svg width="8" height="8" viewBox="0 0 8 8" fill="currentColor"><circle cx="4" cy="4" r="3"/></svg></div><div class="sb-label" style="font-family:'JetBrains Mono',monospace;letter-spacing:1px">v28.1 ✦ PERFFIX</div></div>
   </div></div>
 </div>
 
@@ -385,7 +385,7 @@ nav { height:50px; background:rgba(245,235,220,0.9); backdrop-filter:blur(20px);
   <div class="sb-bottom"><div class="sb-nav" style="padding:0">
     <a class="sb-item" onclick="openPanel('settings')"><div class="sb-icon"><svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="7" cy="7" r="2.5"/><path d="M7 1 L7 2.5 M7 11.5 L7 13 M1 7 L2.5 7 M11.5 7 L13 7 M2.9 2.9 L4 4 M10 10 L11.1 11.1 M11.1 2.9 L10 4 M4 10 L2.9 11.1"/></svg></div><div class="sb-label">Settings</div></a>
     <a class="sb-item" onclick="openPanel('creator')"><div class="sb-icon"><svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="4" cy="4" r="2"/><circle cx="10" cy="4" r="2"/><circle cx="7" cy="10" r="2"/><line x1="4" y1="6" x2="7" y2="8"/><line x1="10" y1="6" x2="7" y2="8"/></svg></div><div class="sb-label">Creator Mode</div></a>
-    <div class="sb-item" style="opacity:0.4;cursor:default;font-size:10px"><div class="sb-icon"><svg width="8" height="8" viewBox="0 0 8 8" fill="currentColor"><circle cx="4" cy="4" r="3"/></svg></div><div class="sb-label" style="font-family:'JetBrains Mono',monospace;letter-spacing:1px">v27.8 ✦ TOKENFIX</div></div>
+    <div class="sb-item" style="opacity:0.4;cursor:default;font-size:10px"><div class="sb-icon"><svg width="8" height="8" viewBox="0 0 8 8" fill="currentColor"><circle cx="4" cy="4" r="3"/></svg></div><div class="sb-label" style="font-family:'JetBrains Mono',monospace;letter-spacing:1px">v28.1 ✦ PERFFIX</div></div>
   </div></div>
 </div>
 
@@ -531,7 +531,7 @@ nav { height:50px; background:rgba(245,235,220,0.9); backdrop-filter:blur(20px);
   </div>
 
   <div class="footer">
-    <div class="footer-item">MYCROFT.SYS · v27.8 ✦ TOKENFIX</div>
+    <div class="footer-item">MYCROFT.SYS · v28.1 ✦ PERFFIX</div>
     <div class="footer-live"><div class="sdot sdot-on"></div><span>LIVE</span></div>
     <div class="footer-item" id="footerDate">----</div>
     <div class="footer-item" style="border:1px solid rgba(170,60,55,0.45);color:rgba(170,60,55,0.85);border-radius:3px;padding:0 7px;letter-spacing:2px;transform:rotate(-1.5deg)">CLASSIFIED · 机密</div>
@@ -835,6 +835,15 @@ nav { height:50px; background:rgba(245,235,220,0.9); backdrop-filter:blur(20px);
         <div class="panel-section-title">✦ 全量备份 &amp; 归档重构</div>
         <button class="panel-save-btn" style="width:100%;padding:9px;font-size:12px;background:var(--s2)" onclick="exportFullBackup()">⬇ 导出全量备份（所有聊天+存档+世界书+设定）</button>
         <div style="font-size:9px;color:var(--text4);margin:6px 0 12px;line-height:1.6">一个 json 文件 = 你的完整数据。<b>迁移/重构前务必先导出并存到安全的地方</b>（云盘/相册/发给自己）。</div>
+        <div class="panel-section-title" style="margin-top:4px">✦ 存档跨端同步（老聊天/浏览存档）</div>
+        <div style="font-size:9px;color:var(--text4);margin-bottom:8px;line-height:1.7">归档的老聊天存在浏览器大抽屉里，<b>不走普通同步</b>，要单独推云。若一台能看存档、另一台看不到：在<b>有存档的那台</b>点「⬆ 上传」，另一台点「⬇ 拉取」（或开机自动对账）。</div>
+        <div style="display:flex;gap:8px;margin-bottom:6px">
+          <button class="panel-save-btn" style="flex:1;padding:8px;font-size:11px" onclick="archUploadCloud(this)">⬆ 上传存档到云端</button>
+          <button class="panel-save-btn" style="flex:1;padding:8px;font-size:11px;background:var(--s2)" onclick="archPullCloud(this)">⬇ 从云端拉存档</button>
+        </div>
+        <input type="file" id="archImportFile" accept=".json,application/json" style="display:none" onchange="archImportFile(this)"/>
+        <button class="panel-save-btn" style="width:100%;padding:8px;font-size:11px;background:var(--s2)" onclick="document.getElementById('archImportFile').click()">📁 从备份文件导入存档（只增不覆盖）</button>
+        <div style="font-size:9px;color:var(--text4);margin:6px 0 14px;line-height:1.6">选一个<b>含存档的全量备份</b>（比如手机导出的那份），把里面的老存档补进本机——不动你现有的聊天/设定。</div>
         <button class="panel-save-btn" id="migBtn" style="width:100%;padding:9px;font-size:12px;background:var(--s2)" onclick="doArchiveMigration()">🔧 归档重构（五百进制）</button>
         <div style="font-size:9px;color:var(--text4);margin-top:6px;line-height:1.6">把主线聊天整理成<b>整千归档 + 界面保留最近缓冲</b>（前=已归档500倍数、后=界面新攒）。<b>无损：只搬位置不改内容，失败自动还原</b>。<span style="color:var(--gold)">先导出备份再点。</span></div>
       </div>
@@ -1337,7 +1346,12 @@ var UTIL_MODEL='gemini-2.5-flash';   // 杂活（心情/留言/独白/日程/看
 // （人设＋世界书＋长期框架＋Ombre 记忆＋实时 context），它能想几十秒才开口——正好撞上
 // 下面看门狗的 25 秒首包超时，于是"出不来"。角色扮演不需要深推理，统一降到 low。
 // 2.5 系列不认这个参数（它们用 thinkingBudget），所以只对 gemini-3* 发。
-function _geminiThinkLevel(model){ try{ return /^gemini-3/.test(model||'') ? (localStorage.getItem('mcThinkLevel')||'low') : ''; }catch(e){ return /^gemini-3/.test(model||'')?'low':''; } }
+function _geminiThinkLevel(model){
+  if(!/^gemini-3/.test(model||'')) return '';   // 2.5 系列不认 thinkingLevel
+  var lv='low'; try{ lv=localStorage.getItem('mcThinkLevel')||'low'; }catch(e){}
+  if(lv==='minimal' && /pro/.test(model)) lv='low';   // minimal 只有 flash 支持，pro 用会报错 → 自动降到 low
+  return lv;
+}
 function _geminiGenCfg(model, extra){
   var g={}; for(var k in (extra||{})) g[k]=extra[k];
   var lv=_geminiThinkLevel(model); if(lv) g.thinkingConfig={thinkingLevel:lv};
@@ -1794,9 +1808,17 @@ function fillMState(o){
   var fb=document.getElementById('mStateFav'); if(fb){ fb.textContent='☆ 收藏'; fb.style.color=''; }
 }
 // 他最近是不是正跟你在一起（你刚说过话 = 他绝不可能在睡）
+// ★缓存：tick 每秒调 getMOnline→_withHerRecently，绝不能每秒 JSON.parse 整个 mcChat（会卡）。
+//   只缓存"最后一条消息的时间戳"、15 秒重查一次；判断仍用实时 now+mins，所以结果照样准。
+var _whrCache={t:0,lastTs:0};
 function _withHerRecently(mins){
-  try{ var h=loadMainChat(); for(var i=h.length-1;i>=0;i--){ var m=h[i]; if(m&&!m.err&&m.ts) return (Date.now()-m.ts) < (mins||25)*60000; } }catch(e){}
-  return false;
+  var now=Date.now();
+  if(now-_whrCache.t >= 15000){
+    var lastTs=0;
+    try{ var h=loadMainChat(); for(var i=h.length-1;i>=0;i--){ var m=h[i]; if(m&&!m.err&&m.ts){ lastTs=m.ts; break; } } }catch(e){}
+    _whrCache={t:now, lastTs:lastTs};
+  }
+  return _whrCache.lastTs>0 && (now-_whrCache.lastTs) < (mins||25)*60000;
 }
 // 他睡不睡：① 你刚还在跟他聊 → 一定醒着（本来睡了也被你薅起来"上班"）
 //           ② 日程里明写着已就寝 → 睡了
@@ -3356,6 +3378,86 @@ async function _archPull(){
     var merged=_mergeMsgs(loc, cloud);
     if(_migActive()) return;   // await 后复查：迁移已开始就别写，免得覆盖迁移刚落库的归档
     if(merged.length!==loc.length){ await archDbPut(k, merged); _rawSet(k+'_archN', String(merged.length)); delete _archCache[k]; if(_curView==='chat') renderChat(); }
+  }catch(e){}
+}
+// ===== 存档跨端根治：手动上传/下载/从备份导入 + 开机自动对账 =====
+// 背景：存档正本在 IndexedDB，不走普通同步；跨端只靠云端独立行。原来"上传"只在
+// 产生新归档时触发一次，早归档好的存档永远上不了云 → 别的设备拉空。下面补齐主动路径。
+async function archUploadCloud(btn){
+  if(!_syncPass){ alert('还没设同步密码，无法上云。'); return; }
+  var loc=(await archDbGet('mcChat'))||[];
+  if(!loc.length){ alert('本机存档是空的，没什么可上传。（要先在有存档的设备上传，或用下面的“从备份导入存档”）'); return; }
+  if(btn){ btn.disabled=true; btn.dataset.t=btn.textContent; btn.textContent='上传中…'; }
+  try{
+    var id=await _hashId(_syncPass+':arch'), cloud=[];
+    try{ var row=await _syncFetch(id); if(row&&row.data) cloud=JSON.parse(await _dec(row.data,_syncPass))||[]; }catch(e){}   // 先并云端，绝不覆盖别台
+    var merged=_mergeMsgs(cloud, loc);
+    await archDbPut('mcChat', merged); _rawSet('mcChat_archN', String(merged.length)); delete _archCache['mcChat'];
+    await _syncUpsert(id, await _enc(JSON.stringify(merged), _syncPass));
+    alert('✓ 已上传 '+merged.length+' 条存档到云端。现在别的设备能下载/自动同步了。');
+  }catch(e){ alert('上传失败：'+e.message); }
+  finally{ if(btn){ btn.disabled=false; btn.textContent=btn.dataset.t||'⬆ 上传存档到云端'; } }
+}
+async function archPullCloud(btn){
+  if(!_syncPass){ alert('还没设同步密码。'); return; }
+  if(btn){ btn.disabled=true; btn.dataset.t=btn.textContent; btn.textContent='拉取中…'; }
+  try{
+    var id=await _hashId(_syncPass+':arch'), row=await _syncFetch(id);
+    if(!row||!row.data){ alert('云端还没有存档。请先在【有存档的那台设备】点“⬆ 上传存档到云端”。'); return; }
+    var cloud=JSON.parse(await _dec(row.data,_syncPass))||[];
+    var loc=(await archDbGet('mcChat'))||[];
+    var merged=_mergeMsgs(loc, cloud);
+    await archDbPut('mcChat', merged); _rawSet('mcChat_archN', String(merged.length)); delete _archCache['mcChat'];
+    if(_curView==='chat') renderChat();
+    alert('✓ 已从云端拉取，本机现有存档 '+merged.length+' 条。');
+  }catch(e){ alert('拉取失败：'+e.message); }
+  finally{ if(btn){ btn.disabled=false; btn.textContent=btn.dataset.t||'⬇ 从云端拉存档'; } }
+}
+async function archImportFile(input){
+  var f=input.files&&input.files[0]; if(!f){ return; } input.value='';
+  if(!confirm('从这个备份文件里【只提取存档】，合并进本机存档库。\n\n· 只增不覆盖：你现在的聊天 / 设定 / 世界书一律不动\n· 只把缺的老存档补进来\n\n文件：'+f.name+'\n\n继续？')) return;
+  try{
+    var txt=await f.text(); var d=JSON.parse(txt);
+    if(!d || d.kind!=='FULL-BACKUP'){ alert('这不是本应用导出的「全量备份」文件。'); return; }
+    var ia=d.idb_archives||[], totalAdded=0, report=[];
+    for(var i=0;i<ia.length;i++){
+      var rec=ia[i]; if(!rec||typeof rec!=='object') continue;
+      var k=rec.k||'mcChat', arr=rec.arr||[]; if(!Array.isArray(arr)||!arr.length) continue;
+      var loc=(await archDbGet(k))||[]; var merged=_mergeMsgs(loc, arr); var added=merged.length-loc.length;
+      await archDbPut(k, merged); _rawSet(k+'_archN', String(merged.length)); delete _archCache[k];
+      totalAdded+=added; report.push(k+'：+'+added+'（共'+merged.length+'）');
+    }
+    if(!report.length){ alert('这个备份里没有存档内容（idb_archives 为空）。换手机导出的那份试试。'); return; }
+    if(_curView==='chat') renderChat();
+    var pushed='';
+    try{ if(_syncPass){ await archUploadCloudSilent(); pushed='\n\n并已顺手上传到云端，其它设备也能同步了。'; } }catch(e){}
+    alert('✓ 存档导入完成：\n'+report.join('\n')+'\n新增 '+totalAdded+' 条。'+pushed);
+  }catch(e){ alert('导入失败：'+e.message); }
+}
+async function archUploadCloudSilent(){
+  if(!_syncPass) return; var loc=(await archDbGet('mcChat'))||[]; if(!loc.length) return;
+  var id=await _hashId(_syncPass+':arch'), cloud=[];
+  try{ var row=await _syncFetch(id); if(row&&row.data) cloud=JSON.parse(await _dec(row.data,_syncPass))||[]; }catch(e){}
+  await _syncUpsert(id, await _enc(JSON.stringify(_mergeMsgs(cloud, loc)), _syncPass));
+}
+// 开机对账：双向并集——本机有云端缺就推、云端有本机缺就拉。哪台有存档都会扩散到全部设备。
+async function archAutoReconcile(){
+  if(!_syncReady||!_syncPass||_migActive()) return;
+  try{
+    var id=await _hashId(_syncPass+':arch');
+    var loc=(await archDbGet('mcChat'))||[];
+    // 轻量短路：先只取云端时间戳(几十字节)。云端没变 + 本机存档数没变 → 两边都没动，直接返回，整包一个字节都不下
+    var srvAt=''; try{ srvAt=await _syncFetchAt(id); }catch(e){}
+    var lastAt=''; try{ lastAt=localStorage.getItem('mcArchRemoteAt')||''; }catch(e){}
+    var lastN=-1; try{ var _ln=parseInt(localStorage.getItem('mcArchLocalN'),10); lastN=isNaN(_ln)?-1:_ln; }catch(e){}
+    if(srvAt && srvAt===lastAt && loc.length===lastN) return;   // 没变 → 零下载
+    // 确有变化 → 才下整包合并
+    var cloud=[]; try{ var row=await _syncFetch(id); if(row&&row.data) cloud=JSON.parse(await _dec(row.data,_syncPass))||[]; }catch(e){}
+    if(!loc.length && !cloud.length) return;
+    var merged=_mergeMsgs(cloud, loc), at=srvAt;
+    if(merged.length>loc.length){ await archDbPut('mcChat', merged); _rawSet('mcChat_archN', String(merged.length)); delete _archCache['mcChat']; if(_curView==='chat') renderChat(); }
+    if(merged.length>cloud.length){ at=new Date().toISOString(); await _syncUpsert(id, await _enc(JSON.stringify(merged), _syncPass), at); }   // 本机有新增才上传，且记下时间戳供下次短路
+    try{ _rawSet('mcArchRemoteAt', at||''); _rawSet('mcArchLocalN', String(merged.length)); }catch(e){}
   }catch(e){}
 }
 async function chatArchive(k){ k=k||chatKey(); if(_archCache[k]) return _archCache[k]; var a=(await archDbGet(k))||[]; _archCache[k]=a; return a; }   // 从 IndexedDB 读一次缓存住（异步）
@@ -5744,7 +5846,7 @@ async function _graduateOld(){ if(_gradBusy||!getApiKey()) return; if(Date.now()
 // ===== 多端同步（Supabase + 端到端加密 + 密码锁）=====
 var SUPA_URL='https://xoftoucrykibjxmmuqqi.supabase.co';
 var SUPA_KEY='sb_publishable_LzzpPPm92kYtfZnjqUhQHw_FMZJtYs4';
-var SYNC_SKIP={mcSyncPass:1, mcSyncLast:1, mcDirty:1, mcSyncRemoteAt:1, mcSkUndo:1, mcWorldBook_bak:1, mcVoiceTrans:1, mcVoiceTrans2:1};   // 世界书+维护员聊天不走自动同步；翻译缓存(mcVoiceTrans)是本地派生数据；mcSyncRemoteAt=本地记的云端时间戳，本地用、不上传
+var SYNC_SKIP={mcSyncPass:1, mcSyncLast:1, mcDirty:1, mcSyncRemoteAt:1, mcSkUndo:1, mcWorldBook_bak:1, mcVoiceTrans:1, mcVoiceTrans2:1, mcArchRemoteAt:1, mcArchLocalN:1};   // 存档同步记号=本设备自己的，绝不能跟着普通同步跑到别的设备   // 世界书+维护员聊天不走自动同步；翻译缓存(mcVoiceTrans)是本地派生数据；mcSyncRemoteAt=本地记的云端时间戳，本地用、不上传
 var _syncPass=null, _syncReady=false, _syncTimer=null, _syncBusy=false, _userActiveTs=0, _origSetItem=null;
 function _rawSet(k,v){ try{ (_origSetItem||localStorage.setItem.bind(localStorage))(k,v); }catch(e){} }   // 用原始 setItem 写（不触发同步/不被字符串化）
 try{ localStorage.removeItem('_origSet'); }catch(e){}   // 清掉旧版误存的字符串键
@@ -5947,6 +6049,8 @@ try{ localStorage.removeItem('mcVoiceTrans'); }catch(e){}   // 旧版翻译缓�
     else { seedBoardsIfEmpty(); renderBoards(); }
   }, 800);
   setTimeout(_migrateArchivesToIDB, 1500);  // 一次性把旧存档从 localStorage 搬进 IndexedDB，腾空间
+  setTimeout(function(){ try{ archAutoReconcile(); }catch(e){} }, 7000);   // 开机对账存档：哪台有存档都扩散到云端+全部设备，根治"电脑存档为空"
+  window.addEventListener('focus', function(){ if(_syncReady){ setTimeout(function(){ try{ archAutoReconcile(); }catch(e){} }, 800); } });   // 切回该设备也对账一次
   setTimeout(autoGraduate, 4000);  // 3天前的旧聊天剧情自动浓缩进长期框架
   // 定时检查：M 是否该留新言、inner 换时段、M 心情每小时更新
   setInterval(function(){ maybeGenerateMNote(false); maybeGenerateInner(); updateMMood(); renderInner(); ensureMSchedule(); }, 60000);
