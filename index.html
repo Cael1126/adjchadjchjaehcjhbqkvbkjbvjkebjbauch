@@ -367,7 +367,7 @@ nav { height:50px; background:rgba(245,235,220,0.9); backdrop-filter:blur(20px);
   <div class="sb-bottom"><div class="sb-nav" style="padding:0">
     <a class="sb-item" onclick="openPanel('settings');closeDrawer()"><div class="sb-icon"><svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="7" cy="7" r="2.5"/><path d="M7 1 L7 2.5 M7 11.5 L7 13 M1 7 L2.5 7 M11.5 7 L13 7 M2.9 2.9 L4 4 M10 10 L11.1 11.1 M11.1 2.9 L10 4 M4 10 L2.9 11.1"/></svg></div><div class="sb-label">Settings</div></a>
     <a class="sb-item" onclick="openPanel('creator');closeDrawer()"><div class="sb-icon"><svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="4" cy="4" r="2"/><circle cx="10" cy="4" r="2"/><circle cx="7" cy="10" r="2"/><line x1="4" y1="6" x2="7" y2="8"/><line x1="10" y1="6" x2="7" y2="8"/></svg></div><div class="sb-label">Creator Mode</div></a>
-    <div class="sb-item" style="opacity:0.4;cursor:default;font-size:10px"><div class="sb-icon"><svg width="8" height="8" viewBox="0 0 8 8" fill="currentColor"><circle cx="4" cy="4" r="3"/></svg></div><div class="sb-label" style="font-family:'JetBrains Mono',monospace;letter-spacing:1px">v28.4 ✦ FOLDGUARD</div></div>
+    <div class="sb-item" style="opacity:0.4;cursor:default;font-size:10px"><div class="sb-icon"><svg width="8" height="8" viewBox="0 0 8 8" fill="currentColor"><circle cx="4" cy="4" r="3"/></svg></div><div class="sb-label" style="font-family:'JetBrains Mono',monospace;letter-spacing:1px">v28.6 ✦ AUTOBI</div></div>
   </div></div>
 </div>
 
@@ -385,7 +385,7 @@ nav { height:50px; background:rgba(245,235,220,0.9); backdrop-filter:blur(20px);
   <div class="sb-bottom"><div class="sb-nav" style="padding:0">
     <a class="sb-item" onclick="openPanel('settings')"><div class="sb-icon"><svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="7" cy="7" r="2.5"/><path d="M7 1 L7 2.5 M7 11.5 L7 13 M1 7 L2.5 7 M11.5 7 L13 7 M2.9 2.9 L4 4 M10 10 L11.1 11.1 M11.1 2.9 L10 4 M4 10 L2.9 11.1"/></svg></div><div class="sb-label">Settings</div></a>
     <a class="sb-item" onclick="openPanel('creator')"><div class="sb-icon"><svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="4" cy="4" r="2"/><circle cx="10" cy="4" r="2"/><circle cx="7" cy="10" r="2"/><line x1="4" y1="6" x2="7" y2="8"/><line x1="10" y1="6" x2="7" y2="8"/></svg></div><div class="sb-label">Creator Mode</div></a>
-    <div class="sb-item" style="opacity:0.4;cursor:default;font-size:10px"><div class="sb-icon"><svg width="8" height="8" viewBox="0 0 8 8" fill="currentColor"><circle cx="4" cy="4" r="3"/></svg></div><div class="sb-label" style="font-family:'JetBrains Mono',monospace;letter-spacing:1px">v28.4 ✦ FOLDGUARD</div></div>
+    <div class="sb-item" style="opacity:0.4;cursor:default;font-size:10px"><div class="sb-icon"><svg width="8" height="8" viewBox="0 0 8 8" fill="currentColor"><circle cx="4" cy="4" r="3"/></svg></div><div class="sb-label" style="font-family:'JetBrains Mono',monospace;letter-spacing:1px">v28.6 ✦ AUTOBI</div></div>
   </div></div>
 </div>
 
@@ -531,7 +531,7 @@ nav { height:50px; background:rgba(245,235,220,0.9); backdrop-filter:blur(20px);
   </div>
 
   <div class="footer">
-    <div class="footer-item">MYCROFT.SYS · v28.4 ✦ FOLDGUARD</div>
+    <div class="footer-item">MYCROFT.SYS · v28.6 ✦ AUTOBI</div>
     <div class="footer-live"><div class="sdot sdot-on"></div><span>LIVE</span></div>
     <div class="footer-item" id="footerDate">----</div>
     <div class="footer-item" style="border:1px solid rgba(170,60,55,0.45);color:rgba(170,60,55,0.85);border-radius:3px;padding:0 7px;letter-spacing:2px;transform:rotate(-1.5deg)">CLASSIFIED · 机密</div>
@@ -1254,7 +1254,7 @@ async function _elevenSpeakTS(text, model){
 // 翻译持久缓存（只存文本不存音频；绑定原文，文本变了就失效；有上限、不进云同步）
 function _loadVoiceCache(){ try{ return JSON.parse(localStorage.getItem('mcVoiceTrans2')||'{}'); }catch(e){ return {}; } }
 function _saveVoiceCacheEntry(key, src, segs){ try{ var c=_loadVoiceCache(); c[key]={src:src, segs:segs.map(function(s){ return {zh:s.zh, raw:s.raw, en:s.en, tag:s.tag, mine:s.mine}; })};
-  var ks=Object.keys(c); if(ks.length>50){ ks.sort(function(a,b){ return (parseInt(a)||0)-(parseInt(b)||0); }); ks.slice(0, ks.length-50).forEach(function(k){ delete c[k]; }); }   // 只留最近 50 条翻译缓存（更老的滚回去会自动重翻，不丢原文）
+  var ks=Object.keys(c); if(ks.length>150){ ks.sort(function(a,b){ return (parseInt(a)||0)-(parseInt(b)||0); }); ks.slice(0, ks.length-150).forEach(function(k){ delete c[k]; }); }   // 只留最近 150 条翻译缓存（更老的滚回去会自动重翻，不丢原文）
   _rawSet('mcVoiceTrans2', JSON.stringify(c)); }catch(e){} }
 function _voiceCurrent(key, src){ var d=_voiceData[key]; return (d && d.src===src) ? d : null; }   // 内存里且是当前文本才算有效
 async function _voiceTranslateNow(i){
@@ -1269,6 +1269,15 @@ async function _voiceTranslateNow(i){
   var segs=lines.map(function(p,k){ return {zh:(trans[k].zh||p.zh), raw:p.raw, en:(trans[k].en||p.zh), tag:(trans[k].tag||''), mine:(trans[k].mine!==false), url:null}; });   // zh 用翻译结果：他用英文说的台词，下面那行也保证是中文
   _voiceData[key]={ parts:parts, segs:segs, open:true, src:m.text };
   _saveVoiceCacheEntry(key, m.text, segs);   // 存起来，下次进来/刷新不用重翻
+}
+// 渲染前即时回填：把持久缓存里已翻过的消息（文本没变的）直接灌进内存 _voiceData——无 API、无延迟，重开也立刻显示双语
+function _voiceHydrateFromCache(hist){
+  if(!hist||!hist.length) return; var pc=null;
+  for(var i=0;i<hist.length;i++){ var m=hist[i]; if(!m||m.role==='user'||m.pending) continue; var key=String(m.ts||i);
+    if(_voiceData[key]&&_voiceData[key].src===m.text) continue;   // 内存已是当前文本
+    if(pc===null) pc=_loadVoiceCache();
+    var c=pc[key]; if(c&&c.src===m.text&&c.segs){ try{ _voiceData[key]={ parts:_msgSegments(m.text), segs:c.segs.map(function(s){ return {zh:s.zh, raw:s.raw, en:s.en, tag:s.tag, mine:s.mine, url:null}; }), open:true, src:m.text }; }catch(e){} }
+  }
 }
 // 后台翻译队列：进聊天 / 新回复时，自动把最近的他消息翻好（双语默认显示）
 var _vtQueue=[], _vtBusy=false;
@@ -1292,7 +1301,7 @@ async function _voiceGenSeg(key, idx){ var d=_voiceData[key]; if(!d) return null
 async function chatVoice(i){   // "▶ 全部朗读"：依次念他的每句，句间按旁白长短停顿
   if(_ttsLocked()) return; if(!getElevenKey()||!getElevenVoice()){ alert('先在 Settings 填 ElevenLabs key 和 Voice ID'); return; }
   var m=loadChat()[i]; if(!m) return; var key=String(m.ts||i); if(!_voiceCurrent(key,m.text)) await _voiceTranslateNow(i); var d=_voiceData[key]; if(!d) return;
-  if(_curView==='chat'){ try{ renderChat(); }catch(e){} }   // 翻好后立刻刷新显示双语（自动翻译已关，点喇叭这条才出双语）
+  if(_curView==='chat'){ try{ renderChat(); }catch(e){} }   // 翻好后立刻刷新显示双语
   var gaps=_voiceNarrGaps(d.parts);
   _ttsBusy=true; _ttsBusyAt=Date.now(); var btn=document.getElementById('spk'+i); if(btn) btn.style.opacity='.35';
   try{ for(var idx=0; idx<d.segs.length; idx++){ if(!d.segs[idx].mine) continue; var url=await _voiceGenSeg(key, idx); if(url) await _playAndWait(url); if(idx<d.segs.length-1) await _sleep(Math.min(450, 50+(gaps[idx]||0)*2)); } }   // 句间间隔再缩短
@@ -4163,10 +4172,11 @@ function renderChat(){
   var box=document.getElementById('chatMessages'); if(!box) return;
   if(!_chatBusy){ var _hp=loadChat(), _rm=false; for(var _z=_hp.length-1;_z>=0;_z--){ if(_hp[_z]&&_hp[_z].pending){ _hp.splice(_z,1); _rm=true; } } if(_rm) saveChat(_hp); }   // 没在生成却残留的"三个点"占位泡 → 清掉（防卡死多个）
   var hist=loadChat();
+  try{ _voiceHydrateFromCache(hist); }catch(e){}   // 重开/切回时先从缓存即时回填双语（无API），已翻过的立刻就在
+  try{ if(getApiKey()){ var _vmc=0; for(var _vhi=hist.length-1;_vhi>=0&&_vmc<15;_vhi--){ var _vhm=hist[_vhi]; if(_vhm&&_vhm.role!=='user'&&!_vhm.pending&&/["“「『]/.test(_vhm.text||'')){ _voiceEnsureTrans(_vhi); _vmc++; } } } }catch(e){}   // 自动翻译最近15条他的台词（未缓存的走flash翻译，翻好自动补双语）——只做最近的，避免整屏狂翻
   var _cc=document.getElementById('chatCount'); if(_cc){ var _am=archCount(), _fresh=0,_pin=0; for(var _q=0;_q<hist.length;_q++){ if(_isPinned(hist[_q])||_isCold(hist[_q]))_pin++; else _fresh++; }
     var _txt = _am ? ('后'+_fresh+' · 前'+_am+(_pin?(' · 缓冲'+_pin):'')) : (''+hist.length), _col='var(--text4)';
-    if(_am>=1200){ _col='var(--rose)'; _txt+=' 建议备份'; }   // 存档很多→建议「⬇备份」导出留底
-    else if(_am>=600){ _col='var(--gold)'; }
+    if(_am>=600){ _col='var(--gold)'; }   // 存档多了只把计数变淡金；不再红字、不再催备份（观感）
     _cc.textContent=_txt; _cc.style.color=_col; }   // 后=界面未归档 · 前=已归档 · 缓冲=已归档但界面留看
   if(!hist.length){ box.innerHTML='<div style="margin:auto;text-align:center;color:var(--text3);font-size:14px;font-family:\'Noto Serif SC\',serif;line-height:1.95">伞，总在最需要的时候撑开。</div>'; return; }
   if(_favSelMode){ box.innerHTML=_favSelectChatHTML(hist); return; }   // 多选收藏模式
@@ -4206,7 +4216,7 @@ function renderChat(){
   if(_atBottom){ box.scrollTop=box.scrollHeight; }   // 你在底部 → 跟着往下
   else if(_aIdx>=0){ var _in2=box.firstElementChild, _ks2=_in2?_in2.children:null; if(_ks2&&_ks2[_aIdx]){ var _bt2=box.getBoundingClientRect().top, _cur=_ks2[_aIdx].getBoundingClientRect().top-_bt2; box.scrollTop+=(_cur-_aOff); } else box.scrollTop=_prevTop; }   // 你在看历史 → 钉住那条不动
   else box.scrollTop=_prevTop;
-  // 已关闭"自动翻译双语"：默认只出纯台词；双语+逐句语音仅在点小喇叭(chatVoice/chatLineSpeak)时、按【当前版本】生成。切版本回不去/默认就双语的问题由此根治。
+  // 自动双语：渲染时先从缓存即时回填(_voiceHydrateFromCache)、再对最近15条自动翻译；双语一直在、重开不掉。切变体时 _voiceData.src!==m.text 会自动回退纯文本、再按新变体重翻。听筒键=全部朗读，台词旁▶=单句念。
 }
 // ===== 逐条消息操作：收藏 / 重新输出 / 复制 / ···(编辑·删除) — Gemini 风格小图标 =====
 var _chatEditIdx=-1;
@@ -4220,7 +4230,7 @@ function _toolBtn(onclick,title,svg,active){ return '<span onclick="'+onclick+'"
 function _msgTools(i, isUser, fav){
   var favBtn=_toolBtn('favStartSelect('+i+')','多选收藏',_SVG_BM,false);
   var regenBtn=isUser?'':_toolBtn('chatRegen('+i+')','重新输出',_SVG_REGEN,false);
-  var speakBtn=isUser?'':('<span id="spk'+i+'" onclick="chatVoice('+i+')" title="双语台词 + 朗读（他的声音）" style="cursor:pointer;color:var(--text4);padding:4px;display:inline-flex;align-items:center;border-radius:7px">'+_SVG_SPEAK+'</span>');
+  var speakBtn=isUser?'':('<span id="spk'+i+'" onclick="chatVoice('+i+')" title="朗读全部台词（他的声音）" style="cursor:pointer;color:var(--text4);padding:4px;display:inline-flex;align-items:center;border-radius:7px">'+_SVG_SPEAK+'</span>');
   var copyBtn=_toolBtn('chatCopyMsg('+i+')','复制',_SVG_COPY,false);
   var mItem='padding:8px 12px;font-size:12px;color:var(--text2);cursor:pointer;border-radius:7px;font-family:\'Noto Serif SC\',serif;display:block';
   var menu='<div onclick="chatEditMsg('+i+')" style="'+mItem+'">编辑</div>'
