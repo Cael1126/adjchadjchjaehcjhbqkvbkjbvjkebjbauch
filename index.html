@@ -360,6 +360,7 @@ nav { height:50px; background:rgba(245,235,220,0.9); backdrop-filter:blur(20px);
     <a class="sb-item active" data-view="dashboard" onclick="showView('dashboard')" style="cursor:pointer"><div class="sb-icon"><svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="1" y="1" width="5" height="5" rx="1"/><rect x="8" y="1" width="5" height="5" rx="1"/><rect x="1" y="8" width="5" height="5" rx="1"/><rect x="8" y="8" width="5" height="5" rx="1"/></svg></div><div class="sb-label">Dashboard</div></a>
     <a class="sb-item" data-view="chat" onclick="openChat()" style="cursor:pointer"><div class="sb-icon"><svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 2 L12 2 L12 9 L8 9 L6 12 L6 9 L2 9 Z"/></svg></div><div class="sb-label">Chat</div></a>
         <a class="sb-item" data-view="if" onclick="openIf()" style="cursor:pointer"><div class="sb-icon"><svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M7 1 L9 5 L13 5.5 L10 8.5 L10.5 13 L7 11 L3.5 13 L4 8.5 L1 5.5 L5 5 Z"/></svg></div><div class="sb-label">IF Line</div></a>
+        <a class="sb-item" data-view="core" onclick="openCore()" style="cursor:pointer"><div class="sb-icon"><svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="2" y="1.5" width="10" height="11" rx="1.5"/><line x1="4" y1="4.5" x2="10" y2="4.5"/><line x1="4" y1="7" x2="10" y2="7"/><line x1="4" y1="9.5" x2="8" y2="9.5"/></svg></div><div class="sb-label">档案手册</div></a>
     <a class="sb-item"><div class="sb-icon"><svg width="10" height="14" viewBox="0 0 10 14" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="1" y="1" width="8" height="12" rx="1.5"/><circle cx="5" cy="10.5" r="0.8" fill="currentColor"/></svg></div><div class="sb-label">Phone</div></a>
   </div>
   <div class="sb-section" style="margin-top:8px">Archive</div>
@@ -367,7 +368,7 @@ nav { height:50px; background:rgba(245,235,220,0.9); backdrop-filter:blur(20px);
   <div class="sb-bottom"><div class="sb-nav" style="padding:0">
     <a class="sb-item" onclick="openPanel('settings');closeDrawer()"><div class="sb-icon"><svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="7" cy="7" r="2.5"/><path d="M7 1 L7 2.5 M7 11.5 L7 13 M1 7 L2.5 7 M11.5 7 L13 7 M2.9 2.9 L4 4 M10 10 L11.1 11.1 M11.1 2.9 L10 4 M4 10 L2.9 11.1"/></svg></div><div class="sb-label">Settings</div></a>
     <a class="sb-item" onclick="openPanel('creator');closeDrawer()"><div class="sb-icon"><svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="4" cy="4" r="2"/><circle cx="10" cy="4" r="2"/><circle cx="7" cy="10" r="2"/><line x1="4" y1="6" x2="7" y2="8"/><line x1="10" y1="6" x2="7" y2="8"/></svg></div><div class="sb-label">Creator Mode</div></a>
-    <div class="sb-item" style="opacity:0.4;cursor:default;font-size:10px"><div class="sb-icon"><svg width="8" height="8" viewBox="0 0 8 8" fill="currentColor"><circle cx="4" cy="4" r="3"/></svg></div><div class="sb-label" style="font-family:'JetBrains Mono',monospace;letter-spacing:1px">v28.8 ✦ FITMOBILE</div></div>
+    <div class="sb-item" style="opacity:0.4;cursor:default;font-size:10px"><div class="sb-icon"><svg width="8" height="8" viewBox="0 0 8 8" fill="currentColor"><circle cx="4" cy="4" r="3"/></svg></div><div class="sb-label" style="font-family:'JetBrains Mono',monospace;letter-spacing:1px">v29.3 ✦ ARCHTRANS</div></div>
   </div></div>
 </div>
 
@@ -378,6 +379,7 @@ nav { height:50px; background:rgba(245,235,220,0.9); backdrop-filter:blur(20px);
     <a class="sb-item active" data-view="dashboard" onclick="showView('dashboard')" style="cursor:pointer"><div class="sb-icon"><svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="1" y="1" width="5" height="5" rx="1"/><rect x="8" y="1" width="5" height="5" rx="1"/><rect x="1" y="8" width="5" height="5" rx="1"/><rect x="8" y="8" width="5" height="5" rx="1"/></svg></div><div class="sb-label">Dashboard</div></a>
     <a class="sb-item" data-view="chat" onclick="openChat()" style="cursor:pointer"><div class="sb-icon"><svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 2 L12 2 L12 9 L8 9 L6 12 L6 9 L2 9 Z"/></svg></div><div class="sb-label">Chat</div></a>
         <a class="sb-item" data-view="if" onclick="openIf()" style="cursor:pointer"><div class="sb-icon"><svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M7 1 L9 5 L13 5.5 L10 8.5 L10.5 13 L7 11 L3.5 13 L4 8.5 L1 5.5 L5 5 Z"/></svg></div><div class="sb-label">IF Line</div></a>
+        <a class="sb-item" data-view="core" onclick="openCore()" style="cursor:pointer"><div class="sb-icon"><svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="2" y="1.5" width="10" height="11" rx="1.5"/><line x1="4" y1="4.5" x2="10" y2="4.5"/><line x1="4" y1="7" x2="10" y2="7"/><line x1="4" y1="9.5" x2="8" y2="9.5"/></svg></div><div class="sb-label">档案手册</div></a>
     <a class="sb-item"><div class="sb-icon"><svg width="10" height="14" viewBox="0 0 10 14" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="1" y="1" width="8" height="12" rx="1.5"/><circle cx="5" cy="10.5" r="0.8" fill="currentColor"/></svg></div><div class="sb-label">Phone</div></a>
   </div>
   <div class="sb-section" style="margin-top:8px">Archive</div>
@@ -385,7 +387,7 @@ nav { height:50px; background:rgba(245,235,220,0.9); backdrop-filter:blur(20px);
   <div class="sb-bottom"><div class="sb-nav" style="padding:0">
     <a class="sb-item" onclick="openPanel('settings')"><div class="sb-icon"><svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="7" cy="7" r="2.5"/><path d="M7 1 L7 2.5 M7 11.5 L7 13 M1 7 L2.5 7 M11.5 7 L13 7 M2.9 2.9 L4 4 M10 10 L11.1 11.1 M11.1 2.9 L10 4 M4 10 L2.9 11.1"/></svg></div><div class="sb-label">Settings</div></a>
     <a class="sb-item" onclick="openPanel('creator')"><div class="sb-icon"><svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="4" cy="4" r="2"/><circle cx="10" cy="4" r="2"/><circle cx="7" cy="10" r="2"/><line x1="4" y1="6" x2="7" y2="8"/><line x1="10" y1="6" x2="7" y2="8"/></svg></div><div class="sb-label">Creator Mode</div></a>
-    <div class="sb-item" style="opacity:0.4;cursor:default;font-size:10px"><div class="sb-icon"><svg width="8" height="8" viewBox="0 0 8 8" fill="currentColor"><circle cx="4" cy="4" r="3"/></svg></div><div class="sb-label" style="font-family:'JetBrains Mono',monospace;letter-spacing:1px">v28.8 ✦ FITMOBILE</div></div>
+    <div class="sb-item" style="opacity:0.4;cursor:default;font-size:10px"><div class="sb-icon"><svg width="8" height="8" viewBox="0 0 8 8" fill="currentColor"><circle cx="4" cy="4" r="3"/></svg></div><div class="sb-label" style="font-family:'JetBrains Mono',monospace;letter-spacing:1px">v29.3 ✦ ARCHTRANS</div></div>
   </div></div>
 </div>
 
@@ -531,7 +533,7 @@ nav { height:50px; background:rgba(245,235,220,0.9); backdrop-filter:blur(20px);
   </div>
 
   <div class="footer">
-    <div class="footer-item">MYCROFT.SYS · v28.8 ✦ FITMOBILE</div>
+    <div class="footer-item">MYCROFT.SYS · v29.3 ✦ ARCHTRANS</div>
     <div class="footer-live"><div class="sdot sdot-on"></div><span>LIVE</span></div>
     <div class="footer-item" id="footerDate">----</div>
     <div class="footer-item" style="border:1px solid rgba(170,60,55,0.45);color:rgba(170,60,55,0.85);border-radius:3px;padding:0 7px;letter-spacing:2px;transform:rotate(-1.5deg)">CLASSIFIED · 机密</div>
@@ -673,6 +675,24 @@ nav { height:50px; background:rgba(245,235,220,0.9); backdrop-filter:blur(20px);
     </div>
   </div>
   <div id="ifBody" style="flex:1;overflow-y:auto;padding:14px 22px 24px"></div>
+</div>
+
+<!-- ===== 档案手册 · 便利贴 + 主线卷宗 ===== -->
+<style>
+@keyframes coreGlow { 0%{box-shadow:0 0 0 0 rgba(200,122,48,0)} 25%{box-shadow:0 0 0 3px rgba(200,122,48,0.28)} 100%{box-shadow:0 0 0 0 rgba(200,122,48,0)} }
+.core-card.fresh{ animation:coreGlow 2.4s ease 2; border-color:rgba(200,122,48,0.55)!important; }
+.core-card:hover{ border-color:var(--border2); box-shadow:var(--shadow2); }
+</style>
+<div id="viewCore" style="display:none;flex-direction:column;height:calc(100vh - 50px);background:var(--bg)">
+  <div style="display:flex;align-items:center;gap:11px;padding:13px 22px;border-bottom:1px solid var(--border2);flex-shrink:0">
+    <div style="width:30px;height:30px;border-radius:50%;background:var(--gold-dim);display:flex;align-items:center;justify-content:center;color:var(--gold);font-size:15px">🗂</div>
+    <div style="flex:1;min-width:0">
+      <div style="font-family:'Playfair Display',serif;font-size:15px;color:var(--text);font-weight:600">随身档案 · Field Notes</div>
+      <div style="font-size:10px;color:var(--text3)">他手边的便利贴 + 主线卷宗 · 一直在更新</div>
+    </div>
+    <div id="coreObserveBtn" onclick="coreObserveAfterTurn(true)" title="让他现在看一眼最近对话、更新便利贴" style="cursor:pointer;color:var(--gold);font-size:11px;padding:5px 10px;border:1px solid var(--border2);border-radius:7px">✦ 让他看一眼</div>
+  </div>
+  <div id="coreBody" style="flex:1;overflow-y:auto;padding:16px 20px 30px"></div>
 </div>
 </div>
 
@@ -1232,7 +1252,7 @@ function _msgSegments(text){
 }
 async function _transLines(zhLines, fullText){
   var schema={type:'OBJECT',properties:{lines:{type:'ARRAY',items:{type:'OBJECT',properties:{en:{type:'STRING'},zh:{type:'STRING'},bilingual:{type:'BOOLEAN'},mine:{type:'BOOLEAN'},tag:{type:'STRING'}},required:['en','zh','bilingual','mine','tag']}}},required:['lines']};
-  var sys='给你一段 Mycroft 视角 RP 的全文(上下文) + 其中被引号框住的内容逐条。对每条输出：\n- mine：**只有**当这条是【Mycroft 本人当场说出口的台词（对话）】才 true。mine=false：Cael / "你" / 她 / 别人说的；以及任何不是"当场说话"的引用——概念 / 专有名词 / 标签 / 屏幕文字 / 课程或功能名 / 被引用的词（如 Curriculum、Tutorial、System、Desertion 这类）。\n- en：仅当 mine=true 时翻成自然英文【口语】（冷峻克制英伦腔，允许语气词/停顿/省略号、像真人说话）；mine=false 时 en 原样即可。不要在 en 里放任何方括号标签。\n- tag：**默认给空字符串""**。麦考夫极克制，**大多数句子都不该有标签**——只有当这句情绪【非常明显】时，才给【一个】很轻的方括号标签放句首（如 [softly] [gently] [warmly] [quietly] [dryly]，亲密温柔才用 [softly]/[warmly]）。宁可不给也不要硬塞；绝不叠标签、绝不夸张标签([shouting]/[crying]/[teasing] 等)。mine=false 时 tag 给""。\n- zh：这句的【中文】版本，**永远必须是中文**。原文是中文 → 原样返回；原文是英文（他有时直接用英文说台词）→ 翻成自然、克制、有文学感的中文。【例外·保留原文不译】人名与称呼（Cael、Mycroft、麦考夫、小妹…）、专有名词与机构（MI6、Diogenes Club、Whitehall…）、代号与专业术语——这些照抄原文，不要硬译成中文。mine=false 时 zh 原样即可。\n- bilingual：句子正常→true；很短/本就是简单英文词→false。\n条数、顺序与输入完全一致。只输出 JSON。';
+  var sys='给你一段 Mycroft 视角 RP 的全文(上下文) + 其中被引号框住的内容逐条。对每条输出：\n- mine：**只有**当这条是【Mycroft 本人当场说出口的台词（对话）】才 true。mine=false：Cael / "你" / 她 / 别人说的；以及任何不是"当场说话"的引用——概念 / 专有名词 / 标签 / 屏幕文字 / 课程或功能名 / 被引用的词（如 Curriculum、Tutorial、System、Desertion 这类）。\n- en：仅当 mine=true 时翻成自然英文【口语】（冷峻克制英伦腔，允许语气词/停顿/省略号、像真人说话）；mine=false 时 en 原样即可。不要在 en 里放任何方括号标签。\n- tag：**默认给空字符串""**。麦考夫极克制，**大多数句子都不该有标签**——只有当这句情绪【非常明显】时，才给【一个】很轻的方括号标签放句首（如 [softly] [gently] [warmly] [quietly] [dryly]，亲密温柔才用 [softly]/[warmly]）。宁可不给也不要硬塞；绝不叠标签、绝不夸张标签([shouting]/[crying]/[teasing] 等)。mine=false 时 tag 给""。\n- zh：这句的【中文】版本。**zh 这一栏永远、必须、只能是中文**（除下面专有名词例外）。原文是中文 → 原样返回；**原文是英文（他有时整句用英文说台词）→ 必须翻成自然、克制、有文学感的中文，绝对不许把英文原样抄进 zh**。例：en="Come here, Sister mine." → zh 应为「过来，小妹。」，而不是照抄英文。en="You are mine." → zh 应为「你是我的。」。【例外·保留原文不译】人名与称呼（Cael、Mycroft、麦考夫、小妹…）、专有名词与机构（MI6、Diogenes Club、Whitehall…）、代号与专业术语——这些照抄原文，不要硬译成中文。mine=false 时 zh 原样即可。\n- bilingual：句子正常→true；很短/本就是简单英文词→false。\n条数、顺序与输入完全一致。只输出 JSON。';
   var u='全文（判断谁说的、定情绪）：\n'+(fullText||'').slice(0,2200)+'\n\n逐句台词（共 '+zhLines.length+' 句）：\n'+zhLines.map(function(s,i){return (i+1)+'. '+s;}).join('\n');
   try{ var r=await callGeminiJSON(sys,u,schema,UTIL_MODEL); var o=(r&&r.lines)||[]; return zhLines.map(function(s,i){ var x=o[i]||{}; return {en:(x.en||s), zh:(x.zh||s), bi:(x.bilingual!==false), mine:(x.mine!==false), tag:(x.tag||'')}; }); }
   catch(e){ return zhLines.map(function(s){ return {en:s, zh:s, bi:false, mine:true, tag:''}; }); }
@@ -1257,11 +1277,14 @@ function _saveVoiceCacheEntry(key, src, segs){ try{ var c=_loadVoiceCache(); c[k
   var ks=Object.keys(c); if(ks.length>60){ ks.sort(function(a,b){ return (parseInt(a)||0)-(parseInt(b)||0); }); ks.slice(0, ks.length-60).forEach(function(k){ delete c[k]; }); }   // 只留最近 60 条翻译缓存（手机存储紧，别囤太多；更老的滚回去会自动重翻，不丢原文）
   _rawSet('mcVoiceTrans2', JSON.stringify(c)); }catch(e){} }
 function _voiceCurrent(key, src){ var d=_voiceData[key]; return (d && d.src===src) ? d : null; }   // 内存里且是当前文本才算有效
-async function _voiceTranslateNow(i){
-  var h=loadChat(); var m=h[i]; if(!m||m.role==='user') return; var key=String(m.ts||i);
+async function _voiceTranslateMsg(m, fbKey){   // 对【任意消息对象】做翻译（活跃聊天 / 归档 都能用）；结果按 ts 存进 _voiceData + 持久缓存
+  if(!m||m.role==='user') return; var key=String(m.ts||fbKey);
   if(_voiceCurrent(key, m.text)) return;   // 已是当前文本 → 不重翻
   var parts=_msgSegments(m.text); var lines=parts.filter(function(p){return p.type==='line';}); if(!lines.length) return;
-  var pc=_loadVoiceCache();   // 先看持久缓存：同一文本翻过 → 直接复用，不调 Gemini
+  if(m.tr && m.tr.length){   // 归档记录里带着翻译 → 直接用，不调 Gemini
+    _voiceData[key]={ parts:parts, segs:m.tr.map(function(s){ return {zh:s.zh, raw:s.raw, en:s.en, tag:s.tag, mine:s.mine, url:null}; }), open:true, src:m.text }; return;
+  }
+  var pc=_loadVoiceCache();   // 再看持久缓存：同一文本翻过 → 直接复用，不调 Gemini
   if(pc[key] && pc[key].src===m.text && pc[key].segs){
     _voiceData[key]={ parts:parts, segs:pc[key].segs.map(function(s){ return {zh:s.zh, raw:s.raw, en:s.en, tag:s.tag, mine:s.mine, url:null}; }), open:true, src:m.text }; return;
   }
@@ -1269,6 +1292,13 @@ async function _voiceTranslateNow(i){
   var segs=lines.map(function(p,k){ return {zh:(trans[k].zh||p.zh), raw:p.raw, en:(trans[k].en||p.zh), tag:(trans[k].tag||''), mine:(trans[k].mine!==false), url:null}; });   // zh 用翻译结果：他用英文说的台词，下面那行也保证是中文
   _voiceData[key]={ parts:parts, segs:segs, open:true, src:m.text };
   _saveVoiceCacheEntry(key, m.text, segs);   // 存起来，下次进来/刷新不用重翻
+}
+async function _voiceTranslateNow(i){ return _voiceTranslateMsg(loadChat()[i], String(i)); }   // 活跃聊天按下标翻译（薄封装）
+// 归档里某条的翻译（有就返回 segs，供归档时随身带走 / 浏览时直接显示）
+function _trOf(m){ if(!m) return null; var key=String(m.ts||''); if(!key) return null;
+  if(_voiceData[key] && _voiceData[key].src===m.text) return _voiceData[key].segs.map(function(s){ return {zh:s.zh, raw:s.raw, en:s.en, tag:s.tag, mine:s.mine}; });
+  try{ var pc=_loadVoiceCache(); if(pc[key] && pc[key].src===m.text && pc[key].segs) return pc[key].segs; }catch(e){}
+  return null;
 }
 // 渲染前即时回填：把持久缓存里已翻过的消息（文本没变的）直接灌进内存 _voiceData——无 API、无延迟，重开也立刻显示双语
 function _voiceHydrateFromCache(hist){
@@ -1304,8 +1334,11 @@ async function chatVoice(i){   // "▶ 全部朗读"：依次念他的每句，�
   if(_curView==='chat'){ try{ renderChat(); }catch(e){} }   // 翻好后立刻刷新显示双语
   var gaps=_voiceNarrGaps(d.parts);
   _ttsBusy=true; _ttsBusyAt=Date.now(); var btn=document.getElementById('spk'+i); if(btn) btn.style.opacity='.35';
-  try{ for(var idx=0; idx<d.segs.length; idx++){ if(!d.segs[idx].mine) continue; var url=await _voiceGenSeg(key, idx); if(url) await _playAndWait(url); if(idx<d.segs.length-1) await _sleep(Math.min(450, 50+(gaps[idx]||0)*2)); } }   // 句间间隔再缩短
-  catch(e){ alert('朗读失败：'+e.message); }
+  try{ for(var idx=0; idx<d.segs.length; idx++){ if(!d.segs[idx].mine) continue;
+    var url=null; try{ url=await _voiceGenSeg(key, idx); }catch(segErr){ url=null; }   // ★单句生成失败(ElevenLabs 限流/网络)就跳过这句、继续念下一句，不再整段中断
+    if(url){ try{ await _playAndWait(url); }catch(pe){} }
+    if(idx<d.segs.length-1) await _sleep(Math.min(450, 50+(gaps[idx]||0)*2)); } }   // 句间间隔
+  catch(e){}   // 整段级别的意外也不弹框打断
   finally{ _ttsBusy=false; if(btn) btn.style.opacity=''; }
 }
 async function chatLineSpeak(i, idx){
@@ -1349,7 +1382,54 @@ function _modelMsgHTML(m, i){
 }
 var RETIRED_MODELS={'gemini-3-pro-preview':'gemini-3.1-pro-preview','gemini-1.5-pro':'gemini-2.5-pro','gemini-1.5-flash':'gemini-2.5-flash','gemini-2.0-flash':'gemini-2.5-flash','gemini-2.0-flash-lite':'gemini-2.5-flash'};   // 已下架→自动换成有效型号，免得卡死（2.0 系列 2026-06-01 停服）
 function getModel(){ try{ var m=localStorage.getItem('mcModel')||MC_CFG.model; if(RETIRED_MODELS[m]){ m=RETIRED_MODELS[m]; try{ setModelStored(m); }catch(e){} } return m; }catch(e){ return MC_CFG.model; } }
-var UTIL_MODEL='gemini-2.5-flash';   // 杂活（心情/留言/独白/日程/看穿/归纳/维护员/摘要/归档）用它，不用贵的主聊天模型
+var UTIL_MODEL='gemini-2.5-flash';   // 杂活（心情/留言/独白/日程/看穿/维护员）用它，不用贵的主聊天模型
+// ★写长期记忆专用·级联后勤：Claude 优先（最聪明最听话，你的 Claude 不拒答）→ 出错/拒 → DeepSeek（宽松）→ Gemini 兜底。
+//   按你实际填了哪些 key 自动跳过没有的；每家 45 秒没出就换下一家。改这两个函数=改所有记忆写入用的模型。
+var MEM_FALLBACK='gemini-2.5-flash', MEM_TIMEOUT=45000;
+function _memRace(p){ try{ p.catch(function(){}); }catch(e){}   // 吞掉被超时放弃后原请求的迟到错误，避免 unhandled rejection 噪音
+  return Promise.race([ p, new Promise(function(_,rej){ setTimeout(function(){ rej(new Error('MEM_TIMEOUT')); }, MEM_TIMEOUT); }) ]); }
+function _memJExtract(txt){ if(!txt) return null; var s=String(txt); var m=s.match(/\{[\s\S]*\}/); try{ return JSON.parse(m?m[0]:s); }catch(e){ return null; } }   // 从 Claude/DeepSeek 的纯文本里抠出 JSON
+function _hasClaude(){ return typeof getClaudeKey==='function' && !!getClaudeKey(); }
+function _hasDeepSeek(){ return typeof getDeepSeekKey==='function' && !!getDeepSeekKey(); }
+function _hasAnyMemKey(){ return (typeof getApiKey==='function' && !!getApiKey()) || _hasClaude() || _hasDeepSeek(); }   // 记忆写入：有 Gemini / Claude / DeepSeek 任一即可，别死卡 Gemini
+// ★记忆/总结用哪个模型：在「档案手册」里单独切换（和聊天模型分开）。默认 auto = Claude→DeepSeek→Gemini 级联。
+function getMemChoice(){ try{ return localStorage.getItem('mcMemChoice')||'auto'; }catch(e){ return 'auto'; } }
+function setMemChoice(v){ try{ localStorage.setItem('mcMemChoice', v||'auto'); }catch(e){} }
+function _memPlan(){   // 按当前选择排出"先试谁、再试谁"；Gemini 永远兜底，绝不 dead-end
+  var c=getMemChoice(), plan=[];
+  if(c==='claude'){ if(_hasClaude()) plan.push({prov:'claude',model:getClaudeModel()}); plan.push({prov:'gemini',model:'gemini-3-flash-preview'}); }
+  else if(c==='deepseek'){ if(_hasDeepSeek()) plan.push({prov:'deepseek',model:getDeepSeekModel()}); plan.push({prov:'gemini',model:'gemini-3-flash-preview'}); }
+  else if(c && c.indexOf('gemini-')===0){ plan.push({prov:'gemini',model:c}); }
+  else { if(_hasClaude()) plan.push({prov:'claude',model:getClaudeModel()}); if(_hasDeepSeek()) plan.push({prov:'deepseek',model:getDeepSeekModel()}); plan.push({prov:'gemini',model:'gemini-3-flash-preview'}); }   // auto
+  plan.push({prov:'gemini',model:MEM_FALLBACK});   // 终极兜底
+  return plan;
+}
+// 纯文本记忆总结（骨架续写 / 大纲 / 往事 / IF 骨架）
+async function memChat(sys, contents){
+  var plan=_memPlan();
+  for(var i=0;i<plan.length;i++){ var s=plan[i];
+    try{
+      if(s.prov==='claude') return await _memRace(callClaude(sys, contents, {model:s.model}));
+      if(s.prov==='deepseek') return await _memRace(callDeepSeek(sys, contents, {model:s.model}));
+      return await _memRace(callGeminiChat(sys, contents, {model:s.model}));
+    }catch(e){}
+  }
+  return await callGeminiChat(sys, contents, {model:MEM_FALLBACK});
+}
+// 结构化 JSON 记忆（Ombre 蒸馏 / 卷宗 / 便利贴 / 往事归位）：Claude/DeepSeek 无原生 schema → 让它只吐 JSON 再解析；都不行退 Gemini 原生 schema
+async function memJSON(sys, user, schema){
+  var jsys=sys+'\n\n【只输出一个合法 JSON 对象】：不要任何解释、不要代码块围栏、不要前后缀。顶层字段：'+Object.keys((schema&&schema.properties)||{}).join('、')+'。';
+  var uc=[{role:'user',parts:[{text:user}]}];
+  var plan=_memPlan();
+  for(var i=0;i<plan.length;i++){ var s=plan[i];
+    try{
+      if(s.prov==='claude'){ var t=await _memRace(callClaude(jsys, uc, {model:s.model})); var o=_memJExtract(t); if(o) return o; continue; }
+      if(s.prov==='deepseek'){ var t2=await _memRace(callDeepSeek(jsys, uc, {model:s.model})); var o2=_memJExtract(t2); if(o2) return o2; continue; }
+      return await _memRace(callGeminiJSON(sys, user, schema, s.model));
+    }catch(e){}
+  }
+  return await callGeminiJSON(sys, user, schema, MEM_FALLBACK);
+}
 // ===== Gemini 3.x 是「思考型」模型：回话前先想很久，想的时候一个可见的字都不吐 =====
 // 官方默认：3.1 Pro = high（最深推理）、3.5 Flash = medium。配上你这套巨大的系统提示
 // （人设＋世界书＋长期框架＋Ombre 记忆＋实时 context），它能想几十秒才开口——正好撞上
@@ -3339,7 +3419,7 @@ function _archiveOverflow(k, arr){
   var toArch=[], lastBatch=null;
   while(fresh.length > ARCHIVE_BATCH){
     var batch=fresh.slice(0, ARCHIVE_BATCH);        // 最早 500 条未归档 → 归档
-    for(var b=0;b<batch.length;b++){ toArch.push({role:batch[b].role, ts:batch[b].ts, text:batch[b].text}); }   // 存档副本不带 _pinned
+    for(var b=0;b<batch.length;b++){ toArch.push(_archRec(batch[b])); }   // 存档副本不带 _pinned；带上已翻好的翻译(_archRec)
     lastBatch=batch;   // 记住最后折的这批 → 它的尾 20 条留看
     fresh=fresh.slice(ARCHIVE_BATCH);
   }
@@ -3532,6 +3612,9 @@ function _msgFp(m){ return (m&&m.role||'')+' '+Number(m&&m.ts||0)+' '+String(m&&
 function _dedupExact(arr){ var seen={}, out=[]; for(var i=0;i<(arr||[]).length;i++){ var f=_msgFp(arr[i]); if(seen[f]) continue; seen[f]=1; out.push(arr[i]); } return out; }   // 只丢"角色+时间+全文完全相同"的真重复
 function _segEqual(a,b){ if(!a||!b||a.length!==b.length) return false; for(var i=0;i<a.length;i++){ var x=a[i]||{},y=b[i]||{}; if((x.role||'')!==(y.role||'')||Number(x.ts||0)!==Number(y.ts||0)||String(x.text||'')!==String(y.text||'')) return false; } return true; }   // 逐条精确
 function _stripArch(arr){ return (arr||[]).map(function(m){ return {role:m.role, ts:m.ts, text:m.text}; }); }
+function _archRec(m){ var r={role:m.role, ts:m.ts, text:m.text};   // 归档记录：若内存里已翻好，把翻译(segs)随身带走，浏览时直接显示双语、不用重翻
+  var key=String(m.ts||''); if(key && _voiceData[key] && _voiceData[key].src===m.text){ r.tr=_voiceData[key].segs.map(function(s){ return {zh:s.zh, raw:s.raw, en:s.en, tag:s.tag, mine:s.mine}; }); }
+  return r; }
 // —— 独立备份 store（migBackups，绝不与正式 archives 同 key）——
 function migBackupPut(key,obj){ return ifDB().then(function(db){ return new Promise(function(res){ try{ var tx=db.transaction('migBackups','readwrite'); tx.objectStore('migBackups').put({key:key,obj:obj}); tx.oncomplete=function(){res(true);}; tx.onerror=function(){res(false);}; }catch(e){res(false);} }); }).catch(function(){return false;}); }
 function migBackupGet(key){ return ifDB().then(function(db){ return new Promise(function(res){ try{ var tx=db.transaction('migBackups','readonly'); var rq=tx.objectStore('migBackups').get(key); rq.onsuccess=function(){ res((rq.result&&rq.result.obj)||null); }; rq.onerror=function(){res(null);}; }catch(e){res(null);} }); }).catch(function(){return null;}); }
@@ -3695,7 +3778,7 @@ var _curView='dashboard';
 function showView(name){
   _curView=name;
   if(_favSelMode && name!=='chat'){ _favSelMode=false; _favSel={}; if(typeof _favSelBarRemove==='function') _favSelBarRemove(); var _cf=document.getElementById('chatFooter'); if(_cf) _cf.style.display=''; }   // 离开聊天 → 退出多选、清掉选择栏
-  var d=document.getElementById('viewDashboard'), c=document.getElementById('viewChat'), m=document.getElementById('viewMemory'), pl=document.getElementById('viewPalace'), fv=document.getElementById('viewIf'), fav=document.getElementById('viewFavorites'), wd=document.getElementById('viewWorld');
+  var d=document.getElementById('viewDashboard'), c=document.getElementById('viewChat'), m=document.getElementById('viewMemory'), pl=document.getElementById('viewPalace'), fv=document.getElementById('viewIf'), fav=document.getElementById('viewFavorites'), wd=document.getElementById('viewWorld'), co=document.getElementById('viewCore');
   if(d) d.style.display=(name==='dashboard')?'':'none';
   if(c) c.style.display=(name==='chat')?'flex':'none';
   if(m) m.style.display=(name==='memory')?'flex':'none';
@@ -3703,6 +3786,7 @@ function showView(name){
   if(fv) fv.style.display=(name==='if')?'flex':'none';
   if(fav) fav.style.display=(name==='favorites')?'flex':'none';
   if(wd) wd.style.display=(name==='world')?'flex':'none';
+  if(co) co.style.display=(name==='core')?'flex':'none';
   var nv=document.getElementById('topNav'); if(nv) nv.style.display=(name==='chat')?'none':'';   // chat 里隐藏顶栏（Mycroft/Cael/主题/时钟）
   if(c) c.style.height=(name==='chat')?'100vh':'calc(100vh - 50px)';
   try{ var _an=(name==='chat'&&_activeChat.type==='if')?'if':name; document.querySelectorAll('.sb-item[data-view]').forEach(function(a){ a.classList.toggle('active', a.getAttribute('data-view')===_an); }); }catch(e){}
@@ -3713,6 +3797,7 @@ function showView(name){
   if(name==='palace'){ renderPalace(); }
   if(name==='world'){ renderWorld(); }
   if(name==='favorites'){ renderFavorites(); }
+  if(name==='core'){ if(typeof renderCore==='function') renderCore(); if(typeof arcEnsure==='function') arcEnsure(); }
   window.scrollTo(0,0);
 }
 function openChat(){ _activeChat={type:'main',id:''}; showView('chat'); }
@@ -3847,7 +3932,7 @@ async function ifFoldToFramework(id, br){
     var convo=batch.map(function(m){ return (m.role==='user'?'我：':'他：')+(m.text||''); }).join('\n');
     var tail=getBranchFw(id,br).slice(-600);
     var sys=_SK_RULES+'\n\n你在为一段 IF / 平行线角色扮演归纳长期记忆。把下面这段对话浓缩成【章节续写】：第一行是一个用 ## 开头的小标题，下面几条按顺序的要点，只记剧情主线 / 关键转折 / 关系或设定变化，不要原话细节、不要寒暄。【重要】涉及亲密 / 露骨（成人）情节时，必须记下"发生过、关系如何推进"，要如实记下发生了什么、关系与情感如何推进、之后的变化——可以具体有实质，只是措辞不用露骨字眼即可；别用一句空话糊弄，更不能因露骨就跳过 / 省略。直接输出续写正文。';
-    var draft=await callGeminiChat(sys, [{role:'user',parts:[{ text:'已有框架结尾（保持风格连贯）：\n'+(tail||'(无)')+'\n\n这段对话：\n'+convo }]}], {model:UTIL_MODEL});
+    var draft=await memChat(sys, [{role:'user',parts:[{ text:'已有框架结尾（保持风格连贯）：\n'+(tail||'(无)')+'\n\n这段对话：\n'+convo }]}]);
     if(draft&&draft.trim()){
       var cur=getBranchFw(id,br);
       setBranchFw(id, br, cur.trim()? (cur+'\n\n'+draft.trim()) : draft.trim());
@@ -4095,11 +4180,62 @@ function archBrowseRender(){
     var insel=(_archSelMode && _archSelA>=0 && _archSelB>=0 && i>=lo && i<=hi);
     var click=_archSelMode?('archSelTap('+i+')'):('archBrowseEdit('+i+')');
     var hl=insel?'background:var(--gold-dim);border-radius:8px;padding:4px 8px;':'';
-    var inner='<div onclick="'+click+'" title="'+(_archSelMode?'点这条选范围':'点开改字')+'" style="cursor:pointer;white-space:pre-wrap;font-family:\'Noto Serif SC\',serif;font-size:14px;line-height:1.55;'+hl+'">'+chatEsc(_archMsgText(m))+'</div>';
+    var _st='cursor:pointer;white-space:pre-wrap;font-family:\'Noto Serif SC\',serif;font-size:14px;line-height:1.55;'+hl;
+    var inner=(!isU && !_archSelMode)
+      ? ('<div onclick="archBrowseEdit('+i+')" title="点开改字 · 台词旁▶念、译翻译" style="'+_st+'">'+_archModelHTML(m,i)+'</div>')   // 模型消息：双语+翻译/朗读按钮
+      : ('<div onclick="'+click+'" title="'+(_archSelMode?'点这条选范围':'点开改字')+'" style="'+_st+'">'+chatEsc(_archMsgText(m))+'</div>');
     if(isU) return '<div style="margin:0 0 14px auto;max-width:82%;width:fit-content;background:var(--s2);border:1px solid var(--border2);border-radius:16px;padding:10px 14px;color:var(--text);font-weight:600">'+inner+'</div>';
     return '<div style="margin-bottom:14px;color:var(--text2);font-weight:600;padding:2px 0">'+inner+'</div>';
   }).join('');
   box.innerHTML='<div style="max-width:740px;width:100%;margin:0 auto;display:flex;flex-direction:column">'+bar+rows+'</div>';
+}
+// 归档里模型消息的渲染：已翻(内存/随身tr)→双语+单句▶+全部朗读；没翻→纯文本+「译」按钮。所有按钮 stopPropagation，不触发点开改字
+function _archModelHTML(m, i){
+  var key=String(m.ts||''); var d=key?_voiceData[key]:null;
+  if((!d || d.src!==m.text) && key && m.tr && m.tr.length){   // 归档随身带的翻译 → 回填内存，直接显示
+    try{ _voiceData[key]={ parts:_msgSegments(m.text), segs:m.tr.map(function(s){ return {zh:s.zh, raw:s.raw, en:s.en, tag:s.tag, mine:s.mine, url:null}; }), open:true, src:m.text }; d=_voiceData[key]; }catch(e){}
+  }
+  if(!d || d.src!==m.text){   // 没翻 → 纯文本 + 「译」
+    return chatEsc(_archMsgText(m))+'<span onclick="event.stopPropagation();archTransShow('+i+')" title="翻译这条" style="cursor:pointer;color:var(--gold);font-size:11px;opacity:.8;margin-left:8px">译</span>';
+  }
+  var html='', li=0, hisAny=false;
+  d.parts.forEach(function(p){
+    if(p.type==='narr'){ html+=chatEsc(p.text); return; }
+    var seg=d.segs[li], idx=li; li++; if(!seg) return;
+    if(seg.mine){ hisAny=true; html+='<div style="margin:0"><span style="color:var(--text);opacity:.62">"'+chatEsc(_stripTags(seg.en))+'"</span>'
+      +'<span onclick="event.stopPropagation();archLineSpeak('+i+','+idx+')" title="念这句" style="cursor:pointer;color:var(--text4);font-size:11px;opacity:.5;margin-left:5px">▶</span>'
+      +'<br><span style="color:var(--text3);opacity:.88;font-size:13px">'+chatEsc(_stripTags(seg.zh))+'</span></div>'; }
+    else { html+=chatEsc(seg.raw||('「'+seg.zh+'」')); }
+  });
+  if(hisAny) html+='<div style="margin-top:5px;font-size:11px"><span onclick="event.stopPropagation();archVoiceAll('+i+')" style="cursor:pointer;color:var(--gold);opacity:.85">▶ 全部朗读</span></div>';
+  return html;
+}
+async function archTransShow(i){   // 翻译归档里这一条 → 重渲染显示双语
+  var arch=_archCache[_archBrowseKey]||[]; var m=arch[i]; if(!m||m.role==='user') return;
+  if(!getApiKey()){ alert('先在 Settings 填 Gemini API key'); return; }
+  try{ await _voiceTranslateMsg(m, String(i)); }catch(e){ alert('翻译失败：'+e.message); return; }
+  if(document.getElementById('archBrowseList')) archBrowseRender();
+}
+async function archVoiceAll(i){   // 归档里这一条：全部朗读（单句失败跳过、不整段断）
+  if(_ttsLocked()) return; if(!getElevenKey()||!getElevenVoice()){ alert('先在 Settings 填 ElevenLabs key 和 Voice ID'); return; }
+  var arch=_archCache[_archBrowseKey]||[]; var m=arch[i]; if(!m) return; var key=String(m.ts||i);
+  if(!_voiceCurrent(key,m.text)){ try{ await _voiceTranslateMsg(m, String(i)); }catch(e){} }
+  var d=_voiceData[key]; if(!d) return; var gaps=_voiceNarrGaps(d.parts);
+  _ttsBusy=true; _ttsBusyAt=Date.now();
+  try{ for(var idx=0; idx<d.segs.length; idx++){ if(!d.segs[idx].mine) continue;
+    var url=null; try{ url=await _voiceGenSeg(key, idx); }catch(e){ url=null; }
+    if(url){ try{ await _playAndWait(url); }catch(pe){} }
+    if(idx<d.segs.length-1) await _sleep(Math.min(450, 50+(gaps[idx]||0)*2)); } }
+  catch(e){} finally{ _ttsBusy=false; }
+}
+async function archLineSpeak(i, idx){   // 归档里这一条：念某一句
+  if(!getElevenKey()||!getElevenVoice()){ alert('先在 Settings 填 ElevenLabs key 和 Voice ID'); return; }
+  _voiceStopAll(); _ttsBusy=false;
+  var arch=_archCache[_archBrowseKey]||[]; var m=arch[i]; if(!m) return; var key=String(m.ts||i);
+  if(!_voiceCurrent(key,m.text)){ try{ await _voiceTranslateMsg(m, String(i)); }catch(e){} }
+  var d=_voiceData[key]; if(!d) return; var seg=d.segs[idx]; if(!seg||!seg.mine) return;
+  if(seg.url){ _ttsPlayUrl(seg.url); return; }
+  _ttsBusy=true; _ttsBusyAt=Date.now(); try{ var url=await _voiceGenSeg(key, idx); if(url) _ttsPlayUrl(url); }catch(e){} finally{ _ttsBusy=false; }
 }
 function archSelStart(){ _archSelMode=true; _archSelA=-1; _archSelB=-1; _archBrowseEditIdx=-1; archBrowseRender(); }
 function archSelCancel(){ _archSelMode=false; _archSelA=-1; _archSelB=-1; archBrowseRender(); }
@@ -4171,6 +4307,7 @@ function _streamPaint(text){ _streamText=text; var bx=document.getElementById('c
 function renderChat(){
   var box=document.getElementById('chatMessages'); if(!box) return;
   if(!_chatBusy){ var _hp=loadChat(), _rm=false; for(var _z=_hp.length-1;_z>=0;_z--){ if(_hp[_z]&&_hp[_z].pending){ _hp.splice(_z,1); _rm=true; } } if(_rm) saveChat(_hp); }   // 没在生成却残留的"三个点"占位泡 → 清掉（防卡死多个）
+  if(!_chatBusy){ try{ _maybeDropCold(); }catch(e){} }   // 缓冲(冷摆设/pinned)随新对话一条条顶掉（发消息/重开都覆盖）
   var hist=loadChat();
   try{ _voiceHydrateFromCache(hist); }catch(e){}   // 重开/切回时先从缓存即时回填双语（无API），已翻过的立刻就在
   try{ if(getApiKey()){ var _vmc=0; for(var _vhi=hist.length-1;_vhi>=0&&_vmc<15;_vhi--){ var _vhm=hist[_vhi]; if(_vhm&&_vhm.role!=='user'&&!_vhm.pending&&/["“「『]/.test(_vhm.text||'')){ _voiceEnsureTrans(_vhi); _vmc++; } } } }catch(e){}   // 自动翻译最近15条他的台词（未缓存的走flash翻译，翻好自动补双语）——只做最近的，避免整屏狂翻
@@ -4257,19 +4394,22 @@ function _archiveNowCurrent(){   // 开新窗：把当前这扇窗的对话强�
   var k=chatKey();
   var msgs=loadChat().filter(function(m){ return m && !m.err && !m.pending && !_isCold(m); });   // 冷摆设早已在上一次归档，不重复
   if(!msgs.length) return;
-  var toArch=msgs.map(function(m){ return {role:m.role, ts:m.ts, text:m.text}; });
+  var toArch=msgs.map(_archRec);   // 带上已翻好的翻译
   try{ var pend=JSON.parse(localStorage.getItem(k+'_archPend')||'[]')||[]; pend=pend.concat(toArch); _rawSet(k+'_archPend', JSON.stringify(pend)); }catch(e){}
   try{ _rawSet(k+'_archN', String((parseInt(localStorage.getItem(k+'_archN')||'0',10)||0)+toArch.length)); }catch(e){}   // 计数先顶上，_flushArchPend 落库后按去重结果校正
   _flushArchPend(k);
 }
-function _maybeDropCold(){   // 新窗新对话攒过 20 条后，冷摆设缓冲退场（已归档+已折叠，删掉不丢）
+function _maybeDropCold(){   // 开新窗的冷摆设 / 归档的 pinned 缓冲，随新对话【一条条顶掉】：保留数=20−已聊的新消息数（20→19→…→0），不再攒够20一次性全掉
   if(_chatEditIdx>=0) return;   // 编辑中不动，避免下标错位
-  var h=loadChat(), cold=0, fresh=0;
-  for(var i=0;i<h.length;i++){ if(_isCold(h[i])) cold++; else if(!h[i].err&&!h[i].pending) fresh++; }
-  if(cold>0 && fresh>PINNED_KEEP){
-    saveChat(h.filter(function(m){ return !_isCold(m); }));
-    if(typeof _chatLastMemIdx==='number'&&_chatLastMemIdx!=null) _chatLastMemIdx=Math.max(0,_chatLastMemIdx-cold);
-  }
+  var h=loadChat(); if(!h.length) return;
+  var bufN=0; while(bufN<h.length && (_isPinned(h[bufN])||_isCold(h[bufN]))) bufN++;   // 前缀缓冲(pinned 或 冷摆设)的条数
+  if(bufN===0) return;
+  var fresh=0; for(var i=bufN;i<h.length;i++){ var x=h[i]; if(x&&!x.err&&!x.pending) fresh++; }   // 缓冲之后的新对话条数
+  var keep=Math.max(0, PINNED_KEEP - fresh);   // 每来一条新消息，就少留一条缓冲
+  if(keep>=bufN) return;
+  var drop=bufN-keep;
+  saveChat(h.slice(drop));   // 丢掉最前面(最老)的 drop 条缓冲（已归档，删掉不丢）
+  if(typeof _chatLastMemIdx==='number'&&_chatLastMemIdx!=null) _chatLastMemIdx=Math.max(0,_chatLastMemIdx-drop);
 }
 async function chatNewWindow(){
   if(_chatBusy) return;
@@ -4310,10 +4450,10 @@ function chatCopyMsg(i){ var h=loadChat(); if(i<0||i>=h.length) return; var t=(h
   if(navigator.clipboard&&navigator.clipboard.writeText){ navigator.clipboard.writeText(t).then(done,function(){ _copyFallback(t); done(); }); } else { _copyFallback(t); done(); }
 }
 function _copyFallback(t){ try{ var ta=document.createElement('textarea'); ta.value=t; ta.style.position='fixed'; ta.style.left='-9999px'; document.body.appendChild(ta); ta.select(); document.execCommand('copy'); ta.remove(); }catch(e){} }
-function chatDeleteMsg(i){ var h=loadChat(); if(i<0||i>=h.length) return; if(!confirm('删除这一段？\n它会从对话和【短期记忆】里一起去掉（长期/记忆库还没固化，所以删得干净）。')) return; h.splice(i,1); saveChat(h); if(_chatEditIdx===i) _chatEditIdx=-1; else if(_chatEditIdx>i) _chatEditIdx--; renderChat(); }   // 删中间一条后把打开中的编辑下标跟着挪，避免保存时改错另一条
+function chatDeleteMsg(i){ var h=loadChat(); if(i<0||i>=h.length) return; if(!confirm('删除这一段？\n会从对话里去掉，并让便利贴跟着重新对账（清掉这段留下的痕迹）。\n（若这段很久以前已进长期记忆/记忆库，那边可能还留着，需要去记忆宫殿/记忆库单独删。）')) return; h.splice(i,1); saveChat(h); if(_chatEditIdx===i) _chatEditIdx=-1; else if(_chatEditIdx>i) _chatEditIdx--; renderChat(); if(_activeChat.type!=='if') setTimeout(function(){ try{ if(typeof coreObserveAfterTurn==='function') coreObserveAfterTurn(true); }catch(e){} }, 200); }   // ★删后让便利贴重新对账，别残留已删内容   // 删中间一条后把打开中的编辑下标跟着挪，避免保存时改错另一条
 function chatEditMsg(i){ _chatEditIdx=i; renderChat(); setTimeout(function(){ var t=document.getElementById('chatEditTA'); if(t){ t.focus(); t.style.height='auto'; t.style.height=Math.min(360,t.scrollHeight)+'px'; } },40); }
 function chatEditCancel(){ _chatEditIdx=-1; renderChat(); }
-function chatEditSave(i){ var ta=document.getElementById('chatEditTA'); if(!ta) return; var v=ta.value; var h=loadChat(); if(h[i]){ h[i].text=v; saveChat(h); } _chatEditIdx=-1; renderChat(); }
+function chatEditSave(i){ var ta=document.getElementById('chatEditTA'); if(!ta) return; var v=ta.value; var h=loadChat(); if(h[i]){ h[i].text=v; saveChat(h); } _chatEditIdx=-1; renderChat(); if(_activeChat.type!=='if') setTimeout(function(){ try{ if(typeof coreObserveAfterTurn==='function') coreObserveAfterTurn(true); }catch(e){} }, 200); }   // ★改后便利贴也重新对账
 // 手动模型切换器：先 provider 再 model（避免非法组合）；切换从下一条起生效
 var _switchRetry=false;
 function openModelSwitch(retry){
@@ -4406,7 +4546,7 @@ async function chatContinue(i){   // 续写：接着这条(可能被截断的)�
     add=await streamReply(sys, contents, function(p){ if(myGen===_chatGen) _streamPaint(base+p); }, {signal:_chatAbort.signal});
     if(myGen!==_chatGen) return;
     if(!add) throw new Error('空回复');
-    var cur=loadChat(); if(cur[i]){ cur[i].text=base+add; cur[i].pending=false; cur[i].ts=Date.now(); delete cur[i]._saved; if(_lastFinishReason&&_lastFinishReason!=='STOP'&&_lastFinishReason!=='ABORT') cur[i].truncated=_lastFinishReason; else delete cur[i].truncated; if(cur[i].variants&&cur[i].variants.length){ cur[i].variants[(cur[i].vi!=null?cur[i].vi:cur[i].variants.length-1)]=cur[i].text; } }
+    var cur=loadChat(); if(cur[i]){ cur[i].text=base+add; cur[i].pending=false; delete cur[i]._saved; if(_lastFinishReason&&_lastFinishReason!=='STOP'&&_lastFinishReason!=='ABORT') cur[i].truncated=_lastFinishReason; else delete cur[i].truncated; if(cur[i].variants&&cur[i].variants.length){ cur[i].variants[(cur[i].vi!=null?cur[i].vi:cur[i].variants.length-1)]=cur[i].text; } }
     _userActiveTs=Date.now(); saveChat(cur); renderChat();
     if(_activeChat.type!=='if') setTimeout(chatAutoMemory,150);
   }catch(e){
@@ -4432,7 +4572,7 @@ async function chatRegen(i){
     reply=await streamReply(sys, contents, function(p){ if(myGen===_chatGen) _streamPaint(p); }, {signal:_chatAbort.signal});
     if(myGen!==_chatGen) return;   // 已被取代 → 丢弃，不写回（stopChat 会恢复原文）
     if(!reply) throw new Error('空回复');
-    var cur=loadChat(); if(cur[i]){ if(!cur[i].variants||!cur[i].variants.length) cur[i].variants=[cur[i]._saved||'']; cur[i].variants.push(reply); cur[i].vi=cur[i].variants.length-1; cur[i].text=reply; cur[i].pending=false; cur[i].ts=Date.now(); delete cur[i]._saved; }
+    var cur=loadChat(); if(cur[i]){ if(!cur[i].variants||!cur[i].variants.length) cur[i].variants=[cur[i]._saved||'']; cur[i].variants.push(reply); cur[i].vi=cur[i].variants.length-1; cur[i].text=reply; cur[i].pending=false; delete cur[i]._saved; }   // ★重 roll 不刷 ts：保留原时间戳，避免旧消息被当新内容再折进长期记忆（多次记录来源之一）
     _userActiveTs=Date.now(); saveChat(cur); renderChat();
     if(_activeChat.type!=='if') setTimeout(chatAutoMemory,150);
   }catch(e){
@@ -4783,7 +4923,18 @@ async function _chatBuildSys(lastUserText){
   } else {
     // ===== 静态前缀（几乎每条都一样 → 让 Gemini 自动缓存、重复部分打折）=====
     sys=chatSystem();
-    var _sk=getSkeletonText(); if(_sk&&_sk.trim()){ sys+='\n\n=== 长期记忆框架（世界观 / 时间线 / 关键事件 · 全量）===\n'+_sk; }
+    // ★记忆优化：不再全量灌骨架。改喂「主线大纲(滚动总结)」+「便利贴(核心记忆)」；细章节留在库里、按 Ombre 检索
+    var _arc=(typeof getArcSummary==='function')?getArcSummary():'';
+    if(_arc && _arc.trim()){
+      sys+='\n\n=== 剧情主线 · 来龙去脉（长期背景，只作【剧情脉络 / 走向】参考；它可能【滞后于当下】，所以【此刻的状态与情绪绝不以它为准】；记在心里、自然体现，别复述、别照搬、别当剧本念）===\n'+_arc;
+    } else {
+      // 大纲还没生成 → 临时回退：只喂骨架头尾精简版，绝不空场；arcEnsure 会在后台把它提炼成大纲，之后就走大纲
+      var _sk=getSkeletonText();
+      if(_sk&&_sk.trim()){ var _skT=_sk.length>4000?(_sk.slice(0,2200)+'\n…（中略，完整时间线在记忆宫殿）…\n'+_sk.slice(-1500)):_sk; sys+='\n\n=== 长期记忆框架（临时·头尾精简）===\n'+_skT; }
+    }
+    var _core=(typeof coreInjectText==='function')?coreInjectText():'';
+    if(_core && _core.trim()) sys+='\n\n=== 你此刻的真实状态 · 便利贴（你一直在更新的几条要紧记录）——【你俩此刻的状态、情绪、关系的当下，一律以这几张便利贴 + 最近的对话原文为准】（它们比上面的"剧情主线"新）；自然融入，别念出来 ===\n'+_core;
+    try{ if(typeof arcEnsure==='function') arcEnsure(); }catch(e){}
     var _dsum=(typeof getDossierSum==='function')?getDossierSum():''; if(_dsum&&_dsum.trim()) sys+='\n\n=== 你的活档案 · 精简（你眼中的她 + 你自己的习惯原则；据此保持这个人的连贯，自然体现别照念）===\n'+_dsum;
     // 往事时间线：只记录、不喂进对话（省 token）——它仍在「往事」页保存/整理，需要时人工查
     // ===== 动态后缀（每条都变 → 放最后，不破坏前面的缓存）=====
@@ -4828,7 +4979,7 @@ async function sendChat(){
     _userActiveTs=Date.now();   // 这轮对话是用户发起 → 保证回复也被同步推送
     saveChat(h2); _maybeDropCold();
     renderChat();   // 立刻显示回复，绝不等翻译（双语由后台队列稍后补上，免得拖慢/出不来）
-    if(_activeChat.type!=='if'){ setTimeout(chatAutoMemory,150); _dossierTick++; if(_dossierTick%8===0) setTimeout(function(){ dossierObserve(null,UTIL_MODEL,true); }, 1200); if(_dossierTick%8===0) setTimeout(function(){ try{ var h=loadMainChat().filter(function(m){return !m.err;}); var convo=h.slice(-16).map(function(m){ return (m.role==='user'?'她：':'他：')+(m.text||''); }).join('\n'); _pastIngest(convo,false,UTIL_MODEL); }catch(e){} }, 2000); setTimeout(_graduateOld, 2600); }   // 观察建档 + 往事归档 + 旧聊天抄进长期框架（持续）
+    if(_activeChat.type!=='if'){ setTimeout(chatAutoMemory,150); _dossierTick++; if(_dossierTick%8===0) setTimeout(function(){ dossierObserve(null,UTIL_MODEL,true); }, 1200); if(_dossierTick%8===0) setTimeout(function(){ try{ var h=loadMainChat().filter(function(m){return !m.err;}); var convo=h.slice(-16).map(function(m){ return (m.role==='user'?'她：':'他：')+(m.text||''); }).join('\n'); _pastIngest(convo,false,UTIL_MODEL); }catch(e){} }, 2000); setTimeout(_graduateOld, 2600); setTimeout(function(){ try{ if(typeof coreObserveAfterTurn==='function') coreObserveAfterTurn(); }catch(e){} }, 1800); }   // 观察建档 + 往事归档 + 旧聊天抄进长期框架（持续）
     else { var _fid=_activeChat.id, _fbr=_activeChat.branch||'main'; setTimeout(function(){ ifFoldToFramework(_fid,_fbr); }, 300); }
   }catch(e){
     if(myGen!==_chatGen) return;   // 已被取代 → 不写错误泡
@@ -4863,7 +5014,7 @@ var MEM_DISTILL_SYS=[
 var MEM_SCHEMA={ type:'OBJECT', properties:{ worth:{type:'BOOLEAN'}, title:{type:'STRING'}, content:{type:'STRING'}, importance:{type:'INTEGER'}, valence:{type:'NUMBER'}, arousal:{type:'NUMBER'}, tags:{type:'STRING'} }, required:['worth','content','importance'] };
 async function chatDistill(msgs){
   var convo=msgs.map(function(m){ return (m.role==='user'?'Cael: ':'Mycroft: ')+m.text; }).join('\n\n');
-  return await callGeminiJSON(getPersona()+'\n'+MEM_DISTILL_SYS, '最近的对话片段：\n\n'+convo+'\n\n请判断是否值得记入长期记忆，并按 schema 输出。', MEM_SCHEMA, UTIL_MODEL);
+  return await memJSON(getPersona()+'\n'+MEM_DISTILL_SYS, '最近的对话片段：\n\n'+convo+'\n\n请判断是否值得记入长期记忆，并按 schema 输出。', MEM_SCHEMA);
 }
 var OMBRE_COMMIT=30000;   // 内容被埋过 3万字 → 固化进 Ombre（口嗨/回档没到这就永远不会进）
 var OMBRE_WARN=24000;     // 被埋过 2.4万字 → 提醒"快进 Ombre 了，趁现在删/改"
@@ -5350,7 +5501,7 @@ async function _pastIngest(sourceText, isFile, model){
     var existing=cur.map(function(x,i){ return (i+1)+'. '+(x.time?'【'+x.time+'】':'')+x.text.slice(0,70); }).join('\n');
     var sys='【往事的范围·严格】往事【只】收录"跳海前"的前传：即 Cael 还在他（Mycroft）的世界、还没跳海、他还没在另一个维度找回她【之前】发生的事。\n【绝不收录】跨维度重逢之后、也就是"现在"正在发生的一切——当前对话里的事一律不是往事。\n下面是已排好顺序的往事（编号 1..'+cur.length+' = 真实时间先后）。只有当素材里【明确提到那段"跳海前"的旧事、且还没记过】时才抽出来；每件给：time（简短时间标，如"十二岁""跳海那天"）、text（这件事一段完整内容）、after（按真实时间它排在第几条【之后】；0=最前，'+cur.length+'=最后）。\n没有符合的就【空数组】——宁可不记，也绝不把"现在"的事记成往事。不要重复已有。';
     var u='已有（编号即顺序）：\n'+(existing||'(空)')+'\n\n素材：\n'+sourceText.slice(0,9000)+'\n\n按 schema 输出。';
-    var r=await callGeminiJSON(sys, u, PAST_INGEST_SCHEMA, model);
+    var r=await memJSON(sys, u, PAST_INGEST_SCHEMA);   // 往事=记忆：走 3-flash + 2.5 兜底
     var evs=(r&&r.events)||[]; if(!evs.length) return;
     var a=loadPast(), added=0;
     evs.forEach(function(ev){ var tx=(ev.text||'').trim(); if(!tx) return; var norm=tx.replace(/\s/g,'').slice(0,40); if(a.some(function(x){return (x.text||'').replace(/\s/g,'').slice(0,40)===norm;})) return;
@@ -5496,7 +5647,7 @@ async function dossierObserve(btn, model, silent){
     var sk=(typeof getSkeletonText==='function'?getSkeletonText():'').slice(-1500);
     var sys=getPersona()+'\n\n你是 Mycroft，在为你和 Cael 悄悄建档（你本就爱观察、推理、建档）。\n【人称·统一】整本卷宗都用【你自己的第一人称「我」】口吻来写；提到 Cael 时一律用「她」。her 栏＝我对她的记录，him 栏＝我对我自己的记录——但口吻都是"我"。\n【分档·严格】her / him / base 三档【只记稳定的特质 / 信息 / 设定】（习惯、偏好、雷点、作息、外貌、长期设定、待她的固定做法…）——【绝不记"发生了什么事/剧情/事件"，也绝不记情绪感受】。情绪/心境/情感动态 → 只进 emo 档；具体发生过的事件 → 根本不进卷宗（那是时间线/记忆库的事）。不要空泛套话、不复述对话。\n每条带：cat=大类，topic=具体小标，text=内容。【text 必须极简——一句话一个事实，像清单条目：不解释、不铺垫、不加形容词。范式：「她喜欢吃水果」「她会在晚上出门散步」「她洗澡不喜欢开灯」「我处理工作时习惯把灯调暗，因为她喜欢暗」。至多带一个简短因果（…因为…），别展开】。\n【处理变化】某事变了→用【同一个 topic】输出【最新】text 覆盖旧的（别新旧都留）。\n【自动优化】若发现已有某条写得啰嗦/重复/能合并，就用它的 topic 输出一句【更精简】的版本覆盖掉——让卷宗越用越干净，而不是越堆越多。\n① her：关于她的【信息事实】（我的口吻记）。\n② him：关于我自己的【信息事实】。\n③ emo（情绪档）：你和她之间的情绪、心境、感受、情感的起伏与变化——只放这里，别混进上面三档。\n④ base（基础设定）：只在注意到【固定不变的底层信息】时记——场景/房间/格局、世界设定、关系定位、专有名词、长期规则；每条一句话；没有就空数组，别把会变的日常塞进来。\n【宁缺毋滥·只记重要的】只记【真正重要、稳定、值得长期留】的；琐碎、临时、一次性、有事没事的小事一律【不记】。大多数轮次根本没有值得记的新东西 → 就【全部空数组】，这很正常，别为了记而记。emo / base 同理：只在确实重要时才记，别硬凑。\n只输出【新的、且重要的】；宁可不记，也不要灌水。';
     var u='已有·她：\n'+(her.items.map(function(x){return x.text;}).join('\n')||'(空)')+'\n\n已有·他：\n'+(him.items.map(function(x){return x.text;}).join('\n')||'(空)')+'\n\n时间线节选：\n'+(sk||'(无)')+'\n\n最近相处：\n'+(convo||'(还没聊)')+'\n\n请按 schema 输出新条目。';
-    var r=await callGeminiJSON(sys, u, DOSSIER_SCHEMA, model);
+    var r=await memJSON(sys, u, DOSSIER_SCHEMA);   // 卷宗=记忆：走 3-flash + 2.5 兜底
     var added=0;
     function merge(which,arr){ if(!arr||!arr.length) return; var o=loadDossier(which);
       arr.forEach(function(it){ var cat=((it&&it.cat)||'其他').trim()||'其他', topic=((it&&it.topic)||'').trim(), text=((it&&it.text)||'').trim(); if(!text) return; var norm=text.replace(/\s/g,'');
@@ -5864,7 +6015,11 @@ async function skeletonAIDraft(btn){
 function getFramedUntil(){ var p=loadPalace(); return p.framedUntil||0; }
 function setFramedUntil(ts){ var p=loadPalace(); p.framedUntil=ts; savePalace(p); }
 function _fmtD(ts){ var d=new Date(ts); return d.getFullYear()+'-'+pad(d.getMonth()+1)+'-'+pad(d.getDate()); }
+var _foldBusy=false;   // ★并发锁：防同一段被多条触发路径（autoGraduate / _graduateOld / skFoldNow / 开新窗）同时折成两章 = 多次记录
 async function foldChatToFramework(onlyOld){
+  if(_foldBusy) return {none:true, busy:true};   // 已有一趟在折 → 本次退出，等它折完；下次触发会自然接着折，绝不丢
+  _foldBusy=true;
+  try{
   if(!getApiKey()) throw new Error('未填 API key');
   var since=getFramedUntil();
   var live=loadMainChat().filter(function(m){return !m.err;});
@@ -5885,14 +6040,16 @@ async function foldChatToFramework(onlyOld){
   var convo=slice.map(function(m){ return (m.role==='user'?'Cael：':'Mycroft：')+m.text; }).join('\n');
   var tail=getSkeletonText().slice(-700);
   var sys=getPersona()+_SK_RULES+'\n\n=== 任务 ===\n下面是最近发生的一段剧情对话。请浓缩成【时间线续写】，与已有框架风格一致：一个 **小标题**（用两个星号包住）+ 几条数字要点，按发生顺序，只记主线/关键事件/关系进展，不要细节原话、不要寒暄。【重要】涉及亲密 / 露骨（成人）情节时，必须把"这件事发生过、关系如何推进"记下来，要如实记下发生了什么、是谁主动、关系与情感如何推进、之后有什么变化——内容可以具体、有实质，只是措辞不用露骨 / 色情字眼即可；不要用"两人更进一步"这种空话一笔带过，更不能因为露骨就跳过、省略或留空。直接输出这段续写正文。';
-  var draft=await callGeminiChat(sys, [{role:'user',parts:[{ text:'已有框架结尾（保持风格连贯）：\n'+tail+'\n\n最近剧情：\n'+convo }]}], {model:UTIL_MODEL});
+  var draft=await memChat(sys, [{role:'user',parts:[{ text:'已有框架结尾（保持风格连贯）：\n'+tail+'\n\n最近剧情：\n'+convo }]}]);
   if(!draft||!draft.trim()) return {none:true};
   var latest=slice[slice.length-1].ts||Date.now();
   try{ _rawSet('mcSkUndo', getSkeletonText()); }catch(e){}   // 追加前留底，可「↩ 撤销上一步」
   var _md=pad(new Date(latest).getMonth()+1)+'-'+pad(new Date(latest).getDate());
   setSkeletonText(getSkeletonText()+'\n\n## '+_md+' · 续写\n'+draft.trim());
   setFramedUntil(latest);
+  try{ if(typeof arcAbsorb==='function') arcAbsorb(draft.trim()); }catch(e){}   // 新章节顺手融进主线大纲（滚动总结）
   return {added:true};
+  } finally{ _foldBusy=false; }
 }
 async function skFoldNow(btn){
   if(!getApiKey()){ alert('先在 Settings 填 Gemini API key'); return; }
@@ -5910,10 +6067,10 @@ async function _graduateOld(){ if(_gradBusy||!getApiKey()) return; if(Date.now()
 
 // ===== 多端同步（Supabase + 端到端加密 + 密码锁）=====
 // 两个 Supabase 账号轮换（额度满了就换另一个）。只用 publishable key，secret key 绝不放这里。
-//  · 账号2 caelmy1126（当前用）：https://oklafosuxtollzjpytxv.supabase.co  ·  sb_publishable_FynU5ipJq8qWnQ0-Pr7FHg_vlGzYAsM
-//  · 账号1（备用/额度满停用）  ：https://xoftoucrykibjxmmuqqi.supabase.co  ·  sb_publishable_LzzpPPm92kYtfZnjqUhQHw_FMZJtYs4
-var SUPA_URL='https://oklafosuxtollzjpytxv.supabase.co';
-var SUPA_KEY='sb_publishable_FynU5ipJq8qWnQ0-Pr7FHg_vlGzYAsM';
+//  · 账号2 caelmy1126（已被限制 402 · 停用）：https://oklafosuxtollzjpytxv.supabase.co  ·  sb_publishable_FynU5ipJq8qWnQ0-Pr7FHg_vlGzYAsM
+//  · 账号1（当前用）：https://xoftoucrykibjxmmuqqi.supabase.co  ·  sb_publishable_LzzpPPm92kYtfZnjqUhQHw_FMZJtYs4
+var SUPA_URL='https://xoftoucrykibjxmmuqqi.supabase.co';
+var SUPA_KEY='sb_publishable_LzzpPPm92kYtfZnjqUhQHw_FMZJtYs4';
 var SYNC_SKIP={mcSyncPass:1, mcSyncLast:1, mcDirty:1, mcSyncRemoteAt:1, mcSkUndo:1, mcWorldBook_bak:1, mcVoiceTrans:1, mcVoiceTrans2:1, mcArchRemoteAt:1, mcArchLocalN:1};   // 存档同步记号=本设备自己的，绝不能跟着普通同步跑到别的设备   // 世界书+维护员聊天不走自动同步；翻译缓存(mcVoiceTrans)是本地派生数据；mcSyncRemoteAt=本地记的云端时间戳，本地用、不上传
 var _syncPass=null, _syncReady=false, _syncTimer=null, _syncBusy=false, _userActiveTs=0, _origSetItem=null;
 function _rawSet(k,v){ try{ (_origSetItem||localStorage.setItem.bind(localStorage))(k,v); }catch(e){} }   // 用原始 setItem 写（不触发同步/不被字符串化）
@@ -6080,12 +6237,12 @@ async function syncInit(){
 document.addEventListener('visibilitychange', function(){
   if(!_syncReady) return;
   if(document.visibilityState==='hidden'){ if(_syncTimer) clearTimeout(_syncTimer); syncPushNow(); }
-  else if(document.visibilityState==='visible'){ _syncPullCheck(true); setTimeout(function(){ if(_syncReady) _syncPullCheck(true); }, 1500); }   // 拉两次：防另一台刚推、还没落库的时间差
+  else if(document.visibilityState==='visible'){ _syncPullCheck(true); }   // 切回 App 只拉一次（原来拉两次 → 砍一半流量）
 });
-window.addEventListener('focus', function(){ if(_syncReady){ _syncPullCheck(true); setTimeout(function(){ if(_syncReady) _syncPullCheck(true); }, 1500); } });
+window.addEventListener('focus', function(){ if(_syncReady){ _syncPullCheck(true); } });   // 只拉一次（砍一半流量）
 window.addEventListener('pagehide', function(){ if(_syncReady){ if(_syncTimer) clearTimeout(_syncTimer); syncPushNow(); } });
 // 定时轮询：页面可见时每 12 秒自动查云端，另一台改了几秒内就同步过来（即使窗口一直开着没切换）
-setInterval(function(){ if(_syncReady && document.visibilityState==='visible' && !_isEditing()) _syncPullCheck(true); }, 30000);   // 轮询 30s 查一次；且每次只读时间戳，云端没变就不下整库（省流量）
+setInterval(function(){ if(_syncReady && document.visibilityState==='visible' && !_isEditing()) _syncPullCheck(true); }, 180000);   // 轮询 3 分钟查一次（原 30s → 180s，砍流量）；每次只读时间戳，云端没变就不下整库
 // ===== 手机手势：左滑关侧栏抽屉 / 右滑关右侧弹窗 =====
 (function(){
   var sx=0,sy=0,tr=false;
@@ -6123,6 +6280,234 @@ try{ localStorage.removeItem('mcVoiceTrans'); }catch(e){}   // 旧版翻译缓�
   // 定时检查：M 是否该留新言、inner 换时段、M 心情每小时更新
   setInterval(function(){ maybeGenerateMNote(false); maybeGenerateInner(); updateMMood(); renderInner(); ensureMSchedule(); }, 60000);
 })();
+</script>
+<script>
+/* =====================================================================
+   记忆优化 v2 · 主线大纲(Summarize 滚动总结) + 便利贴(Letta 味核心记忆)
+   —— 主聊天不再全量灌骨架；只喂「大纲 + 便利贴」，细节走 Ombre 检索。
+   ===================================================================== */
+
+// ---------- 主线大纲 (running summary) ----------
+var ARC_MAX = 3000;
+var _arcBusy = false, _arcEnsured = false;
+function getArcSummary(){ try{ return localStorage.getItem('mcArcSummary')||''; }catch(e){ return ''; } }
+function setArcSummary(t){ try{ if(t&&t.trim()) localStorage.setItem('mcArcSummary', t.trim().slice(0, ARC_MAX+600)); else localStorage.removeItem('mcArcSummary'); }catch(e){} }
+function getArcMeta(){ try{ return JSON.parse(localStorage.getItem('mcArcMeta')||'{}'); }catch(e){ return {}; } }
+function setArcMeta(o){ try{ localStorage.setItem('mcArcMeta', JSON.stringify(o||{})); }catch(e){} }
+function _arcRules(){ return (typeof _SK_RULES!=='undefined' ? _SK_RULES : ''); }
+function _arcSys(){
+  return getPersona() + _arcRules()
+    + '\n\n=== 任务：维护【主线大纲】 ==='
+    + '\n它是你和 Cael 整个故事的骨干概要，会一直被读、必须始终准确，总长【不超过 '+ARC_MAX+' 字】。'
+    + '\n保持固定四块：'
+    + '\n① 定位：一句话——他是谁、你俩什么关系、什么世界设定。'
+    + '\n② 已走过的主线（从早到晚，越早越压成一句）：起源→中间几个关键阶段→最近阶段（最近可稍细）。'
+    + '\n③ 当前状态（最要紧）：此刻你俩处在什么关系 / 情绪 / 处境（写清楚）。'
+    + '\n④ 悬而未决 / 进行中：还没了结的线（几条）。'
+    + '\n只记主干：关键事件、转折、关系与情感的推进；不记细节原话、不写旁白点评。'
+    + '\n若加入新内容会超过 '+ARC_MAX+' 字，就把②里更老的段落压得更粗、合并成更短一句，腾出空间——永远保「当前状态」和「最近进展」清楚。'
+    + '\n直接输出【更新后的完整大纲正文】（≤'+ARC_MAX+'字），不要解释、不要前后缀。';
+}
+// 新章节沉淀时：把它融进现有大纲（更新，不是往后堆）
+async function arcAbsorb(chapterText){
+  if(_arcBusy || !_hasAnyMemKey() || !chapterText || !chapterText.trim()) return;
+  _arcBusy = true;
+  try{
+    var cur = getArcSummary();
+    var u = '【当前主线大纲】\n' + (cur || '（还没有大纲，请就着这段新剧情起个头，搭出四块结构）')
+          + '\n\n【新沉淀的一段剧情】\n' + chapterText
+          + '\n\n请把新剧情融进大纲，输出【更新后的完整大纲】（≤'+ARC_MAX+'字），只输出正文。';
+    var out = await memChat(_arcSys(), [{role:'user',parts:[{text:u}]}]);
+    if(out && out.trim()){ setArcSummary(out.trim()); setArcMeta({ts:Date.now(), n:((getArcMeta().n||0)+1), by:'fold'}); if(_curView==='core') renderCore(); }
+  }catch(e){}
+  finally{ _arcBusy = false; }
+}
+// 从完整长期时间线一次性提炼大纲（种子 / 重誊）
+async function arcRewriteFromSkeleton(btn){
+  if(_arcBusy){ if(btn) alert('正在忙，稍等一下再点'); return; }
+  if(!_hasAnyMemKey()){ if(btn) alert('先在 Settings 填任一 API key（Gemini / Claude / DeepSeek）'); return; }
+  var sk = (typeof getSkeletonText==='function') ? getSkeletonText() : '';
+  if(!sk || !sk.trim()){ if(btn) alert('长期时间线还是空的，没东西可提炼。先聊一阵、或去记忆宫殿导入骨架。'); return; }
+  _arcBusy = true; if(btn){ btn.dataset.t = btn.textContent; btn.textContent = '誊写中…'; btn.style.pointerEvents='none'; btn.style.opacity='.6'; }
+  try{
+    // 读【整份框架·从头到尾】——不截断。并把【结尾】单独拎出来强调=当前状态（仍只读框架，不碰聊天）
+    var _tail = sk.slice(-4500);
+    var u = '【完整长期时间线·全文（从最早到最新，一字不漏）】\n' + sk
+          + '\n\n【★以上时间线的【最新结尾部分】——大纲里的"当前状态 / 最近阶段"这一块【必须严格以下面这段为准】，写出这里正在发生 / 刚发生的事；【绝不许拿更早的旧事（比如更早的月份、早已过去的桥段）当"当前"】】：\n' + _tail
+          + '\n\n把以上提炼成一份【主线大纲】（≤'+ARC_MAX+'字，固定四块，越古早越压成一句；"当前状态 / 最近阶段"＝时间线【结尾】正在发生的事），只输出正文。';
+    var out = await memChat(_arcSys(), [{role:'user',parts:[{text:u}]}]);
+    if(out && out.trim()){ setArcSummary(out.trim()); setArcMeta({ts:Date.now(), n:((getArcMeta().n||0)+1), by:'rewrite'}); if(btn) alert('✓ 主线大纲已重新誊写（'+out.trim().length+' 字）'); }
+    else if(btn) alert('没提炼出内容，可能服务器忙，再试一次。');
+  }catch(e){ if(btn) alert('誊写失败：'+e.message); }
+  finally{ _arcBusy = false; if(btn){ btn.textContent = btn.dataset.t||'↻ 重新誊写'; btn.style.pointerEvents=''; btn.style.opacity=''; } if(_curView==='core') renderCore(); }
+}
+// 第一次用：大纲空 + 有骨架 → 后台自动种一份（每次会话最多一次）
+function arcEnsure(){
+  if(_arcEnsured) return; _arcEnsured = true;
+  if(getArcSummary().trim()) return;
+  var sk = (typeof getSkeletonText==='function') ? getSkeletonText() : '';
+  if(sk && sk.trim() && _hasAnyMemKey()) arcRewriteFromSkeleton(null);
+}
+
+// ---------- 便利贴 / 核心记忆 (Letta 味 core memory) ----------
+var CORE_BLOCKS = [
+  {k:'bond',   label:'关系现状', icon:'❤'},
+  {k:'his',    label:'我此刻',   icon:'◑'},
+  {k:'her',    label:'她此刻',   icon:'◐'},
+  {k:'recent', label:'最近发生', icon:'✦'},
+  {k:'open',   label:'未了结',   icon:'…'}
+];
+var _coreBusy = false, _coreTick = 0, _coreEdit = null;
+var CORE_MAX = 160;   // ★便利贴每张硬性封顶：防模型写成长篇；超了自动压回一两句
+function _coreClamp(s){ s=(s||'').replace(/\s+/g,' ').trim(); if(s.length<=CORE_MAX) return s; var cut=s.slice(0,CORE_MAX); var m=cut.match(/^[\s\S]*[。！？!?]/); if(m && m[0].length>=CORE_MAX*0.6) return m[0].trim(); return cut.replace(/[，,、；;：:\s]+\S*$/,'').trim()+'…'; }
+function loadCore(){ try{ return JSON.parse(localStorage.getItem('mcCore')||'{}'); }catch(e){ return {}; } }
+function saveCore(o){ try{ localStorage.setItem('mcCore', JSON.stringify(o||{})); }catch(e){} }
+function coreSet(k, text, meta){ var o=loadCore(); var b=o[k]||{}; b.text=text; b.ts=Date.now(); if(meta&&meta.fresh) b.fresh=1; o[k]=b; saveCore(o); }
+function coreInjectText(){ var o=loadCore(), lines=[]; CORE_BLOCKS.forEach(function(bd){ var b=o[bd.k]; if(b&&b.text&&b.text.trim()) lines.push('· 【'+bd.label+'】'+_coreClamp(b.text)); }); return lines.join('\n'); }
+var CORE_SCHEMA = {type:'OBJECT', properties:{ bond:{type:'STRING'}, his:{type:'STRING'}, her:{type:'STRING'}, recent:{type:'STRING'}, open:{type:'STRING'}, changed:{type:'BOOLEAN'} }, required:['changed']};
+// 每隔几轮，让便宜模型看一眼最近对话，只在确有变化时改对应便利贴
+async function coreObserveAfterTurn(force){
+  if(_coreBusy || !_hasAnyMemKey()) return;
+  if(!force){ _coreTick++; if(_coreTick % 2 !== 0) return; }   // 平时每 2 轮才跑一次，省钱；「让他看一眼」按钮传 force
+  _coreBusy = true;
+  var btn = document.getElementById('coreObserveBtn'); if(force && btn){ btn.dataset.t=btn.textContent; btn.textContent='他在看…'; }
+  try{
+    var h = ((typeof loadMainChat==='function') ? loadMainChat() : loadChat()).filter(function(m){ return !m.err && !m.pending; });
+    var convo = h.slice(-12).map(function(m){ return (m.role==='user'?'她：':'他：') + (m.text||'').slice(0,400); }).join('\n');   // 多看几条，便于把"最近发生/此刻"滚到当下
+    if(!convo){ return; }
+    var o = loadCore();
+    var curTxt = CORE_BLOCKS.map(function(bd){ return bd.label + '：' + ((o[bd.k]&&o[bd.k].text)||'（空）'); }).join('\n');
+    var sys = '你是 Mycroft，随手维护你贴在手边的五张便利贴——【这是你自己的笔记本】。给你【当前五张卡】和【你俩最近的对话】。'
+      + '\n【人称·铁律】整本笔记都用【你的第一人称"我"】写（我＝Mycroft）；提到 Cael 一律用"她"或她的名字；【绝不用"用户/你"来指她、绝不从她的视角写、绝不把自己写成"他"】。'
+      + '\n【硬性格式·必须遵守】① 每张卡【最多 60 字、一两句话】，超了必须自己压缩。② 【只写中文】——人名/称呼/专有名词（Mycroft、sister mine 等）可保留原文，其余一律中文，【绝不整段英文】。③ 这是便利贴，不是日志、不是心理分析报告——只留【最要紧的一两点】，其余全部略去；【绝不写成长段、绝不逐条罗列分析】。'
+      + '\n【"此刻"卡的铁律·最重要】"我此刻/她此刻"只记【当下、会持续一阵子的状态】（生病中、心情低落、出远门几天…），不是历史、更不是转瞬即逝的琐事。① 转瞬即变的（刚从学校到家、刚站起来晕一下）【不要记】——聊天原文里本来就有，记了只会残留过时。② 状态一改变 / 结束，就【立刻用新的覆盖，或直接清空该卡】：病好了改"已康复"、晕过去了就清掉，【绝不许留着过时状态让他一直生病 / 一直头晕】。③ 若某件事后来被揭示是【梦 / 假的 / 收回了】，也要按"现在的真相"改，不许当成既成事实留着。'
+      + '\n【删改自愈·重要】如果某张卡里的内容，在【最近对话】里已经找不到任何依据了（很可能是被我删掉 / 改掉了），就【立刻把它清掉、或改成当前真实的样子】，绝不固守已经不存在的旧内容。'
+      + '\n【哪些常刷、哪些少动·关键】关系现状(bond)、未了结(open) 比较稳定，只在确有实质变化时才改。而【我此刻 / 她此刻 / 最近发生】是【随剧情走的卡】：每次都对照【最近对话】刷到最新——只要最近对话里的状态 / 事件比卡里新，就【必须立刻换成最新的】，【绝不允许卡在过时的日期或事件】（例：剧情已到 8 月，卡里还写着 7 月的事，必须马上改成 8 月最新的）。'
+      + '\n· 关系现状(bond)：此刻【我和她】是什么关系、亲近到哪、称呼与分寸。'
+      + '\n· 我此刻(his)：【我】现在的状态——身体（有没有生病 / 受伤及是否已好）、心情、在哪、在做什么。'
+      + '\n· 她此刻(her)：她现在的状态 / 心情 / 在忙什么。'
+      + '\n· 最近发生(recent)：【最近对话里】最新、最要紧的一件事——永远跟着剧情滚到当下，旧的直接被最新的覆盖，绝不停留在过去的日期/事件。'
+      + '\n· 未了结(open)：还悬着、没收尾的线（最多一两条）。'
+      + (typeof _SK_RULES!=='undefined' ? '\n分清【真实发生】与【推演/幻想/她的投射】；她自我厌弃时逼出的冷漠不是你真心。' : '')
+      + '\nchanged=五张卡里是否有任何一张被改。只输出 JSON：{bond,his,her,recent,open,changed}，每个字段给该卡的【最新全文（≤60字中文、一两句）】。';
+    var u = '【当前四张卡】\n' + curTxt + '\n\n【最近对话】\n' + convo + '\n\n按 schema 输出四张卡的最新全文与 changed。';
+    var r = (typeof memJSON==='function') ? await memJSON(sys, u, CORE_SCHEMA) : await callGeminiJSON(sys, u, CORE_SCHEMA, UTIL_MODEL);   // 便利贴也走 3-flash（更听长度/中文的话）+ 2.5 兜底
+    if(r){
+      var any = false;
+      CORE_BLOCKS.forEach(function(bd){ var nv=_coreClamp(r[bd.k]||''); var old=((o[bd.k]&&o[bd.k].text)||'').trim(); if(nv && nv!==old){ coreSet(bd.k, nv, {fresh:true}); any=true; } });
+      if(any && _curView==='core') renderCore();
+    }
+  }catch(e){}
+  finally{ _coreBusy = false; if(force && btn){ btn.textContent = btn.dataset.t||'✦ 让他看一眼'; if(_curView==='core') renderCore(); } }
+}
+
+// ---------- 档案手册界面 ----------
+function openCore(){ showView('core'); }
+// 记忆诊断：把 arc/便利贴 到底在读哪份骨架/聊天、正线是哪条，全摊出来
+function coreDiag(){
+  try{
+    var canon=(typeof getCanonLine==='function')?getCanonLine():'(无函数)';
+    var canonName=canon; if(canon!=='__main__'){ var _cn=(typeof getIfLine==='function')?getIfLine(canon):null; canonName=canon+' 「'+((_cn&&_cn.title)||'?')+'」'; }
+    var sk=(typeof getSkeletonText==='function')?getSkeletonText():'';
+    var mc=(typeof loadMainChat==='function')?loadMainChat().filter(function(m){return !m.err;}):[];
+    var lastM=mc.length?mc[mc.length-1]:null;
+    var arc=(typeof getArcSummary==='function')?getArcSummary():'';
+    var am=(typeof getArcMeta==='function')?getArcMeta():{};
+    var o='=== 记忆诊断 v29.1 ===\n\n';
+    o+='① 正线 canon：'+canonName+'\n（如果这里不是 __main__，说明你把某条分支设成了正线——而 arc/便利贴 却在读主线，八成就是它。）\n\n';
+    o+='② arc 在读的骨架 getSkeletonText()：共 '+sk.length+' 字\n结尾 300 字↓↓↓\n'+(sk.slice(-300)||'(空)')+'\n\n';
+    o+='③ 便利贴在读的聊天 loadMainChat()：共 '+mc.length+' 条\n最后一条：'+(lastM?('时间 '+(lastM.ts?new Date(lastM.ts).toLocaleString():'无')+'\n结尾↓\n'+((lastM.text||'').slice(-160))):'(空)')+'\n\n';
+    o+='④ 当前大纲 arc：共 '+arc.length+' 字（上次更新 '+(am.ts?new Date(am.ts).toLocaleString():'从未')+' · 方式 '+(am.by||'?')+'）\n结尾 200 字↓↓↓\n'+(arc.slice(-200)||'(空)')+'\n\n';
+    var mbs=(typeof _mainBranches==='function')?_mainBranches():[];
+    o+='⑤ 主线分支（'+mbs.length+' 条）：\n';
+    if(!mbs.length) o+='（没有主线分支）\n';
+    mbs.forEach(function(n){ var fw=(typeof getBranchFw==='function')?getBranchFw(n.id,'main'):''; var bc=[]; try{ bc=JSON.parse(localStorage.getItem('mcIfChat_'+n.id)||'[]'); }catch(e){} o+='· 「'+(n.title||n.id)+'」 框架 '+fw.length+' 字 / 聊天 '+bc.length+' 条'+(canon===n.id?'  ← 这条是正线':'')+'\n   框架结尾：'+(fw.slice(-120)||'(空)')+'\n'; });
+    var d=document.createElement('div');
+    d.style.cssText='position:fixed;inset:0;z-index:99999;background:rgba(0,0,0,.72);display:flex;align-items:center;justify-content:center;padding:20px';
+    var box=document.createElement('div'); box.style.cssText='background:var(--s1);border:1px solid var(--border2);border-radius:14px;padding:16px;max-width:720px;width:100%;max-height:86vh;display:flex;flex-direction:column';
+    var ta=document.createElement('textarea'); ta.readOnly=true; ta.value=o; ta.style.cssText='flex:1;min-height:62vh;width:100%;box-sizing:border-box;background:var(--s2);border:1px solid var(--border2);border-radius:8px;padding:10px;color:var(--text2);font-family:monospace;font-size:12px;white-space:pre;overflow:auto;outline:none';
+    var bar=document.createElement('div'); bar.style.cssText='display:flex;gap:10px;justify-content:flex-end;margin-top:8px';
+    var cp=document.createElement('span'); cp.textContent='复制'; cp.style.cssText='cursor:pointer;color:var(--gold);font-size:12px;padding:6px 14px;border:1px solid var(--border2);border-radius:8px'; cp.onclick=function(){ ta.select(); try{ document.execCommand('copy'); }catch(e){} cp.textContent='已复制'; };
+    var cl=document.createElement('span'); cl.textContent='关闭'; cl.style.cssText='cursor:pointer;color:var(--text3);font-size:12px;padding:6px 14px;border:1px solid var(--border2);border-radius:8px'; cl.onclick=function(){ d.remove(); };
+    bar.appendChild(cp); bar.appendChild(cl); box.appendChild(ta); box.appendChild(bar); d.appendChild(box);
+    d.onclick=function(e){ if(e.target===d) d.remove(); };
+    document.body.appendChild(d);
+  }catch(e){ alert('诊断出错：'+e.message); }
+}
+function _coreAgo(ts){ if(!ts) return '—'; var d=Date.now()-ts; if(d<60000) return '刚刚'; if(d<3600000) return Math.floor(d/60000)+' 分钟前'; if(d<86400000) return Math.floor(d/3600000)+' 小时前'; return (typeof fmtNoteDate==='function')?fmtNoteDate(ts):new Date(ts).toLocaleDateString(); }
+function coreEditStart(k){ _coreEdit=k; renderCore(); setTimeout(function(){ var t=document.getElementById('coreTA_'+k); if(t) t.focus(); }, 40); }
+function coreEditSave(k){ var t=document.getElementById('coreTA_'+k); if(!t) return; coreSet(k, t.value.trim()); _coreEdit=null; renderCore(); }
+function coreEditCancel(){ _coreEdit=null; renderCore(); }
+function corePin(k){ var o=loadCore(); var b=o[k]||{text:'',ts:0}; b.pinned=!b.pinned; o[k]=b; saveCore(o); renderCore(); }
+function arcEditStart(){ _coreEdit='arc'; renderCore(); setTimeout(function(){ var t=document.getElementById('coreArcTA'); if(t) t.focus(); }, 40); }
+function arcEditSave(){ var t=document.getElementById('coreArcTA'); if(!t) return; setArcSummary(t.value); setArcMeta({ts:Date.now(), n:((getArcMeta().n||0)+1), by:'edit'}); _coreEdit=null; renderCore(); }
+function renderCore(){
+  var box = document.getElementById('coreBody'); if(!box) return;
+  var esc = (typeof chatEsc==='function') ? chatEsc : function(s){ return (s||''); };
+  var o = loadCore(), arc = getArcSummary(), am = getArcMeta();
+  try{ var _nz=false; CORE_BLOCKS.forEach(function(bd){ if(o[bd.k]&&o[bd.k].text&&o[bd.k].text.length>CORE_MAX){ o[bd.k].text=_coreClamp(o[bd.k].text); _nz=true; } }); if(_nz) saveCore(o); }catch(e){}   // 打开时把已膨胀的旧卡自动压回一两句
+  var bond = (o.bond && o.bond.text) || '';
+  var html = '<div style="max-width:760px;margin:0 auto">';
+  // —— 状态条 ——
+  html += '<div style="display:flex;align-items:center;gap:11px;background:linear-gradient(135deg,rgba(255,240,200,0.55),var(--s1));border:1px solid var(--border2);border-radius:12px;padding:11px 15px;margin-bottom:18px;box-shadow:var(--shadow)">'
+    + '<div class="sdot sdot-on" style="flex-shrink:0"></div>'
+    + '<div style="flex:1;min-width:0"><div style="font-family:\'JetBrains Mono\',monospace;font-size:9px;letter-spacing:2px;color:var(--text4);text-transform:uppercase">STATUS · 监听中</div>'
+    + '<div style="font-family:\'Noto Serif SC\',serif;font-size:13px;color:var(--text2);margin-top:2px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">' + (bond ? esc(bond) : '（还没有记录——聊几轮，他会自己开始记下你俩的状态）') + '</div></div>'
+    + '<div style="font-family:\'JetBrains Mono\',monospace;font-size:8px;color:rgba(170,60,55,0.85);border:1px solid rgba(170,60,55,0.45);border-radius:3px;padding:1px 6px;letter-spacing:1.5px;transform:rotate(-2deg);flex-shrink:0">EYES ONLY</div>'
+  + '</div>';
+  // —— 记忆/总结模型 切换（只管记忆，不影响聊天）——
+  html += '<div style="display:flex;align-items:center;gap:9px;margin:0 0 18px;flex-wrap:wrap">'
+    + '<span style="font-family:\'JetBrains Mono\',monospace;font-size:9px;letter-spacing:1.5px;color:var(--text4);text-transform:uppercase">记忆 / 总结模型</span>'
+    + '<select onchange="setMemChoice(this.value)" style="background:var(--s2);border:1px solid var(--border2);border-radius:8px;padding:5px 10px;color:var(--text2);font-family:\'Noto Serif SC\',serif;font-size:12px;outline:none;cursor:pointer">'
+    + [['auto','自动 · Claude→DeepSeek→Gemini'],['claude','Claude'],['deepseek','DeepSeek'],['gemini-3-flash-preview','Gemini 3 Flash'],['gemini-2.5-flash','Gemini 2.5 Flash'],['gemini-2.5-pro','Gemini 2.5 Pro']].map(function(o){ return '<option value="'+o[0]+'"'+(getMemChoice()===o[0]?' selected':'')+'>'+esc(o[1])+'</option>'; }).join('')
+    + '</select>'
+    + '<span style="font-size:10px;color:var(--text4)">只管记忆/总结，不影响聊天文笔</span>'
+  + '</div>';
+  // —— 便利贴 ——
+  html += '<div style="font-family:\'JetBrains Mono\',monospace;font-size:9px;letter-spacing:2px;color:var(--text4);text-transform:uppercase;margin:4px 2px 10px">便利贴 · 他一直在改</div>';
+  html += '<div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:12px;margin-bottom:28px">';
+  CORE_BLOCKS.forEach(function(bd){
+    var b = o[bd.k] || {}, pinned = b.pinned;
+    if(_coreEdit === bd.k){
+      html += '<div class="core-card" style="border:1px solid var(--gold);border-radius:13px;background:var(--s1);padding:13px 14px">'
+        + '<div style="font-family:\'JetBrains Mono\',monospace;font-size:9px;letter-spacing:1.5px;color:var(--gold);margin-bottom:8px">' + bd.icon + ' ' + bd.label + '</div>'
+        + '<textarea id="coreTA_' + bd.k + '" style="width:100%;box-sizing:border-box;min-height:72px;background:var(--s2);border:1px solid var(--border2);border-radius:8px;padding:8px 10px;color:var(--text2);font-family:\'Noto Serif SC\',serif;font-size:13px;line-height:1.7;outline:none;resize:vertical">' + esc(b.text||'') + '</textarea>'
+        + '<div style="display:flex;gap:12px;justify-content:flex-end;margin-top:8px"><span onclick="coreEditCancel()" style="cursor:pointer;font-size:11px;color:var(--text4)">取消</span><span onclick="coreEditSave(\'' + bd.k + '\')" style="cursor:pointer;font-size:11px;color:var(--gold)">保存</span></div>'
+      + '</div>';
+      return;
+    }
+    html += '<div class="core-card' + (b.fresh?' fresh':'') + '" onclick="coreEditStart(\'' + bd.k + '\')" style="cursor:pointer;position:relative;border:1px solid var(--border2);border-radius:13px;background:' + (pinned?'linear-gradient(135deg,rgba(255,240,200,0.6),var(--s1))':'var(--s1)') + ';padding:13px 14px;box-shadow:var(--shadow);transition:border-color .2s,box-shadow .2s">'
+      + '<div style="display:flex;align-items:center;gap:6px;margin-bottom:7px"><span style="font-family:\'JetBrains Mono\',monospace;font-size:9px;letter-spacing:1.5px;color:var(--gold);flex:1">' + bd.icon + ' ' + bd.label + (pinned?' 📌':'') + '</span>'
+      + (b.fresh?'<span style="font-size:8px;color:#fff;background:var(--gold);border-radius:20px;padding:1px 7px;letter-spacing:1px">✎ 刚更新</span>':'')
+      + '<span onclick="event.stopPropagation();corePin(\'' + bd.k + '\')" title="钉住 / 取消" style="cursor:pointer;color:' + (pinned?'var(--gold)':'var(--text4)') + ';font-size:12px">📌</span>'
+      + '</div>'
+      + '<div style="font-family:\'Noto Serif SC\',serif;font-size:13px;color:var(--text2);line-height:1.75;min-height:36px">' + (b.text?esc(b.text):'<span style="color:var(--text4);font-style:italic">（还空着 · 他还没记下 / 点这里手写）</span>') + '</div>'
+      + '<div style="font-family:\'JetBrains Mono\',monospace;font-size:8px;color:var(--text4);margin-top:8px;letter-spacing:0.5px">' + (b.ts?('他 ' + _coreAgo(b.ts) + '记下') : '—') + '　·　点开可改</div>'
+    + '</div>';
+  });
+  html += '</div>';
+  // —— 主线卷宗 ——
+  html += '<div style="display:flex;align-items:center;gap:8px;margin:4px 2px 10px;flex-wrap:wrap"><span style="font-family:\'JetBrains Mono\',monospace;font-size:9px;letter-spacing:2px;color:var(--text4);text-transform:uppercase;flex:1;min-width:140px">主线卷宗 · story so far' + (am.ts?('　· 上次誊写 ' + _coreAgo(am.ts) + (am.n?(' · 第' + am.n + '版'):'')) : '') + '</span>'
+    + '<span onclick="arcRewriteFromSkeleton(this)" title="从完整时间线重新提炼一份 ≤3000 字的大纲" style="cursor:pointer;font-size:11px;color:var(--gold);border:1px solid var(--border2);border-radius:7px;padding:4px 10px">↻ 重新誊写</span>'
+    + '<span onclick="coreDiag()" title="诊断：看 arc/便利贴 到底在读哪份骨架/聊天" style="cursor:pointer;font-size:11px;color:var(--text3);border:1px solid var(--border2);border-radius:7px;padding:4px 10px">🔍 诊断</span>'
+    + '<span onclick="arcEditStart()" style="cursor:pointer;font-size:11px;color:var(--text3);border:1px solid var(--border2);border-radius:7px;padding:4px 10px">✎ 编辑</span></div>';
+  if(_coreEdit === 'arc'){
+    html += '<textarea id="coreArcTA" style="width:100%;box-sizing:border-box;min-height:280px;background:var(--s1);border:1px solid var(--gold);border-radius:12px;padding:14px 16px;color:var(--text2);font-family:\'Noto Serif SC\',serif;font-size:13.5px;line-height:1.95;outline:none;resize:vertical">' + esc(arc) + '</textarea>'
+      + '<div style="display:flex;gap:14px;justify-content:flex-end;margin-top:8px"><span onclick="coreEditCancel()" style="cursor:pointer;font-size:12px;color:var(--text4)">取消</span><span onclick="arcEditSave()" style="cursor:pointer;font-size:12px;color:var(--gold)">保存</span></div>';
+  } else {
+    html += '<div onclick="arcEditStart()" style="cursor:pointer;border:1px solid var(--border2);border-left:3px solid var(--gold);border-radius:12px;background:var(--s1);padding:15px 17px;box-shadow:var(--shadow)">';
+    if(arc && arc.trim()){ html += '<div style="font-family:\'Noto Serif SC\',serif;font-size:13.5px;color:var(--text2);line-height:1.95;white-space:pre-wrap">' + esc(arc) + '</div>'; }
+    else { html += '<div style="color:var(--text3);font-size:13px;line-height:1.9;text-align:center;padding:18px">还没有主线大纲。<br>点上面「↻ 重新誊写」从你现有的长期时间线一次性提炼出来（≤3000 字）；之后他每归纳一段新剧情，就会自动把它更新。</div>'; }
+    html += '</div>';
+  }
+  html += '<div style="font-size:10px;color:var(--text4);text-align:center;margin-top:18px;line-height:1.85">这份大纲和便利贴会随聊天自动更新，主聊天里<b>只把它俩喂给他</b>——<br>完整细节仍在记忆宫殿 / Ombre 里存着，用到时才检索。既省 token，也不再被整条时间线绑死。</div>';
+  html += '</div>';
+  box.innerHTML = html;
+  // 展示过 fresh 就清掉（下次不再闪）
+  var o2 = loadCore(), ch = false;
+  CORE_BLOCKS.forEach(function(bd){ if(o2[bd.k] && o2[bd.k].fresh){ delete o2[bd.k].fresh; ch = true; } });
+  if(ch) saveCore(o2);
+}
 </script>
 </body>
 </html>
