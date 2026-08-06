@@ -368,7 +368,7 @@ nav { height:50px; background:rgba(245,235,220,0.9); backdrop-filter:blur(20px);
   <div class="sb-bottom"><div class="sb-nav" style="padding:0">
     <a class="sb-item" onclick="openPanel('settings');closeDrawer()"><div class="sb-icon"><svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="7" cy="7" r="2.5"/><path d="M7 1 L7 2.5 M7 11.5 L7 13 M1 7 L2.5 7 M11.5 7 L13 7 M2.9 2.9 L4 4 M10 10 L11.1 11.1 M11.1 2.9 L10 4 M4 10 L2.9 11.1"/></svg></div><div class="sb-label">Settings</div></a>
     <a class="sb-item" onclick="openPanel('creator');closeDrawer()"><div class="sb-icon"><svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="4" cy="4" r="2"/><circle cx="10" cy="4" r="2"/><circle cx="7" cy="10" r="2"/><line x1="4" y1="6" x2="7" y2="8"/><line x1="10" y1="6" x2="7" y2="8"/></svg></div><div class="sb-label">Creator Mode</div></a>
-    <div class="sb-item" style="opacity:0.4;cursor:default;font-size:10px"><div class="sb-icon"><svg width="8" height="8" viewBox="0 0 8 8" fill="currentColor"><circle cx="4" cy="4" r="3"/></svg></div><div class="sb-label" style="font-family:'JetBrains Mono',monospace;letter-spacing:1px">v30.0 ✦ FIELDNOTES</div></div>
+    <div class="sb-item" style="opacity:0.4;cursor:default;font-size:10px"><div class="sb-icon"><svg width="8" height="8" viewBox="0 0 8 8" fill="currentColor"><circle cx="4" cy="4" r="3"/></svg></div><div class="sb-label" style="font-family:'JetBrains Mono',monospace;letter-spacing:1px">v30.4 ✦ FIELDNOTES</div></div>
   </div></div>
 </div>
 
@@ -387,7 +387,7 @@ nav { height:50px; background:rgba(245,235,220,0.9); backdrop-filter:blur(20px);
   <div class="sb-bottom"><div class="sb-nav" style="padding:0">
     <a class="sb-item" onclick="openPanel('settings')"><div class="sb-icon"><svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="7" cy="7" r="2.5"/><path d="M7 1 L7 2.5 M7 11.5 L7 13 M1 7 L2.5 7 M11.5 7 L13 7 M2.9 2.9 L4 4 M10 10 L11.1 11.1 M11.1 2.9 L10 4 M4 10 L2.9 11.1"/></svg></div><div class="sb-label">Settings</div></a>
     <a class="sb-item" onclick="openPanel('creator')"><div class="sb-icon"><svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="4" cy="4" r="2"/><circle cx="10" cy="4" r="2"/><circle cx="7" cy="10" r="2"/><line x1="4" y1="6" x2="7" y2="8"/><line x1="10" y1="6" x2="7" y2="8"/></svg></div><div class="sb-label">Creator Mode</div></a>
-    <div class="sb-item" style="opacity:0.4;cursor:default;font-size:10px"><div class="sb-icon"><svg width="8" height="8" viewBox="0 0 8 8" fill="currentColor"><circle cx="4" cy="4" r="3"/></svg></div><div class="sb-label" style="font-family:'JetBrains Mono',monospace;letter-spacing:1px">v30.0 ✦ FIELDNOTES</div></div>
+    <div class="sb-item" style="opacity:0.4;cursor:default;font-size:10px"><div class="sb-icon"><svg width="8" height="8" viewBox="0 0 8 8" fill="currentColor"><circle cx="4" cy="4" r="3"/></svg></div><div class="sb-label" style="font-family:'JetBrains Mono',monospace;letter-spacing:1px">v30.4 ✦ FIELDNOTES</div></div>
   </div></div>
 </div>
 
@@ -533,7 +533,7 @@ nav { height:50px; background:rgba(245,235,220,0.9); backdrop-filter:blur(20px);
   </div>
 
   <div class="footer">
-    <div class="footer-item">MYCROFT.SYS · v30.0 ✦ FIELDNOTES</div>
+    <div class="footer-item">MYCROFT.SYS · v30.4 ✦ FIELDNOTES</div>
     <div class="footer-live"><div class="sdot sdot-on"></div><span>LIVE</span></div>
     <div class="footer-item" id="footerDate">----</div>
     <div class="footer-item" style="border:1px solid rgba(170,60,55,0.45);color:rgba(170,60,55,0.85);border-radius:3px;padding:0 7px;letter-spacing:2px;transform:rotate(-1.5deg)">CLASSIFIED · 机密</div>
@@ -586,11 +586,11 @@ nav { height:50px; background:rgba(245,235,220,0.9); backdrop-filter:blur(20px);
 
 <!-- ===== 存档浏览浮层（只读·可改字·懒加载·退出即清出内存）===== -->
 <div id="archBrowseOverlay" style="display:none;position:fixed;inset:0;z-index:5000;background:var(--bg);flex-direction:column">
-  <div style="display:flex;align-items:center;gap:11px;padding:13px 22px;border-bottom:1px solid var(--border2);flex-shrink:0">
-    <div onclick="exitArchiveBrowse()" title="退出浏览（清出内存·回到聊天）" style="cursor:pointer;color:var(--text3);font-size:18px;padding:0 4px">←</div>
+  <div style="display:flex;align-items:center;gap:11px;padding:calc(env(safe-area-inset-top, 0px) + 14px) 22px 13px;border-bottom:1px solid var(--border2);flex-shrink:0">
+    <div onclick="exitArchiveBrowse()" title="退出浏览（清出内存·回到聊天）" style="cursor:pointer;color:var(--text3);font-size:20px;padding:2px 6px">←</div>
     <div style="flex:1;min-width:0">
       <div style="font-family:'Playfair Display',serif;font-size:15px;color:var(--text);font-weight:600">📜 存档浏览</div>
-      <div id="archBrowseSub" style="font-size:10px;color:var(--text3)">只读 · 点开可改字 · 不能续聊</div>
+      <div id="archBrowseSub" style="font-size:10px;color:var(--text3)">只读 · 用下方按钮改字/复制 · 不能续聊</div>
     </div>
     <div onclick="exitArchiveBrowse()" title="退出" style="cursor:pointer;color:var(--text4);font-size:12px;padding:5px 12px;border:1px solid var(--border2);border-radius:7px">退出</div>
   </div>
@@ -4146,7 +4146,7 @@ async function openArchiveBrowse(){
   if(!arch || !arch.length){ alert('还没有存档——聊天还没超过 '+LIVE_KEEP+' 条，没有归档的老聊天。'); delete _archCache[k]; return; }
   _archBrowseKey=k; _archBrowseEditIdx=-1;
   var ov=document.getElementById('archBrowseOverlay'); if(ov) ov.style.display='flex';
-  var sub=document.getElementById('archBrowseSub'); if(sub) sub.textContent='只读 · 点开可改字 · 不能续聊 · 共 '+arch.length+' 条';
+  var sub=document.getElementById('archBrowseSub'); if(sub) sub.textContent='只读 · 用下方按钮改字/复制 · 不能续聊 · 共 '+arch.length+' 条';
   archBrowseRender();
 }
 function exitArchiveBrowse(){
@@ -4178,14 +4178,21 @@ function archBrowseRender(){
       +'</div>';
     }
     var insel=(_archSelMode && _archSelA>=0 && _archSelB>=0 && i>=lo && i<=hi);
-    var click=_archSelMode?('archSelTap('+i+')'):('archBrowseEdit('+i+')');
     var hl=insel?'background:var(--gold-dim);border-radius:8px;padding:4px 8px;':'';
-    var _st='cursor:pointer;white-space:pre-wrap;font-family:\'Noto Serif SC\',serif;font-size:14px;line-height:1.55;'+hl;
-    var inner=(!isU && !_archSelMode)
-      ? ('<div onclick="archBrowseEdit('+i+')" title="点开改字 · 台词旁▶念、译翻译" style="'+_st+'">'+_archModelHTML(m,i)+'</div>')   // 模型消息：双语+翻译/朗读按钮
-      : ('<div onclick="'+click+'" title="'+(_archSelMode?'点这条选范围':'点开改字')+'" style="'+_st+'">'+chatEsc(_archMsgText(m))+'</div>');
-    if(isU) return '<div style="margin:0 0 14px auto;max-width:82%;width:fit-content;background:var(--s2);border:1px solid var(--border2);border-radius:16px;padding:10px 14px;color:var(--text);font-weight:600">'+inner+'</div>';
-    return '<div style="margin-bottom:14px;color:var(--text2);font-weight:600;padding:2px 0">'+inner+'</div>';
+    var _st='white-space:pre-wrap;font-family:\'Noto Serif SC\',serif;font-size:14px;line-height:1.55;'+hl;
+    // 选段模式：点文本=选范围；正常模式：文本【不再点进编辑】，改字/复制走下面的按钮（和聊天一个途径）
+    var inner;
+    if(_archSelMode){ inner='<div onclick="archSelTap('+i+')" title="点这条选范围" style="cursor:pointer;'+_st+'">'+chatEsc(_archMsgText(m))+'</div>'; }
+    else if(!isU){ inner='<div style="'+_st+'">'+_archModelHTML(m,i)+'</div>'; }
+    else { inner='<div style="'+_st+'">'+chatEsc(_archMsgText(m))+'</div>'; }
+    var tools=_archSelMode?'':('<div style="display:flex;gap:12px;align-items:center;margin-top:4px;'+(isU?'justify-content:flex-end;':'')+'font-size:11px">'
+      +'<span onclick="event.stopPropagation();archBrowseEdit('+i+')" title="改这条字" style="cursor:pointer;color:var(--text4)">✎ 改</span>'
+      +'<span onclick="event.stopPropagation();archCopyMsg('+i+')" title="复制这条" style="cursor:pointer;color:var(--text4)">⧉ 复制</span>'
+      +'<span onclick="event.stopPropagation();archFavMsg('+i+')" title="收藏这条（收进收藏夹，和聊天一样）" style="cursor:pointer;color:var(--text4)">★ 收藏</span>'
+      +'<span onclick="event.stopPropagation();archDeleteMsg('+i+')" title="从存档删掉这条" style="cursor:pointer;color:#c0566a">🗑 删</span>'
+      +'</div>');
+    if(isU) return '<div style="margin:0 0 14px auto;max-width:82%;width:fit-content;display:flex;flex-direction:column;align-items:flex-end"><div style="background:var(--s2);border:1px solid var(--border2);border-radius:16px;padding:10px 14px;color:var(--text);font-weight:600">'+inner+'</div>'+tools+'</div>';
+    return '<div style="margin-bottom:14px;color:var(--text2);font-weight:600;padding:2px 0">'+inner+tools+'</div>';
   }).join('');
   box.innerHTML='<div style="max-width:740px;width:100%;margin:0 auto;display:flex;flex-direction:column">'+bar+rows+'</div>';
 }
@@ -4195,8 +4202,10 @@ function _archModelHTML(m, i){
   if((!d || d.src!==m.text) && key && m.tr && m.tr.length){   // 归档随身带的翻译 → 回填内存，直接显示
     try{ _voiceData[key]={ parts:_msgSegments(m.text), segs:m.tr.map(function(s){ return {zh:s.zh, raw:s.raw, en:s.en, tag:s.tag, mine:s.mine, url:null}; }), open:true, src:m.text }; d=_voiceData[key]; }catch(e){}
   }
-  if(!d || d.src!==m.text){   // 没翻 → 纯文本 + 「译」
-    return chatEsc(_archMsgText(m))+'<span onclick="event.stopPropagation();archTransShow('+i+')" title="翻译这条" style="cursor:pointer;color:var(--gold);font-size:11px;opacity:.8;margin-left:8px">译</span>';
+  if(!d || d.src!==m.text){   // 没翻 → 纯文本 + 🔊(和聊天一样：点了自动翻译+显示双语+连读) + 「译」(只翻不读)
+    return chatEsc(_archMsgText(m))
+      +'<span onclick="event.stopPropagation();archVoiceAll('+i+')" title="连读全部台词（点一下自动翻译+朗读，和聊天一样）" style="cursor:pointer;color:var(--text4);margin-left:8px;vertical-align:-3px;display:inline-flex">'+_SVG_SPEAK+'</span>'
+      +'<span onclick="event.stopPropagation();archTransShow('+i+')" title="只翻译这条、不朗读" style="cursor:pointer;color:var(--gold);font-size:11px;opacity:.8;margin-left:6px">译</span>';
   }
   var html='', li=0, hisAny=false;
   d.parts.forEach(function(p){
@@ -4207,7 +4216,7 @@ function _archModelHTML(m, i){
       +'<br><span style="color:var(--text3);opacity:.88;font-size:13px">'+chatEsc(_stripTags(seg.zh))+'</span></div>'; }
     else { html+=chatEsc(seg.raw||('「'+seg.zh+'」')); }
   });
-  if(hisAny) html+='<div style="margin-top:5px;font-size:11px"><span onclick="event.stopPropagation();archVoiceAll('+i+')" style="cursor:pointer;color:var(--gold);opacity:.85">▶ 全部朗读</span></div>';
+  if(hisAny) html+='<div style="margin-top:5px"><span onclick="event.stopPropagation();archVoiceAll('+i+')" title="连读全部台词（他的声音）" style="cursor:pointer;color:var(--text4);display:inline-flex;align-items:center">'+_SVG_SPEAK+'</span></div>';
   return html;
 }
 async function archTransShow(i){   // 翻译归档里这一条 → 重渲染显示双语
@@ -4216,10 +4225,13 @@ async function archTransShow(i){   // 翻译归档里这一条 → 重渲染显�
   try{ await _voiceTranslateMsg(m, String(i)); }catch(e){ alert('翻译失败：'+e.message); return; }
   if(document.getElementById('archBrowseList')) archBrowseRender();
 }
-async function archVoiceAll(i){   // 归档里这一条：全部朗读（单句失败跳过、不整段断）
-  if(_ttsLocked()) return; if(!getElevenKey()||!getElevenVoice()){ alert('先在 Settings 填 ElevenLabs key 和 Voice ID'); return; }
-  var arch=_archCache[_archBrowseKey]||[]; var m=arch[i]; if(!m) return; var key=String(m.ts||i);
-  if(!_voiceCurrent(key,m.text)){ try{ await _voiceTranslateMsg(m, String(i)); }catch(e){} }
+async function archVoiceAll(i){   // 归档里这一条：和聊天的小喇叭一样——先自动翻译+显示双语，再连读（单句失败跳过、不整段断）
+  var arch=_archCache[_archBrowseKey]||[]; var m=arch[i]; if(!m||m.role==='user') return; var key=String(m.ts||i);
+  // ① 自动检查/生成翻译 + 立刻显示双语（就算没填 ElevenLabs，也先把翻译翻出来给你看）
+  if(!_voiceCurrent(key,m.text)){ if(!getApiKey()){ alert('先在 Settings 填 Gemini API key（翻译用）'); return; } try{ await _voiceTranslateMsg(m, String(i)); }catch(e){} if(document.getElementById('archBrowseList')) archBrowseRender(); }
+  // ② 连读（需要 ElevenLabs）；没填就只翻不读、不弹框打断
+  if(!getElevenKey()||!getElevenVoice()) return;
+  if(_ttsLocked()) return;
   var d=_voiceData[key]; if(!d) return; var gaps=_voiceNarrGaps(d.parts);
   _ttsBusy=true; _ttsBusyAt=Date.now();
   try{ for(var idx=0; idx<d.segs.length; idx++){ if(!d.segs[idx].mine) continue;
@@ -4281,9 +4293,24 @@ async function archFoldSel(){
     _archSelMode=false; _archSelA=-1; _archSelB=-1; archBrowseRender();
     alert('✓ 已归纳并插入到框架的【'+(segDate||'末尾')+'】位置（'+seg.length+' 条 → 1 段）。可去「记忆宫殿 → 逐条删改」核对或微调。');
   }catch(e){ alert('归纳失败：'+e.message); }
-  finally{ if(subEl) subEl.textContent='只读 · 点开可改字 · 不能续聊 · 共 '+(_archCache[_archBrowseKey]||[]).length+' 条'; }
+  finally{ if(subEl) subEl.textContent='只读 · 用下方按钮改字/复制 · 不能续聊 · 共 '+(_archCache[_archBrowseKey]||[]).length+' 条'; }
 }
 function archBrowseEdit(i){ _archBrowseEditIdx=i; archBrowseRender(); setTimeout(function(){ var t=document.getElementById('archEditTA'); if(t) t.focus(); },30); }
+function archCopyMsg(i){ var arch=_archCache[_archBrowseKey]||[]; if(i<0||i>=arch.length) return; var m=arch[i]; var t=(m.role==='user')?(m.text||''):mcCleanText(m.text||'');   // 复制存档里这一条（和聊天的复制一致）
+  if(navigator.clipboard&&navigator.clipboard.writeText){ navigator.clipboard.writeText(t).catch(function(){ _copyFallback(t); }); } else { _copyFallback(t); }
+  var sub=document.getElementById('archBrowseSub'); if(sub){ var prev=sub.textContent; sub.textContent='已复制 ✓'; setTimeout(function(){ if(sub) sub.textContent=prev; },1000); } }
+function archFavMsg(i){ var arch=_archCache[_archBrowseKey]||[]; if(i<0||i>=arch.length) return; var m=arch[i];   // 收藏存档里这条 → 复用聊天同款「收进收藏夹」选择器
+  if(typeof _showFolderPicker!=='function'){ alert('收藏功能不可用'); return; }
+  _favPendingMsgs=[{role:m.role, text:m.text, ts:m.ts||0}]; _showFolderPicker(); }
+async function archDeleteMsg(i){ var k=_archBrowseKey; var arch=_archCache[k]||[]; if(i<0||i>=arch.length) return;   // 从存档删掉这条（记忆库/长期框架不受影响）
+  if(!confirm('从存档里删掉这一条？\n\n「'+((arch[i].text||'').slice(0,34))+'…」\n\n删了这条就没了（不影响记忆库/长期框架）。')) return;
+  arch.splice(i,1);
+  var ok=await archDbPut(k, arch);
+  if(!ok){ alert('删除没写进存档库（可能出错），请重试。'); return; }
+  try{ _rawSet(k+'_archN', String(arch.length)); }catch(e){}
+  _archCache[k]=arch;
+  if(_archBrowseEditIdx===i) _archBrowseEditIdx=-1; else if(_archBrowseEditIdx>i) _archBrowseEditIdx--;
+  archBrowseRender(); }
 function archBrowseCancel(){ _archBrowseEditIdx=-1; archBrowseRender(); }
 async function archBrowseSave(i){
   var ta=document.getElementById('archEditTA'); if(!ta) return;
@@ -6138,7 +6165,7 @@ async function _syncUpsert(id,dataStr,atIso){   // upsert 同一行是幂等的 
   }
   throw lastErr;
 }
-function _syncStat(t){ var e=document.getElementById('syncChip'); if(!e) return; e.textContent='☁ '+t; var bad=/失败/.test(t); e.style.background=bad?'#c0392b':''; e.style.color=bad?'#fff':''; }
+function _syncStat(t){ var e=document.getElementById('syncChip'); if(e) e.textContent='☁ '+t; }   // 状态芯片保持中性色（拉取失败等暂时状态不染红，不吓人）；数据没备份的严重情况由 _syncFailWarn 大字条单独提醒
 function _syncFailWarn(on){ var b=document.getElementById('syncFailBar'); if(!on){ if(b) b.remove(); return; } if(b) return; b=document.createElement('div'); b.id='syncFailBar'; b.style.cssText='position:fixed;top:0;left:0;right:0;z-index:9998;background:#c0392b;color:#fff;font-size:12px;text-align:center;padding:7px 12px;font-family:\'Noto Serif SC\',serif;box-shadow:0 2px 8px rgba(0,0,0,.3)'; b.innerHTML='⚠️ 云同步失败——当前对话【没有备份】，请尽快到 设置→外联→导出全量备份。 <span style="text-decoration:underline;cursor:pointer" onclick="this.parentNode.remove()">知道了</span>'; document.body.appendChild(b); }
 async function syncPushNow(){ if(!_syncPass||_syncBusy) return; _syncBusy=true; _syncStat('同步中…'); try{ var id=await _hashId(_syncPass); var _at=new Date().toISOString(); var payload=await _enc(JSON.stringify(_bundleLocal()),_syncPass); await _syncUpsert(id,payload,_at); _rawSet('mcSyncRemoteAt',_at); _rawSet('mcDirty',''); _syncFailWarn(false); var d=new Date(); _syncStat('已同步 '+pad(d.getHours())+':'+pad(d.getMinutes())); }catch(e){ _syncStat('同步失败'); _syncFailWarn(true); }finally{ _syncBusy=false; } }
 function syncSchedulePush(){ if(!_syncReady) return; if(_syncTimer) clearTimeout(_syncTimer); _syncTimer=setTimeout(syncPushNow,1200); }
