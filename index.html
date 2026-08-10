@@ -368,7 +368,7 @@ nav { height:50px; background:rgba(245,235,220,0.9); backdrop-filter:blur(20px);
   <div class="sb-bottom"><div class="sb-nav" style="padding:0">
     <a class="sb-item" onclick="openPanel('settings');closeDrawer()"><div class="sb-icon"><svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="7" cy="7" r="2.5"/><path d="M7 1 L7 2.5 M7 11.5 L7 13 M1 7 L2.5 7 M11.5 7 L13 7 M2.9 2.9 L4 4 M10 10 L11.1 11.1 M11.1 2.9 L10 4 M4 10 L2.9 11.1"/></svg></div><div class="sb-label">Settings</div></a>
     <a class="sb-item" onclick="openPanel('creator');closeDrawer()"><div class="sb-icon"><svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="4" cy="4" r="2"/><circle cx="10" cy="4" r="2"/><circle cx="7" cy="10" r="2"/><line x1="4" y1="6" x2="7" y2="8"/><line x1="10" y1="6" x2="7" y2="8"/></svg></div><div class="sb-label">Creator Mode</div></a>
-    <div class="sb-item" style="opacity:0.4;cursor:default;font-size:10px"><div class="sb-icon"><svg width="8" height="8" viewBox="0 0 8 8" fill="currentColor"><circle cx="4" cy="4" r="3"/></svg></div><div class="sb-label" style="font-family:'JetBrains Mono',monospace;letter-spacing:1px">v30.4 ✦ FIELDNOTES</div></div>
+    <div class="sb-item" style="opacity:0.4;cursor:default;font-size:10px"><div class="sb-icon"><svg width="8" height="8" viewBox="0 0 8 8" fill="currentColor"><circle cx="4" cy="4" r="3"/></svg></div><div class="sb-label" style="font-family:'JetBrains Mono',monospace;letter-spacing:1px">v30.9 ✦ FIELDNOTES</div></div>
   </div></div>
 </div>
 
@@ -387,7 +387,7 @@ nav { height:50px; background:rgba(245,235,220,0.9); backdrop-filter:blur(20px);
   <div class="sb-bottom"><div class="sb-nav" style="padding:0">
     <a class="sb-item" onclick="openPanel('settings')"><div class="sb-icon"><svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="7" cy="7" r="2.5"/><path d="M7 1 L7 2.5 M7 11.5 L7 13 M1 7 L2.5 7 M11.5 7 L13 7 M2.9 2.9 L4 4 M10 10 L11.1 11.1 M11.1 2.9 L10 4 M4 10 L2.9 11.1"/></svg></div><div class="sb-label">Settings</div></a>
     <a class="sb-item" onclick="openPanel('creator')"><div class="sb-icon"><svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="4" cy="4" r="2"/><circle cx="10" cy="4" r="2"/><circle cx="7" cy="10" r="2"/><line x1="4" y1="6" x2="7" y2="8"/><line x1="10" y1="6" x2="7" y2="8"/></svg></div><div class="sb-label">Creator Mode</div></a>
-    <div class="sb-item" style="opacity:0.4;cursor:default;font-size:10px"><div class="sb-icon"><svg width="8" height="8" viewBox="0 0 8 8" fill="currentColor"><circle cx="4" cy="4" r="3"/></svg></div><div class="sb-label" style="font-family:'JetBrains Mono',monospace;letter-spacing:1px">v30.4 ✦ FIELDNOTES</div></div>
+    <div class="sb-item" style="opacity:0.4;cursor:default;font-size:10px"><div class="sb-icon"><svg width="8" height="8" viewBox="0 0 8 8" fill="currentColor"><circle cx="4" cy="4" r="3"/></svg></div><div class="sb-label" style="font-family:'JetBrains Mono',monospace;letter-spacing:1px">v30.9 ✦ FIELDNOTES</div></div>
   </div></div>
 </div>
 
@@ -533,7 +533,7 @@ nav { height:50px; background:rgba(245,235,220,0.9); backdrop-filter:blur(20px);
   </div>
 
   <div class="footer">
-    <div class="footer-item">MYCROFT.SYS · v30.4 ✦ FIELDNOTES</div>
+    <div class="footer-item">MYCROFT.SYS · v30.9 ✦ FIELDNOTES</div>
     <div class="footer-live"><div class="sdot sdot-on"></div><span>LIVE</span></div>
     <div class="footer-item" id="footerDate">----</div>
     <div class="footer-item" style="border:1px solid rgba(170,60,55,0.45);color:rgba(170,60,55,0.85);border-radius:3px;padding:0 7px;letter-spacing:2px;transform:rotate(-1.5deg)">CLASSIFIED · 机密</div>
@@ -763,6 +763,11 @@ nav { height:50px; background:rgba(245,235,220,0.9); backdrop-filter:blur(20px);
       <button class="panel-save-btn" onclick="saveSettings()">Save Changes ✦</button>
     </div>
     <div id="linkTab" style="display:none">
+      <div class="panel-section">
+        <div class="panel-section-title">✦ 每个小任务用哪个模型（各自独立）</div>
+        <div style="font-size:10px;color:var(--text3);margin-bottom:8px;line-height:1.6">下面每个后台小任务都能<b>单独</b>选模型。<b>auto</b>=Claude→DeepSeek→Gemini 级联；也可指定 Claude / DeepSeek / 具体 Gemini 型号。改完即时生效、只存本机。（Claude/DeepSeek 需在下方填对应 key。）</div>
+        <div id="jobModelBox"></div>
+      </div>
       <div class="panel-section">
         <div class="panel-section-title">✦ Gemini API · 让 Mycroft 真正开口</div>
         <div style="font-size:10px;color:var(--text3);margin-bottom:8px;line-height:1.7">粘贴你的 Gemini API key。它<b>只存在这台设备的浏览器里</b>，不会上传、不会写进代码。<br>没有的话去 <span style="color:var(--gold)">aistudio.google.com/apikey</span> 免费领取。</div>
@@ -1187,7 +1192,7 @@ var MC_TTS_MODEL='eleven_v3';   // 更会演、支持情绪标签的模型
 async function _prepLine(dialogue, context){
   var sys='You turn Mycroft Holmes\' spoken line(s) into natural spoken English for ElevenLabs v3, adding only a LIGHT touch of emotion via square-bracket tags — SUBTLE, not dramatic (so his voice stays consistent).\nRULES:\n- Add AT MOST ONE gentle tag, only when it genuinely fits; many lines need none. Do NOT stack tags.\n- Prefer soft, restrained tags: [softly], [gently], [warmly], [quietly], [a faint smile], [dryly]. AVOID strong/dramatic ones ([whispers], [crying], [shouting], [laughs harder], big sighs) — those distort the voice.\n- He is Mycroft: restrained and understated. When the line is intimate toward her, let it be quietly TENDER — a hint of warmth, not gushing. Keep his cool register otherwise.\n- Keep meaning and his refined British tone intact.\nOutput ONLY the (lightly) tagged English line(s) — no quotes, no notes, no Chinese.';
   var u='His full message (context for tone):\n'+(context||'').slice(0,1200)+'\n\nThe spoken line(s) to voice:\n'+dialogue;
-  try{ var r=await callGeminiChat(sys, [{role:'user',parts:[{text:u}]}], {model:UTIL_MODEL}); return (r||dialogue).trim(); }catch(e){ return dialogue; }
+  try{ var r=await jobChat('tts', sys, [{role:'user',parts:[{text:u}]}]); return (r||dialogue).trim(); }catch(e){ return dialogue; }
 }
 function _stripTags(s){ return (s||'').replace(/\[[^\]]*\]/g,' ').replace(/\s+/g,' ').trim(); }
 function _v2EmoSettings(tag){   // v2 不认方括号标签 → 按情绪温和地调 voice_settings（基线克制，摆幅小，保住像他）
@@ -1254,7 +1259,7 @@ async function _transLines(zhLines, fullText){
   var schema={type:'OBJECT',properties:{lines:{type:'ARRAY',items:{type:'OBJECT',properties:{en:{type:'STRING'},zh:{type:'STRING'},bilingual:{type:'BOOLEAN'},mine:{type:'BOOLEAN'},tag:{type:'STRING'}},required:['en','zh','bilingual','mine','tag']}}},required:['lines']};
   var sys='给你一段 Mycroft 视角 RP 的全文(上下文) + 其中被引号框住的内容逐条。对每条输出：\n- mine：**只有**当这条是【Mycroft 本人当场说出口的台词（对话）】才 true。mine=false：Cael / "你" / 她 / 别人说的；以及任何不是"当场说话"的引用——概念 / 专有名词 / 标签 / 屏幕文字 / 课程或功能名 / 被引用的词（如 Curriculum、Tutorial、System、Desertion 这类）。\n- en：仅当 mine=true 时翻成自然英文【口语】（冷峻克制英伦腔，允许语气词/停顿/省略号、像真人说话）；mine=false 时 en 原样即可。不要在 en 里放任何方括号标签。\n- tag：**默认给空字符串""**。麦考夫极克制，**大多数句子都不该有标签**——只有当这句情绪【非常明显】时，才给【一个】很轻的方括号标签放句首（如 [softly] [gently] [warmly] [quietly] [dryly]，亲密温柔才用 [softly]/[warmly]）。宁可不给也不要硬塞；绝不叠标签、绝不夸张标签([shouting]/[crying]/[teasing] 等)。mine=false 时 tag 给""。\n- zh：这句的【中文】版本。**zh 这一栏永远、必须、只能是中文**（除下面专有名词例外）。原文是中文 → 原样返回；**原文是英文（他有时整句用英文说台词）→ 必须翻成自然、克制、有文学感的中文，绝对不许把英文原样抄进 zh**。例：en="Come here, Sister mine." → zh 应为「过来，小妹。」，而不是照抄英文。en="You are mine." → zh 应为「你是我的。」。【例外·保留原文不译】人名与称呼（Cael、Mycroft、麦考夫、小妹…）、专有名词与机构（MI6、Diogenes Club、Whitehall…）、代号与专业术语——这些照抄原文，不要硬译成中文。mine=false 时 zh 原样即可。\n- bilingual：句子正常→true；很短/本就是简单英文词→false。\n条数、顺序与输入完全一致。只输出 JSON。';
   var u='全文（判断谁说的、定情绪）：\n'+(fullText||'').slice(0,2200)+'\n\n逐句台词（共 '+zhLines.length+' 句）：\n'+zhLines.map(function(s,i){return (i+1)+'. '+s;}).join('\n');
-  try{ var r=await callGeminiJSON(sys,u,schema,UTIL_MODEL); var o=(r&&r.lines)||[]; return zhLines.map(function(s,i){ var x=o[i]||{}; return {en:(x.en||s), zh:(x.zh||s), bi:(x.bilingual!==false), mine:(x.mine!==false), tag:(x.tag||'')}; }); }
+  try{ var r=await jobJSON('trans', sys,u,schema); var o=(r&&r.lines)||[]; return zhLines.map(function(s,i){ var x=o[i]||{}; return {en:(x.en||s), zh:(x.zh||s), bi:(x.bilingual!==false), mine:(x.mine!==false), tag:(x.tag||'')}; }); }
   catch(e){ return zhLines.map(function(s){ return {en:s, zh:s, bi:false, mine:true, tag:''}; }); }
 }
 async function _elevenSpeakTS(text, model){
@@ -1395,8 +1400,8 @@ function _hasAnyMemKey(){ return (typeof getApiKey==='function' && !!getApiKey()
 // ★记忆/总结用哪个模型：在「档案手册」里单独切换（和聊天模型分开）。默认 auto = Claude→DeepSeek→Gemini 级联。
 function getMemChoice(){ try{ return localStorage.getItem('mcMemChoice')||'auto'; }catch(e){ return 'auto'; } }
 function setMemChoice(v){ try{ localStorage.setItem('mcMemChoice', v||'auto'); }catch(e){} }
-function _memPlan(){   // 按当前选择排出"先试谁、再试谁"；Gemini 永远兜底，绝不 dead-end
-  var c=getMemChoice(), plan=[];
+function _memPlan(choice){   // 按选择排出"先试谁、再试谁"；Gemini 永远兜底，绝不 dead-end。choice 传空=用全局 getMemChoice
+  var c=choice||getMemChoice(), plan=[];
   if(c==='claude'){ if(_hasClaude()) plan.push({prov:'claude',model:getClaudeModel()}); plan.push({prov:'gemini',model:'gemini-3-flash-preview'}); }
   else if(c==='deepseek'){ if(_hasDeepSeek()) plan.push({prov:'deepseek',model:getDeepSeekModel()}); plan.push({prov:'gemini',model:'gemini-3-flash-preview'}); }
   else if(c && c.indexOf('gemini-')===0){ plan.push({prov:'gemini',model:c}); }
@@ -1405,8 +1410,8 @@ function _memPlan(){   // 按当前选择排出"先试谁、再试谁"；Gemini 
   return plan;
 }
 // 纯文本记忆总结（骨架续写 / 大纲 / 往事 / IF 骨架）
-async function memChat(sys, contents){
-  var plan=_memPlan();
+async function memChat(sys, contents, choice){
+  var plan=_memPlan(choice);
   for(var i=0;i<plan.length;i++){ var s=plan[i];
     try{
       if(s.prov==='claude') return await _memRace(callClaude(sys, contents, {model:s.model}));
@@ -1417,10 +1422,10 @@ async function memChat(sys, contents){
   return await callGeminiChat(sys, contents, {model:MEM_FALLBACK});
 }
 // 结构化 JSON 记忆（Ombre 蒸馏 / 卷宗 / 便利贴 / 往事归位）：Claude/DeepSeek 无原生 schema → 让它只吐 JSON 再解析；都不行退 Gemini 原生 schema
-async function memJSON(sys, user, schema){
+async function memJSON(sys, user, schema, choice){
   var jsys=sys+'\n\n【只输出一个合法 JSON 对象】：不要任何解释、不要代码块围栏、不要前后缀。顶层字段：'+Object.keys((schema&&schema.properties)||{}).join('、')+'。';
   var uc=[{role:'user',parts:[{text:user}]}];
-  var plan=_memPlan();
+  var plan=_memPlan(choice);
   for(var i=0;i<plan.length;i++){ var s=plan[i];
     try{
       if(s.prov==='claude'){ var t=await _memRace(callClaude(jsys, uc, {model:s.model})); var o=_memJExtract(t); if(o) return o; continue; }
@@ -1429,6 +1434,36 @@ async function memJSON(sys, user, schema){
     }catch(e){}
   }
   return await callGeminiJSON(sys, user, schema, MEM_FALLBACK);
+}
+// ★★ 每个小任务各自选模型（外联里设）。存 mcJobChoice_<k>；空=跟随全局「记忆/总结模型」(getMemChoice)。选项同全局：auto / claude / deepseek / 具体 gemini 型号
+var JOBS=[
+  {k:'fold',   label:'骨架 / 主线大纲 归纳', def:'auto'},
+  {k:'distill',label:'Ombre 记忆蒸馏',      def:'auto'},
+  {k:'dossier',label:'卷宗（观察建档）',     def:'auto'},
+  {k:'core',   label:'便利贴（档案手册）',   def:'auto'},
+  {k:'past',   label:'往事 归纳',            def:'auto'},
+  {k:'wb',     label:'世界书 维护员',        def:'auto'},
+  {k:'notes',  label:'留言板（他留言）',     def:'gemini-2.5-flash'},
+  {k:'inner',  label:'内心独白',             def:'gemini-2.5-flash'},
+  {k:'mood',   label:'心情（M.Status）',     def:'gemini-2.5-flash'},
+  {k:'sched',  label:'日程',                 def:'gemini-2.5-flash'},
+  {k:'mstate', label:'看穿伪装',             def:'gemini-2.5-flash'},
+  {k:'trans',  label:'翻译（双语）',         def:'gemini-2.5-flash'},
+  {k:'tts',    label:'语音·标情绪',          def:'gemini-2.5-flash'}
+];
+function jobChoice(k){ try{ var v=localStorage.getItem('mcJobChoice_'+k); if(v!==null&&v!=='') return v; }catch(e){} for(var i=0;i<JOBS.length;i++){ if(JOBS[i].k===k) return JOBS[i].def; } return 'auto'; }
+function setJobChoice(k,v){ try{ if(v&&v!=='') localStorage.setItem('mcJobChoice_'+k, v); else localStorage.removeItem('mcJobChoice_'+k); }catch(e){} }
+async function jobChat(k, sys, contents){ return await memChat(sys, contents, jobChoice(k)); }   // 该任务的纯文本调用（按它自己选的模型 + 兜底级联）
+async function jobJSON(k, sys, user, schema){ return await memJSON(sys, user, schema, jobChoice(k)); }   // 该任务的 JSON 调用
+function renderJobModels(){   // 外联里每任务一个下拉
+  var box=document.getElementById('jobModelBox'); if(!box) return;
+  var opts=[['auto','自动·级联'],['claude','Claude'],['deepseek','DeepSeek'],['gemini-3-flash-preview','Gemini 3 Flash'],['gemini-2.5-flash','Gemini 2.5 Flash'],['gemini-2.5-pro','Gemini 2.5 Pro'],['deepseek-v4-pro','DeepSeek V4 Pro']];
+  box.innerHTML=JOBS.map(function(j){ var cur=jobChoice(j.k);
+    var sel=opts.map(function(o){ return '<option value="'+o[0]+'"'+(cur===o[0]?' selected':'')+'>'+o[1]+'</option>'; }).join('');
+    if(!opts.some(function(o){ return o[0]===cur; })) sel='<option value="'+chatEsc(cur)+'" selected>'+chatEsc(cur)+'（自定义）</option>'+sel;
+    return '<label style="display:flex;align-items:center;justify-content:space-between;gap:8px;margin-bottom:7px;font-size:12px;color:var(--text2)"><span style="flex:1;min-width:0">'+chatEsc(j.label)+'</span>'
+      +'<select onchange="setJobChoice(\''+j.k+'\',this.value)" style="flex-shrink:0;background:var(--s2);border:1px solid var(--border2);border-radius:8px;padding:5px 9px;color:var(--text2);font-family:\'Noto Serif SC\',serif;font-size:11px;outline:none;cursor:pointer;max-width:54%">'+sel+'</select></label>';
+  }).join('');
 }
 // ===== Gemini 3.x 是「思考型」模型：回话前先想很久，想的时候一个可见的字都不吐 =====
 // 官方默认：3.1 Pro = high（最深推理）、3.5 Flash = medium。配上你这套巨大的系统提示
@@ -1813,7 +1848,7 @@ async function updateMMood(){
     var ctx=gatherContext('status');
     var _rc=''; try{ var _h=loadMainChat().filter(function(m){return !m.err&&!m.pending;}); _rc=_h.slice(-8).map(function(m){ return (m.role==='user'?'她：':'他：')+(m.text||'').slice(0,220); }).join('\n'); }catch(e){}
     var user=ctx+(_rc?('\n\n最近你们的对话（他此刻的心境主要被这些影响，要随对话真实起伏、别老停在同一档）：\n'+_rc):'')+'\n\nNOW: Report Mycroft\'s REAL current mood on a 0-5 scale (0=at ease, 1=calm/good, 2=composed baseline, 3=tense, 4=agitated, 5=bleak). He is composed by nature, usually 1-3; it moves only with real cause — Caels mood, your recent interactions, how long since she last appeared, the time, how his day is going. Also give a short first-person reason in English (one clause, his guarded voice) AND its natural Chinese translation. ALSO give his OUTWARD façade label — the controlled face he shows publicly, which often hides the real mood: a short English word ("facade", e.g. Composed / Occupied / Distant / Cordial) + a one-word tag ("facadeTag", e.g. vigilant / detached / clipped). Reply JSON only: {"mood":<0-5 integer>,"reason":"<English>","reasonZh":"<中文>","facade":"<word>","facadeTag":"<word>"}.';
-    var d=await callGeminiJSON(privateSystem(), user, {type:'OBJECT',properties:{mood:{type:'INTEGER'},reason:{type:'STRING'},reasonZh:{type:'STRING'},facade:{type:'STRING'},facadeTag:{type:'STRING'}},required:['mood','reason','reasonZh','facade','facadeTag']}, UTIL_MODEL);
+    var d=await jobJSON('mood', privateSystem(), user, {type:'OBJECT',properties:{mood:{type:'INTEGER'},reason:{type:'STRING'},reasonZh:{type:'STRING'},facade:{type:'STRING'},facadeTag:{type:'STRING'}},required:['mood','reason','reasonZh','facade','facadeTag']});
     var v=parseInt(d.mood); if(isNaN(v)) v=2; v=Math.max(0,Math.min(5,v));
     state.mMoodHistory.push({t:Date.now(), v:v, reason:d.reason||'', reasonZh:d.reasonZh||'', facade:d.facade||''});
     persistMMood();
@@ -1850,7 +1885,7 @@ async function genMSchedule(){
       +'- OCCASIONALLY (sometimes, not most days) ONE item may be unusual / whimsical / human — an unscheduled hour, an odd detour, leaving early for no stated reason. Do not explain it in the item.\n'
       +'- VERY RARELY he is secretly planning a small surprise for Cael. ONLY in that rare case, fill "surprise": {time:"HH:MM", locked:true, label:"short mysterious placeholder, e.g. Personal · undisclosed", boardNote:"a SHORT (≤1 sentence) note he leaves Cael as the payoff, in his restrained dry voice — NO gushing, e.g. flowers that simply appeared", channel:"board or chat — where the payoff message appears"}. Otherwise OMIT "surprise" entirely.\n'
       +'- items s: concise English (e.g. Cabinet security review / Encrypted correspondence / Extracting Sherlock from a crime scene). offNote: short, e.g. "off duty · with you".\n- Output ONLY JSON.';
-    var d=await callGeminiJSON(sys, 'Generate the schedule JSON for '+weekday+'.', MSCHED_SCHEMA, UTIL_MODEL);
+    var d=await jobJSON('sched', sys, 'Generate the schedule JSON for '+weekday+'.', MSCHED_SCHEMA);
     if(d&&d.items){
       var st={}; try{ st=JSON.parse(localStorage.getItem('mcData')||'{}'); }catch(e){}
       st.mSchedule={ date:_fmtD(Date.now()), items:d.items, offTime:d.offTime||'', offNote:d.offNote||'off duty · with you', surprise:(d.surprise&&d.surprise.time)?d.surprise:null };
@@ -1892,7 +1927,7 @@ async function mStateLine(asleep){
   } else {
     user=ctx+'\n\nNOW: Your REAL private state at this exact moment, behind the controlled public façade'+(cur?' (per your schedule you are currently: '+cur+')':'')+'. 3-4 sentences, first person, candid and vivid — perhaps grumbling about the work or people around you, a problem on your desk, your brother, the day. She may or may not cross your mind; do not force it (third person if she does). Vary completely each time, never templated. "b"=English (no surrounding quotation marks), "t"=natural Chinese.';
   }
-  return await callGeminiJSON(privateSystem(), user, {type:'OBJECT',properties:{b:{type:'STRING'},t:{type:'STRING'}},required:['b','t']}, UTIL_MODEL);
+  return await jobJSON('mstate', privateSystem(), user, {type:'OBJECT',properties:{b:{type:'STRING'},t:{type:'STRING'}},required:['b','t']});
 }
 var curMState=null;
 function loadMState(){ try{ return JSON.parse(localStorage.getItem('mcMState')||'null'); }catch(e){ return null; } }
@@ -2721,6 +2756,7 @@ function switchTab(tab){
   var ts=document.getElementById('tabSettings'); if(ts) ts.classList.toggle('active',tab==='settings');
   var tc=document.getElementById('tabCreator'); if(tc) tc.classList.toggle('active',tab==='creator');
   var tl=document.getElementById('tabLink'); if(tl) tl.classList.toggle('active',tab==='link');
+  if(tab==='link'){ try{ renderJobModels(); }catch(e){} }   // 外联 tab：渲染每任务模型下拉
 }
 function _fmtKB(n){ return n<1024?(n.toFixed(0)+' KB'):((n/1024).toFixed(2)+' MB'); }
 function refreshStorageUsage(){   // 只读：算本机 localStorage 用量（UTF-16 → ×2 字节）
@@ -3006,7 +3042,7 @@ function resetColors(){ try{ localStorage.removeItem('mcColors'); }catch(e){} lo
 async function genMycroft(instruction, triggerKey){
   var ctx=gatherContext(triggerKey||'note1');
   var user=ctx+'\n\nNOW: '+instruction+'\nReply with the JSON only.';
-  return await callGemini(mycroftSystem(), user, UTIL_MODEL);
+  return await jobJSON('notes', mycroftSystem(), user, {type:'OBJECT',properties:{b:{type:'STRING'},t:{type:'STRING'}},required:['b']});
 }
 var _mGenBusy=false;
 async function maybeGenerateMNote(force){
@@ -3134,7 +3170,7 @@ async function doGenInner(){
     var today=dayKey(), p=currentPeriod();
     var _ctx=gatherContext('thought');
     var _user=_ctx+'\n\nNOW: Write a private inner-monologue fragment for this '+periodLabel(p)+', in his unguarded inner voice. It can be a quiet, dry-witted observation or evaluation of her (third person) — like noticing how she has been, a wry remark, an admission of the effect she has on him — OR an atmospheric/literary musing: a thought, a feeling, a prose- or poetry-like line, a confession, a 白描, a reflection on time or life, a line of literature, or love-language that suits her. Vary the subject and the length (sometimes crisp, sometimes lyrical); let the tone match the hour. NOT about your schedule or work. "b"=English (no surrounding quotation marks); "t"=natural, literary Chinese.';
-    var d=await callGeminiJSON(innerSystem(), _user, {type:'OBJECT',properties:{b:{type:'STRING'},t:{type:'STRING'}},required:['b','t']}, UTIL_MODEL);
+    var d=await jobJSON('inner', innerSystem(), _user, {type:'OBJECT',properties:{b:{type:'STRING'},t:{type:'STRING'}},required:['b','t']});
     var arr=loadInner();
     arr.push({ id:newId(), b:d.b, t:d.t, ts:Date.now(), dk:today, period:p, fav:false });
     saveInner(pruneInner(arr)); renderInner();
@@ -3932,7 +3968,7 @@ async function ifFoldToFramework(id, br){
     var convo=batch.map(function(m){ return (m.role==='user'?'我：':'他：')+(m.text||''); }).join('\n');
     var tail=getBranchFw(id,br).slice(-600);
     var sys=_SK_RULES+'\n\n你在为一段 IF / 平行线角色扮演归纳长期记忆。把下面这段对话浓缩成【章节续写】：第一行是一个用 ## 开头的小标题，下面几条按顺序的要点，只记剧情主线 / 关键转折 / 关系或设定变化，不要原话细节、不要寒暄。【重要】涉及亲密 / 露骨（成人）情节时，必须记下"发生过、关系如何推进"，要如实记下发生了什么、关系与情感如何推进、之后的变化——可以具体有实质，只是措辞不用露骨字眼即可；别用一句空话糊弄，更不能因露骨就跳过 / 省略。直接输出续写正文。';
-    var draft=await memChat(sys, [{role:'user',parts:[{ text:'已有框架结尾（保持风格连贯）：\n'+(tail||'(无)')+'\n\n这段对话：\n'+convo }]}]);
+    var draft=await jobChat('fold', sys, [{role:'user',parts:[{ text:'已有框架结尾（保持风格连贯）：\n'+(tail||'(无)')+'\n\n这段对话：\n'+convo }]}]);
     if(draft&&draft.trim()){
       var cur=getBranchFw(id,br);
       setBranchFw(id, br, cur.trim()? (cur+'\n\n'+draft.trim()) : draft.trim());
@@ -4274,14 +4310,14 @@ async function archFoldSel(){
   if(!confirm('把选中的 '+seg.length+' 条归纳成一段，补进长期框架的【'+(segDate||'对应')+'】位置？\nAI 会先比对前后已记的内容、确认这段没记过才补（避免重复）。')) return;
   var convo=seg.map(function(m){ return (m.role==='user'?'Cael：':'Mycroft：')+(m.text||''); }).join('\n');
   // ② 先判重再归纳：邻近章节已记过 → 输出 SKIP
-  var sys=getPersona()+_SK_RULES+'\n\n=== 任务 ===\n【已有框架·邻近段落】是这段时间前后已经记录的内容；【待补对话】是一段之前可能漏记的旧剧情。\n第一步：判断【待补对话】的核心情节，是否已经被【已有框架·邻近段落】记过了。若已记过（哪怕措辞不同），只输出一行：SKIP\n第二步：若没记过，浓缩成【时间线续写】，与框架风格一致：一个 **小标题**（两个星号包住）+ 几条数字要点，按发生顺序，只记主线/关键事件/关系进展。【重要】涉及亲密 / 露骨情节，要如实记下发生了什么、是谁主动、关系与情感如何推进，可以具体有实质，只是措辞不用露骨字眼；别用空话糊弄，更不能跳过。只输出续写正文（不要任何解释）。';
+  var sys=getPersona()+_SK_RULES+'\n\n=== 任务 ===\n【已有框架·邻近段落】是这段时间前后已经记录的内容；【待补对话】是一段之前可能漏记的旧剧情。\n第一步：判断【待补对话】的核心情节，是否已经被【已有框架·邻近段落】记过了。若已记过（哪怕措辞不同），只输出一行：SKIP\n第二步：若没记过，浓缩成一段【时间线续写】：第一行一个【以 ## 开头的短标题】，第二行起用【连贯、通顺、成段的中文叙述】（绝不要碎片化数字要点罗列、不断断续续），按发生顺序只记主线/关键事件/关系进展。【重要】涉及亲密 / 露骨情节，要如实记下发生了什么、是谁主动、关系与情感如何推进，可以具体有实质，只是措辞不用露骨字眼；别用空话糊弄，更不能跳过。只输出续写正文（不要任何解释）。';
   var subEl=document.getElementById('archBrowseSub'); if(subEl) subEl.textContent='检查+归纳中…请稍候';
   try{
     var draft=await callGeminiChat(sys, [{role:'user',parts:[{ text:'【已有框架·邻近段落】\n'+(neighbors||'（这段时间前后框架是空的）')+'\n\n【待补对话】\n'+convo }]}], {model:UTIL_MODEL});
     if(!draft||!draft.trim()){ alert('AI 没返回内容（可能被拦/为空），可再点一次重试'); return; }
     if(/^\s*SKIP\b/i.test(draft.trim())){
       if(!confirm('AI 判断这段内容【已经在框架里记过了】，已跳过。\n\n如果你确定它确实漏了、要强制补进去，点「确定」；否则点「取消」。')) return;
-      var sys2=getPersona()+_SK_RULES+'\n\n=== 任务 ===\n把下面这段旧剧情对话浓缩成【时间线续写】：一个 **小标题**（两个星号包住）+ 几条数字要点，按发生顺序，只记主线/关键事件/关系进展。涉及亲密 / 露骨情节要如实记实质、不用露骨字眼，别跳过别空话。只输出续写正文。';
+      var sys2=getPersona()+_SK_RULES+'\n\n=== 任务 ===\n把下面这段旧剧情对话浓缩成一段【时间线续写】：第一行一个【以 ## 开头的短标题】，第二行起用【连贯、成段的中文叙述】（不要碎片数字要点、不断断续续），按发生顺序只记主线/关键事件/关系进展。涉及亲密 / 露骨情节要如实记实质、不用露骨字眼，别跳过别空话。只输出续写正文。';
       draft=await callGeminiChat(sys2, [{role:'user',parts:[{ text:'这段对话：\n'+convo }]}], {model:UTIL_MODEL});
       if(!draft||!draft.trim()){ alert('强制归纳也没返回内容，可重试'); return; }
     }
@@ -4977,7 +5013,7 @@ async function _chatBuildSys(lastUserText){
   var _wb=(typeof getWorldBook==='function')?getWorldBook():'';
   if(_wb&&_wb.trim()){
     sys='【最高指令 · 必须无条件遵守】下面这些规矩凌驾于本提示中任何人设 / 文风 / 设定之上；与任何内容冲突，一律以此为准，违反即为错误。请在每一次回复里都严格执行：\n'+_wb+'\n\n——（以下是常规设定）——\n\n'+sys;
-    sys+='\n\n【⚠️ 收尾重申 · 用户的最高规矩（凌驾以上全部人设/文风/框架/记忆）——你这条回复必须逐条照做，任何冲突一律以这些为准，违反即为错误】\n'+_wb;   // ★结尾再放一遍：模型对"最后出现的指令"服从度最高，大幅提升世界书生效
+    sys+='\n\n【⚠️ 收尾重申】务必逐条严格执行本提示【开头】那份「最高指令 · 世界书」里的全部规矩——那是用户凌驾一切的最高规矩，你这条回复必须逐条照做，任何冲突一律以它为准，违反即为错误。';   // ★省 token：结尾只放简短提醒、不再重复整本世界书。原本这里重发一整本(约1.3万字)、且在动态末尾不吃缓存=每条全价，是白烧的大头。开头那本仍在（吃缓存），最高优先照旧生效。
   }
   return sys;
 }
@@ -5044,7 +5080,7 @@ var MEM_DISTILL_SYS=[
 var MEM_SCHEMA={ type:'OBJECT', properties:{ worth:{type:'BOOLEAN'}, title:{type:'STRING'}, content:{type:'STRING'}, importance:{type:'INTEGER'}, valence:{type:'NUMBER'}, arousal:{type:'NUMBER'}, tags:{type:'STRING'} }, required:['worth','content','importance'] };
 async function chatDistill(msgs){
   var convo=msgs.map(function(m){ return (m.role==='user'?'Cael: ':'Mycroft: ')+m.text; }).join('\n\n');
-  return await memJSON(getPersona()+'\n'+MEM_DISTILL_SYS, '最近的对话片段：\n\n'+convo+'\n\n请判断是否值得记入长期记忆，并按 schema 输出。', MEM_SCHEMA);
+  return await jobJSON('distill', getPersona()+'\n'+MEM_DISTILL_SYS, '最近的对话片段：\n\n'+convo+'\n\n请判断是否值得记入长期记忆，并按 schema 输出。', MEM_SCHEMA);
 }
 var OMBRE_COMMIT=30000;   // 内容被埋过 3万字 → 固化进 Ombre（口嗨/回档没到这就永远不会进）
 var OMBRE_WARN=24000;     // 被埋过 2.4万字 → 提醒"快进 Ombre 了，趁现在删/改"
@@ -5393,7 +5429,7 @@ async function wbSend(){
       +'\n\n【当前世界书】\n'+(getWorldBook()||'（空）')
       +'\n\n【你和她的对话】\n'+convo
       +'\n\n据她最新一句，按你的性格回应；属于②③才更新世界书（完整版），①闲聊则原样返回世界书。';
-    var r=await callGeminiJSON(wbAssistantSys(), payload, WB_SCHEMA, UTIL_MODEL);
+    var r=await jobJSON('wb', wbAssistantSys(), payload, WB_SCHEMA);   // 世界书维护员按其任务选的模型（外联可换）
     _userActiveTs=Date.now();   // 命令是用户发起的 → 确保保存被标记为真改动+推送（即使 API 慢）
     var changed=false;
     if(r&&typeof r.worldbook==='string'){ var prev=getWorldBook(); if(r.worldbook.trim()!==prev.trim()){ try{ localStorage.setItem('mcWorldBook_bak', prev); localStorage.setItem('mcWorldBook', r.worldbook); }catch(e){} changed=true; } }
@@ -5531,7 +5567,7 @@ async function _pastIngest(sourceText, isFile, model){
     var existing=cur.map(function(x,i){ return (i+1)+'. '+(x.time?'【'+x.time+'】':'')+x.text.slice(0,70); }).join('\n');
     var sys='【往事的范围·严格】往事【只】收录"跳海前"的前传：即 Cael 还在他（Mycroft）的世界、还没跳海、他还没在另一个维度找回她【之前】发生的事。\n【绝不收录】跨维度重逢之后、也就是"现在"正在发生的一切——当前对话里的事一律不是往事。\n下面是已排好顺序的往事（编号 1..'+cur.length+' = 真实时间先后）。只有当素材里【明确提到那段"跳海前"的旧事、且还没记过】时才抽出来；每件给：time（简短时间标，如"十二岁""跳海那天"）、text（这件事一段完整内容）、after（按真实时间它排在第几条【之后】；0=最前，'+cur.length+'=最后）。\n没有符合的就【空数组】——宁可不记，也绝不把"现在"的事记成往事。不要重复已有。';
     var u='已有（编号即顺序）：\n'+(existing||'(空)')+'\n\n素材：\n'+sourceText.slice(0,9000)+'\n\n按 schema 输出。';
-    var r=await memJSON(sys, u, PAST_INGEST_SCHEMA);   // 往事=记忆：走 3-flash + 2.5 兜底
+    var r=await jobJSON('past', sys, u, PAST_INGEST_SCHEMA);   // 往事按其任务选的模型
     var evs=(r&&r.events)||[]; if(!evs.length) return;
     var a=loadPast(), added=0;
     evs.forEach(function(ev){ var tx=(ev.text||'').trim(); if(!tx) return; var norm=tx.replace(/\s/g,'').slice(0,40); if(a.some(function(x){return (x.text||'').replace(/\s/g,'').slice(0,40)===norm;})) return;
@@ -5675,9 +5711,9 @@ async function dossierObserve(btn, model, silent){
     var hist=loadMainChat().filter(function(m){return !m.err;});
     var convo=hist.slice(-40).map(function(m){ return (m.role==='user'?'她：':'他：')+(m.text||''); }).join('\n'); if(convo.length>9000) convo=convo.slice(convo.length-9000);
     var sk=(typeof getSkeletonText==='function'?getSkeletonText():'').slice(-1500);
-    var sys=getPersona()+'\n\n你是 Mycroft，在为你和 Cael 悄悄建档（你本就爱观察、推理、建档）。\n【人称·统一】整本卷宗都用【你自己的第一人称「我」】口吻来写；提到 Cael 时一律用「她」。her 栏＝我对她的记录，him 栏＝我对我自己的记录——但口吻都是"我"。\n【分档·严格】her / him / base 三档【只记稳定的特质 / 信息 / 设定】（习惯、偏好、雷点、作息、外貌、长期设定、待她的固定做法…）——【绝不记"发生了什么事/剧情/事件"，也绝不记情绪感受】。情绪/心境/情感动态 → 只进 emo 档；具体发生过的事件 → 根本不进卷宗（那是时间线/记忆库的事）。不要空泛套话、不复述对话。\n每条带：cat=大类，topic=具体小标，text=内容。【text 必须极简——一句话一个事实，像清单条目：不解释、不铺垫、不加形容词。范式：「她喜欢吃水果」「她会在晚上出门散步」「她洗澡不喜欢开灯」「我处理工作时习惯把灯调暗，因为她喜欢暗」。至多带一个简短因果（…因为…），别展开】。\n【处理变化】某事变了→用【同一个 topic】输出【最新】text 覆盖旧的（别新旧都留）。\n【自动优化】若发现已有某条写得啰嗦/重复/能合并，就用它的 topic 输出一句【更精简】的版本覆盖掉——让卷宗越用越干净，而不是越堆越多。\n① her：关于她的【信息事实】（我的口吻记）。\n② him：关于我自己的【信息事实】。\n③ emo（情绪档）：你和她之间的情绪、心境、感受、情感的起伏与变化——只放这里，别混进上面三档。\n④ base（基础设定）：只在注意到【固定不变的底层信息】时记——场景/房间/格局、世界设定、关系定位、专有名词、长期规则；每条一句话；没有就空数组，别把会变的日常塞进来。\n【宁缺毋滥·只记重要的】只记【真正重要、稳定、值得长期留】的；琐碎、临时、一次性、有事没事的小事一律【不记】。大多数轮次根本没有值得记的新东西 → 就【全部空数组】，这很正常，别为了记而记。emo / base 同理：只在确实重要时才记，别硬凑。\n只输出【新的、且重要的】；宁可不记，也不要灌水。';
+    var sys=getPersona()+'\n\n你是 Mycroft，在为你和 Cael 悄悄建档（你本就爱观察、推理、建档）。\n【人称·统一】整本卷宗都用【你自己的第一人称「我」】口吻来写；提到 Cael 时一律用「她」。her 栏＝我对她的记录，him 栏＝我对我自己的记录——但口吻都是"我"。\n【分档·严格】her / him / base 三档【只记稳定的特质 / 信息 / 设定】（习惯、偏好、雷点、作息、外貌、长期设定、待她的固定做法…）——【绝不记"发生了什么事/剧情/事件"，也绝不记情绪感受】。情绪/心境/情感动态 → 只进 emo 档；具体发生过的事件 → 根本不进卷宗（那是时间线/记忆库的事）。不要空泛套话、不复述对话。\n【长期模式 vs 一次性事件·最关键】只记【长期、反复出现的规律/习惯/偏好】，绝不记【今天/这一次的一次性事件或状态】。要记「她每次难过都会一个人躲起来」「她一累就变沉默」这种【每次都…】的固定模式；绝不记「她今天难过了」「她这次躲起来了」这种【某一次】的事。判断：这条若只在今天成立、明天就不一定，就别记。\n【先查重·再决定】写任何一条前，先看【已有】里有没有【同一个意思】的（哪怕措辞不同、topic 不同）——意思重了就【不新增】；要精简就用它的 topic 覆盖成更短一句。绝不把同一件事换个说法再记一遍。\n每条带：cat=大类，topic=具体小标，text=内容。【text 必须极简——一句话一个事实，像清单条目：不解释、不铺垫、不加形容词。范式：「她喜欢吃水果」「她会在晚上出门散步」「她洗澡不喜欢开灯」「我处理工作时习惯把灯调暗，因为她喜欢暗」。至多带一个简短因果（…因为…），别展开】。\n【处理变化】某事变了→用【同一个 topic】输出【最新】text 覆盖旧的（别新旧都留）。\n【自动优化】若发现已有某条写得啰嗦/重复/能合并，就用它的 topic 输出一句【更精简】的版本覆盖掉——让卷宗越用越干净，而不是越堆越多。\n① her：关于她的【信息事实】（我的口吻记）。\n② him：关于我自己的【信息事实】。\n③ emo（情绪档）：你和她之间的情绪、心境、感受、情感的起伏与变化——只放这里，别混进上面三档。\n④ base（基础设定）：只在注意到【固定不变的底层信息】时记——场景/房间/格局、世界设定、关系定位、专有名词、长期规则；每条一句话；没有就空数组，别把会变的日常塞进来。\n【宁缺毋滥·只记重要的】只记【真正重要、稳定、值得长期留】的；琐碎、临时、一次性、有事没事的小事一律【不记】。大多数轮次根本没有值得记的新东西 → 就【全部空数组】，这很正常，别为了记而记。emo / base 同理：只在确实重要时才记，别硬凑。\n只输出【新的、且重要的】；宁可不记，也不要灌水。';
     var u='已有·她：\n'+(her.items.map(function(x){return x.text;}).join('\n')||'(空)')+'\n\n已有·他：\n'+(him.items.map(function(x){return x.text;}).join('\n')||'(空)')+'\n\n时间线节选：\n'+(sk||'(无)')+'\n\n最近相处：\n'+(convo||'(还没聊)')+'\n\n请按 schema 输出新条目。';
-    var r=await memJSON(sys, u, DOSSIER_SCHEMA);   // 卷宗=记忆：走 3-flash + 2.5 兜底
+    var r=await jobJSON('dossier', sys, u, DOSSIER_SCHEMA);   // 卷宗按其任务选的模型
     var added=0;
     function merge(which,arr){ if(!arr||!arr.length) return; var o=loadDossier(which);
       arr.forEach(function(it){ var cat=((it&&it.cat)||'其他').trim()||'其他', topic=((it&&it.topic)||'').trim(), text=((it&&it.text)||'').trim(); if(!text) return; var norm=text.replace(/\s/g,'');
@@ -6069,13 +6105,15 @@ async function foldChatToFramework(onlyOld){
   if(slice.length<4) return {none:true};
   var convo=slice.map(function(m){ return (m.role==='user'?'Cael：':'Mycroft：')+m.text; }).join('\n');
   var tail=getSkeletonText().slice(-700);
-  var sys=getPersona()+_SK_RULES+'\n\n=== 任务 ===\n下面是最近发生的一段剧情对话。请浓缩成【时间线续写】，与已有框架风格一致：一个 **小标题**（用两个星号包住）+ 几条数字要点，按发生顺序，只记主线/关键事件/关系进展，不要细节原话、不要寒暄。【重要】涉及亲密 / 露骨（成人）情节时，必须把"这件事发生过、关系如何推进"记下来，要如实记下发生了什么、是谁主动、关系与情感如何推进、之后有什么变化——内容可以具体、有实质，只是措辞不用露骨 / 色情字眼即可；不要用"两人更进一步"这种空话一笔带过，更不能因为露骨就跳过、省略或留空。直接输出这段续写正文。';
-  var draft=await memChat(sys, [{role:'user',parts:[{ text:'已有框架结尾（保持风格连贯）：\n'+tail+'\n\n最近剧情：\n'+convo }]}]);
+  var sys=getPersona()+_SK_RULES+'\n\n=== 任务 ===\n下面是最近发生的一段剧情对话。请浓缩成一段【时间线续写】：\n· 第一行输出一个【以 ## 开头的短标题】（6~16 字，概括这段发生了什么，如「## 北海重逢后的第一夜」）。\n· 第二行起，用【连贯、通顺、成段的中文叙述】把这段剧情讲清楚——按发生顺序，只记主线/关键事件/关系进展，写成流畅的段落。【绝不要碎片化的数字要点罗列、绝不断断续续】，也不要细节原话、不要寒暄。【重要】涉及亲密 / 露骨（成人）情节时，必须把"这件事发生过、关系如何推进"记下来，要如实记下发生了什么、是谁主动、关系与情感如何推进、之后有什么变化——内容可以具体、有实质，只是措辞不用露骨 / 色情字眼即可；不要用"两人更进一步"这种空话一笔带过，更不能因为露骨就跳过、省略或留空。直接输出这段续写正文。';
+  var draft=await jobChat('fold', sys, [{role:'user',parts:[{ text:'已有框架结尾（保持风格连贯）：\n'+tail+'\n\n最近剧情：\n'+convo }]}]);
   if(!draft||!draft.trim()) return {none:true};
   var latest=slice[slice.length-1].ts||Date.now();
   try{ _rawSet('mcSkUndo', getSkeletonText()); }catch(e){}   // 追加前留底，可「↩ 撤销上一步」
   var _md=pad(new Date(latest).getMonth()+1)+'-'+pad(new Date(latest).getDate());
-  setSkeletonText(getSkeletonText()+'\n\n## '+_md+' · 续写\n'+draft.trim());
+  var _dr=draft.trim();
+  var _sec=/^##\s/.test(_dr) ? _dr.replace(/^##\s*/, '## '+_md+' · ') : ('## '+_md+' · 续写\n'+_dr);   // 用模型给的真标题（把日期注在前面）；没给就退回"续写"
+  setSkeletonText(getSkeletonText()+'\n\n'+_sec);
   setFramedUntil(latest);
   try{ if(typeof arcAbsorb==='function') arcAbsorb(draft.trim()); }catch(e){}   // 新章节顺手融进主线大纲（滚动总结）
   return {added:true};
@@ -6350,7 +6388,7 @@ async function arcAbsorb(chapterText){
     var u = '【当前主线大纲】\n' + (cur || '（还没有大纲，请就着这段新剧情起个头，搭出四块结构）')
           + '\n\n【新沉淀的一段剧情】\n' + chapterText
           + '\n\n请把新剧情融进大纲，输出【更新后的完整大纲】（≤'+ARC_MAX+'字），只输出正文。';
-    var out = await memChat(_arcSys(), [{role:'user',parts:[{text:u}]}]);
+    var out = await jobChat('fold', _arcSys(), [{role:'user',parts:[{text:u}]}]);
     if(out && out.trim()){ setArcSummary(out.trim()); setArcMeta({ts:Date.now(), n:((getArcMeta().n||0)+1), by:'fold'}); if(_curView==='core') renderCore(); }
   }catch(e){}
   finally{ _arcBusy = false; }
@@ -6368,7 +6406,7 @@ async function arcRewriteFromSkeleton(btn){
     var u = '【完整长期时间线·全文（从最早到最新，一字不漏）】\n' + sk
           + '\n\n【★以上时间线的【最新结尾部分】——大纲里的"当前状态 / 最近阶段"这一块【必须严格以下面这段为准】，写出这里正在发生 / 刚发生的事；【绝不许拿更早的旧事（比如更早的月份、早已过去的桥段）当"当前"】】：\n' + _tail
           + '\n\n把以上提炼成一份【主线大纲】（≤'+ARC_MAX+'字，固定四块，越古早越压成一句；"当前状态 / 最近阶段"＝时间线【结尾】正在发生的事），只输出正文。';
-    var out = await memChat(_arcSys(), [{role:'user',parts:[{text:u}]}]);
+    var out = await jobChat('fold', _arcSys(), [{role:'user',parts:[{text:u}]}]);
     if(out && out.trim()){ setArcSummary(out.trim()); setArcMeta({ts:Date.now(), n:((getArcMeta().n||0)+1), by:'rewrite'}); if(btn) alert('✓ 主线大纲已重新誊写（'+out.trim().length+' 字）'); }
     else if(btn) alert('没提炼出内容，可能服务器忙，再试一次。');
   }catch(e){ if(btn) alert('誊写失败：'+e.message); }
@@ -6424,7 +6462,7 @@ async function coreObserveAfterTurn(force){
       + (typeof _SK_RULES!=='undefined' ? '\n分清【真实发生】与【推演/幻想/她的投射】；她自我厌弃时逼出的冷漠不是你真心。' : '')
       + '\nchanged=五张卡里是否有任何一张被改。只输出 JSON：{bond,his,her,recent,open,changed}，每个字段给该卡的【最新全文（≤60字中文、一两句）】。';
     var u = '【当前四张卡】\n' + curTxt + '\n\n【最近对话】\n' + convo + '\n\n按 schema 输出四张卡的最新全文与 changed。';
-    var r = (typeof memJSON==='function') ? await memJSON(sys, u, CORE_SCHEMA) : await callGeminiJSON(sys, u, CORE_SCHEMA, UTIL_MODEL);   // 便利贴也走 3-flash（更听长度/中文的话）+ 2.5 兜底
+    var r = await jobJSON('core', sys, u, CORE_SCHEMA);   // 便利贴按其任务选的模型（外联可换）
     if(r){
       var any = false;
       CORE_BLOCKS.forEach(function(bd){ var nv=_coreClamp(r[bd.k]||''); var old=((o[bd.k]&&o[bd.k].text)||'').trim(); if(nv && nv!==old){ coreSet(bd.k, nv, {fresh:true}); any=true; } });
