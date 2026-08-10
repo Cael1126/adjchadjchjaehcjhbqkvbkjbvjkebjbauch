@@ -368,7 +368,7 @@ nav { height:50px; background:rgba(245,235,220,0.9); backdrop-filter:blur(20px);
   <div class="sb-bottom"><div class="sb-nav" style="padding:0">
     <a class="sb-item" onclick="openPanel('settings');closeDrawer()"><div class="sb-icon"><svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="7" cy="7" r="2.5"/><path d="M7 1 L7 2.5 M7 11.5 L7 13 M1 7 L2.5 7 M11.5 7 L13 7 M2.9 2.9 L4 4 M10 10 L11.1 11.1 M11.1 2.9 L10 4 M4 10 L2.9 11.1"/></svg></div><div class="sb-label">Settings</div></a>
     <a class="sb-item" onclick="openPanel('creator');closeDrawer()"><div class="sb-icon"><svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="4" cy="4" r="2"/><circle cx="10" cy="4" r="2"/><circle cx="7" cy="10" r="2"/><line x1="4" y1="6" x2="7" y2="8"/><line x1="10" y1="6" x2="7" y2="8"/></svg></div><div class="sb-label">Creator Mode</div></a>
-    <div class="sb-item" style="opacity:0.4;cursor:default;font-size:10px"><div class="sb-icon"><svg width="8" height="8" viewBox="0 0 8 8" fill="currentColor"><circle cx="4" cy="4" r="3"/></svg></div><div class="sb-label" style="font-family:'JetBrains Mono',monospace;letter-spacing:1px">v32.5 ✦ FIELDNOTES</div></div>
+    <div class="sb-item" style="opacity:0.4;cursor:default;font-size:10px"><div class="sb-icon"><svg width="8" height="8" viewBox="0 0 8 8" fill="currentColor"><circle cx="4" cy="4" r="3"/></svg></div><div class="sb-label" style="font-family:'JetBrains Mono',monospace;letter-spacing:1px">v33.1 ✦ VLIST</div></div>
   </div></div>
 </div>
 
@@ -387,7 +387,7 @@ nav { height:50px; background:rgba(245,235,220,0.9); backdrop-filter:blur(20px);
   <div class="sb-bottom"><div class="sb-nav" style="padding:0">
     <a class="sb-item" onclick="openPanel('settings')"><div class="sb-icon"><svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="7" cy="7" r="2.5"/><path d="M7 1 L7 2.5 M7 11.5 L7 13 M1 7 L2.5 7 M11.5 7 L13 7 M2.9 2.9 L4 4 M10 10 L11.1 11.1 M11.1 2.9 L10 4 M4 10 L2.9 11.1"/></svg></div><div class="sb-label">Settings</div></a>
     <a class="sb-item" onclick="openPanel('creator')"><div class="sb-icon"><svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="4" cy="4" r="2"/><circle cx="10" cy="4" r="2"/><circle cx="7" cy="10" r="2"/><line x1="4" y1="6" x2="7" y2="8"/><line x1="10" y1="6" x2="7" y2="8"/></svg></div><div class="sb-label">Creator Mode</div></a>
-    <div class="sb-item" style="opacity:0.4;cursor:default;font-size:10px"><div class="sb-icon"><svg width="8" height="8" viewBox="0 0 8 8" fill="currentColor"><circle cx="4" cy="4" r="3"/></svg></div><div class="sb-label" style="font-family:'JetBrains Mono',monospace;letter-spacing:1px">v32.5 ✦ FIELDNOTES</div></div>
+    <div class="sb-item" style="opacity:0.4;cursor:default;font-size:10px"><div class="sb-icon"><svg width="8" height="8" viewBox="0 0 8 8" fill="currentColor"><circle cx="4" cy="4" r="3"/></svg></div><div class="sb-label" style="font-family:'JetBrains Mono',monospace;letter-spacing:1px">v33.1 ✦ VLIST</div></div>
   </div></div>
 </div>
 
@@ -533,7 +533,7 @@ nav { height:50px; background:rgba(245,235,220,0.9); backdrop-filter:blur(20px);
   </div>
 
   <div class="footer">
-    <div class="footer-item">MYCROFT.SYS · v32.5 ✦ FIELDNOTES</div>
+    <div class="footer-item">MYCROFT.SYS · v33.1 ✦ VLIST</div>
     <div class="footer-live"><div class="sdot sdot-on"></div><span>LIVE</span></div>
     <div class="footer-item" id="footerDate">----</div>
     <div class="footer-item" style="border:1px solid rgba(170,60,55,0.45);color:rgba(170,60,55,0.85);border-radius:3px;padding:0 7px;letter-spacing:2px;transform:rotate(-1.5deg)">CLASSIFIED · 机密</div>
@@ -1351,7 +1351,7 @@ function _voiceHydrateFromCache(hist){
 // 后台翻译队列：进聊天 / 新回复时，自动把最近的他消息翻好（双语默认显示）
 var _vtQueue=[], _vtBusy=false;
 function _voiceEnsureTrans(i){ if(!getApiKey()) return; var h=loadChat(); var m=h[i]; if(!m||m.role==='user'||m.pending) return; var key=String(m.ts||i); if(_voiceCurrent(key, m.text)) return; if(!/["“「『]/.test(m.text||'')) return; if(_vtQueue.indexOf(i)<0) _vtQueue.push(i); _voiceTransPump(); }
-async function _voiceTransPump(){ if(_vtBusy||!_vtQueue.length) return; _vtBusy=true; var i=_vtQueue.shift(); try{ await _voiceTranslateNow(i); }catch(e){} finally{ _vtBusy=false; if(_vtQueue.length){ setTimeout(_voiceTransPump, 350); } else if(_curView==='chat'){ renderChat(); } } }   // 整批翻完只重渲染一次，避免逐条重渲 500 条卡死
+async function _voiceTransPump(){ if(_vtBusy||!_vtQueue.length) return; _vtBusy=true; var i=_vtQueue.shift(); try{ await _voiceTranslateNow(i); }catch(e){} finally{ _vtBusy=false; if(_vtQueue.length){ setTimeout(_voiceTransPump, 350); } else if(_curView==='chat'){ _afterVoiceUpdate(); } } }   // 整批翻完只刷新可见几条（虚拟列表下不重建整表、不跳滚动）
 // 每句台词【独立生成】一小段音频、缓存：点哪句生成哪句、立刻能单独点、重听免费、不重生成
 function _voiceStopAll(){ try{ if(_voiceAudio) _voiceAudio.pause(); }catch(e){} if(_voiceTimer){ clearTimeout(_voiceTimer); _voiceTimer=null; } }
 function _ttsPlayUrl(url){ _voiceStopAll(); _voiceAudio=new Audio(url); _voiceAudio.play().catch(function(){}); }
@@ -1370,7 +1370,7 @@ async function _voiceGenSeg(key, idx){ var d=_voiceData[key]; if(!d) return null
 async function chatVoice(i){   // "▶ 全部朗读"：依次念他的每句，句间按旁白长短停顿
   if(_ttsLocked()) return; if(!getElevenKey()||!getElevenVoice()){ alert('先在 Settings 填 ElevenLabs key 和 Voice ID'); return; }
   var m=loadChat()[i]; if(!m) return; var key=String(m.ts||i); if(!_voiceCurrent(key,m.text)) await _voiceTranslateNow(i); var d=_voiceData[key]; if(!d) return;
-  if(_curView==='chat'){ try{ renderChat(); }catch(e){} }   // 翻好后立刻刷新显示双语
+  if(_curView==='chat'){ try{ _afterVoiceUpdate(); }catch(e){} }   // 翻好后立刻刷新可见几条显示双语
   var gaps=_voiceNarrGaps(d.parts);
   _ttsBusy=true; _ttsBusyAt=Date.now(); var btn=document.getElementById('spk'+i); if(btn) btn.style.opacity='.35';
   try{ for(var idx=0; idx<d.segs.length; idx++){ if(!d.segs[idx].mine) continue;
@@ -4418,7 +4418,7 @@ var _chatMinimal=false;   // 不再用"先放按钮"的排查门（病根已定�
 var _chatLite=true;   // ★永远默认朴素(纯文字·最稳)，绝不从存储自动进"完整"——防止被完整模式锁死进不去
 try{ localStorage.removeItem('mcChatLite'); }catch(e){}   // 清掉之前记住的"完整"，免得又自动崩
 function _chatExitMinimal(){ _chatMinimal=false; try{ renderChat(); }catch(e){} }
-function _chatToggleLite(){ try{ alert('「完整模式」（一排小按钮＋双语）正在改成"虚拟列表"版——你手机现在切过去会卡、要大退，所以我先把它锁住了。\n\n现在请用朴素模式：每条消息下面有个「···」，点开就有 复制 / 编辑 / 删除 / 重新输出 / 续写 / 朗读 / 收藏 / 记忆，功能一个不少。\n\n等虚拟列表做好，完整模式会自动、安全地回来。'); }catch(e){} }   // ★暂时锁住完整模式，防止切过去崩溃/大退；朴素模式用每条的「···」操作
+function _chatToggleLite(){ _chatLite=!_chatLite; try{ var b=document.getElementById('chatLiteBtn'); if(b) b.textContent=_chatLite?'朴素':'完整'; }catch(e){} try{ renderChat(); }catch(e){} }   // 朴素(纯文字·最稳) ↔ 完整(虚拟列表·带按钮双语)；完整已用虚拟列表，安全
 function _liteClose(){ var m=document.getElementById('_liteMenu'); if(m&&m.parentNode) m.parentNode.removeChild(m); }
 function _liteRun(fn,i){ _liteClose(); try{ if(typeof window[fn]==='function') window[fn](i); }catch(e){} }
 function _liteAct(i,ev){   // 朴素模式每条的「···」：点开才临时建一个小菜单，功能全在，又不给每条都堆按钮（不卡）
@@ -4446,6 +4446,70 @@ function _liteAct(i,ev){   // 朴素模式每条的「···」：点开才临�
   menu.style.top=Math.max(8,Math.min((y-mh-6<8)?(y+14):(y-mh-6), vh-mh-8))+'px';
   setTimeout(function(){ try{ document.addEventListener('click',_liteClose,{once:true}); }catch(e){} },40);
 }
+// ===== 虚拟列表（完整模式）：全部消息占位轻量，只有滚进视野的十几条升级成"完整气泡"，滚走降级回轻量 → 200条也永不崩 =====
+function _liteBubble(m, i){
+  var lu=(m.role==='user');
+  var bs='align-self:'+(lu?'flex-end':'stretch')+';max-width:'+(lu?'82%':'100%')+';'+(lu?'background:var(--s2);border:1px solid var(--border2);border-radius:14px;padding:9px 13px;':'padding:2px 0;')+'color:var(--text'+(lu?'':'2')+');font-size:14px;font-weight:600;line-height:1.6;white-space:pre-wrap;font-family:\'Noto Serif SC\',serif';
+  var t=(m&&m.text)||''; if(t.length>8000) t=t.slice(0,8000)+'\n\n…〔太长，仅显示前8000字〕';
+  return '<div style="display:flex;flex-direction:column;align-items:'+(lu?'flex-end':'stretch')+';gap:1px"><div style="'+bs+'">'+chatEsc(t)+'</div><span onclick="_liteAct('+i+',event)" title="操作" style="cursor:pointer;color:var(--text4);font-size:17px;line-height:1;padding:2px 12px;align-self:'+(lu?'flex-end':'flex-start')+'">···</span></div>';
+}
+function _fullBubble(m, i){
+  try{
+    if(typeof m.text==='string' && m.text.length>8000){ m=Object.assign({},m,{text:m.text.slice(0,8000)+'\n\n…〔太长，仅显示前8000字〕'}); }
+    if(i===_chatEditIdx){ var isU=(m.role==='user'); return '<div style="align-self:'+(isU?'flex-end':'stretch')+';width:100%;'+(isU?'max-width:82%;':'')+'display:flex;flex-direction:column;gap:6px"><textarea id="chatEditTA" style="width:100%;box-sizing:border-box;background:var(--s2);border:1px solid var(--gold-dim);border-radius:12px;padding:10px 13px;color:var(--text);font-family:\'Noto Serif SC\',serif;font-size:15px;line-height:1.65;outline:none;min-height:84px;resize:vertical">'+chatEsc(m.text||'')+'</textarea><div style="display:flex;gap:12px;justify-content:flex-end"><span onclick="chatEditCancel()" style="cursor:pointer;font-size:11px;color:var(--text4)">取消</span><span onclick="chatEditSave('+i+')" style="cursor:pointer;font-size:11px;color:var(--gold)">保存</span></div></div>'; }
+    if(m.role==='user'){ var ub='<div style="background:var(--s2);border:1px solid var(--border2);border-radius:16px;padding:10px 14px;color:var(--text);font-size:14px;font-weight:600;line-height:1.5;white-space:pre-wrap;font-family:\'Noto Serif SC\',serif">'+_ubWrap(m.text,'ub'+i)+'</div>'; return '<div style="align-self:flex-end;max-width:82%;display:flex;flex-direction:column;align-items:flex-end;gap:2px">'+ub+_msgTools(i,true,m.fav)+'</div>'; }
+    if(m.pending){ var _partial=(m.text||(_chatBusy?_streamText:'')||''); var inner=_partial?chatEsc(mcCleanText(_partial)):'<span class="typing-dots"><i></i><i></i><i></i></span><span onclick="chatDelPending('+i+')" title="取消 / 删掉" style="cursor:pointer;color:var(--text4);font-size:12px;margin-left:10px">✕</span>'; return '<div style="align-self:stretch;display:flex;flex-direction:column;gap:2px"><div id="chatStreamBubble" style="color:var(--text2);font-size:14px;font-weight:600;line-height:1.55;white-space:pre-wrap;font-family:\'Noto Serif SC\',serif;padding:2px 0">'+inner+'</div></div>'; }
+    var bubble='<div style="color:var(--text2);font-size:14px;font-weight:600;line-height:1.55;white-space:pre-wrap;font-family:\'Noto Serif SC\',serif;padding:2px 0">'+_modelMsgHTML(m, i)+'</div>';
+    if(m.err) return '<div style="align-self:stretch;display:flex;flex-direction:column;gap:2px">'+bubble+'<div style="display:flex;gap:14px;padding:2px 6px"><span onclick="chatRetryLast()" style="cursor:pointer;font-size:11px;color:var(--gold)">↻ 重试</span><span onclick="openModelSwitch(true)" style="cursor:pointer;font-size:11px;color:var(--text3)">⇄ 换模型重试</span></div>'+_msgTools(i,false,m.fav)+'</div>';
+    var nav=(m.variants&&m.variants.length>1)?('<div style="display:flex;align-items:center;gap:4px;font-size:12px;color:var(--text4);margin-top:1px"><span onclick="chatVar('+i+',-1)" title="上一版" style="cursor:pointer;padding:2px 7px;border-radius:6px;'+(((m.vi||0)<=0)?'opacity:.3':'')+'">‹</span><span style="font-size:11px">'+((m.vi||0)+1)+' / '+m.variants.length+'</span><span onclick="chatVar('+i+',1)" title="下一版" style="cursor:pointer;padding:2px 7px;border-radius:6px;'+(((m.vi||0)>=m.variants.length-1)?'opacity:.3':'')+'">›</span></div>'):'';
+    var trunc=m.truncated?'<div style="font-size:11px;color:var(--amber);margin-top:3px">⚠️ 这条可能没说完（被截断/拦截）——点 ↻ 重新输出可重生</div>':'';
+    return '<div style="align-self:stretch;display:flex;flex-direction:column;gap:2px">'+bubble+nav+trunc+_msgTools(i,false,m.fav)+'</div>';
+  }catch(_e){ return '<div style="color:var(--text2);white-space:pre-wrap;font-family:\'Noto Serif SC\',serif">'+chatEsc((m&&m.text)||'')+'</div>'; }
+}
+function _voiceHydrateOne(i, m){ try{ var key=String(m.ts||i); if(_voiceData[key]&&_voiceData[key].src===m.text) return; var pc=_loadVoiceCache(); var c=pc[key]; if(c&&c.src===m.text&&c.segs){ _voiceData[key]={parts:_msgSegments(m.text), segs:c.segs.map(function(s){return {zh:s.zh,raw:s.raw,en:s.en,tag:s.tag,mine:s.mine,url:null};}), open:true, src:m.text}; } }catch(e){} }
+function _renderVirtual(box, hist, _stick){
+  var prevTop=0; try{ prevTop=box.scrollTop||0; }catch(e){}
+  var n=hist.length;
+  var parts=['<div id="_chatWrap" style="max-width:740px;width:100%;margin:0 auto;display:flex;flex-direction:column;gap:18px">'];
+  for(var i=0;i<n;i++){ var m=hist[i]; if(!m||typeof m!=='object') continue;
+    var initFull=(i>=n-2)||m.pending||(i===_chatEditIdx);   // 最后两条 + 正在打字 + 正在编辑：一开始就完整（保证流式/编辑即时可用）
+    if(initFull && m.role!=='user' && !m.pending){ try{ _voiceHydrateOne(i, m); }catch(e){} }
+    parts.push('<div class="cvrow" data-idx="'+i+'" data-full="'+(initFull?'1':'0')+'">'+(initFull?_fullBubble(m,i):_liteBubble(m,i))+'</div>');
+  }
+  parts.push('</div>');
+  box.innerHTML=parts.join('');
+  requestAnimationFrame(function(){ try{ if(_stick) box.scrollTop=box.scrollHeight; else box.scrollTop=prevTop; }catch(e){} try{ _cvObserve(box); }catch(e){} });
+}
+function _cvObserve(box){
+  try{ if(box.__cvObs) box.__cvObs.disconnect(); }catch(e){}
+  if(typeof IntersectionObserver==='undefined') return;   // 太老的浏览器：保持全轻量（也不崩）
+  var obs=new IntersectionObserver(function(ents){ for(var k=0;k<ents.length;k++){ var e=ents[k], row=e.target, idx=+row.getAttribute('data-idx'); if(e.isIntersecting) _cvUp(row, idx); else _cvDown(row, idx); } }, {root:box, rootMargin:'700px 0px 700px 0px'});
+  box.__cvObs=obs;
+  var rows=box.getElementsByClassName('cvrow'); for(var k=0;k<rows.length;k++) obs.observe(rows[k]);
+}
+function _cvUp(row, idx){
+  if(row.getAttribute('data-full')==='1') return;
+  var h=loadChat(), m=h[idx]; if(!m) return;
+  try{ if(m.role!=='user' && !m.pending) _voiceHydrateOne(idx, m); }catch(e){}
+  try{ row.innerHTML=_fullBubble(m, idx); }catch(e){ return; }
+  row.setAttribute('data-full','1'); try{ row.style.minHeight=''; }catch(e){}
+  try{ if(getApiKey() && m.role!=='user' && !m.pending && /["“「『]/.test(m.text||'')) _voiceEnsureTrans(idx); }catch(e){}
+}
+function _cvDown(row, idx){
+  if(row.getAttribute('data-full')!=='1') return;
+  var hgt=0; try{ hgt=row.offsetHeight; }catch(e){}
+  var h=loadChat(), m=h[idx]; if(!m) return;
+  try{ if(hgt>0) row.style.minHeight=hgt+'px'; row.innerHTML=_liteBubble(m, idx); }catch(e){}
+  row.setAttribute('data-full','0');
+}
+function _afterVoiceUpdate(){   // 翻译好一句后：只刷新当前"完整"的那几行（原地换内容，不重建整表、不跳滚动）
+  try{ var box=document.getElementById('chatMessages');
+    if(box && box.__cvObs && (typeof _chatLite==='undefined'||!_chatLite)){
+      var rows=box.getElementsByClassName('cvrow');
+      for(var k=0;k<rows.length;k++){ if(rows[k].getAttribute('data-full')==='1'){ var idx=+rows[k].getAttribute('data-idx'); var h=loadChat(), m=h[idx]; if(m){ try{ if(m.role!=='user'&&!m.pending) _voiceHydrateOne(idx,m); rows[k].innerHTML=_fullBubble(m, idx); }catch(e){} } } }
+    } else { renderChat(); }
+  }catch(e){ try{ renderChat(); }catch(_e){} }
+}
 function renderChat(){
   try{ if(typeof _trace==='function') _trace('rc:start'); }catch(e){}
   var box=document.getElementById('chatMessages'); if(!box) return;
@@ -4461,18 +4525,22 @@ function renderChat(){
     return;
   }
   var _RENDER_CAP=(typeof _chatLite!=='undefined'&&_chatLite)?100000:(typeof _chatCap!=='undefined'?_chatCap:25), _MSG_MAX=8000, _start=(hist.length>_RENDER_CAP)?(hist.length-_RENDER_CAP):0;   // ★朴素(纯文字·轻)模式不限条数→能自由往上翻看完整段；只有"完整"模式(重气泡)才限25条防崩，直到虚拟列表做好
-  if(typeof _chatLite==='undefined' || !_chatLite){   // ★朴素模式下：整段"双语回填 + 自动翻译"全跳过（崩就崩在这一步；朴素模式不显示双语，本就不需要）
-    try{ _voiceHydrateFromCache(hist); }catch(e){}   // 重开/切回时先从缓存即时回填双语（无API），已翻过的立刻就在
-    try{ if(typeof _trace==='function') _trace('rc:后hydrate双语'); }catch(e){}
-    try{ if(getApiKey()){ var _vmc=0; for(var _vhi=hist.length-1;_vhi>=0&&_vmc<15;_vhi--){ var _vhm=hist[_vhi]; if(_vhm&&_vhm.role!=='user'&&!_vhm.pending&&/["“「『]/.test(_vhm.text||'')){ _voiceEnsureTrans(_vhi); _vmc++; } } } }catch(e){}   // 自动翻译最近15条他的台词（未缓存的走flash翻译，翻好自动补双语）——只做最近的，避免整屏狂翻
-  }
-  try{ if(typeof _trace==='function') _trace('rc:后hydrate/翻译(朴素模式跳过)'); }catch(e){}
+  // ★双语不再整屏批量回填/翻译（那是卡死主因之一）：完整模式=虚拟列表只对"看得见的那几条"逐条翻；朴素模式不显示双语。
   var _cc=document.getElementById('chatCount'); if(_cc){ var _am=archCount(), _fresh=0,_pin=0; for(var _q=0;_q<hist.length;_q++){ if(_isPinned(hist[_q])||_isCold(hist[_q]))_pin++; else _fresh++; }
     var _txt = _am ? ('后'+_fresh+' · 前'+_am+(_pin?(' · 缓冲'+_pin):'')) : (''+hist.length), _col='var(--text4)';
     if(_am>=600){ _col='var(--gold)'; }   // 存档多了只把计数变淡金；不再红字、不再催备份（观感）
     _cc.textContent=_txt; _cc.style.color=_col; }   // 后=界面未归档 · 前=已归档 · 缓冲=已归档但界面留看
   if(!hist.length){ box.innerHTML='<div style="margin:auto;text-align:center;color:var(--text3);font-size:14px;font-family:\'Noto Serif SC\',serif;line-height:1.95">伞，总在最需要的时候撑开。</div>'; return; }
   if(_favSelMode){ box.innerHTML=_favSelectChatHTML(hist); return; }   // 多选收藏模式
+  // 滚动监听维护"贴底"标记（两种模式共用）
+  if(!box.__scrollBound){ box.__scrollBound=true; box.__nearBottom=true; box.addEventListener('scroll', function(){ try{ box.__nearBottom=(box.scrollHeight-box.scrollTop-box.clientHeight<120); }catch(e){} }, {passive:true}); }
+  var _stickG=(box.__nearBottom!==false);
+  if(typeof _chatLite==='undefined' || !_chatLite){   // ★完整模式 = 虚拟列表：全部占位轻量 + 只升级看得见的十几条为完整气泡（双语/一排图标/每句▶全在），200条也不崩
+    try{ if(typeof _trace==='function') _trace('rc:虚拟渲染'); }catch(e){}
+    _renderVirtual(box, hist, _stickG);
+    try{ if(typeof _trace==='function') _trace('rc:done·虚拟列表'); }catch(e){}
+    return;
+  }
   var _bufEnd=0; while(_bufEnd<hist.length&&(_isPinned(hist[_bufEnd])||_isCold(hist[_bufEnd]))) _bufEnd++;   // 缓冲(pinned/冷摆设)前缀的边界
   try{ if(typeof _trace==='function') _trace('rc:准备逐条渲染map'); }catch(e){}
   var _rowsArr=hist.map(function(m,i){
