@@ -368,7 +368,7 @@ nav { height:50px; background:rgba(245,235,220,0.9); backdrop-filter:blur(20px);
   <div class="sb-bottom"><div class="sb-nav" style="padding:0">
     <a class="sb-item" onclick="openPanel('settings');closeDrawer()"><div class="sb-icon"><svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="7" cy="7" r="2.5"/><path d="M7 1 L7 2.5 M7 11.5 L7 13 M1 7 L2.5 7 M11.5 7 L13 7 M2.9 2.9 L4 4 M10 10 L11.1 11.1 M11.1 2.9 L10 4 M4 10 L2.9 11.1"/></svg></div><div class="sb-label">Settings</div></a>
     <a class="sb-item" onclick="openPanel('creator');closeDrawer()"><div class="sb-icon"><svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="4" cy="4" r="2"/><circle cx="10" cy="4" r="2"/><circle cx="7" cy="10" r="2"/><line x1="4" y1="6" x2="7" y2="8"/><line x1="10" y1="6" x2="7" y2="8"/></svg></div><div class="sb-label">Creator Mode</div></a>
-    <div class="sb-item" style="opacity:0.4;cursor:default;font-size:10px"><div class="sb-icon"><svg width="8" height="8" viewBox="0 0 8 8" fill="currentColor"><circle cx="4" cy="4" r="3"/></svg></div><div class="sb-label" style="font-family:'JetBrains Mono',monospace;letter-spacing:1px">v31.3 ✦ FIELDNOTES</div></div>
+    <div class="sb-item" style="opacity:0.4;cursor:default;font-size:10px"><div class="sb-icon"><svg width="8" height="8" viewBox="0 0 8 8" fill="currentColor"><circle cx="4" cy="4" r="3"/></svg></div><div class="sb-label" style="font-family:'JetBrains Mono',monospace;letter-spacing:1px">v31.4 ✦ FIELDNOTES</div></div>
   </div></div>
 </div>
 
@@ -387,7 +387,7 @@ nav { height:50px; background:rgba(245,235,220,0.9); backdrop-filter:blur(20px);
   <div class="sb-bottom"><div class="sb-nav" style="padding:0">
     <a class="sb-item" onclick="openPanel('settings')"><div class="sb-icon"><svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="7" cy="7" r="2.5"/><path d="M7 1 L7 2.5 M7 11.5 L7 13 M1 7 L2.5 7 M11.5 7 L13 7 M2.9 2.9 L4 4 M10 10 L11.1 11.1 M11.1 2.9 L10 4 M4 10 L2.9 11.1"/></svg></div><div class="sb-label">Settings</div></a>
     <a class="sb-item" onclick="openPanel('creator')"><div class="sb-icon"><svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="4" cy="4" r="2"/><circle cx="10" cy="4" r="2"/><circle cx="7" cy="10" r="2"/><line x1="4" y1="6" x2="7" y2="8"/><line x1="10" y1="6" x2="7" y2="8"/></svg></div><div class="sb-label">Creator Mode</div></a>
-    <div class="sb-item" style="opacity:0.4;cursor:default;font-size:10px"><div class="sb-icon"><svg width="8" height="8" viewBox="0 0 8 8" fill="currentColor"><circle cx="4" cy="4" r="3"/></svg></div><div class="sb-label" style="font-family:'JetBrains Mono',monospace;letter-spacing:1px">v31.3 ✦ FIELDNOTES</div></div>
+    <div class="sb-item" style="opacity:0.4;cursor:default;font-size:10px"><div class="sb-icon"><svg width="8" height="8" viewBox="0 0 8 8" fill="currentColor"><circle cx="4" cy="4" r="3"/></svg></div><div class="sb-label" style="font-family:'JetBrains Mono',monospace;letter-spacing:1px">v31.4 ✦ FIELDNOTES</div></div>
   </div></div>
 </div>
 
@@ -533,7 +533,7 @@ nav { height:50px; background:rgba(245,235,220,0.9); backdrop-filter:blur(20px);
   </div>
 
   <div class="footer">
-    <div class="footer-item">MYCROFT.SYS · v31.3 ✦ FIELDNOTES</div>
+    <div class="footer-item">MYCROFT.SYS · v31.4 ✦ FIELDNOTES</div>
     <div class="footer-live"><div class="sdot sdot-on"></div><span>LIVE</span></div>
     <div class="footer-item" id="footerDate">----</div>
     <div class="footer-item" style="border:1px solid rgba(170,60,55,0.45);color:rgba(170,60,55,0.85);border-radius:3px;padding:0 7px;letter-spacing:2px;transform:rotate(-1.5deg)">CLASSIFIED · 机密</div>
@@ -1054,15 +1054,23 @@ nav { height:50px; background:rgba(245,235,220,0.9); backdrop-filter:blur(20px);
     try{ _showErrBanner(); }catch(e){}
   });
 })();
+function _trace(s){ try{ localStorage.setItem('mcChatTrace', s); }catch(e){} }   // 面包屑：进 chat 每一步同步落盘，卡死也留最后一步
 function _showErrBanner(){
-  var info; try{ info=JSON.parse(localStorage.getItem('mcLastError')||'null'); }catch(e){} if(!info) return;
+  var info=null, trace=''; try{ info=JSON.parse(localStorage.getItem('mcLastError')||'null'); }catch(e){}
+  try{ trace=localStorage.getItem('mcChatTrace')||''; }catch(e){}
+  if(!info && !trace) return;
   var old=document.getElementById('mcErrBanner'); if(old) old.parentNode.removeChild(old);
   if(!document.body) return;
   var b=document.createElement('div'); b.id='mcErrBanner';
-  b.style.cssText='position:fixed;left:8px;right:8px;bottom:8px;z-index:2147483647;background:#3a0d12;border:1px solid #c0566a;color:#ffd7de;font:12px/1.6 monospace;padding:11px 13px;border-radius:11px;white-space:pre-wrap;word-break:break-all;max-height:48vh;overflow:auto;box-shadow:0 6px 30px rgba(0,0,0,.5)';
-  var when=''; try{ when=new Date(info.t).toLocaleTimeString(); }catch(e){}
-  b.textContent='⚠ 捕获到错误（在「'+(info.where||'?')+'」· '+when+'）——请截图发我：\n\n'+(info.m||'(无消息)')+'\n'+(info.s?(info.s.replace(/^.*\//,'')+' :'+info.l+':'+info.c+'\n'):'')+'\n'+(info.stack||'').slice(0,700)+'\n\n〔点这条关闭并清除〕';
-  b.onclick=function(){ try{ localStorage.removeItem('mcLastError'); }catch(e){} if(b.parentNode) b.parentNode.removeChild(b); };
+  b.style.cssText='position:fixed;left:8px;right:8px;bottom:8px;z-index:2147483647;background:#0d2036;border:1px solid #4a86c0;color:#d7ebff;font:12px/1.6 monospace;padding:11px 13px;border-radius:11px;white-space:pre-wrap;word-break:break-all;max-height:48vh;overflow:auto;box-shadow:0 6px 30px rgba(0,0,0,.5)';
+  var txt='';
+  if(trace){ txt+='🔎 进聊天最后到达的一步（卡在它的下一步）：\n【'+trace+'】\n\n'; }
+  if(info){ var when=''; try{ when=new Date(info.t).toLocaleTimeString(); }catch(e){}
+    b.style.background='#3a0d12'; b.style.borderColor='#c0566a'; b.style.color='#ffd7de';
+    txt+='⚠ 还捕获到 JS 错误（在「'+(info.where||'?')+'」· '+when+'）：\n'+(info.m||'')+'\n'+(info.s?(info.s.replace(/^.*\//,'')+' :'+info.l+':'+info.c+'\n'):'')+(info.stack||'').slice(0,500)+'\n\n'; }
+  txt+='〔请截图这条发我 · 点它关闭〕';
+  b.textContent=txt;
+  b.onclick=function(){ try{ localStorage.removeItem('mcLastError'); localStorage.removeItem('mcChatTrace'); }catch(e){} if(b.parentNode) b.parentNode.removeChild(b); };
   document.body.appendChild(b);
 }
 try{ if(document.readyState!=='loading') setTimeout(function(){ try{ _showErrBanner(); }catch(e){} }, 300); else document.addEventListener('DOMContentLoaded', function(){ setTimeout(function(){ try{ _showErrBanner(); }catch(e){} }, 300); }); }catch(e){}
@@ -3852,11 +3860,13 @@ function showView(name){
   if(c) c.style.height=(name==='chat')?'100vh':'calc(100vh - 50px)';
   try{ var _an=(name==='chat'&&_activeChat.type==='if')?'if':name; document.querySelectorAll('.sb-item[data-view]').forEach(function(a){ a.classList.toggle('active', a.getAttribute('data-view')===_an); }); }catch(e){}
   if(typeof closeDrawer==='function') closeDrawer();
-  if(name==='chat'){   // ★进聊天：每一步都单独兜底，任何一步崩都不连累其余、也绝不让整个界面白屏/被 PWA 重载弹走；真出错就把错误显示在聊天区，方便排查
+  if(name==='chat'){   // ★进聊天：每一步都单独兜底 + 面包屑埋点（卡死也能查出卡在哪一步）
+    try{ _trace('sv:chat-进入'); }catch(e){}
     try{ if(_chatLastMemIdx===null) _chatLastMemIdx=loadChat().length; }catch(e){ _chatLastMemIdx=0; }
-    try{ updateChatHeader(); }catch(e){}
-    try{ renderChat(); }catch(e){ var _b=document.getElementById('chatMessages'); if(_b) _b.innerHTML='<div style="padding:16px;color:var(--text2);font-size:12px;line-height:1.7;white-space:pre-wrap;word-break:break-all;font-family:monospace">聊天渲染出错（已拦下，界面不会再崩）：\n\n'+chatEsc(String((e&&e.message)||e))+'\n\n'+chatEsc(String((e&&e.stack)||'').slice(0,500))+'</div>'; }
-    try{ updateChatAutoBtn(); }catch(e){}
+    try{ _trace('sv:准备updateChatHeader'); updateChatHeader(); }catch(e){}
+    try{ _trace('sv:准备renderChat'); renderChat(); }catch(e){ var _b=document.getElementById('chatMessages'); if(_b) _b.innerHTML='<div style="padding:16px;color:var(--text2);font-size:12px;line-height:1.7;white-space:pre-wrap;word-break:break-all;font-family:monospace">聊天渲染出错（已拦下，界面不会再崩）：\n\n'+chatEsc(String((e&&e.message)||e))+'\n\n'+chatEsc(String((e&&e.stack)||'').slice(0,500))+'</div>'; }
+    try{ _trace('sv:准备updateChatAutoBtn'); updateChatAutoBtn(); }catch(e){}
+    try{ _trace('sv:chat-同步部分完成'); }catch(e){}
     setTimeout(function(){ var i=document.getElementById('chatInput'); if(i) try{ i.focus(); }catch(e){} },80);
     setTimeout(function(){ try{ if(typeof ensureDossierSum==='function') ensureDossierSum(); if(typeof ensurePastSum==='function') ensurePastSum(); }catch(e){} }, 600);
     try{ if(typeof _archPull==='function') _archPull(); }catch(e){}
@@ -4401,13 +4411,18 @@ function _ubToggle(id, el){ var d=document.getElementById(id); if(!d) return; va
 var _streamText='';
 function _streamPaint(text){ _streamText=text; var bx=document.getElementById('chatMessages'); var near=bx?(bx.scrollHeight-bx.scrollTop-bx.clientHeight<80):true; var el=document.getElementById('chatStreamBubble'); if(el) el.innerHTML=chatEsc(mcCleanText(text)); if(near&&bx) bx.scrollTop=bx.scrollHeight; }   // 只有真贴底才跟着生成往下；往上看历史就不动你
 function renderChat(){
+  try{ if(typeof _trace==='function') _trace('rc:start'); }catch(e){}
   var box=document.getElementById('chatMessages'); if(!box) return;
   if(!_chatBusy){ var _hp=loadChat(), _rm=false; for(var _z=_hp.length-1;_z>=0;_z--){ if(_hp[_z]&&_hp[_z].pending){ _hp.splice(_z,1); _rm=true; } } if(_rm) saveChat(_hp); }   // 没在生成却残留的"三个点"占位泡 → 清掉（防卡死多个）
+  try{ if(typeof _trace==='function') _trace('rc:后清pending'); }catch(e){}
   if(!_chatBusy){ try{ _maybeDropCold(); }catch(e){} }   // 缓冲(冷摆设/pinned)随新对话一条条顶掉（发消息/重开都覆盖）
+  try{ if(typeof _trace==='function') _trace('rc:后dropCold'); }catch(e){}
   var hist=loadChat();
   var _RENDER_CAP=200, _MSG_MAX=8000, _start=(hist.length>_RENDER_CAP)?(hist.length-_RENDER_CAP):0;   // ★手机防崩：最多只渲染最近 200 条（老的仍在存储/存档，不丢）；单条超 8000 字截断显示
   try{ _voiceHydrateFromCache(hist); }catch(e){}   // 重开/切回时先从缓存即时回填双语（无API），已翻过的立刻就在
+  try{ if(typeof _trace==='function') _trace('rc:后hydrate双语'); }catch(e){}
   try{ if(getApiKey()){ var _vmc=0; for(var _vhi=hist.length-1;_vhi>=0&&_vmc<15;_vhi--){ var _vhm=hist[_vhi]; if(_vhm&&_vhm.role!=='user'&&!_vhm.pending&&/["“「『]/.test(_vhm.text||'')){ _voiceEnsureTrans(_vhi); _vmc++; } } } }catch(e){}   // 自动翻译最近15条他的台词（未缓存的走flash翻译，翻好自动补双语）——只做最近的，避免整屏狂翻
+  try{ if(typeof _trace==='function') _trace('rc:后自动翻译队列'); }catch(e){}
   var _cc=document.getElementById('chatCount'); if(_cc){ var _am=archCount(), _fresh=0,_pin=0; for(var _q=0;_q<hist.length;_q++){ if(_isPinned(hist[_q])||_isCold(hist[_q]))_pin++; else _fresh++; }
     var _txt = _am ? ('后'+_fresh+' · 前'+_am+(_pin?(' · 缓冲'+_pin):'')) : (''+hist.length), _col='var(--text4)';
     if(_am>=600){ _col='var(--gold)'; }   // 存档多了只把计数变淡金；不再红字、不再催备份（观感）
@@ -4415,6 +4430,7 @@ function renderChat(){
   if(!hist.length){ box.innerHTML='<div style="margin:auto;text-align:center;color:var(--text3);font-size:14px;font-family:\'Noto Serif SC\',serif;line-height:1.95">伞，总在最需要的时候撑开。</div>'; return; }
   if(_favSelMode){ box.innerHTML=_favSelectChatHTML(hist); return; }   // 多选收藏模式
   var _bufEnd=0; while(_bufEnd<hist.length&&(_isPinned(hist[_bufEnd])||_isCold(hist[_bufEnd]))) _bufEnd++;   // 缓冲(pinned/冷摆设)前缀的边界
+  try{ if(typeof _trace==='function') _trace('rc:准备逐条渲染map'); }catch(e){}
   var _rowsArr=hist.map(function(m,i){
     if(i<_start){ return ''; }   // 超出显示上限(200)的老消息不渲染——仍在存储/存档里，翻页无碍
     if(!m||typeof m!=='object'){ return ''; }   // 坏消息容错：跳过而不是崩掉整屏
@@ -4447,14 +4463,17 @@ function renderChat(){
     var _divHTML='<div style="align-self:center;margin:2px 0;display:flex;align-items:center;gap:10px;width:100%;max-width:520px;color:var(--text4);font-size:10.5px;letter-spacing:1px;font-family:\'Noto Serif SC\',serif"><span style="flex:1;height:1px;background:var(--border2)"></span>以上已收入长期记忆<span style="flex:1;height:1px;background:var(--border2)"></span></div>';
     if(_bufEnd<_rowsArr.length) _rowsArr.splice(_bufEnd,0,_divHTML); else _rowsArr.push(_divHTML);
   }
+  try{ if(typeof _trace==='function') _trace('rc:map完成·准备拼HTML'); }catch(e){}
   var rows=(_start>0?('<div style="align-self:center;margin:2px 0 6px;color:var(--text4);font-size:10.5px;font-family:\'Noto Serif SC\',serif;text-align:center">· 只显示最近 '+_RENDER_CAP+' 条（更早的都在「浏览存档」里）·</div>'):'')+_rowsArr.join('');
   // 贴底才跟、否则钉死：你停在最底→生成跟着往下显示；你翻上去看历史→任何重渲染都锚定你正在看的那条、绝不强行拉走
   var _atBottom=(box.scrollHeight-box.scrollTop-box.clientHeight<80), _prevTop=box.scrollTop, _aIdx=-1, _aOff=0;
   if(!_atBottom){ var _inn=box.firstElementChild; if(_inn){ var _bt=box.getBoundingClientRect().top, _ks=_inn.children; for(var _q=0;_q<_ks.length;_q++){ var _rt=_ks[_q].getBoundingClientRect().top-_bt; _aIdx=_q; _aOff=_rt; if(_rt>=-2) break; } } }
+  try{ if(typeof _trace==='function') _trace('rc:已写入DOM·准备滚动'); }catch(e){}
   box.innerHTML='<div style="max-width:740px;width:100%;margin:0 auto;display:flex;flex-direction:column;gap:18px">'+rows+'</div>';
   if(_atBottom){ box.scrollTop=box.scrollHeight; }   // 你在底部 → 跟着往下
   else if(_aIdx>=0){ var _in2=box.firstElementChild, _ks2=_in2?_in2.children:null; if(_ks2&&_ks2[_aIdx]){ var _bt2=box.getBoundingClientRect().top, _cur=_ks2[_aIdx].getBoundingClientRect().top-_bt2; box.scrollTop+=(_cur-_aOff); } else box.scrollTop=_prevTop; }   // 你在看历史 → 钉住那条不动
   else box.scrollTop=_prevTop;
+  try{ if(typeof _trace==='function') _trace('rc:done·渲染完成'); }catch(e){}
   // 自动双语：渲染时先从缓存即时回填(_voiceHydrateFromCache)、再对最近15条自动翻译；双语一直在、重开不掉。切变体时 _voiceData.src!==m.text 会自动回退纯文本、再按新变体重翻。听筒键=全部朗读，台词旁▶=单句念。
 }
 // ===== 逐条消息操作：收藏 / 重新输出 / 复制 / ···(编辑·删除) — Gemini 风格小图标 =====
