@@ -368,7 +368,7 @@ nav { height:50px; background:rgba(245,235,220,0.9); backdrop-filter:blur(20px);
   <div class="sb-bottom"><div class="sb-nav" style="padding:0">
     <a class="sb-item" onclick="openPanel('settings');closeDrawer()"><div class="sb-icon"><svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="7" cy="7" r="2.5"/><path d="M7 1 L7 2.5 M7 11.5 L7 13 M1 7 L2.5 7 M11.5 7 L13 7 M2.9 2.9 L4 4 M10 10 L11.1 11.1 M11.1 2.9 L10 4 M4 10 L2.9 11.1"/></svg></div><div class="sb-label">Settings</div></a>
     <a class="sb-item" onclick="openPanel('creator');closeDrawer()"><div class="sb-icon"><svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="4" cy="4" r="2"/><circle cx="10" cy="4" r="2"/><circle cx="7" cy="10" r="2"/><line x1="4" y1="6" x2="7" y2="8"/><line x1="10" y1="6" x2="7" y2="8"/></svg></div><div class="sb-label">Creator Mode</div></a>
-    <div class="sb-item" style="opacity:0.4;cursor:default;font-size:10px"><div class="sb-icon"><svg width="8" height="8" viewBox="0 0 8 8" fill="currentColor"><circle cx="4" cy="4" r="3"/></svg></div><div class="sb-label" style="font-family:'JetBrains Mono',monospace;letter-spacing:1px">v30.9 ✦ FIELDNOTES</div></div>
+    <div class="sb-item" style="opacity:0.4;cursor:default;font-size:10px"><div class="sb-icon"><svg width="8" height="8" viewBox="0 0 8 8" fill="currentColor"><circle cx="4" cy="4" r="3"/></svg></div><div class="sb-label" style="font-family:'JetBrains Mono',monospace;letter-spacing:1px">v31.0 ✦ FIELDNOTES</div></div>
   </div></div>
 </div>
 
@@ -387,7 +387,7 @@ nav { height:50px; background:rgba(245,235,220,0.9); backdrop-filter:blur(20px);
   <div class="sb-bottom"><div class="sb-nav" style="padding:0">
     <a class="sb-item" onclick="openPanel('settings')"><div class="sb-icon"><svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="7" cy="7" r="2.5"/><path d="M7 1 L7 2.5 M7 11.5 L7 13 M1 7 L2.5 7 M11.5 7 L13 7 M2.9 2.9 L4 4 M10 10 L11.1 11.1 M11.1 2.9 L10 4 M4 10 L2.9 11.1"/></svg></div><div class="sb-label">Settings</div></a>
     <a class="sb-item" onclick="openPanel('creator')"><div class="sb-icon"><svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="4" cy="4" r="2"/><circle cx="10" cy="4" r="2"/><circle cx="7" cy="10" r="2"/><line x1="4" y1="6" x2="7" y2="8"/><line x1="10" y1="6" x2="7" y2="8"/></svg></div><div class="sb-label">Creator Mode</div></a>
-    <div class="sb-item" style="opacity:0.4;cursor:default;font-size:10px"><div class="sb-icon"><svg width="8" height="8" viewBox="0 0 8 8" fill="currentColor"><circle cx="4" cy="4" r="3"/></svg></div><div class="sb-label" style="font-family:'JetBrains Mono',monospace;letter-spacing:1px">v30.9 ✦ FIELDNOTES</div></div>
+    <div class="sb-item" style="opacity:0.4;cursor:default;font-size:10px"><div class="sb-icon"><svg width="8" height="8" viewBox="0 0 8 8" fill="currentColor"><circle cx="4" cy="4" r="3"/></svg></div><div class="sb-label" style="font-family:'JetBrains Mono',monospace;letter-spacing:1px">v31.0 ✦ FIELDNOTES</div></div>
   </div></div>
 </div>
 
@@ -533,7 +533,7 @@ nav { height:50px; background:rgba(245,235,220,0.9); backdrop-filter:blur(20px);
   </div>
 
   <div class="footer">
-    <div class="footer-item">MYCROFT.SYS · v30.9 ✦ FIELDNOTES</div>
+    <div class="footer-item">MYCROFT.SYS · v31.0 ✦ FIELDNOTES</div>
     <div class="footer-live"><div class="sdot sdot-on"></div><span>LIVE</span></div>
     <div class="footer-item" id="footerDate">----</div>
     <div class="footer-item" style="border:1px solid rgba(170,60,55,0.45);color:rgba(170,60,55,0.85);border-radius:3px;padding:0 7px;letter-spacing:2px;transform:rotate(-1.5deg)">CLASSIFIED · 机密</div>
@@ -3432,7 +3432,7 @@ var _activeChat={type:'main', id:'', branch:'main'};   // 主线 or 某条 IF（
 function ifChatKey(lineId,br){ return (br&&br!=='main') ? ('mcIfChat_'+lineId+'__'+br) : ('mcIfChat_'+lineId); }
 function ifFramedKey(lineId,br){ return (br&&br!=='main') ? ('mcIfFramed_'+lineId+'__'+br) : ('mcIfFramed_'+lineId); }
 function chatKey(){ return _activeChat.type==='if' ? ifChatKey(_activeChat.id, _activeChat.branch||'main') : 'mcChat'; }
-function loadChat(){ try{ return JSON.parse(localStorage.getItem(chatKey())||'[]'); }catch(e){ return []; } }
+function loadChat(){ try{ var a=JSON.parse(localStorage.getItem(chatKey())||'[]'); if(!Array.isArray(a)) return []; return a.filter(function(m){ return m && typeof m==='object' && typeof m.role==='string'; }); }catch(e){ return []; } }   // ★过滤掉 null/半条坏消息（手机流式被打断会留残渣），否则渲染时 m.role 抛异常→整个 chat 界面崩、进不去
 var LIVE_KEEP=500;   // 旧常量名保留（他处可能引用）；新模型见 ARCHIVE_BATCH
 var ARCHIVE_BATCH=200;   // 每满 200 条"未归档"整批归档（原 500→200：手机 localStorage 约 5MB，500 条活跃聊天≈2.7MB会顶满装不下；调小后旧消息更早挪进大容量 IndexedDB 存档，小仓库只留 ~200 条，多端同步能塞进手机）
 var PINNED_KEEP=20;      // 归档后界面保留"刚归档那批的最后 20 条"当缓冲（已归档、不重复归档）
@@ -3827,7 +3827,7 @@ function showView(name){
   if(c) c.style.height=(name==='chat')?'100vh':'calc(100vh - 50px)';
   try{ var _an=(name==='chat'&&_activeChat.type==='if')?'if':name; document.querySelectorAll('.sb-item[data-view]').forEach(function(a){ a.classList.toggle('active', a.getAttribute('data-view')===_an); }); }catch(e){}
   if(typeof closeDrawer==='function') closeDrawer();
-  if(name==='chat'){ if(_chatLastMemIdx===null) _chatLastMemIdx=loadChat().length; updateChatHeader(); renderChat(); updateChatAutoBtn(); setTimeout(function(){ var i=document.getElementById('chatInput'); if(i) i.focus(); },80); setTimeout(function(){ try{ if(typeof ensureDossierSum==='function') ensureDossierSum(); if(typeof ensurePastSum==='function') ensurePastSum(); }catch(e){} }, 600); try{ if(typeof _archPull==='function') _archPull(); }catch(e){} }   // 进聊天：按需刷卷宗/往事摘要 + 拉云端存档（手机/电脑共通）
+  if(name==='chat'){ if(_chatLastMemIdx===null) _chatLastMemIdx=loadChat().length; updateChatHeader(); try{ renderChat(); }catch(e){ var _b=document.getElementById('chatMessages'); if(_b) _b.innerHTML='<div style="margin:auto;text-align:center;color:var(--text3);font-size:13px;padding:20px">这段对话有一条消息坏了，已跳过。刷新一下就好。</div>'; } updateChatAutoBtn(); setTimeout(function(){ var i=document.getElementById('chatInput'); if(i) i.focus(); },80); setTimeout(function(){ try{ if(typeof ensureDossierSum==='function') ensureDossierSum(); if(typeof ensurePastSum==='function') ensurePastSum(); }catch(e){} }, 600); try{ if(typeof _archPull==='function') _archPull(); }catch(e){} }   // 进聊天：按需刷卷宗/往事摘要 + 拉云端存档（手机/电脑共通）
   if(name==='if'){ renderIf(); }
   if(name==='memory'){ refreshMemory(); }
   if(name==='palace'){ renderPalace(); }
@@ -4382,6 +4382,8 @@ function renderChat(){
   if(_favSelMode){ box.innerHTML=_favSelectChatHTML(hist); return; }   // 多选收藏模式
   var _bufEnd=0; while(_bufEnd<hist.length&&(_isPinned(hist[_bufEnd])||_isCold(hist[_bufEnd]))) _bufEnd++;   // 缓冲(pinned/冷摆设)前缀的边界
   var _rowsArr=hist.map(function(m,i){
+    if(!m||typeof m!=='object'){ return ''; }   // 坏消息容错：跳过而不是崩掉整屏
+    try{
     if(i===_chatEditIdx){   // 编辑模式
       var isU=(m.role==='user');
       return '<div style="align-self:'+(isU?'flex-end':'stretch')+';width:100%;'+(isU?'max-width:82%;':'')+'display:flex;flex-direction:column;gap:6px">'
@@ -4403,6 +4405,7 @@ function renderChat(){
     var nav=(m.variants&&m.variants.length>1)?('<div style="display:flex;align-items:center;gap:4px;font-size:12px;color:var(--text4);margin-top:1px"><span onclick="chatVar('+i+',-1)" title="上一版" style="cursor:pointer;padding:2px 7px;border-radius:6px;'+(((m.vi||0)<=0)?'opacity:.3':'')+'">‹</span><span style="font-size:11px">'+((m.vi||0)+1)+' / '+m.variants.length+'</span><span onclick="chatVar('+i+',1)" title="下一版" style="cursor:pointer;padding:2px 7px;border-radius:6px;'+(((m.vi||0)>=m.variants.length-1)?'opacity:.3':'')+'">›</span></div>'):'';
     var trunc=m.truncated?'<div style="font-size:11px;color:var(--amber);margin-top:3px">⚠️ 这条可能没说完（被截断/拦截）——点 ↻ 重新输出可重生</div>':'';
     return '<div style="align-self:stretch;display:flex;flex-direction:column;gap:2px">'+bubble+nav+trunc+_msgTools(i,false,m.fav)+'</div>';
+    }catch(_e){ return ''; }   // 这一条渲染出错就跳过，绝不连累整屏
   });
   if(_bufEnd>0){   // 缓冲与新对话之间插一行"以上已收入"（满 500 的 pinned、或开新窗的冷摆设，都在这条之上）
     var _divHTML='<div style="align-self:center;margin:2px 0;display:flex;align-items:center;gap:10px;width:100%;max-width:520px;color:var(--text4);font-size:10.5px;letter-spacing:1px;font-family:\'Noto Serif SC\',serif"><span style="flex:1;height:1px;background:var(--border2)"></span>以上已收入长期记忆<span style="flex:1;height:1px;background:var(--border2)"></span></div>';
