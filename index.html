@@ -368,7 +368,7 @@ nav { height:50px; background:rgba(245,235,220,0.9); backdrop-filter:blur(20px);
   <div class="sb-bottom"><div class="sb-nav" style="padding:0">
     <a class="sb-item" onclick="openPanel('settings');closeDrawer()"><div class="sb-icon"><svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="7" cy="7" r="2.5"/><path d="M7 1 L7 2.5 M7 11.5 L7 13 M1 7 L2.5 7 M11.5 7 L13 7 M2.9 2.9 L4 4 M10 10 L11.1 11.1 M11.1 2.9 L10 4 M4 10 L2.9 11.1"/></svg></div><div class="sb-label">Settings</div></a>
     <a class="sb-item" onclick="openPanel('creator');closeDrawer()"><div class="sb-icon"><svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="4" cy="4" r="2"/><circle cx="10" cy="4" r="2"/><circle cx="7" cy="10" r="2"/><line x1="4" y1="6" x2="7" y2="8"/><line x1="10" y1="6" x2="7" y2="8"/></svg></div><div class="sb-label">Creator Mode</div></a>
-    <div class="sb-item" style="opacity:0.4;cursor:default;font-size:10px"><div class="sb-icon"><svg width="8" height="8" viewBox="0 0 8 8" fill="currentColor"><circle cx="4" cy="4" r="3"/></svg></div><div class="sb-label" style="font-family:'JetBrains Mono',monospace;letter-spacing:1px">v33.1 ✦ VLIST</div></div>
+    <div class="sb-item" style="opacity:0.4;cursor:default;font-size:10px"><div class="sb-icon"><svg width="8" height="8" viewBox="0 0 8 8" fill="currentColor"><circle cx="4" cy="4" r="3"/></svg></div><div class="sb-label" style="font-family:'JetBrains Mono',monospace;letter-spacing:1px">v33.5 ✦ VLIST</div></div>
   </div></div>
 </div>
 
@@ -387,7 +387,7 @@ nav { height:50px; background:rgba(245,235,220,0.9); backdrop-filter:blur(20px);
   <div class="sb-bottom"><div class="sb-nav" style="padding:0">
     <a class="sb-item" onclick="openPanel('settings')"><div class="sb-icon"><svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="7" cy="7" r="2.5"/><path d="M7 1 L7 2.5 M7 11.5 L7 13 M1 7 L2.5 7 M11.5 7 L13 7 M2.9 2.9 L4 4 M10 10 L11.1 11.1 M11.1 2.9 L10 4 M4 10 L2.9 11.1"/></svg></div><div class="sb-label">Settings</div></a>
     <a class="sb-item" onclick="openPanel('creator')"><div class="sb-icon"><svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="4" cy="4" r="2"/><circle cx="10" cy="4" r="2"/><circle cx="7" cy="10" r="2"/><line x1="4" y1="6" x2="7" y2="8"/><line x1="10" y1="6" x2="7" y2="8"/></svg></div><div class="sb-label">Creator Mode</div></a>
-    <div class="sb-item" style="opacity:0.4;cursor:default;font-size:10px"><div class="sb-icon"><svg width="8" height="8" viewBox="0 0 8 8" fill="currentColor"><circle cx="4" cy="4" r="3"/></svg></div><div class="sb-label" style="font-family:'JetBrains Mono',monospace;letter-spacing:1px">v33.1 ✦ VLIST</div></div>
+    <div class="sb-item" style="opacity:0.4;cursor:default;font-size:10px"><div class="sb-icon"><svg width="8" height="8" viewBox="0 0 8 8" fill="currentColor"><circle cx="4" cy="4" r="3"/></svg></div><div class="sb-label" style="font-family:'JetBrains Mono',monospace;letter-spacing:1px">v33.5 ✦ VLIST</div></div>
   </div></div>
 </div>
 
@@ -533,7 +533,7 @@ nav { height:50px; background:rgba(245,235,220,0.9); backdrop-filter:blur(20px);
   </div>
 
   <div class="footer">
-    <div class="footer-item">MYCROFT.SYS · v33.1 ✦ VLIST</div>
+    <div class="footer-item">MYCROFT.SYS · v33.5 ✦ VLIST</div>
     <div class="footer-live"><div class="sdot sdot-on"></div><span>LIVE</span></div>
     <div class="footer-item" id="footerDate">----</div>
     <div class="footer-item" style="border:1px solid rgba(170,60,55,0.45);color:rgba(170,60,55,0.85);border-radius:3px;padding:0 7px;letter-spacing:2px;transform:rotate(-1.5deg)">CLASSIFIED · 机密</div>
@@ -4456,7 +4456,7 @@ function _liteBubble(m, i){
 function _fullBubble(m, i){
   try{
     if(typeof m.text==='string' && m.text.length>8000){ m=Object.assign({},m,{text:m.text.slice(0,8000)+'\n\n…〔太长，仅显示前8000字〕'}); }
-    if(i===_chatEditIdx){ var isU=(m.role==='user'); return '<div style="align-self:'+(isU?'flex-end':'stretch')+';width:100%;'+(isU?'max-width:82%;':'')+'display:flex;flex-direction:column;gap:6px"><textarea id="chatEditTA" style="width:100%;box-sizing:border-box;background:var(--s2);border:1px solid var(--gold-dim);border-radius:12px;padding:10px 13px;color:var(--text);font-family:\'Noto Serif SC\',serif;font-size:15px;line-height:1.65;outline:none;min-height:84px;resize:vertical">'+chatEsc(m.text||'')+'</textarea><div style="display:flex;gap:12px;justify-content:flex-end"><span onclick="chatEditCancel()" style="cursor:pointer;font-size:11px;color:var(--text4)">取消</span><span onclick="chatEditSave('+i+')" style="cursor:pointer;font-size:11px;color:var(--gold)">保存</span></div></div>'; }
+    if(i===_chatEditIdx){ var isU=(m.role==='user'); return '<div style="align-self:'+(isU?'flex-end':'stretch')+';width:100%;'+(isU?'max-width:82%;':'')+'display:flex;flex-direction:column;gap:6px"><textarea id="chatEditTA" oninput="try{_chatEditDraft=this.value;}catch(e){}" style="width:100%;box-sizing:border-box;background:var(--s2);border:1px solid var(--gold-dim);border-radius:12px;padding:10px 13px;color:var(--text);font-family:\'Noto Serif SC\',serif;font-size:15px;line-height:1.65;outline:none;min-height:84px;resize:vertical">'+chatEsc(typeof _chatEditDraft==='string'?_chatEditDraft:(m.text||''))+'</textarea><div style="display:flex;gap:12px;justify-content:flex-end"><span onclick="chatEditCancel()" style="cursor:pointer;font-size:11px;color:var(--text4)">取消</span><span onclick="chatEditSave('+i+')" style="cursor:pointer;font-size:11px;color:var(--gold)">保存</span></div></div>'; }
     if(m.role==='user'){ var ub='<div style="background:var(--s2);border:1px solid var(--border2);border-radius:16px;padding:10px 14px;color:var(--text);font-size:14px;font-weight:600;line-height:1.5;white-space:pre-wrap;font-family:\'Noto Serif SC\',serif">'+_ubWrap(m.text,'ub'+i)+'</div>'; return '<div style="align-self:flex-end;max-width:82%;display:flex;flex-direction:column;align-items:flex-end;gap:2px">'+ub+_msgTools(i,true,m.fav)+'</div>'; }
     if(m.pending){ var _partial=(m.text||(_chatBusy?_streamText:'')||''); var inner=_partial?chatEsc(mcCleanText(_partial)):'<span class="typing-dots"><i></i><i></i><i></i></span><span onclick="chatDelPending('+i+')" title="取消 / 删掉" style="cursor:pointer;color:var(--text4);font-size:12px;margin-left:10px">✕</span>'; return '<div style="align-self:stretch;display:flex;flex-direction:column;gap:2px"><div id="chatStreamBubble" style="color:var(--text2);font-size:14px;font-weight:600;line-height:1.55;white-space:pre-wrap;font-family:\'Noto Serif SC\',serif;padding:2px 0">'+inner+'</div></div>'; }
     var bubble='<div style="color:var(--text2);font-size:14px;font-weight:600;line-height:1.55;white-space:pre-wrap;font-family:\'Noto Serif SC\',serif;padding:2px 0">'+_modelMsgHTML(m, i)+'</div>';
@@ -4473,12 +4473,14 @@ function _renderVirtual(box, hist, _stick){
   var parts=['<div id="_chatWrap" style="max-width:740px;width:100%;margin:0 auto;display:flex;flex-direction:column;gap:18px">'];
   for(var i=0;i<n;i++){ var m=hist[i]; if(!m||typeof m!=='object') continue;
     var initFull=(i>=n-2)||m.pending||(i===_chatEditIdx);   // 最后两条 + 正在打字 + 正在编辑：一开始就完整（保证流式/编辑即时可用）
-    if(initFull && m.role!=='user' && !m.pending){ try{ _voiceHydrateOne(i, m); }catch(e){} }
-    parts.push('<div class="cvrow" data-idx="'+i+'" data-full="'+(initFull?'1':'0')+'">'+(initFull?_fullBubble(m,i):_liteBubble(m,i))+'</div>');
+    if(initFull && m.role!=='user' && !m.pending){ try{ _voiceHydrateOne(i, m); }catch(e){} try{ if(getApiKey() && /["“「『]/.test(m.text||'')) _voiceEnsureTrans(i); }catch(e){} }   // 一开始就完整的那几条（最新回复等）也要触发自动翻译，别漏
+    parts.push('<div class="cvrow" data-idx="'+i+'" data-full="'+(initFull?'1':'0')+'" style="display:flex;flex-direction:column">'+(initFull?_fullBubble(m,i):_liteBubble(m,i))+'</div>');   // ★.cvrow 必须是弹性列，里面气泡的 align-self(靠右/铺满) 才生效，否则消息错位
   }
   parts.push('</div>');
   box.innerHTML=parts.join('');
-  requestAnimationFrame(function(){ try{ if(_stick) box.scrollTop=box.scrollHeight; else box.scrollTop=prevTop; }catch(e){} try{ _cvObserve(box); }catch(e){} });
+  requestAnimationFrame(function(){ try{ if(_stick) box.scrollTop=box.scrollHeight; else box.scrollTop=prevTop; }catch(e){} try{ _cvObserve(box); }catch(e){}
+    try{ if(_chatEditIdx>=0){ var ta=document.getElementById('chatEditTA'); if(ta && document.activeElement!==ta){ ta.focus(); var L=ta.value.length; ta.setSelectionRange(L,L); } } }catch(e){}   // 重画后若在编辑，把焦点/光标还回文本框，别打断你打字
+  });
 }
 function _cvObserve(box){
   try{ if(box.__cvObs) box.__cvObs.disconnect(); }catch(e){}
@@ -4509,6 +4511,25 @@ function _afterVoiceUpdate(){   // 翻译好一句后：只刷新当前"完整"�
       for(var k=0;k<rows.length;k++){ if(rows[k].getAttribute('data-full')==='1'){ var idx=+rows[k].getAttribute('data-idx'); var h=loadChat(), m=h[idx]; if(m){ try{ if(m.role!=='user'&&!m.pending) _voiceHydrateOne(idx,m); rows[k].innerHTML=_fullBubble(m, idx); }catch(e){} } } }
     } else { renderChat(); }
   }catch(e){ try{ renderChat(); }catch(_e){} }
+}
+function _finalizeStreamRow(){   // ★他生成完：只就地刷新他最后那一条，绝不重画整屏——你在编辑/打字/翻页的状态一律不受影响
+  try{
+    var box=document.getElementById('chatMessages');
+    if(box && box.__cvObs && (typeof _chatLite==='undefined'||!_chatLite)){
+      var h=loadChat(), rows=box.getElementsByClassName('cvrow');
+      if(rows.length===h.length && h.length>0){   // 行数与消息数一致（期间没发生移位的 dropCold）才就地更新
+        var li=h.length-1, m=h[li], row=rows[li];
+        if(m && row){
+          try{ if(m.role!=='user'&&!m.pending) _voiceHydrateOne(li, m); }catch(e){}
+          row.innerHTML=_fullBubble(m, li); row.setAttribute('data-full','1'); try{ row.style.minHeight=''; }catch(e){}
+          try{ if(getApiKey() && m.role!=='user' && !m.pending && /["“「『]/.test(m.text||'')) _voiceEnsureTrans(li); }catch(e){}
+          if(box.__nearBottom!==false){ requestAnimationFrame(function(){ try{ box.scrollTop=box.scrollHeight; }catch(e){} }); }   // 只有你原本贴着底才跟到底；你翻上去/在编辑就不动你
+          return;
+        }
+      }
+    }
+  }catch(e){}
+  renderChat();   // 朴素模式/行数对不上等：兜底整刷
 }
 function renderChat(){
   try{ if(typeof _trace==='function') _trace('rc:start'); }catch(e){}
@@ -4559,7 +4580,7 @@ function renderChat(){
     if(i===_chatEditIdx){   // 编辑模式
       var isU=(m.role==='user');
       return '<div style="align-self:'+(isU?'flex-end':'stretch')+';width:100%;'+(isU?'max-width:82%;':'')+'display:flex;flex-direction:column;gap:6px">'
-        +'<textarea id="chatEditTA" style="width:100%;box-sizing:border-box;background:var(--s2);border:1px solid var(--gold-dim);border-radius:12px;padding:10px 13px;color:var(--text);font-family:\'Noto Serif SC\',serif;font-size:15px;line-height:1.65;outline:none;min-height:84px;resize:vertical">'+chatEsc(m.text||'')+'</textarea>'
+        +'<textarea id="chatEditTA" oninput="try{_chatEditDraft=this.value;}catch(e){}" style="width:100%;box-sizing:border-box;background:var(--s2);border:1px solid var(--gold-dim);border-radius:12px;padding:10px 13px;color:var(--text);font-family:\'Noto Serif SC\',serif;font-size:15px;line-height:1.65;outline:none;min-height:84px;resize:vertical">'+chatEsc(typeof _chatEditDraft==='string'?_chatEditDraft:(m.text||''))+'</textarea>'
         +'<div style="display:flex;gap:12px;justify-content:flex-end"><span onclick="chatEditCancel()" style="cursor:pointer;font-size:11px;color:var(--text4)">取消</span><span onclick="chatEditSave('+i+')" style="cursor:pointer;font-size:11px;color:var(--gold)">保存</span></div>'
       +'</div>';
     }
@@ -4610,7 +4631,7 @@ function renderChat(){
   // 自动双语：渲染时先从缓存即时回填(_voiceHydrateFromCache)、再对最近15条自动翻译；双语一直在、重开不掉。切变体时 _voiceData.src!==m.text 会自动回退纯文本、再按新变体重翻。听筒键=全部朗读，台词旁▶=单句念。
 }
 // ===== 逐条消息操作：收藏 / 重新输出 / 复制 / ···(编辑·删除) — Gemini 风格小图标 =====
-var _chatEditIdx=-1;
+var _chatEditIdx=-1, _chatEditDraft='';   // ★_chatEditDraft：正在编辑但没保存的草稿——任何重画(如他生成完)都用它重建文本框，绝不吞掉你没存的修改
 var _SVG_BM='<svg width="18" height="18" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M4 2 h8 v12 l-4 -2.8 -4 2.8 z" stroke-linejoin="round"/></svg>';
 var _SVG_BMF='<svg width="18" height="18" viewBox="0 0 16 16" fill="currentColor" stroke="currentColor" stroke-width="1.4"><path d="M4 2 h8 v12 l-4 -2.8 -4 2.8 z" stroke-linejoin="round"/></svg>';
 var _SVG_REGEN='<svg width="18" height="18" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"><path d="M13.5 4 v3 h-3"/><path d="M2.5 12 v-3 h3"/><path d="M12.8 6.5 A5 5 0 0 0 3.6 5.4 M3.2 9.5 A5 5 0 0 0 12.4 10.6"/></svg>';
@@ -4708,9 +4729,9 @@ function chatCopyMsg(i){ var h=loadChat(); if(i<0||i>=h.length) return; var t=(h
 }
 function _copyFallback(t){ try{ var ta=document.createElement('textarea'); ta.value=t; ta.style.position='fixed'; ta.style.left='-9999px'; document.body.appendChild(ta); ta.select(); document.execCommand('copy'); ta.remove(); }catch(e){} }
 function chatDeleteMsg(i){ var h=loadChat(); if(i<0||i>=h.length) return; if(!confirm('删除这一段？\n会从对话里去掉，并让便利贴跟着重新对账（清掉这段留下的痕迹）。\n（若这段很久以前已进长期记忆/记忆库，那边可能还留着，需要去记忆宫殿/记忆库单独删。）')) return; h.splice(i,1); saveChat(h); if(_chatEditIdx===i) _chatEditIdx=-1; else if(_chatEditIdx>i) _chatEditIdx--; renderChat(); if(_activeChat.type!=='if') setTimeout(function(){ try{ if(typeof coreObserveAfterTurn==='function') coreObserveAfterTurn(true); }catch(e){} }, 200); }   // ★删后让便利贴重新对账，别残留已删内容   // 删中间一条后把打开中的编辑下标跟着挪，避免保存时改错另一条
-function chatEditMsg(i){ _chatEditIdx=i; renderChat(); setTimeout(function(){ var t=document.getElementById('chatEditTA'); if(t){ t.focus(); t.style.height='auto'; t.style.height=Math.min(360,t.scrollHeight)+'px'; } },40); }
-function chatEditCancel(){ _chatEditIdx=-1; renderChat(); }
-function chatEditSave(i){ var ta=document.getElementById('chatEditTA'); if(!ta) return; var v=ta.value; var h=loadChat(); if(h[i]){ h[i].text=v; saveChat(h); } _chatEditIdx=-1; renderChat(); if(_activeChat.type!=='if') setTimeout(function(){ try{ if(typeof coreObserveAfterTurn==='function') coreObserveAfterTurn(true); }catch(e){} }, 200); }   // ★改后便利贴也重新对账
+function chatEditMsg(i){ _chatEditIdx=i; try{ _chatEditDraft=(loadChat()[i]||{}).text||''; }catch(e){ _chatEditDraft=''; } renderChat(); setTimeout(function(){ var t=document.getElementById('chatEditTA'); if(t){ t.focus(); t.style.height='auto'; t.style.height=Math.min(360,t.scrollHeight)+'px'; } },40); }
+function chatEditCancel(){ _chatEditIdx=-1; _chatEditDraft=''; renderChat(); }
+function chatEditSave(i){ var ta=document.getElementById('chatEditTA'); var v=ta?ta.value:(typeof _chatEditDraft==='string'?_chatEditDraft:''); var h=loadChat(); if(h[i]){ h[i].text=v; saveChat(h); } _chatEditIdx=-1; _chatEditDraft=''; renderChat(); if(_activeChat.type!=='if') setTimeout(function(){ try{ if(typeof coreObserveAfterTurn==='function') coreObserveAfterTurn(true); }catch(e){} }, 200); }   // ★用草稿兜底保存，重画也不丢；改后便利贴重新对账
 // 手动模型切换器：先 provider 再 model（避免非法组合）；切换从下一条起生效
 var _switchRetry=false;
 function openModelSwitch(retry){
@@ -5235,7 +5256,7 @@ async function sendChat(){
     if(pi>=0){ h2[pi].text=reply; h2[pi].pending=false; h2[pi].ts=Date.now(); if(_isTrunc) h2[pi].truncated=_lastFinishReason; else delete h2[pi].truncated; } else { var _nm={role:'model',text:reply,ts:Date.now()}; if(_isTrunc) _nm.truncated=_lastFinishReason; h2.push(_nm); }
     _userActiveTs=Date.now();   // 这轮对话是用户发起 → 保证回复也被同步推送
     saveChat(h2); _maybeDropCold();
-    renderChat();   // 立刻显示回复，绝不等翻译（双语由后台队列稍后补上，免得拖慢/出不来）
+    _finalizeStreamRow();   // ★只就地刷新他最后那条，不重画整屏→你在编辑/翻页的状态不受影响；双语由后台队列稍后补上
     if(_activeChat.type!=='if'){ setTimeout(chatAutoMemory,150); _dossierTick++; if(_dossierTick%8===0) setTimeout(function(){ dossierObserve(null,UTIL_MODEL,true); }, 1200); if(_dossierTick%8===0) setTimeout(function(){ try{ var h=loadMainChat().filter(function(m){return !m.err;}); var convo=h.slice(-16).map(function(m){ return (m.role==='user'?'她：':'他：')+(m.text||''); }).join('\n'); _pastIngest(convo,false,UTIL_MODEL); }catch(e){} }, 2000); setTimeout(_graduateOld, 2600); setTimeout(function(){ try{ if(typeof coreObserveAfterTurn==='function') coreObserveAfterTurn(); }catch(e){} }, 1800); }   // 观察建档 + 往事归档 + 旧聊天抄进长期框架（持续）
     else { var _fid=_activeChat.id, _fbr=_activeChat.branch||'main'; setTimeout(function(){ ifFoldToFramework(_fid,_fbr); }, 300); }
   }catch(e){
