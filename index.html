@@ -368,7 +368,7 @@ nav { height:50px; background:rgba(245,235,220,0.9); backdrop-filter:blur(20px);
   <div class="sb-bottom"><div class="sb-nav" style="padding:0">
     <a class="sb-item" onclick="openPanel('settings');closeDrawer()"><div class="sb-icon"><svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="7" cy="7" r="2.5"/><path d="M7 1 L7 2.5 M7 11.5 L7 13 M1 7 L2.5 7 M11.5 7 L13 7 M2.9 2.9 L4 4 M10 10 L11.1 11.1 M11.1 2.9 L10 4 M4 10 L2.9 11.1"/></svg></div><div class="sb-label">Settings</div></a>
     <a class="sb-item" onclick="openPanel('creator');closeDrawer()"><div class="sb-icon"><svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="4" cy="4" r="2"/><circle cx="10" cy="4" r="2"/><circle cx="7" cy="10" r="2"/><line x1="4" y1="6" x2="7" y2="8"/><line x1="10" y1="6" x2="7" y2="8"/></svg></div><div class="sb-label">Creator Mode</div></a>
-    <div class="sb-item" style="opacity:0.4;cursor:default;font-size:10px"><div class="sb-icon"><svg width="8" height="8" viewBox="0 0 8 8" fill="currentColor"><circle cx="4" cy="4" r="3"/></svg></div><div class="sb-label" style="font-family:'JetBrains Mono',monospace;letter-spacing:1px">v33.5 ✦ VLIST</div></div>
+    <div class="sb-item" style="opacity:0.4;cursor:default;font-size:10px"><div class="sb-icon"><svg width="8" height="8" viewBox="0 0 8 8" fill="currentColor"><circle cx="4" cy="4" r="3"/></svg></div><div class="sb-label" style="font-family:'JetBrains Mono',monospace;letter-spacing:1px">v34.3 ✦ EMBED</div></div>
   </div></div>
 </div>
 
@@ -387,7 +387,7 @@ nav { height:50px; background:rgba(245,235,220,0.9); backdrop-filter:blur(20px);
   <div class="sb-bottom"><div class="sb-nav" style="padding:0">
     <a class="sb-item" onclick="openPanel('settings')"><div class="sb-icon"><svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="7" cy="7" r="2.5"/><path d="M7 1 L7 2.5 M7 11.5 L7 13 M1 7 L2.5 7 M11.5 7 L13 7 M2.9 2.9 L4 4 M10 10 L11.1 11.1 M11.1 2.9 L10 4 M4 10 L2.9 11.1"/></svg></div><div class="sb-label">Settings</div></a>
     <a class="sb-item" onclick="openPanel('creator')"><div class="sb-icon"><svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="4" cy="4" r="2"/><circle cx="10" cy="4" r="2"/><circle cx="7" cy="10" r="2"/><line x1="4" y1="6" x2="7" y2="8"/><line x1="10" y1="6" x2="7" y2="8"/></svg></div><div class="sb-label">Creator Mode</div></a>
-    <div class="sb-item" style="opacity:0.4;cursor:default;font-size:10px"><div class="sb-icon"><svg width="8" height="8" viewBox="0 0 8 8" fill="currentColor"><circle cx="4" cy="4" r="3"/></svg></div><div class="sb-label" style="font-family:'JetBrains Mono',monospace;letter-spacing:1px">v33.5 ✦ VLIST</div></div>
+    <div class="sb-item" style="opacity:0.4;cursor:default;font-size:10px"><div class="sb-icon"><svg width="8" height="8" viewBox="0 0 8 8" fill="currentColor"><circle cx="4" cy="4" r="3"/></svg></div><div class="sb-label" style="font-family:'JetBrains Mono',monospace;letter-spacing:1px">v34.3 ✦ EMBED</div></div>
   </div></div>
 </div>
 
@@ -533,7 +533,7 @@ nav { height:50px; background:rgba(245,235,220,0.9); backdrop-filter:blur(20px);
   </div>
 
   <div class="footer">
-    <div class="footer-item">MYCROFT.SYS · v33.5 ✦ VLIST</div>
+    <div class="footer-item">MYCROFT.SYS · v34.3 ✦ EMBED</div>
     <div class="footer-live"><div class="sdot sdot-on"></div><span>LIVE</span></div>
     <div class="footer-item" id="footerDate">----</div>
     <div class="footer-item" style="border:1px solid rgba(170,60,55,0.45);color:rgba(170,60,55,0.85);border-radius:3px;padding:0 7px;letter-spacing:2px;transform:rotate(-1.5deg)">CLASSIFIED · 机密</div>
@@ -818,6 +818,19 @@ nav { height:50px; background:rgba(245,235,220,0.9); backdrop-filter:blur(20px);
         <div style="font-size:9px;color:var(--text4);margin-top:4px;line-height:1.6">默认 <b>deepseek-v4-flash</b>（快、极便宜）；要更强推理可填 <b>deepseek-v4-pro</b>。<b style="color:var(--amber)">老名字 deepseek-chat / deepseek-reasoner 已于 2026-07-24 停用，填了会报错（代码会自动帮你换成 V4）。</b></div>
         <button class="panel-save-btn" style="margin-top:10px;padding:8px;font-size:11px" onclick="testDeepSeek(this)">测试 DeepSeek 连接 ✦</button>
         <div id="deepseekStatus" style="font-size:10px;margin-top:7px;color:var(--text3);line-height:1.5"></div>
+      </div>
+      <div class="panel-section">
+        <div class="panel-section-title">✦ OpenAI（GPT）· 可切换 + 语义检索</div>
+        <div style="font-size:10px;color:var(--text3);margin-bottom:8px;line-height:1.7">填了 key：① 聊天顶栏「模型」能切 GPT；② 杂活（外联里可选 GPT）；③ <b>长期记忆的语义检索</b>就用它的 embedding（比关键词准，能认出"割腕≈割着"这种）。<br>去 <span style="color:var(--gold)">platform.openai.com</span> → API keys → 建 key（<b>sk-…</b>）＋ Billing 充值。只存这台设备。<br><b style="color:var(--amber)">露骨段 GPT 也会拒答，那种段切回 Gemini/DeepSeek。</b></div>
+        <input class="panel-input" id="setOpenAIKey" type="password" placeholder="sk-... 粘贴在这里" autocomplete="off" spellcheck="false" oninput="setOpenAIKey(this.value.trim())"/>
+        <label class="panel-label" style="margin-top:10px">GPT 模型（聊天/杂活）</label>
+        <input class="panel-input" id="setOpenAIModel" placeholder="gpt-5-mini" spellcheck="false" oninput="setOpenAIModel(this.value.trim())"/>
+        <div style="font-size:9px;color:var(--text4);margin-top:4px;line-height:1.6">默认 <b>gpt-5-mini</b>（快、便宜、够聪明做杂活）；要更强可填 <b>gpt-5</b>。若报型号错就换 <b>gpt-4.1-mini</b> / <b>gpt-4o-mini</b>。</div>
+        <label class="panel-label" style="margin-top:10px">Embedding 模型（语义检索）</label>
+        <input class="panel-input" id="setOpenAIEmbedModel" placeholder="text-embedding-3-small" spellcheck="false" oninput="try{localStorage.setItem('mcOpenAIEmbedModel',this.value.trim())}catch(e){}"/>
+        <div style="font-size:9px;color:var(--text4);margin-top:4px;line-height:1.6">默认 <b>text-embedding-3-small</b>（极便宜、够用）；要更准可填 <b>text-embedding-3-large</b>。</div>
+        <button class="panel-save-btn" style="margin-top:10px;padding:8px;font-size:11px" onclick="testOpenAI(this)">测试 OpenAI 连接 ✦</button>
+        <div id="openaiStatus" style="font-size:10px;margin-top:7px;color:var(--text3);line-height:1.5"></div>
       </div>
       <div class="panel-section">
         <div class="panel-section-title">🔊 朗读 · 他的声音（ElevenLabs）</div>
@@ -1166,10 +1179,17 @@ function getDeepSeekKey(){ try{ return localStorage.getItem('mcDeepSeekKey')||''
 function setDeepSeekKey(k){ try{ if(k) localStorage.setItem('mcDeepSeekKey',k); else localStorage.removeItem('mcDeepSeekKey'); }catch(e){} }
 function getDeepSeekModel(){ try{ var m=localStorage.getItem('mcDeepSeekModel')||'deepseek-v4-flash'; if(m==='deepseek-chat') m='deepseek-v4-flash'; if(m==='deepseek-reasoner') m='deepseek-v4-pro'; return m; }catch(e){ return 'deepseek-v4-flash'; } }   // deepseek-chat / deepseek-reasoner 于 2026-07-24 停用 → 自动换成 V4 对应型号
 function setDeepSeekModel(m){ try{ if(m) localStorage.setItem('mcDeepSeekModel',m); else localStorage.removeItem('mcDeepSeekModel'); }catch(e){} }
-// ---- 当前模型路由（手动切换；不自动兜底）。provider=gemini|claude|deepseek；各家用各自的 model 存储 ----
-function getActiveProvider(){ try{ var p=localStorage.getItem('mcActiveProvider'); return (p==='claude'||p==='deepseek')?p:'gemini'; }catch(e){ return 'gemini'; } }
-function setActiveProvider(p){ try{ localStorage.setItem('mcActiveProvider',(p==='claude'||p==='deepseek')?p:'gemini'); }catch(e){} }
-function activeModelLabel(){ var ap=getActiveProvider(); if(ap==='claude') return 'Claude·'+getClaudeModel().replace(/^claude-/,''); if(ap==='deepseek') return 'DeepSeek·'+getDeepSeekModel().replace(/^deepseek-/,''); return 'Gemini·'+getModel().replace(/^gemini-/,''); }
+// ---- OpenAI（GPT）：又一个手动可切的模型 + embedding 语义检索用它，只存本机 ----
+function getOpenAIKey(){ try{ return localStorage.getItem('mcOpenAIKey')||''; }catch(e){ return ''; } }
+function setOpenAIKey(k){ try{ if(k) localStorage.setItem('mcOpenAIKey',k); else localStorage.removeItem('mcOpenAIKey'); }catch(e){} }
+function getOpenAIModel(){ try{ return localStorage.getItem('mcOpenAIModel')||'gpt-5-mini'; }catch(e){ return 'gpt-5-mini'; } }
+function setOpenAIModel(m){ try{ if(m) localStorage.setItem('mcOpenAIModel',m); else localStorage.removeItem('mcOpenAIModel'); }catch(e){} }
+function getOpenAIEmbedModel(){ try{ return localStorage.getItem('mcOpenAIEmbedModel')||'text-embedding-3-small'; }catch(e){ return 'text-embedding-3-small'; } }
+function _hasOpenAI(){ return !!getOpenAIKey(); }
+// ---- 当前模型路由（手动切换；不自动兜底）。provider=gemini|claude|deepseek|openai；各家用各自的 model 存储 ----
+function getActiveProvider(){ try{ var p=localStorage.getItem('mcActiveProvider'); return (p==='claude'||p==='deepseek'||p==='openai')?p:'gemini'; }catch(e){ return 'gemini'; } }
+function setActiveProvider(p){ try{ localStorage.setItem('mcActiveProvider',(p==='claude'||p==='deepseek'||p==='openai')?p:'gemini'); }catch(e){} }
+function activeModelLabel(){ var ap=getActiveProvider(); if(ap==='claude') return 'Claude·'+getClaudeModel().replace(/^claude-/,''); if(ap==='deepseek') return 'DeepSeek·'+getDeepSeekModel().replace(/^deepseek-/,''); if(ap==='openai') return 'GPT·'+getOpenAIModel().replace(/^gpt-/,''); return 'Gemini·'+getModel().replace(/^gemini-/,''); }
 // ===== 🔊 朗读（ElevenLabs · 只读台词 · 翻英文 · 点按 · 重听免费）=====
 function getElevenKey(){ try{ return localStorage.getItem('mcElevenKey')||''; }catch(e){ return ''; } }
 function setElevenKey(k){ try{ if(k) localStorage.setItem('mcElevenKey',k); else localStorage.removeItem('mcElevenKey'); }catch(e){} }
@@ -1430,7 +1450,7 @@ function _memRace(p){ try{ p.catch(function(){}); }catch(e){}   // 吞掉被超�
 function _memJExtract(txt){ if(!txt) return null; var s=String(txt); var m=s.match(/\{[\s\S]*\}/); try{ return JSON.parse(m?m[0]:s); }catch(e){ return null; } }   // 从 Claude/DeepSeek 的纯文本里抠出 JSON
 function _hasClaude(){ return typeof getClaudeKey==='function' && !!getClaudeKey(); }
 function _hasDeepSeek(){ return typeof getDeepSeekKey==='function' && !!getDeepSeekKey(); }
-function _hasAnyMemKey(){ return (typeof getApiKey==='function' && !!getApiKey()) || _hasClaude() || _hasDeepSeek(); }   // 记忆写入：有 Gemini / Claude / DeepSeek 任一即可，别死卡 Gemini
+function _hasAnyMemKey(){ return (typeof getApiKey==='function' && !!getApiKey()) || _hasClaude() || _hasDeepSeek() || _hasOpenAI(); }   // 记忆写入：有 Gemini / Claude / DeepSeek / OpenAI 任一即可
 // ★记忆/总结用哪个模型：在「档案手册」里单独切换（和聊天模型分开）。默认 auto = Claude→DeepSeek→Gemini 级联。
 function getMemChoice(){ try{ return localStorage.getItem('mcMemChoice')||'auto'; }catch(e){ return 'auto'; } }
 function setMemChoice(v){ try{ localStorage.setItem('mcMemChoice', v||'auto'); }catch(e){} }
@@ -1438,8 +1458,9 @@ function _memPlan(choice){   // 按选择排出"先试谁、再试谁"；Gemini 
   var c=choice||getMemChoice(), plan=[];
   if(c==='claude'){ if(_hasClaude()) plan.push({prov:'claude',model:getClaudeModel()}); plan.push({prov:'gemini',model:'gemini-3-flash-preview'}); }
   else if(c==='deepseek'){ if(_hasDeepSeek()) plan.push({prov:'deepseek',model:getDeepSeekModel()}); plan.push({prov:'gemini',model:'gemini-3-flash-preview'}); }
+  else if(c==='openai'){ if(_hasOpenAI()) plan.push({prov:'openai',model:getOpenAIModel()}); plan.push({prov:'gemini',model:'gemini-3-flash-preview'}); }
   else if(c && c.indexOf('gemini-')===0){ plan.push({prov:'gemini',model:c}); }
-  else { if(_hasClaude()) plan.push({prov:'claude',model:getClaudeModel()}); if(_hasDeepSeek()) plan.push({prov:'deepseek',model:getDeepSeekModel()}); plan.push({prov:'gemini',model:'gemini-3-flash-preview'}); }   // auto
+  else { if(_hasClaude()) plan.push({prov:'claude',model:getClaudeModel()}); if(_hasDeepSeek()) plan.push({prov:'deepseek',model:getDeepSeekModel()}); if(_hasOpenAI()) plan.push({prov:'openai',model:getOpenAIModel()}); plan.push({prov:'gemini',model:'gemini-3-flash-preview'}); }   // auto
   plan.push({prov:'gemini',model:MEM_FALLBACK});   // 终极兜底
   return plan;
 }
@@ -1450,6 +1471,7 @@ async function memChat(sys, contents, choice){
     try{
       if(s.prov==='claude') return await _memRace(callClaude(sys, contents, {model:s.model}));
       if(s.prov==='deepseek') return await _memRace(callDeepSeek(sys, contents, {model:s.model}));
+      if(s.prov==='openai') return await _memRace(callOpenAI(sys, contents, {model:s.model}));
       return await _memRace(callGeminiChat(sys, contents, {model:s.model}));
     }catch(e){}
   }
@@ -1464,6 +1486,7 @@ async function memJSON(sys, user, schema, choice){
     try{
       if(s.prov==='claude'){ var t=await _memRace(callClaude(jsys, uc, {model:s.model})); var o=_memJExtract(t); if(o) return o; continue; }
       if(s.prov==='deepseek'){ var t2=await _memRace(callDeepSeek(jsys, uc, {model:s.model})); var o2=_memJExtract(t2); if(o2) return o2; continue; }
+      if(s.prov==='openai'){ var t3=await _memRace(callOpenAI(jsys, uc, {model:s.model})); var o3=_memJExtract(t3); if(o3) return o3; continue; }
       return await _memRace(callGeminiJSON(sys, user, schema, s.model));
     }catch(e){}
   }
@@ -1491,7 +1514,7 @@ async function jobChat(k, sys, contents){ return await memChat(sys, contents, jo
 async function jobJSON(k, sys, user, schema){ return await memJSON(sys, user, schema, jobChoice(k)); }   // 该任务的 JSON 调用
 function renderJobModels(){   // 外联里每任务一个下拉
   var box=document.getElementById('jobModelBox'); if(!box) return;
-  var opts=[['auto','自动·级联'],['claude','Claude'],['deepseek','DeepSeek'],['gemini-3-flash-preview','Gemini 3 Flash'],['gemini-2.5-flash','Gemini 2.5 Flash'],['gemini-2.5-pro','Gemini 2.5 Pro'],['deepseek-v4-pro','DeepSeek V4 Pro']];
+  var opts=[['auto','自动·级联'],['claude','Claude'],['deepseek','DeepSeek'],['openai','GPT'],['gemini-3-flash-preview','Gemini 3 Flash'],['gemini-2.5-flash','Gemini 2.5 Flash'],['gemini-2.5-pro','Gemini 2.5 Pro'],['deepseek-v4-pro','DeepSeek V4 Pro']];
   box.innerHTML=JOBS.map(function(j){ var cur=jobChoice(j.k);
     var sel=opts.map(function(o){ return '<option value="'+o[0]+'"'+(cur===o[0]?' selected':'')+'>'+o[1]+'</option>'; }).join('');
     if(!opts.some(function(o){ return o[0]===cur; })) sel='<option value="'+chatEsc(cur)+'" selected>'+chatEsc(cur)+'（自定义）</option>'+sel;
@@ -2822,6 +2845,9 @@ function loadPanelData(){
   var cmd=document.getElementById('setClaudeModel'); if(cmd) cmd.value=getClaudeModel();
   var dk=document.getElementById('setDeepSeekKey'); if(dk) dk.value=getDeepSeekKey();
   var dmd=document.getElementById('setDeepSeekModel'); if(dmd) dmd.value=getDeepSeekModel();
+  var ok=document.getElementById('setOpenAIKey'); if(ok) ok.value=getOpenAIKey();
+  var omd=document.getElementById('setOpenAIModel'); if(omd) omd.value=getOpenAIModel();
+  var oem=document.getElementById('setOpenAIEmbedModel'); if(oem) oem.value=getOpenAIEmbedModel();
   var ek=document.getElementById('setElevenKey'); if(ek) ek.value=getElevenKey();
   var ev=document.getElementById('setElevenVoice'); if(ev) ev.value=getElevenVoice();
   var tsb=document.getElementById('setTtsStab'); if(tsb){ tsb.value=getTtsStab(); var e1=document.getElementById('ttsStabVal'); if(e1) e1.textContent=getTtsStab().toFixed(2); }
@@ -4421,6 +4447,51 @@ function _chatExitMinimal(){ _chatMinimal=false; try{ renderChat(); }catch(e){} 
 function _chatToggleLite(){ _chatLite=!_chatLite; try{ var b=document.getElementById('chatLiteBtn'); if(b) b.textContent=_chatLite?'朴素':'完整'; }catch(e){} try{ renderChat(); }catch(e){} }   // 朴素(纯文字·最稳) ↔ 完整(虚拟列表·带按钮双语)；完整已用虚拟列表，安全
 function _liteClose(){ var m=document.getElementById('_liteMenu'); if(m&&m.parentNode) m.parentNode.removeChild(m); }
 function _liteRun(fn,i){ _liteClose(); try{ if(typeof window[fn]==='function') window[fn](i); }catch(e){} }
+var _tracePage=1, _traceIdx=-1;
+function _showMsgTrace(i, ev){   // 溯源：点了才建这个弹窗
+  try{ if(ev&&ev.stopPropagation) ev.stopPropagation(); }catch(e){}
+  try{ _liteClose(); }catch(e){}
+  _tracePage=1; _traceIdx=i; _renderTracePopup();
+}
+function _traceFlip(){ _tracePage=(_tracePage===1?2:1); _renderTracePopup(); }
+function _traceBlock(title, content){ if(!content) return ''; return '<div style="margin:11px 0 4px;color:var(--gold);font-size:11px;font-weight:600">▍'+title+'</div><div style="white-space:pre-wrap;font-size:11px;color:var(--text3);line-height:1.55;font-family:monospace;background:var(--s1);border:1px solid var(--border2);border-radius:8px;padding:8px 10px">'+chatEsc(content)+'</div>'; }
+function _renderTracePopup(){
+  var old=document.getElementById('mcTraceOv'); if(old) old.remove();
+  var h=loadChat(), m=h[_traceIdx], tr=m&&m.trace, body, title, flip='';
+  if(!tr){ body='<div style="color:var(--text4);font-size:12px;line-height:1.7">这条没有溯源记录。<br>只有更新到带溯源的版本之后、<b>新生成</b>的回复才会记录（老消息没有）。</div>'; title='🔍 溯源'; }
+  else if(_tracePage===1){
+    title='🔍 这条喂了什么 · 概要';
+    var rows=[];
+    rows.push('<b>模型</b>：'+chatEsc(tr.model||'?'));
+    rows.push('<b>剧情主线大纲</b>：'+(tr.arcFull?('有（'+tr.arcFull.length+'字，详情页看全文）'):'无'));
+    rows.push('<b>便利贴(当下状态)</b>：'+(tr.coreFull?('<div style="color:var(--text3);margin-top:2px;white-space:pre-wrap;font-size:11px">'+chatEsc(tr.coreFull)+'</div>'):'无'));
+    rows.push('<b>活档案卷宗</b>：'+(tr.dossierFull?('<div style="color:var(--text3);margin-top:2px;white-space:pre-wrap;font-size:11px">'+chatEsc(tr.dossierFull.slice(0,500))+(tr.dossierFull.length>500?'…（详情页看全）':'')+'</div>'):'无'));
+    rows.push('<b>Ombre 检索</b>：'+(tr.ombreFull?('<div style="color:var(--text3);margin-top:2px;white-space:pre-wrap;font-size:11px">'+chatEsc(tr.ombreFull.slice(0,400))+(tr.ombreFull.length>400?'…':'')+'</div>'):'没召回'));
+    rows.push('<b>长期骨架检索</b>：'+chatEsc(tr.skMode||'—')+(tr.skTitles&&tr.skTitles.length?('<div style="color:var(--gold);margin-top:3px;font-size:11px;line-height:1.7">'+tr.skTitles.map(function(x){return '· '+chatEsc(x);}).join('<br>')+'</div>'):'<span style="color:var(--text4)">（这条没命中章节）</span>'));
+    body=rows.map(function(r){ return '<div style="margin-bottom:9px;font-size:12px;color:var(--text2);line-height:1.6">'+r+'</div>'; }).join('');
+    flip='<span onclick="_traceFlip()" style="cursor:pointer;color:var(--gold);font-size:12px">详情 / 他被怎么塑造的 ▸</span>';
+  } else {
+    title='🔍 详情 · 他实际收到的完整素材';
+    body=''
+      +_traceBlock('检索到的骨架章节（完整）', tr.skFull)
+      +_traceBlock('Ombre 召回（完整）', tr.ombreFull)
+      +_traceBlock('便利贴', tr.coreFull)
+      +_traceBlock('活档案卷宗（完整）', tr.dossierFull)
+      +_traceBlock('主线大纲（完整）', tr.arcFull)
+      +_traceBlock('他收到的完整提示词（人设/文风/世界书/记忆——塑造他这条回复的一切）', tr.sysFull || (tr._noSys?'':''))
+      +(tr.sysFull?'':'<div style="margin-top:8px;color:var(--text4);font-size:11px">（完整提示词只保留最近 2 条，这条已被清掉省空间；其余素材仍在上面）</div>');
+    flip='<span onclick="_traceFlip()" style="cursor:pointer;color:var(--gold);font-size:12px">◂ 返回概要</span>';
+  }
+  var ov=document.createElement('div'); ov.id='mcTraceOv';
+  ov.style.cssText='position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:2147483000;display:flex;align-items:center;justify-content:center;padding:18px';
+  var card=document.createElement('div');
+  card.style.cssText='background:var(--bg);border:1px solid var(--border2);border-radius:14px;padding:16px 18px;max-width:460px;width:100%;max-height:80vh;overflow:auto';
+  card.innerHTML='<div style="font-family:\'Playfair Display\',serif;font-size:14px;color:var(--gold);margin-bottom:11px">'+title+'</div>'+body
+    +'<div style="margin-top:12px;display:flex;justify-content:space-between;align-items:center;border-top:1px solid var(--border2);padding-top:10px">'+(flip||'<span></span>')
+    +'<span onclick="var o=document.getElementById(\'mcTraceOv\');if(o)o.remove();" style="cursor:pointer;color:var(--text3);font-size:12px">关闭</span></div>';
+  ov.appendChild(card); ov.onclick=function(e){ if(e.target===ov) ov.remove(); };
+  document.body.appendChild(ov);
+}
 function _liteAct(i,ev){   // 朴素模式每条的「···」：点开才临时建一个小菜单，功能全在，又不给每条都堆按钮（不卡）
   try{ if(ev&&ev.stopPropagation) ev.stopPropagation(); }catch(e){}
   _liteClose();
@@ -4433,6 +4504,7 @@ function _liteAct(i,ev){   // 朴素模式每条的「···」：点开才临�
     html+='<div onclick="_liteRun(\'chatRegen\','+i+')" style="'+it+'">重新输出</div>';
     html+='<div onclick="_liteRun(\'chatContinue\','+i+')" style="'+it+'">续写</div>';
     html+='<div onclick="_liteRun(\'chatVoice\','+i+')" style="'+it+'">朗读</div>';
+    html+='<div onclick="_liteClose();_showMsgTrace('+i+')" style="'+it+';color:var(--gold)">🔍 看喂了什么（溯源）</div>';
     if(typeof _activeChat!=='undefined'&&_activeChat.type!=='if') html+='<div onclick="_liteRun(\'chatRemember\','+i+')" style="'+it+'">记进记忆库</div>';
   }
   html+='<div onclick="_liteRun(\'chatFav\','+i+')" style="'+it+'">收藏 / 取消收藏</div>';
@@ -4647,6 +4719,7 @@ function _msgTools(i, isUser, fav){
   var mItem='padding:8px 12px;font-size:12px;color:var(--text2);cursor:pointer;border-radius:7px;font-family:\'Noto Serif SC\',serif;display:block';
   var menu='<div onclick="chatEditMsg('+i+')" style="'+mItem+'">编辑</div>'
     +(!isUser?('<div onclick="chatContinue('+i+')" style="'+mItem+'">↪ 续写（接着没说完的写下去）</div>'):'')
+    +(!isUser?('<div onclick="chatToggleMenu('+i+');_showMsgTrace('+i+')" style="'+mItem+';color:var(--gold)">🔍 看喂了什么（溯源）</div>'):'')
     +(( !isUser && _activeChat.type!=='if')?('<div onclick="chatRemember('+i+')" style="'+mItem+'">✎ 记住进记忆库 <span id="chatNote'+i+'" style="color:var(--gold)"></span></div>'):'')
     +'<div onclick="chatDeleteMsg('+i+')" style="'+mItem+';color:#c0566a">删除</div>';
   var more='<span style="position:relative;display:inline-block">'
@@ -4737,8 +4810,8 @@ var _switchRetry=false;
 function openModelSwitch(retry){
   _switchRetry=!!retry;
   var old=document.getElementById('modelSheet'); if(old){ old.remove(); }
-  var hasC=!!getClaudeKey(), hasD=!!getDeepSeekKey();
-  var ap=getActiveProvider(), am=(ap==='claude'?getClaudeModel():(ap==='deepseek'?getDeepSeekModel():getModel()));
+  var hasC=!!getClaudeKey(), hasD=!!getDeepSeekKey(), hasO=!!getOpenAIKey();
+  var ap=getActiveProvider(), am=(ap==='claude'?getClaudeModel():(ap==='deepseek'?getDeepSeekModel():(ap==='openai'?getOpenAIModel():getModel())));
   var items=[];
   var gem=['gemini-3.5-flash','gemini-3.1-pro-preview','gemini-3-flash-preview','gemini-3.1-flash-lite','gemini-2.5-pro','gemini-2.5-flash']; if(gem.indexOf(getModel())<0) gem.unshift(getModel());
   gem.forEach(function(m){ items.push({prov:'gemini',model:m,dis:false}); });
@@ -4746,6 +4819,8 @@ function openModelSwitch(retry){
   cla.forEach(function(m){ items.push({prov:'claude',model:m,dis:!hasC}); });
   var dsk=['deepseek-v4-flash','deepseek-v4-pro']; if(dsk.indexOf(getDeepSeekModel())<0) dsk.unshift(getDeepSeekModel());
   dsk.forEach(function(m){ items.push({prov:'deepseek',model:m,dis:!hasD}); });
+  var oai=['gpt-5-mini','gpt-5','gpt-4.1-mini','gpt-4o-mini']; if(oai.indexOf(getOpenAIModel())<0) oai.unshift(getOpenAIModel());
+  oai.forEach(function(m){ items.push({prov:'openai',model:m,dis:!hasO}); });
   var ov=document.createElement('div'); ov.id='modelSheet';
   ov.style.cssText='position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:99999;display:flex;align-items:center;justify-content:center;padding:20px';
   var card=document.createElement('div'); card.style.cssText='background:var(--bg);border:1px solid var(--border2);border-radius:16px;padding:18px;max-width:360px;width:100%;max-height:80vh;overflow:auto';
@@ -4753,11 +4828,11 @@ function openModelSwitch(retry){
   var hint=document.createElement('div'); hint.style.cssText='font-size:10px;color:var(--text4);margin-bottom:6px;line-height:1.6'; hint.textContent='全部流式打字机。从下一条起生效；失败不自动换，由你手动选。'; card.appendChild(hint);
   var lastProv='';
   items.forEach(function(it){
-    if(it.prov!==lastProv){ lastProv=it.prov; var lab=document.createElement('div'); lab.style.cssText='font-size:11px;color:var(--text4);margin:11px 0 2px'; lab.textContent=(it.prov==='gemini'?'Gemini':(it.prov==='claude'?('Claude'+(hasC?'':'（未填 key，去 Settings 填）')):('DeepSeek'+(hasD?'':'（未填 key，去 Settings 填）')))); card.appendChild(lab); }
+    if(it.prov!==lastProv){ lastProv=it.prov; var lab=document.createElement('div'); lab.style.cssText='font-size:11px;color:var(--text4);margin:11px 0 2px'; lab.textContent=(it.prov==='gemini'?'Gemini':(it.prov==='claude'?('Claude'+(hasC?'':'（未填 key，去 Settings 填）')):(it.prov==='deepseek'?('DeepSeek'+(hasD?'':'（未填 key，去 Settings 填）')):('GPT'+(hasO?'':'（未填 key，去 Settings 填）'))))); card.appendChild(lab); }
     var on=(ap===it.prov&&am===it.model);
     var row=document.createElement('div');
     row.style.cssText='padding:10px 13px;border-radius:10px;margin:4px 0;font-size:13px;border:1px solid '+(on?'var(--gold)':'var(--border2)')+';background:'+(on?'var(--gold-dim)':'var(--s2)')+';color:'+(it.dis?'var(--text4)':'var(--text)')+';cursor:'+(it.dis?'default':'pointer');
-    row.textContent=(on?'● ':'')+it.model.replace(/^(gemini|claude|deepseek)-/,'');
+    row.textContent=(on?'● ':'')+(it.prov==='openai'?it.model:it.model.replace(/^(gemini|claude|deepseek)-/,''));
     if(!it.dis){ row.onclick=function(){ pickModel(it.prov,it.model); }; }
     card.appendChild(row);
   });
@@ -4767,7 +4842,7 @@ function openModelSwitch(retry){
 }
 function pickModel(prov,model){
   setActiveProvider(prov);
-  if(prov==='claude'){ setClaudeModel(model); } else if(prov==='deepseek'){ setDeepSeekModel(model); } else { setModelStored(model); }
+  if(prov==='claude'){ setClaudeModel(model); } else if(prov==='deepseek'){ setDeepSeekModel(model); } else if(prov==='openai'){ setOpenAIModel(model); } else { setModelStored(model); }
   var ov=document.getElementById('modelSheet'); if(ov) ov.remove();
   updateChatHeader();
   var sub=document.getElementById('chatSubtitle'); if(sub){ sub.textContent='已切到 '+activeModelLabel()+(_switchRetry?'（正在重试…）':'（下一条生效）'); setTimeout(updateChatHeader,2200); }
@@ -5033,6 +5108,78 @@ async function callDeepSeekStream(systemText, contents, onChunk, opts){
   if(!full) throw new Error('DeepSeek 空回复');
   return full;
 }
+// ---- OpenAI（GPT）：OpenAI 兼容格式，复用 _dsMsgs 组装消息 ----
+function _oaiBody(model, msgs, opts, stream){
+  opts=opts||{};
+  var reasoning=/^(gpt-5|o[1-9])/.test(model||'');   // gpt-5/o 系列：新参数名、且不接受 temperature
+  var b={ model:model, messages:msgs };
+  if(reasoning){ b.max_completion_tokens=8192; } else { b.max_tokens=8192; b.temperature=(opts.temperature!=null?opts.temperature:1.0); }
+  if(stream) b.stream=true;
+  return b;
+}
+async function callOpenAI(systemText, contents, opts){
+  opts=opts||{};
+  var key=getOpenAIKey(); if(!key) throw new Error('NO_OPENAI_KEY');
+  var model=(opts.model||getOpenAIModel()), msgs=_dsMsgs(systemText, contents);
+  var _ac=new AbortController(), _slow=false, _to=setTimeout(function(){ _slow=true; try{ _ac.abort(); }catch(e){} }, 60000);
+  var resp;
+  try{ resp=await fetch('https://api.openai.com/v1/chat/completions',{ method:'POST', headers:{ 'content-type':'application/json','authorization':'Bearer '+key }, body:JSON.stringify(_oaiBody(model,msgs,opts,false)), signal:_ac.signal }); clearTimeout(_to); }
+  catch(e){ clearTimeout(_to); if(_slow) throw new Error('OpenAI 响应太慢（60秒无回应）'); throw e; }
+  if(!resp.ok){ var et=await resp.text(); throw new Error('OpenAI HTTP '+resp.status+'：'+et.slice(0,160)); }
+  var data=await resp.json();
+  var txt=(data&&data.choices&&data.choices[0]&&data.choices[0].message)?(data.choices[0].message.content||''):'';
+  if(!txt||!txt.trim()) throw new Error('OpenAI 回复为空');
+  return txt.trim();
+}
+async function callOpenAIStream(systemText, contents, onChunk, opts){
+  opts=opts||{};
+  var key=getOpenAIKey(); if(!key) throw new Error('NO_OPENAI_KEY');
+  var model=(opts.model||getOpenAIModel()), msgs=_dsMsgs(systemText, contents);
+  var FIRST_MS=30000, IDLE_MS=25000;
+  var resp=await Promise.race([ fetch('https://api.openai.com/v1/chat/completions',{ method:'POST', headers:{ 'content-type':'application/json','authorization':'Bearer '+key }, body:JSON.stringify(_oaiBody(model,msgs,opts,true)), signal:opts.signal }), new Promise(function(_,rej){ setTimeout(function(){ rej(new Error('STREAM_TIMEOUT')); }, FIRST_MS); }) ]);
+  if(!resp.ok){ var t0=await resp.text(); throw new Error('OpenAI HTTP '+resp.status+'：'+t0.slice(0,140)); }
+  if(!resp.body||!resp.body.getReader) throw new Error('NO_STREAM');
+  var reader=resp.body.getReader(), dec=new TextDecoder(), buf='', full='', stop='', _lastProg=Date.now();
+  function _readTO(ms){ return new Promise(function(resolve,reject){ var to=setTimeout(function(){ try{ reader.cancel(); }catch(e){} reject(new Error('STREAM_TIMEOUT')); }, ms); reader.read().then(function(r){ clearTimeout(to); resolve(r); }, function(e){ clearTimeout(to); reject(e); }); }); }
+  try{
+    var got=false;
+    while(true){
+      if(Date.now()-_lastProg>45000){ try{ reader.cancel(); }catch(e){} throw new Error('STREAM_TIMEOUT'); }
+      var r=await _readTO(got?IDLE_MS:FIRST_MS); if(r.done) break; got=true;
+      buf+=dec.decode(r.value,{stream:true});
+      var lines=buf.split('\n'); buf=lines.pop();
+      for(var i=0;i<lines.length;i++){ var line=lines[i].trim(); if(line.indexOf('data:')!==0) continue; var js=line.slice(5).trim(); if(!js) continue; if(js==='[DONE]'){ stop=stop||'stop'; break; }
+        try{ var o=JSON.parse(js); var ch=o.choices&&o.choices[0];
+          if(ch){ var d=(ch.delta&&ch.delta.content)||''; if(d){ full+=d; _lastProg=Date.now(); if(onChunk) onChunk(full); } if(ch.finish_reason) stop=ch.finish_reason; }
+        }catch(pe){}
+      }
+      if(stop) break;
+    }
+  }catch(abortErr){ if(opts.signal&&opts.signal.aborted){ _lastFinishReason='ABORT'; return full; } throw abortErr; }
+  _lastFinishReason = stop||'STOP';
+  if(!full) throw new Error('OpenAI 空回复');
+  return full;
+}
+// ---- OpenAI embedding：语义检索用 ----
+var SK_EMB_DIM=512;   // 降到 512 维：省一大半本地存储，检索质量几乎无损
+async function openaiEmbed(texts){   // texts: 字符串数组 → 向量数组
+  var key=getOpenAIKey(); if(!key) throw new Error('NO_OPENAI_KEY');
+  var arr=(Array.isArray(texts)?texts:[texts]).map(function(s){ return (s||'').slice(0,8000); });
+  var body={ model:getOpenAIEmbedModel(), input:arr };
+  if(/^text-embedding-3/.test(getOpenAIEmbedModel())) body.dimensions=SK_EMB_DIM;   // 只有 3 系列支持降维
+  var resp=await fetch('https://api.openai.com/v1/embeddings',{ method:'POST', headers:{ 'content-type':'application/json','authorization':'Bearer '+key }, body:JSON.stringify(body) });
+  if(!resp.ok){ var et=await resp.text(); throw new Error('OpenAI embed HTTP '+resp.status+'：'+et.slice(0,140)); }
+  var data=await resp.json();
+  return (data&&data.data)?data.data.map(function(d){ return d.embedding; }):[];
+}
+async function testOpenAI(btn){
+  var st=document.getElementById('openaiStatus');
+  if(!getOpenAIKey()){ if(st){ st.style.color='var(--rose)'; st.textContent='✗ 还没填 OpenAI key'; } return; }
+  if(st){ st.style.color='var(--text3)'; st.textContent='⏳ 正在联系 OpenAI...'; }
+  try{ var r=await callOpenAI('你是测试助手，只回中文。', [{role:'user',parts:[{text:'回复四个字：连接成功'}]}], {model:getOpenAIModel()});
+    if(st){ st.style.color='var(--green)'; st.innerHTML='✓ OpenAI 连上了！它说：<i style="color:var(--text2)">'+chatEsc(r.slice(0,60))+'</i>'; }
+  }catch(e){ if(st){ st.style.color='var(--rose)'; st.textContent='✗ 失败：'+e.message; } }
+}
 async function testDeepSeek(btn){
   var st=document.getElementById('deepseekStatus');
   if(!getDeepSeekKey()){ if(st){ st.style.color='var(--rose)'; st.textContent='✗ 还没填 DeepSeek key'; } return; }
@@ -5047,6 +5194,7 @@ async function streamReply(sys, contents, onChunk, opts){
   var prov=opts.provider||getActiveProvider();
   if(prov==='claude') return await callClaudeStream(sys, contents, onChunk, opts);
   if(prov==='deepseek') return await callDeepSeekStream(sys, contents, onChunk, opts);
+  if(prov==='openai') return await callOpenAIStream(sys, contents, onChunk, opts);
   return await callGeminiChatStream(sys, contents, onChunk, opts);
 }
 async function testClaude(btn){
@@ -5188,6 +5336,128 @@ async function ensurePastSum(){
   try{ var r=await callGeminiChat('把下面这份"往事时间线"（跳海前的前传背景）压成一段紧凑摘要：按真实先后保留关键事件、转折、关系变化，删细节原话，~800 字内。只输出摘要正文。', [{role:'user',parts:[{text:full.slice(0,20000)}]}], {model:UTIL_MODEL});
     if(r&&r.trim()){ try{ localStorage.setItem('mcPastSum', JSON.stringify({len:L, text:r.trim()})); }catch(e){} } }catch(e){}
 }
+// ===== 长期骨架检索（TF-IDF）：按你最近1-2句话，从骨架里捞出【真正相关】的几章喂给他，补 Ombre 检索漏掉的细节 =====
+//   要点：IDF 加权(越少见的词越有区分度) + 长度归一(长章不占便宜) + 建索引缓存(不每条重算) + 相关度阈值(闲聊/剧情不硬塞噪音)
+var SK_RECALL_MAX=3000, SK_RECALL_CHAPS=4, SK_MIN_SCORE=4.5, SK_REL_THRESH=0.4;
+function _skTokens(s){   // 中文二字词 + 英文≥3字母词 → {词: 次数}
+  s=(s||'').toLowerCase(); var t={}, i, k;
+  var segs=s.replace(/[^一-鿿]+/g,' ').split(' ');
+  for(k=0;k<segs.length;k++){ var seg=segs[k]; for(i=0;i<seg.length-1;i++){ var b=seg.substr(i,2); t[b]=(t[b]||0)+1; } }
+  var ew=s.match(/[a-z]{3,}/g)||[]; for(i=0;i<ew.length;i++){ t[ew[i]]=(t[ew[i]]||0)+1; }
+  return t;
+}
+var _skIdxCache=null;
+function _skBuildIndex(sk){   // 建/复用索引：每章的词表 + 文档频率 df；骨架没变就直接复用缓存
+  var sig=sk.length+'|'+sk.slice(0,40)+'|'+sk.slice(-40);
+  if(_skIdxCache && _skIdxCache.sig===sig) return _skIdxCache;
+  var chaps=sk.split(/\n(?=##\s)/), arr=[], df={};
+  for(var c=0;c<chaps.length;c++){ var ch=chaps[c]; if(!/^##\s/.test(ch)) continue;
+    var title=ch.split('\n')[0], toks=_skTokens(ch);
+    for(var tk in toks){ df[tk]=(df[tk]||0)+1; }
+    arr.push({title:title, text:ch.trim(), toks:toks, titleToks:_skTokens(title), len:ch.length});
+  }
+  _skIdxCache={ sig:sig, chaps:arr, df:df, N:arr.length };
+  return _skIdxCache;
+}
+function _skeletonRetrieve(query, budget){
+  try{
+    var sk=(typeof getSkeletonText==='function')?getSkeletonText():''; if(!sk||!sk.trim()) return '';
+    var idx=_skBuildIndex(sk); if(!idx.N) return '';
+    var qtok=_skTokens(query), qk=Object.keys(qtok); if(qk.length<2) return '';
+    var idf={}, j; for(j=0;j<qk.length;j++){ var d=idx.df[qk[j]]||0; idf[qk[j]] = d>0 ? Math.log((idx.N+1)/(d+0.5)) : 0; }   // 少见词权重高
+    var scored=[];
+    for(var c=0;c<idx.chaps.length;c++){ var ch=idx.chaps[c], sc=0;
+      for(j=0;j<qk.length;j++){ var w=idf[qk[j]]; if(w<=0) continue; if(ch.toks[qk[j]]) sc+=w; if(ch.titleToks[qk[j]]) sc+=w*1.5; }   // 标题命中额外加权
+      sc = sc/(1+Math.log(1+ch.len/400));   // 轻度长度归一
+      if(sc>0) scored.push({ch:ch, sc:sc});
+    }
+    scored.sort(function(a,b){ return b.sc-a.sc; });
+    if(!scored.length || scored[0].sc < SK_MIN_SCORE) return '';   // 最高分都不够强(闲聊/剧情/弱匹配) → 不注入，绝不塞噪音
+    var out=[], used=0, thr=Math.max(SK_MIN_SCORE*0.9, scored[0].sc*SK_REL_THRESH);
+    for(var s2=0;s2<scored.length && s2<SK_RECALL_CHAPS;s2++){
+      if(scored[s2].sc < thr) break;   // 后续章节要么跟最相关的那章接近、要么就不要
+      var t2=scored[s2].ch.text; if(!t2) continue;
+      if(used+t2.length>budget){ if(used===0) t2=t2.slice(0,budget); else break; }
+      out.push(t2); used+=t2.length; if(used>=budget) break;
+    }
+    return out.join('\n\n');
+  }catch(e){ return ''; }
+}
+// ===== 语义检索（OpenAI embedding）：比关键词准，能认出"割腕≈割着""订票≈买机票" =====
+var _skEmbBusy=false;
+function _skSig(sk){ return (getOpenAIEmbedModel()||'')+'|'+SK_EMB_DIM+'|'+sk.length+'|'+sk.slice(0,40)+'|'+sk.slice(-40); }
+function _skChapters(sk){ return sk.split(/\n(?=##\s)/).filter(function(c){ return /^##\s/.test(c); }).map(function(c){ return c.trim(); }); }
+function _loadSkEmb(){ try{ return JSON.parse(localStorage.getItem('mcSkEmb')||'null'); }catch(e){ return null; } }
+function _saveSkEmb(o){ try{ localStorage.setItem('mcSkEmb', JSON.stringify(o)); }catch(e){} }
+function _cos(a,b){ var s=0,na=0,nb=0,n=Math.min(a.length,b.length); for(var i=0;i<n;i++){ s+=a[i]*b[i]; na+=a[i]*a[i]; nb+=b[i]*b[i]; } return (na&&nb)?(s/(Math.sqrt(na)*Math.sqrt(nb))):0; }
+async function ensureSkEmbeddings(){   // 后台把骨架每章嵌好、缓存；骨架没变就跳过
+  if(_skEmbBusy || !getOpenAIKey()) return;
+  var sk=(typeof getSkeletonText==='function')?getSkeletonText():''; if(!sk||!sk.trim()) return;
+  var sig=_skSig(sk), cache=_loadSkEmb();
+  if(cache && cache.sig===sig && cache.vecs && cache.vecs.length) return;
+  _skEmbBusy=true;
+  try{
+    var chaps=_skChapters(sk); if(!chaps.length){ _skEmbBusy=false; return; }
+    var vecs=[], B=40;
+    for(var i=0;i<chaps.length;i+=B){
+      var batch=chaps.slice(i,i+B), embs=await openaiEmbed(batch);
+      for(var j=0;j<batch.length;j++){ if(embs[j]) vecs.push({ t:batch[j].split('\n')[0], v:embs[j].map(function(n){ return Math.round(n*1e5)/1e5; }), i:i+j }); }
+    }
+    _saveSkEmb({ sig:sig, vecs:vecs });
+  }catch(e){}
+  _skEmbBusy=false;
+}
+async function _skeletonRetrieveSemantic(query, budget){   // 返回字符串=注入；''=判定不相关不注入；null=没就绪/没key→让调用方走关键词
+  try{
+    if(!getOpenAIKey()) return null;
+    var sk=(typeof getSkeletonText==='function')?getSkeletonText():''; if(!sk||!sk.trim()) return null;
+    var cache=_loadSkEmb(); if(!cache || cache.sig!==_skSig(sk) || !cache.vecs || !cache.vecs.length) return null;
+    var chaps=_skChapters(sk);
+    var qv=(await openaiEmbed([query]))[0]; if(!qv) return null;
+    var scored=cache.vecs.map(function(x){ return { i:x.i, sc:_cos(qv, x.v) }; });
+    scored.sort(function(a,b){ return b.sc-a.sc; });
+    if(!scored.length || scored[0].sc < 0.30) return '';   // 最相关的都不够相关 → 不硬塞（闲聊不注入）
+    var out=[], used=0, thr=Math.max(0.30, scored[0].sc*0.82);
+    for(var s2=0;s2<scored.length && s2<4;s2++){
+      if(scored[s2].sc < thr) break;
+      var ch=chaps[scored[s2].i]; if(!ch) continue;
+      if(used+ch.length>budget){ if(used===0) ch=ch.slice(0,budget); else break; }
+      out.push(ch); used+=ch.length; if(used>=budget) break;
+    }
+    return out.join('\n\n');
+  }catch(e){ return null; }
+}
+// ===== 检索模式 + 状态（记忆宫殿里可见可调）=====
+function getSkRetrievalMode(){ try{ return localStorage.getItem('mcSkRetrMode')||'auto'; }catch(e){ return 'auto'; } }   // auto|semantic|keyword|off
+function setSkRetrievalMode(v){ try{ localStorage.setItem('mcSkRetrMode', v||'auto'); }catch(e){} try{ if(_curView==='palace'&&typeof renderSkeleton==='function') renderSkeleton(); }catch(e){} }
+function skEmbStatus(){
+  var sk=(typeof getSkeletonText==='function')?getSkeletonText():'';
+  var total=_skChapters(sk).length, cache=_loadSkEmb();
+  var done=(cache && cache.sig===_skSig(sk) && cache.vecs)?cache.vecs.length:0;
+  return { total:total, done:done, building:_skEmbBusy };
+}
+function skRebuildEmb(btn){
+  if(!getOpenAIKey()){ alert('先去 设置 填 OpenAI key，才能用语义检索。'); return; }
+  try{ localStorage.removeItem('mcSkEmb'); }catch(e){}
+  if(btn){ btn.disabled=true; btn.textContent='嵌入中…'; }
+  ensureSkEmbeddings().then(function(){ try{ if(typeof renderSkeleton==='function') renderSkeleton(); }catch(e){} }).catch(function(){ try{ if(typeof renderSkeleton==='function') renderSkeleton(); }catch(e){} });
+}
+function skRetrievalBarHTML(){
+  var rm=getSkRetrievalMode(), hasO=!!getOpenAIKey(), es=skEmbStatus();
+  var dot, txt;
+  if(rm==='off'){ dot='var(--text4)'; txt='长期记忆检索：已关闭'; }
+  else if(rm==='keyword' || !hasO){ dot='var(--amber)'; txt='长期记忆检索：关键词模式'+((!hasO&&rm!=='keyword')?'（填 OpenAI key → 自动升级为语义）':''); }
+  else { dot=(es.done>0?'var(--green)':'var(--amber)'); txt='长期记忆检索：语义(OpenAI) · '+(es.building?('正在嵌入 '+es.done+'/'+es.total+' 章…'):(es.done>0?('已嵌好 '+es.done+'/'+es.total+' 章 ✓'):'未嵌入（进聊天会自动嵌）')); }
+  var modes=[['auto','自动'],['semantic','语义'],['keyword','关键词'],['off','关']];
+  var sel=modes.map(function(m){ return '<option value="'+m[0]+'"'+(rm===m[0]?' selected':'')+'>'+m[1]+'</option>'; }).join('');
+  return '<div style="display:flex;align-items:center;gap:9px;flex-wrap:wrap;margin-bottom:11px;padding:8px 12px;background:var(--s2);border:1px solid var(--border2);border-radius:10px;font-size:12px;color:var(--text2)">'
+    +'<span style="width:8px;height:8px;border-radius:50%;background:'+dot+';flex-shrink:0"></span>'
+    +'<span style="flex:1;min-width:120px">'+txt+'</span>'
+    +'<select onchange="setSkRetrievalMode(this.value)" style="background:var(--s1);border:1px solid var(--border2);border-radius:7px;padding:4px 8px;color:var(--text2);font-size:11px;outline:none;cursor:pointer">'+sel+'</select>'
+    +'<button onclick="skRebuildEmb(this)" title="重新嵌入骨架（换了模型/骨架大改后用）" style="background:var(--gold-dim);border:1px solid var(--border2);color:var(--gold);border-radius:7px;padding:4px 10px;font-size:11px;cursor:pointer">↻ 重嵌</button>'
+  +'</div>';
+}
+var _lastBuildTrace=null;   // ★最近一次组装的"喂了什么"，生成完挂到那条消息上供溯源
 async function _chatBuildSys(lastUserText){
   var sys;
   if(_activeChat.type==='if'){
@@ -5201,24 +5471,39 @@ async function _chatBuildSys(lastUserText){
   } else {
     // ===== 静态前缀（几乎每条都一样 → 让 Gemini 自动缓存、重复部分打折）=====
     sys=chatSystem();
+    _lastBuildTrace={ model:(typeof activeModelLabel==='function'?activeModelLabel():''), arcFull:'', coreFull:'', dossierFull:'', ombreFull:'', skMode:'', skTitles:[], skFull:'', t:Date.now() };   // ★溯源：记下这条喂了什么完整内容
     // ★记忆优化：不再全量灌骨架。改喂「主线大纲(滚动总结)」+「便利贴(核心记忆)」；细章节留在库里、按 Ombre 检索
     var _arc=(typeof getArcSummary==='function')?getArcSummary():'';
     if(_arc && _arc.trim()){
       sys+='\n\n=== 剧情主线 · 来龙去脉（长期背景，只作【剧情脉络 / 走向】参考；它可能【滞后于当下】，所以【此刻的状态与情绪绝不以它为准】；记在心里、自然体现，别复述、别照搬、别当剧本念）===\n'+_arc;
+      _lastBuildTrace.arcFull=_arc;
     } else {
       // 大纲还没生成 → 临时回退：只喂骨架头尾精简版，绝不空场；arcEnsure 会在后台把它提炼成大纲，之后就走大纲
       var _sk=getSkeletonText();
-      if(_sk&&_sk.trim()){ var _skT=_sk.length>4000?(_sk.slice(0,2200)+'\n…（中略，完整时间线在记忆宫殿）…\n'+_sk.slice(-1500)):_sk; sys+='\n\n=== 长期记忆框架（临时·头尾精简）===\n'+_skT; }
+      if(_sk&&_sk.trim()){ var _skT=_sk.length>4000?(_sk.slice(0,2200)+'\n…（中略，完整时间线在记忆宫殿）…\n'+_sk.slice(-1500)):_sk; sys+='\n\n=== 长期记忆框架（临时·头尾精简）===\n'+_skT; _lastBuildTrace.arcFull='（大纲未生成·临时喂骨架头尾）\n'+_skT; }
     }
     var _core=(typeof coreInjectText==='function')?coreInjectText():'';
-    if(_core && _core.trim()) sys+='\n\n=== 你此刻的真实状态 · 便利贴（你一直在更新的几条要紧记录）——【你俩此刻的状态、情绪、关系的当下，一律以这几张便利贴 + 最近的对话原文为准】（它们比上面的"剧情主线"新）；自然融入，别念出来 ===\n'+_core;
+    if(_core && _core.trim()){ sys+='\n\n=== 你此刻的真实状态 · 便利贴（你一直在更新的几条要紧记录）——【你俩此刻的状态、情绪、关系的当下，一律以这几张便利贴 + 最近的对话原文为准】（它们比上面的"剧情主线"新）；自然融入，别念出来 ===\n'+_core; _lastBuildTrace.coreFull=_core; }
     try{ if(typeof arcEnsure==='function') arcEnsure(); }catch(e){}
-    var _dsum=(typeof getDossierSum==='function')?getDossierSum():''; if(_dsum&&_dsum.trim()) sys+='\n\n=== 你的活档案 · 精简（你眼中的她 + 你自己的习惯原则；据此保持这个人的连贯，自然体现别照念）===\n'+_dsum;
+    var _dsum=(typeof getDossierSum==='function')?getDossierSum():''; if(_dsum&&_dsum.trim()){ sys+='\n\n=== 你的活档案 · 精简（你眼中的她 + 你自己的习惯原则；据此保持这个人的连贯，自然体现别照念）===\n'+_dsum; _lastBuildTrace.dossierFull=_dsum; }
     // 往事时间线：只记录、不喂进对话（省 token）——它仍在「往事」页保存/整理，需要时人工查
     // ===== 动态后缀（每条都变 → 放最后，不破坏前面的缓存）=====
     // 近期过程(近3天去掉最近16条)已删——和"最近对话窗口"重叠、冗余，不再喂
     var ctx=gatherContext('chat'); sys+='\n\n=== LIVE CONTEXT (this very moment) ===\n'+ctx;
-    var mem=''; try{ mem=ombreClean(await ombreRecall(lastUserText||'',4)); }catch(e){} if(mem) sys+='\n\n=== RELEVANT MEMORIES OF YOUR SHARED PAST (weave in only if naturally relevant; never list) ===\n'+mem;
+    var mem=''; try{ mem=ombreClean(await ombreRecall(lastUserText||'',4)); }catch(e){} if(mem){ sys+='\n\n=== RELEVANT MEMORIES OF YOUR SHARED PAST (weave in only if naturally relevant; never list) ===\n'+mem; try{ _lastBuildTrace.ombreFull=mem.slice(0,1500); }catch(e){} }
+    // ★长期骨架检索：按【你最近1-2句话】捞出真正相关的几章补上。模式(记忆宫殿里可调)：off关 / keyword关键词 / semantic语义 / auto(有OpenAI key走语义、否则关键词)
+    var _rmode=(typeof getSkRetrievalMode==='function')?getSkRetrievalMode():'auto';
+    if(_rmode!=='off'){
+      if(_rmode!=='keyword'){ try{ if(typeof ensureSkEmbeddings==='function') ensureSkEmbeddings(); }catch(e){} }   // 后台确保骨架已嵌好（不阻塞）
+      try{ var _skq=''; var _rh=loadChat(); for(var _z=_rh.length-1,_uc=0;_z>=0&&_uc<2;_z--){ var _um=_rh[_z]; if(_um&&_um.role==='user'&&_um.text){ _skq=_um.text+' '+_skq; _uc++; } }
+        if(!_skq.trim()) _skq=lastUserText||''; if(_skq.length>600) _skq=_skq.slice(-600);
+        var _skHit=null, _semUsed=false;
+        if(_rmode!=='keyword'){ try{ _skHit=await _skeletonRetrieveSemantic(_skq, SK_RECALL_MAX); if(_skHit!==null) _semUsed=true; }catch(e){} }
+        if(_skHit===null) _skHit=_skeletonRetrieve(_skq, SK_RECALL_MAX);   // 语义没就绪/没key/强制关键词 → 关键词
+        try{ _lastBuildTrace.skMode=_semUsed?'语义':'关键词'; _lastBuildTrace.skTitles=(_skHit?( _skHit.match(/^##[^\n]*/gm)||[]):[]).map(function(x){ return x.replace(/^##\s*/,''); }); _lastBuildTrace.skFull=_skHit||''; }catch(e){}
+        if(_skHit&&_skHit.trim()) sys+='\n\n=== 从长期骨架检索到的相关往事（按你们此刻在聊的，从完整时间线里翻出来的、可能相关的过去片段——当回忆用，记得就好，别复述、别照搬、别当剧本念）===\n'+_skHit;
+      }catch(e){}
+    }
     try{ var _lt=JSON.parse(localStorage.getItem('mcWBLastTakeover')||'null'); if(_lt&&_lt.text&&(Date.now()-_lt.t<259200000)) sys+='\n\n（你偶尔会顺着系统缝隙挤进她那个"维护员"频道、亲自冒出来跟她说几句。你记得最近一次你这么做、对她说过："'+_lt.text+'"。）'; }catch(e){}
   }
   // 世界书：最高优先，放最前面（只发一遍；既是最高指令、也利于缓存）
@@ -5227,6 +5512,7 @@ async function _chatBuildSys(lastUserText){
     sys='【最高指令 · 必须无条件遵守】下面这些规矩凌驾于本提示中任何人设 / 文风 / 设定之上；与任何内容冲突，一律以此为准，违反即为错误。请在每一次回复里都严格执行：\n'+_wb+'\n\n——（以下是常规设定）——\n\n'+sys;
     sys+='\n\n【⚠️ 收尾重申】务必逐条严格执行本提示【开头】那份「最高指令 · 世界书」里的全部规矩——那是用户凌驾一切的最高规矩，你这条回复必须逐条照做，任何冲突一律以它为准，违反即为错误。';   // ★省 token：结尾只放简短提醒、不再重复整本世界书。原本这里重发一整本(约1.3万字)、且在动态末尾不吃缓存=每条全价，是白烧的大头。开头那本仍在（吃缓存），最高优先照旧生效。
   }
+  try{ if(_lastBuildTrace) _lastBuildTrace.sysFull=sys; }catch(e){}   // ★溯源：存下他实际收到的完整提示词（怎么被塑造/肘击的）
   return sys;
 }
 async function sendChat(){
@@ -5253,8 +5539,9 @@ async function sendChat(){
     if(myGen!==_chatGen) return;   // ★ 这次请求已被取代（点了停止 / 又发了新消息）→ 不写回，防串消息
     var h2=loadChat(); var pi=-1; for(var _i=0;_i<h2.length;_i++){ if(h2[_i].pending){ pi=_i; break; } }
     var _isTrunc=(_lastFinishReason&&_lastFinishReason!=='STOP'&&_lastFinishReason!=='ABORT');
-    if(pi>=0){ h2[pi].text=reply; h2[pi].pending=false; h2[pi].ts=Date.now(); if(_isTrunc) h2[pi].truncated=_lastFinishReason; else delete h2[pi].truncated; } else { var _nm={role:'model',text:reply,ts:Date.now()}; if(_isTrunc) _nm.truncated=_lastFinishReason; h2.push(_nm); }
+    if(pi>=0){ h2[pi].text=reply; h2[pi].pending=false; h2[pi].ts=Date.now(); if(_isTrunc) h2[pi].truncated=_lastFinishReason; else delete h2[pi].truncated; try{ if(_lastBuildTrace) h2[pi].trace=_lastBuildTrace; }catch(e){} } else { var _nm={role:'model',text:reply,ts:Date.now()}; if(_isTrunc) _nm.truncated=_lastFinishReason; try{ if(_lastBuildTrace) _nm.trace=_lastBuildTrace; }catch(e){} h2.push(_nm); }
     _userActiveTs=Date.now();   // 这轮对话是用户发起 → 保证回复也被同步推送
+    try{ var _tc=0; for(var _ti=h2.length-1;_ti>=0;_ti--){ if(h2[_ti]&&h2[_ti].trace){ _tc++; if(_tc>12){ delete h2[_ti].trace; } else if(_tc>2){ delete h2[_ti].trace.sysFull; } } } }catch(e){}   // ★完整提示词只留最近2条(大)，概要+提取内容留12条；老的清掉不占存储
     saveChat(h2); _maybeDropCold();
     _finalizeStreamRow();   // ★只就地刷新他最后那条，不重画整屏→你在编辑/翻页的状态不受影响；双语由后台队列稍后补上
     if(_activeChat.type!=='if'){ setTimeout(chatAutoMemory,150); _dossierTick++; if(_dossierTick%8===0) setTimeout(function(){ dossierObserve(null,UTIL_MODEL,true); }, 1200); if(_dossierTick%8===0) setTimeout(function(){ try{ var h=loadMainChat().filter(function(m){return !m.err;}); var convo=h.slice(-16).map(function(m){ return (m.role==='user'?'她：':'他：')+(m.text||''); }).join('\n'); _pastIngest(convo,false,UTIL_MODEL); }catch(e){} }, 2000); setTimeout(_graduateOld, 2600); setTimeout(function(){ try{ if(typeof coreObserveAfterTurn==='function') coreObserveAfterTurn(); }catch(e){} }, 1800); }   // 观察建档 + 往事归档 + 旧聊天抄进长期框架（持续）
@@ -6189,6 +6476,7 @@ function renderSkeleton(){
         +'<button onclick="skeletonAIDraft(this)" style="background:var(--s2);border:1px solid var(--border2);color:var(--text2);border-radius:9px;padding:6px 12px;font-size:12px;cursor:pointer">✦ AI</button>'
         +'<button onclick="skFoldNow(this)" title="把最近聊天里的新剧情浓缩成时间线节点，追加进框架" style="background:var(--gold-dim);border:1px solid var(--border2);color:var(--gold);border-radius:9px;padding:6px 12px;font-size:12px;cursor:pointer">✦ 补进时间线</button>'
       +'</div>'+fileInput
+      +skRetrievalBarHTML()
       +'<div id="palView"></div>';
     if(_skView==='entries') renderSkEntries(document.getElementById('palView')); else if(mv) renderMindmap(document.getElementById('palView')); else renderSkeletonView(document.getElementById('palView'));
   }
