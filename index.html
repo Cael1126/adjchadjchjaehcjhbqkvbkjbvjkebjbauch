@@ -1088,6 +1088,7 @@ function _showErrBanner(){
   document.body.appendChild(b);
 }
 try{ if(document.readyState!=='loading') setTimeout(function(){ try{ _showErrBanner(); }catch(e){} }, 300); else document.addEventListener('DOMContentLoaded', function(){ setTimeout(function(){ try{ _showErrBanner(); }catch(e){} }, 300); }); }catch(e){}
+try{ setTimeout(function(){ try{ if(typeof _skEmbMigrate==='function') _skEmbMigrate(); }catch(e){} }, 1500); }catch(e){}   // ★启动就把嵌入缓存从 localStorage 迁进 IndexedDB，腾出空间（不管有没有 OpenAI key）
 function pad(n){ return String(n).padStart(2,'0'); }
 var DAYS=['SUN','MON','TUE','WED','THU','FRI','SAT'];
 var MONS=['JAN','FEB','MAR','APR','MAY','JUN','JUL','AUG','SEP','OCT','NOV','DEC'];
@@ -5387,13 +5388,19 @@ function _skeletonRetrieve(query, budget){
 var _skEmbBusy=false;
 function _skSig(sk){ return (getOpenAIEmbedModel()||'')+'|'+SK_EMB_DIM+'|'+sk.length+'|'+sk.slice(0,40)+'|'+sk.slice(-40); }
 function _skChapters(sk){ return sk.split(/\n(?=##\s)/).filter(function(c){ return /^##\s/.test(c); }).map(function(c){ return c.trim(); }); }
-function _loadSkEmb(){ try{ return JSON.parse(localStorage.getItem('mcSkEmb')||'null'); }catch(e){ return null; } }
-function _saveSkEmb(o){ try{ localStorage.setItem('mcSkEmb', JSON.stringify(o)); }catch(e){} }
+// ★嵌入缓存放 IndexedDB（不占宝贵的 localStorage）；内存里留一份供同步读
+var _skEmbMem=null, _skEmbLoaded=false;
+async function _skEmbMigrate(){   // 一次性：把旧的存 localStorage 的嵌入搬进 IndexedDB，腾出 localStorage
+  try{ var old=localStorage.getItem('mcSkEmb'); if(old!==null){ try{ var o=JSON.parse(old); if(o&&typeof archDbPut==='function'){ await archDbPut('mcSkEmb', o); _skEmbMem=o; } }catch(e){} try{ localStorage.removeItem('mcSkEmb'); }catch(e){} } }catch(e){}
+}
+async function _loadSkEmb(){ if(_skEmbLoaded) return _skEmbMem; _skEmbLoaded=true; try{ await _skEmbMigrate(); if(!_skEmbMem && typeof archDbGet==='function') _skEmbMem=(await archDbGet('mcSkEmb'))||null; }catch(e){} return _skEmbMem; }
+function _skEmbCached(){ return _skEmbMem; }   // 同步读（可能 null=还没加载完）
+async function _saveSkEmb(o){ _skEmbMem=o; _skEmbLoaded=true; try{ if(typeof archDbPut==='function') await archDbPut('mcSkEmb', o); }catch(e){} }
 function _cos(a,b){ var s=0,na=0,nb=0,n=Math.min(a.length,b.length); for(var i=0;i<n;i++){ s+=a[i]*b[i]; na+=a[i]*a[i]; nb+=b[i]*b[i]; } return (na&&nb)?(s/(Math.sqrt(na)*Math.sqrt(nb))):0; }
 async function ensureSkEmbeddings(){   // 后台把骨架每章嵌好、缓存；骨架没变就跳过
   if(_skEmbBusy || !getOpenAIKey()) return;
   var sk=(typeof getSkeletonText==='function')?getSkeletonText():''; if(!sk||!sk.trim()) return;
-  var sig=_skSig(sk), cache=_loadSkEmb();
+  var sig=_skSig(sk), cache=await _loadSkEmb();
   if(cache && cache.sig===sig && cache.vecs && cache.vecs.length) return;
   _skEmbBusy=true;
   try{
@@ -5403,7 +5410,7 @@ async function ensureSkEmbeddings(){   // 后台把骨架每章嵌好、缓存�
       var batch=chaps.slice(i,i+B), embs=await openaiEmbed(batch);
       for(var j=0;j<batch.length;j++){ if(embs[j]) vecs.push({ t:batch[j].split('\n')[0], v:embs[j].map(function(n){ return Math.round(n*1e5)/1e5; }), i:i+j }); }
     }
-    _saveSkEmb({ sig:sig, vecs:vecs });
+    await _saveSkEmb({ sig:sig, vecs:vecs });
   }catch(e){}
   _skEmbBusy=false;
 }
@@ -5411,7 +5418,7 @@ async function _skeletonRetrieveSemantic(query, budget){   // 返回字符串=�
   try{
     if(!getOpenAIKey()) return null;
     var sk=(typeof getSkeletonText==='function')?getSkeletonText():''; if(!sk||!sk.trim()) return null;
-    var cache=_loadSkEmb(); if(!cache || cache.sig!==_skSig(sk) || !cache.vecs || !cache.vecs.length) return null;
+    var cache=await _loadSkEmb(); if(!cache || cache.sig!==_skSig(sk) || !cache.vecs || !cache.vecs.length) return null;
     var chaps=_skChapters(sk);
     var qv=(await openaiEmbed([query]))[0]; if(!qv) return null;
     var scored=cache.vecs.map(function(x){ return { i:x.i, sc:_cos(qv, x.v) }; });
@@ -5432,7 +5439,7 @@ function getSkRetrievalMode(){ try{ return localStorage.getItem('mcSkRetrMode')|
 function setSkRetrievalMode(v){ try{ localStorage.setItem('mcSkRetrMode', v||'auto'); }catch(e){} try{ if(_curView==='palace'&&typeof renderSkeleton==='function') renderSkeleton(); }catch(e){} }
 function skEmbStatus(){
   var sk=(typeof getSkeletonText==='function')?getSkeletonText():'';
-  var total=_skChapters(sk).length, cache=_loadSkEmb();
+  var total=_skChapters(sk).length, cache=_skEmbCached();
   var done=(cache && cache.sig===_skSig(sk) && cache.vecs)?cache.vecs.length:0;
   return { total:total, done:done, building:_skEmbBusy };
 }
@@ -5512,7 +5519,7 @@ async function _chatBuildSys(lastUserText){
     sys='【最高指令 · 必须无条件遵守】下面这些规矩凌驾于本提示中任何人设 / 文风 / 设定之上；与任何内容冲突，一律以此为准，违反即为错误。请在每一次回复里都严格执行：\n'+_wb+'\n\n——（以下是常规设定）——\n\n'+sys;
     sys+='\n\n【⚠️ 收尾重申】务必逐条严格执行本提示【开头】那份「最高指令 · 世界书」里的全部规矩——那是用户凌驾一切的最高规矩，你这条回复必须逐条照做，任何冲突一律以它为准，违反即为错误。';   // ★省 token：结尾只放简短提醒、不再重复整本世界书。原本这里重发一整本(约1.3万字)、且在动态末尾不吃缓存=每条全价，是白烧的大头。开头那本仍在（吃缓存），最高优先照旧生效。
   }
-  try{ if(_lastBuildTrace) _lastBuildTrace.sysFull=sys; }catch(e){}   // ★溯源：存下他实际收到的完整提示词（怎么被塑造/肘击的）
+  try{ if(_lastBuildTrace) _lastBuildTrace.sysFull=sys; }catch(e){}   // ★溯源：完整提示词（怎么被塑造/肘击的）；prune 只留最近2条
   return sys;
 }
 async function sendChat(){
