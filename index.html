@@ -368,7 +368,7 @@ nav { height:50px; background:rgba(245,235,220,0.9); backdrop-filter:blur(20px);
   <div class="sb-bottom"><div class="sb-nav" style="padding:0">
     <a class="sb-item" onclick="openPanel('settings');closeDrawer()"><div class="sb-icon"><svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="7" cy="7" r="2.5"/><path d="M7 1 L7 2.5 M7 11.5 L7 13 M1 7 L2.5 7 M11.5 7 L13 7 M2.9 2.9 L4 4 M10 10 L11.1 11.1 M11.1 2.9 L10 4 M4 10 L2.9 11.1"/></svg></div><div class="sb-label">Settings</div></a>
     <a class="sb-item" onclick="openPanel('creator');closeDrawer()"><div class="sb-icon"><svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="4" cy="4" r="2"/><circle cx="10" cy="4" r="2"/><circle cx="7" cy="10" r="2"/><line x1="4" y1="6" x2="7" y2="8"/><line x1="10" y1="6" x2="7" y2="8"/></svg></div><div class="sb-label">Creator Mode</div></a>
-    <div class="sb-item" style="opacity:0.4;cursor:default;font-size:10px"><div class="sb-icon"><svg width="8" height="8" viewBox="0 0 8 8" fill="currentColor"><circle cx="4" cy="4" r="3"/></svg></div><div class="sb-label" style="font-family:'JetBrains Mono',monospace;letter-spacing:1px">v34.9 ✦ SUPA2</div></div>
+    <div class="sb-item" style="opacity:0.4;cursor:default;font-size:10px"><div class="sb-icon"><svg width="8" height="8" viewBox="0 0 8 8" fill="currentColor"><circle cx="4" cy="4" r="3"/></svg></div><div class="sb-label" style="font-family:'JetBrains Mono',monospace;letter-spacing:1px">v35.0 ✦ WINSLIM</div></div>
   </div></div>
 </div>
 
@@ -387,7 +387,7 @@ nav { height:50px; background:rgba(245,235,220,0.9); backdrop-filter:blur(20px);
   <div class="sb-bottom"><div class="sb-nav" style="padding:0">
     <a class="sb-item" onclick="openPanel('settings')"><div class="sb-icon"><svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="7" cy="7" r="2.5"/><path d="M7 1 L7 2.5 M7 11.5 L7 13 M1 7 L2.5 7 M11.5 7 L13 7 M2.9 2.9 L4 4 M10 10 L11.1 11.1 M11.1 2.9 L10 4 M4 10 L2.9 11.1"/></svg></div><div class="sb-label">Settings</div></a>
     <a class="sb-item" onclick="openPanel('creator')"><div class="sb-icon"><svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="4" cy="4" r="2"/><circle cx="10" cy="4" r="2"/><circle cx="7" cy="10" r="2"/><line x1="4" y1="6" x2="7" y2="8"/><line x1="10" y1="6" x2="7" y2="8"/></svg></div><div class="sb-label">Creator Mode</div></a>
-    <div class="sb-item" style="opacity:0.4;cursor:default;font-size:10px"><div class="sb-icon"><svg width="8" height="8" viewBox="0 0 8 8" fill="currentColor"><circle cx="4" cy="4" r="3"/></svg></div><div class="sb-label" style="font-family:'JetBrains Mono',monospace;letter-spacing:1px">v34.9 ✦ SUPA2</div></div>
+    <div class="sb-item" style="opacity:0.4;cursor:default;font-size:10px"><div class="sb-icon"><svg width="8" height="8" viewBox="0 0 8 8" fill="currentColor"><circle cx="4" cy="4" r="3"/></svg></div><div class="sb-label" style="font-family:'JetBrains Mono',monospace;letter-spacing:1px">v35.0 ✦ WINSLIM</div></div>
   </div></div>
 </div>
 
@@ -533,7 +533,7 @@ nav { height:50px; background:rgba(245,235,220,0.9); backdrop-filter:blur(20px);
   </div>
 
   <div class="footer">
-    <div class="footer-item">MYCROFT.SYS · v34.9 ✦ SUPA2</div>
+    <div class="footer-item">MYCROFT.SYS · v35.0 ✦ WINSLIM</div>
     <div class="footer-live"><div class="sdot sdot-on"></div><span>LIVE</span></div>
     <div class="footer-item" id="footerDate">----</div>
     <div class="footer-item" style="border:1px solid rgba(170,60,55,0.45);color:rgba(170,60,55,0.85);border-radius:3px;padding:0 7px;letter-spacing:2px;transform:rotate(-1.5deg)">CLASSIFIED · 机密</div>
@@ -4770,6 +4770,47 @@ function chatFav(i){ var h=loadChat(); if(i<0||i>=h.length) return; h[i].fav=!h[
 function _winKey(){ return 'mcWin_'+chatKey(); }
 function loadWindows(){ try{ return JSON.parse(localStorage.getItem(_winKey())||'[]'); }catch(e){ return []; } }
 function saveWindows(a){ try{ localStorage.setItem(_winKey(), JSON.stringify(a)); }catch(e){} }
+// ★窗口正文搬进 IndexedDB：localStorage 只留索引(id/ts/title/n)。
+// 正文在开新窗时已由 _archiveNowCurrent 存进「浏览存档」一份，留在 localStorage 是纯重复——既顶满那 5MB，又因为 mcWin_* 不在同步跳过名单里、每次同步都白传一遍（Supabase 出站流量的一个源头）。
+function _winBodyKey(id){ return 'winbody_'+id; }
+async function saveWindowsIDB(arr){
+  var idx=[];
+  for(var i=0;i<(arr||[]).length;i++){
+    var w=arr[i]; if(!w) continue;
+    if(w.chat && w.chat.length){
+      var ok=false; try{ ok=await archDbPut(_winBodyKey(w.id), w.chat); }catch(e){ ok=false; }
+      if(ok) idx.push({id:w.id, ts:w.ts, title:w.title, n:w.n});   // ★落库确认成功，才剥掉正文
+      else   idx.push(w);                                          // 落库失败 → 正文原样留着，绝不丢
+    } else idx.push({id:w.id, ts:w.ts, title:w.title, n:w.n});
+  }
+  try{ localStorage.setItem(_winKey(), JSON.stringify(idx)); }catch(e){}
+}
+async function loadWindowBody(id){
+  var a=loadWindows();
+  for(var i=0;i<a.length;i++){ if(a[i]&&a[i].id===id&&a[i].chat) return a[i].chat; }   // 老格式：正文还在 localStorage
+  try{ return (await archDbGet(_winBodyKey(id))) || []; }catch(e){ return []; }
+}
+async function _migrateWinBodiesToIDB(){   // 一次性：把已存的旧窗口正文从 localStorage 搬进 IndexedDB
+  try{
+    var keys=[]; for(var i=0;i<localStorage.length;i++){ var k=localStorage.key(i); if(k&&k.indexOf('mcWin_')===0) keys.push(k); }
+    for(var j=0;j<keys.length;j++){
+      var key=keys[j], arr=null;
+      try{ arr=JSON.parse(localStorage.getItem(key)||'[]'); }catch(e){ continue; }
+      if(!Array.isArray(arr)||!arr.length) continue;
+      var need=false; for(var m=0;m<arr.length;m++){ if(arr[m]&&arr[m].chat){ need=true; break; } }
+      if(!need) continue;
+      var idx=[];
+      for(var n=0;n<arr.length;n++){
+        var w=arr[n]; if(!w) continue;
+        if(w.chat&&w.chat.length){
+          var ok=false; try{ ok=await archDbPut(_winBodyKey(w.id), w.chat); }catch(e){ ok=false; }
+          idx.push(ok ? {id:w.id, ts:w.ts, title:w.title, n:w.n} : w);
+        } else idx.push({id:w.id, ts:w.ts, title:w.title, n:w.n});
+      }
+      try{ _rawSet(key, JSON.stringify(idx)); }catch(e){}   // 原始写：不触发同步、不被字符串化
+    }
+  }catch(e){}
+}
 function _winTitle(chat){ for(var i=0;i<chat.length;i++){ if(chat[i].role==='user'&&chat[i].text) return chat[i].text.replace(/\s+/g,' ').slice(0,26); } if(chat.length) return mcCleanText(chat[chat.length-1].text||'').replace(/\s+/g,' ').slice(0,26); return '空窗'; }
 async function _foldCurrentToMemory(){ try{ if(_activeChat.type==='if'){ await ifFoldToFramework(_activeChat.id,_activeChat.branch||'main'); } else { await foldChatToFramework(false); await chatAutoMemory(); } }catch(e){} }
 function openWinPanel(){ if(_activeChat.type!=='if'&&_activeChat.type!=='main') return; var ov=document.getElementById('winOverlay'); if(ov) ov.classList.add('open'); renderWinPanel(); }
@@ -4805,7 +4846,7 @@ async function chatNewWindow(){
   if(cur.length){
     if(getApiKey()){ var sub=document.getElementById('chatSubtitle'); if(sub) sub.textContent='归纳这扇窗的记忆…'; _chatBusy=true; try{ await _foldCurrentToMemory(); }catch(e){} _chatBusy=false; }   // ①折进长期骨架
     try{ _archiveNowCurrent(); }catch(e){}   // ②强制归档进浏览存档（即使没满 500）
-    var a=loadWindows(); a.unshift({id:'w'+Date.now(), ts:Date.now(), title:_winTitle(cur), n:cur.length, chat:cur }); saveWindows(a);   // ③旧窗仍可切回
+    var a=loadWindows(); a.unshift({id:'w'+Date.now(), ts:Date.now(), title:_winTitle(cur), n:cur.length, chat:cur }); await saveWindowsIDB(a);   // ③旧窗仍可切回（正文进 IndexedDB，localStorage 只留索引）
   }
   // ④界面只留最后 20 条当"冷摆设"：只显示、永不喂 AI（隔离旧窗文风）；新窗一开始聊，只灌新产出
   var coldBuf=cur.slice(-PINNED_KEEP).map(function(m){ var c=_cloneMsg(m); c._cold=true; delete c._pinned; return c; });
@@ -4817,11 +4858,15 @@ async function chatSwitchWindow(id){
   var cur=loadChat();
   if(cur.length && getApiKey()){ var sub=document.getElementById('chatSubtitle'); if(sub) sub.textContent='归纳记忆…'; _chatBusy=true; try{ await _foldCurrentToMemory(); }catch(e){} _chatBusy=false; }   // 先把当前窗归纳进共享记忆 → 切到哪扇窗他都记得
   a=loadWindows(); idx=-1; for(var j=0;j<a.length;j++){ if(a[j].id===id){ idx=j; break; } } if(idx<0){ closeWinPanel(); return; }
-  var target=a[idx]; a.splice(idx,1);
+  var body=await loadWindowBody(id);   // ★先把正文取出来（可能在 IndexedDB），再动列表——顺序反了会取不到
+  if(!body || !body.length){ alert('这扇窗的内容没读出来，先不切了，免得把当前对话冲掉。'); return; }   // 读不到就中止，绝不用空数组覆盖当前对话
+  a.splice(idx,1);
   if(cur.length) a.unshift({ id:'w'+Date.now(), ts:Date.now(), title:_winTitle(cur), n:cur.length, chat:cur });
-  saveWindows(a); saveChat(target.chat||[]); closeWinPanel(); renderChat(); updateChatHeader();
+  await saveWindowsIDB(a);
+  try{ await archDbPut(_winBodyKey(id), []); }catch(e){}   // 这扇窗已成为当前对话，库里那份腾掉
+  saveChat(body); closeWinPanel(); renderChat(); updateChatHeader();
 }
-function delWindow(id){ if(!confirm('删除这扇旧窗口？（只删这段对话记录，长期记忆 / Ombre 不动）')) return; saveWindows(loadWindows().filter(function(w){return w.id!==id;})); renderWinPanel(); }
+function delWindow(id){ if(!confirm('删除这扇旧窗口？（只删这段对话记录，长期记忆 / Ombre 不动；「浏览存档」里那份也还在）')) return; saveWindows(loadWindows().filter(function(w){return w.id!==id;})); try{ archDbPut(_winBodyKey(id), []); }catch(e){} renderWinPanel(); }
 function renderWinPanel(){
   var box=document.getElementById('winList'); if(!box) return;
   var t=document.getElementById('winTitle'); var lname=(_activeChat.type==='if')?(((getIfLine(_activeChat.id))||{}).title||'IF 线'):'主线'; if(t) t.textContent='窗口 · '+lname;
@@ -6741,7 +6786,7 @@ async function _deriveKey(pass,salt){ var base=await crypto.subtle.importKey('ra
 async function _hashId(pass){ var h=await crypto.subtle.digest('SHA-256',new TextEncoder().encode('mc-sync-id:'+pass)); return _b64(h).replace(/[^a-zA-Z0-9]/g,'').slice(0,44); }
 async function _enc(plain,pass){ var salt=crypto.getRandomValues(new Uint8Array(16)),iv=crypto.getRandomValues(new Uint8Array(12)); var key=await _deriveKey(pass,salt); var ct=await crypto.subtle.encrypt({name:'AES-GCM',iv:iv},key,new TextEncoder().encode(plain)); return JSON.stringify({s:_b64(salt),iv:_b64(iv),c:_b64(ct)}); }
 async function _dec(payload,pass){ var o=JSON.parse(payload); var key=await _deriveKey(pass,_ub64(o.s)); var pt=await crypto.subtle.decrypt({name:'AES-GCM',iv:_ub64(o.iv)},key,_ub64(o.c)); return new TextDecoder().decode(pt); }
-function _skipKey(k){ return !!(SYNC_SKIP[k] || k==='_origSet' || /_bak$/.test(k) || /_arch(Pend|N)?$/.test(k) || k.indexOf('mcSnap')===0); }   // 备份/快照/存档键+待写日志(_archPend)/计数(_archN)：不参与同步、绝不被覆盖（★_archPend 被同步冲掉=正等着进存档库的那批直接丢，这是 8/2-8/4 丢数据的元凶）
+function _skipKey(k){ return !!(SYNC_SKIP[k] || k==='_origSet' || /_bak$/.test(k) || /_arch(Pend|N)?$/.test(k) || k.indexOf('mcSnap')===0 || k.indexOf('mcWin_')===0); }   // ★mcWin_*(窗口列表)不再同步：正文已移进本机 IndexedDB，索引传过去别的设备也打不开；而且旧版收到"没正文的索引"会 saveChat([]) 清空当前对话。窗口内容在「浏览存档」里另有一份、照常跨端。顺带砍掉每次同步白传的那 ~1MB   // 备份/快照/存档键+待写日志(_archPend)/计数(_archN)：不参与同步、绝不被覆盖（★_archPend 被同步冲掉=正等着进存档库的那批直接丢，这是 8/2-8/4 丢数据的元凶）
 function _bundleLocal(){ var o={}; for(var i=0;i<localStorage.length;i++){ var k=localStorage.key(i); if(_skipKey(k)) continue; o[k]=localStorage.getItem(k); } return o; }
 function _snapBeforeRestore(){ try{ var o={}; for(var i=0;i<localStorage.length;i++){ var k=localStorage.key(i); if(_skipKey(k)) continue; var v=localStorage.getItem(k); if(v&&_isMsgArr(v)){ try{ var vj=JSON.parse(v); o[k]=JSON.stringify(vj.length>80?vj.slice(-80):vj); }catch(e){ o[k]=v; } } } try{ var _wb=localStorage.getItem('mcWorldBook'); if(_wb) o.mcWorldBook=_wb; }catch(e){} _rawSet('mcSnaps', JSON.stringify([{ts:Date.now(), data:o}])); }catch(e){} }   // 只快照聊天类·只留1份·每条只留最近80条——省空间防 iOS 配额爆
 function _trimBackups(){ try{ for(var i=localStorage.length-1;i>=0;i--){ var k=localStorage.key(i); if(k&&/_bak$/.test(k)){ try{ var a=JSON.parse(localStorage.getItem(k)); if(Array.isArray(a)&&a.length>60) _rawSet(k, JSON.stringify(a.slice(-60))); }catch(e){} } } var s=null; try{ s=JSON.parse(localStorage.getItem('mcSnaps')||'null'); }catch(e){} if(s&&s.length){ s.forEach(function(sn){ if(sn&&sn.data) Object.keys(sn.data).forEach(function(dk){ try{ var a=JSON.parse(sn.data[dk]); if(Array.isArray(a)&&a.length>80) sn.data[dk]=JSON.stringify(a.slice(-80)); }catch(e){} }); }); try{ _rawSet('mcSnaps', JSON.stringify(s)); }catch(e){} } }catch(e){} }   // 一次性：把已经存在的超大备份/快照瘦下来，立即腾出手机空间
@@ -6937,6 +6982,7 @@ try{ localStorage.removeItem('mcVoiceTrans'); }catch(e){}   // 旧版翻译缓�
     else { seedBoardsIfEmpty(); renderBoards(); }
   }, 800);
   setTimeout(_migrateArchivesToIDB, 1500);  // 一次性把旧存档从 localStorage 搬进 IndexedDB，腾空间
+  setTimeout(function(){ try{ _migrateWinBodiesToIDB(); }catch(e){} }, 2500);  // 一次性把旧窗口正文也搬进 IndexedDB（它在开新窗时已归档过一份，留在 localStorage 是纯重复）
   setTimeout(function(){ try{ archAutoReconcile(); }catch(e){} }, 7000);   // 开机对账存档：哪台有存档都扩散到云端+全部设备，根治"电脑存档为空"
   window.addEventListener('focus', function(){ if(_syncReady){ setTimeout(function(){ try{ archAutoReconcile(); }catch(e){} }, 800); } });   // 切回该设备也对账一次
   setTimeout(autoGraduate, 4000);  // 3天前的旧聊天剧情自动浓缩进长期框架
