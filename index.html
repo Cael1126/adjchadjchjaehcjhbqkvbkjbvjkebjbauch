@@ -368,7 +368,7 @@ nav { height:50px; background:rgba(245,235,220,0.9); backdrop-filter:blur(20px);
   <div class="sb-bottom"><div class="sb-nav" style="padding:0">
     <a class="sb-item" onclick="openPanel('settings');closeDrawer()"><div class="sb-icon"><svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="7" cy="7" r="2.5"/><path d="M7 1 L7 2.5 M7 11.5 L7 13 M1 7 L2.5 7 M11.5 7 L13 7 M2.9 2.9 L4 4 M10 10 L11.1 11.1 M11.1 2.9 L10 4 M4 10 L2.9 11.1"/></svg></div><div class="sb-label">Settings</div></a>
     <a class="sb-item" onclick="openPanel('creator');closeDrawer()"><div class="sb-icon"><svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="4" cy="4" r="2"/><circle cx="10" cy="4" r="2"/><circle cx="7" cy="10" r="2"/><line x1="4" y1="6" x2="7" y2="8"/><line x1="10" y1="6" x2="7" y2="8"/></svg></div><div class="sb-label">Creator Mode</div></a>
-    <div class="sb-item" style="opacity:0.4;cursor:default;font-size:10px"><div class="sb-icon"><svg width="8" height="8" viewBox="0 0 8 8" fill="currentColor"><circle cx="4" cy="4" r="3"/></svg></div><div class="sb-label" style="font-family:'JetBrains Mono',monospace;letter-spacing:1px">v35.3 ✦ NOLOSS</div></div>
+    <div class="sb-item" style="opacity:0.4;cursor:default;font-size:10px"><div class="sb-icon"><svg width="8" height="8" viewBox="0 0 8 8" fill="currentColor"><circle cx="4" cy="4" r="3"/></svg></div><div class="sb-label" style="font-family:'JetBrains Mono',monospace;letter-spacing:1px">v35.4 ✦ NOLOSS</div></div>
   </div></div>
 </div>
 
@@ -387,7 +387,7 @@ nav { height:50px; background:rgba(245,235,220,0.9); backdrop-filter:blur(20px);
   <div class="sb-bottom"><div class="sb-nav" style="padding:0">
     <a class="sb-item" onclick="openPanel('settings')"><div class="sb-icon"><svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="7" cy="7" r="2.5"/><path d="M7 1 L7 2.5 M7 11.5 L7 13 M1 7 L2.5 7 M11.5 7 L13 7 M2.9 2.9 L4 4 M10 10 L11.1 11.1 M11.1 2.9 L10 4 M4 10 L2.9 11.1"/></svg></div><div class="sb-label">Settings</div></a>
     <a class="sb-item" onclick="openPanel('creator')"><div class="sb-icon"><svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="4" cy="4" r="2"/><circle cx="10" cy="4" r="2"/><circle cx="7" cy="10" r="2"/><line x1="4" y1="6" x2="7" y2="8"/><line x1="10" y1="6" x2="7" y2="8"/></svg></div><div class="sb-label">Creator Mode</div></a>
-    <div class="sb-item" style="opacity:0.4;cursor:default;font-size:10px"><div class="sb-icon"><svg width="8" height="8" viewBox="0 0 8 8" fill="currentColor"><circle cx="4" cy="4" r="3"/></svg></div><div class="sb-label" style="font-family:'JetBrains Mono',monospace;letter-spacing:1px">v35.3 ✦ NOLOSS</div></div>
+    <div class="sb-item" style="opacity:0.4;cursor:default;font-size:10px"><div class="sb-icon"><svg width="8" height="8" viewBox="0 0 8 8" fill="currentColor"><circle cx="4" cy="4" r="3"/></svg></div><div class="sb-label" style="font-family:'JetBrains Mono',monospace;letter-spacing:1px">v35.4 ✦ NOLOSS</div></div>
   </div></div>
 </div>
 
@@ -533,7 +533,7 @@ nav { height:50px; background:rgba(245,235,220,0.9); backdrop-filter:blur(20px);
   </div>
 
   <div class="footer">
-    <div class="footer-item">MYCROFT.SYS · v35.3 ✦ NOLOSS</div>
+    <div class="footer-item">MYCROFT.SYS · v35.4 ✦ NOLOSS</div>
     <div class="footer-live"><div class="sdot sdot-on"></div><span>LIVE</span></div>
     <div class="footer-item" id="footerDate">----</div>
     <div class="footer-item" style="border:1px solid rgba(170,60,55,0.45);color:rgba(170,60,55,0.85);border-radius:3px;padding:0 7px;letter-spacing:2px;transform:rotate(-1.5deg)">CLASSIFIED · 机密</div>
@@ -875,7 +875,7 @@ nav { height:50px; background:rgba(245,235,220,0.9); backdrop-filter:blur(20px);
         <input id="continuityBackupFile" type="file" accept="application/json,.json" style="display:none" onchange="repairContinuityFromFile(this)"/>
         <div style="display:flex;gap:8px;margin-top:8px">
           <button class="panel-save-btn" style="flex:1;padding:7px;font-size:11px;background:var(--s2)" onclick="refreshStorageUsage()">↻ 刷新用量</button>
-          <button class="panel-save-btn" style="flex:1;padding:7px;font-size:11px;background:var(--s2)" onclick="cleanupBackups()">🧹 清理备份/快照</button>
+          <button class="panel-save-btn" id="storageCleanupBtn" style="flex:1;padding:7px;font-size:11px;background:var(--s2)" onclick="cleanupBackups()">🧹 释放 5 MB 空间</button>
         </div>
         <div style="font-size:9px;color:var(--text4);margin-top:6px;line-height:1.6">如果已经发现聊天断层，<b>先点上面的“检查 / 找回”</b>，再清理。手机浏览器一般上限约 5 MB；清理只删应急复制品，不动正式聊天/设定/世界书。语音不占这里（只在内存）。</div>
       </div>
@@ -2856,27 +2856,33 @@ function refreshStorageUsage(){   // 只读：算本机 localStorage 用量（UT
   var el=document.getElementById('storageUsage');
   if(el) el.innerHTML='共 <b style="color:'+col+'">'+_fmtKB(total)+'</b> / 约 5 MB（'+pct.toFixed(1)+'%）· '+n+' 项'+(pct>=80?' <b style="color:var(--red,#e06)">⚠ 偏满，建议清理</b>':'')+'<br><span style="color:var(--text4);font-size:9px">占用最多：<br>'+big+'</span>';
 }
-async function cleanupBackups(){   // 只删安全网（*_bak / mcSnap*），绝不动真数据
-  var keys=[], freed=0;
-  for(var i=0;i<localStorage.length;i++){ var k=localStorage.key(i); if(k && (/_bak$/.test(k) || k.indexOf('mcSnap')===0)){ keys.push(k); freed+=(k.length+(localStorage.getItem(k)||'').length)*2/1024; } }
-  if(!keys.length){   // 垃圾早清完了，剩下的全是真数据 → 改为把【非当前】的旧聊天搬进大容量存档
-    if(!confirm('没有备份/快照可清了（垃圾已经很干净）。\n\n要不要把【你现在没在聊的】那些旧对话搬进大容量存档？\n\n· 每个非当前聊天本地只留最后 '+SLIM_KEEP+' 条\n· 搬走的照样能在「浏览存档」里翻到和朗读——是搬走，不是删\n· 你正在聊的这个一条都不动\n\n开始整理？')) return;
-    var f2=await autoSlimStorage(true);
-    try{ refreshStorageUsage(); }catch(e){}
-    alert(f2>0 ? ('✓ 已把旧对话搬进存档，腾出约 '+_fmtKB(f2)+'。\n（存档在后台落库，刷新后用量还会再降一些）') : '没有可搬的了——每个聊天都已经很精简。');
-    return;
+async function cleanupBackups(){   // 真正释放小仓库：先保全副本，再迁移非当前聊天；一次点击完成
+  if(!confirm('释放手机 5 MB 小仓库？\n\n会执行：\n· 完整聊天副本先写进大容量库，再移出 5 MB\n· 非当前聊天的旧消息写进“浏览存档”，回读确认后才缩短本地正文\n· 当前正在聊天的这条线、设定、世界书都不动\n\n已经找回断层并导出全量备份后，点“确定”。')) return;
+  var btn=document.getElementById('storageCleanupBtn'), before=_lsUsedKB();
+  if(btn){ btn.disabled=true; btn.dataset.old=btn.textContent; btn.textContent='正在安全搬家…'; }
+  try{
+    // 即使随后删除 localStorage 里的应急副本，完整聊天副本也已经在 IndexedDB 留底。
+    try{ await _migrateLSChatBackupsToIDB(); }catch(e){}
+    var keys=[];
+    for(var i=0;i<localStorage.length;i++){
+      var k=localStorage.key(i);
+      if(k && (/_bak$/.test(k) || k.indexOf('mcSnap')===0 || k==='mcSkUndo')) keys.push(k);
+    }
+    keys.forEach(function(k){ try{ localStorage.removeItem(k); }catch(e){} });
+    var moved=0; try{ moved=await autoSlimStorage(true); }catch(e){}
+    var after=_lsUsedKB(); try{ refreshStorageUsage(); }catch(e){}
+    var freed=Math.max(0,before-after);
+    alert('✓ 小仓库整理完成\n————————\n整理前：'+_fmtKB(before)+'\n整理后：'+_fmtKB(after)+'\n实际释放：'+_fmtKB(freed)+'\n搬入浏览存档：约 '+_fmtKB(Math.max(0,moved))+'\n\n当前聊天、设定和世界书没有删除。');
+  }finally{
+    if(btn){ btn.disabled=false; btn.textContent=btn.dataset.old||'🧹 释放 5 MB 空间'; }
   }
-  if(!confirm('将清理 '+keys.length+' 个【本地应急备份/快照】，腾出约 '+_fmtKB(freed)+'。\n\n正式聊天 / 设定 / 世界书 / IF 各线不会动；但如果你正在找“归档和当前之间的断层”，这些副本可能正好能救回缺段——请先取消，点上面的“检查 / 找回聊天断层”。\n\n仍然确定清理？')) return;
-  keys.forEach(function(k){ try{ localStorage.removeItem(k); }catch(e){} });
-  try{ refreshStorageUsage(); }catch(e){}
-  alert('✓ 已清理 '+keys.length+' 项，腾出约 '+_fmtKB(freed)+'。你的数据完好无损。');
 }
 // ===== 空间自愈：全局总量闸门 =====
 // 病根：每个聊天单独限条数，但聊天【数量】没上限——每开一条 IF 线/分支就多占一份，
 // 每一份都"合法"、谁也不越界、谁也不会被清，于是 5MB 反复顶满，清多少次都一样。
 // 这里加一道全局闸门：总用量过线 → 把【非当前】的聊天按"最久没碰"的顺序瘦到 SLIM_KEEP 条，
 // 多出来的走已有的归档路径进 IndexedDB —— 是【搬走】不是删，照样能在「浏览存档」里翻到。
-var LS_QUOTA_KB=5120, LS_SLIM_AT=0.65, SLIM_KEEP=24;
+var LS_QUOTA_KB=5120, LS_SLIM_AT=0.55, SLIM_KEEP=12;
 function _lsUsedKB(){ var t=0; try{ for(var i=0;i<localStorage.length;i++){ var k=localStorage.key(i); t+=(k.length+(localStorage.getItem(k)||'').length)*2/1024; } }catch(e){} return t; }
 function _lsPct(){ return _lsUsedKB()/LS_QUOTA_KB; }
 function _chatKeysAll(){   // 所有聊天正文键（主线 + 各 IF 线/分支），排除备份/存档辅助键
@@ -2896,10 +2902,11 @@ async function _slimOneChat(k, keep){   // 非当前聊天直接事务式落进 
   var original=''; try{ original=localStorage.getItem(k)||'[]'; }catch(e){ return 0; }
   var a=null; try{ a=JSON.parse(original); }catch(e){ return 0; }
   if(!Array.isArray(a)||a.length<=keep) return 0;
-  var cut=a.slice(0, a.length-keep), rest=a.slice(a.length-keep);
-  var recs=[]; for(var i=0;i<cut.length;i++){ var m=cut[i]; if(m&&!m.err&&!m.pending) recs.push(_archRec(m)); }
+  var cut=a.slice(0, a.length-keep), tail=a.slice(a.length-keep), retained=[];
+  var recs=[]; for(var i=0;i<cut.length;i++){ var m=cut[i]; if(m&&!m.err&&!m.pending) recs.push(_archRec(m)); else retained.push(m); }
   if(!recs.length) return 0;
-  if(recs.length!==cut.length) return 0;   // ★cut 里混着 err/pending(不进存档) → 一截就是净丢，这批干脆不动
+  // err / pending 气泡不适合进正式存档，但也不删除：留在 localStorage，不能让一条异常气泡卡死整条旧聊天的迁移。
+  var rest=retained.concat(tail);
   var before=original.length*2/1024;
   var ex=(await archDbGet(k))||[], merged=_mergeMsgs(ex,recs);
   if(!(await archDbPut(k,merged))) return 0;
@@ -3582,7 +3589,7 @@ function ifChatKey(lineId,br){ return (br&&br!=='main') ? ('mcIfChat_'+lineId+'_
 function ifFramedKey(lineId,br){ return (br&&br!=='main') ? ('mcIfFramed_'+lineId+'__'+br) : ('mcIfFramed_'+lineId); }
 function chatKey(){ return _activeChat.type==='if' ? ifChatKey(_activeChat.id, _activeChat.branch||'main') : 'mcChat'; }
 function loadChat(){ try{ var a=JSON.parse(localStorage.getItem(chatKey())||'[]'); if(!Array.isArray(a)) return []; return a.filter(function(m){ return m && typeof m==='object' && typeof m.role==='string'; }); }catch(e){ return []; } }   // ★过滤掉 null/半条坏消息（手机流式被打断会留残渣），否则渲染时 m.role 抛异常→整个 chat 界面崩、进不去
-var ARCHIVE_BATCH=120;   // 手机小仓库：更早折进 IndexedDB，给归档WAL和新回复留下真实余量
+var ARCHIVE_BATCH=60;   // 手机小仓库：更小批次提前折进 IndexedDB，给归档WAL和新回复留下真实余量
 var LIVE_KEEP=ARCHIVE_BATCH;   // 旧常量名保留给导入/提示文案
 var PINNED_KEEP=20;      // 归档后界面保留"刚归档那批的最后 20 条"当缓冲（已归档、不重复归档）
 var _archCache={};   // chatKey -> 存档数组（内存缓存，避免每次渲染都解析大 JSON 卡死）
@@ -3811,7 +3818,9 @@ function _msgFp(m){ return (m&&m.role||'')+' '+Number(m&&m.ts||0)+' '+String(m&&
 function _dedupExact(arr){ var seen={}, out=[]; for(var i=0;i<(arr||[]).length;i++){ var f=_msgFp(arr[i]); if(seen[f]) continue; seen[f]=1; out.push(arr[i]); } return out; }   // 只丢"角色+时间+全文完全相同"的真重复
 function _segEqual(a,b){ if(!a||!b||a.length!==b.length) return false; for(var i=0;i<a.length;i++){ var x=a[i]||{},y=b[i]||{}; if((x.role||'')!==(y.role||'')||Number(x.ts||0)!==Number(y.ts||0)||String(x.text||'')!==String(y.text||'')) return false; } return true; }   // 逐条精确
 function _stripArch(arr){ return (arr||[]).map(function(m){ return {role:m.role, ts:m.ts, text:m.text}; }); }
-function _archRec(m){ var r={role:m.role, ts:m.ts, text:m.text};   // 归档记录：若内存里已翻好，把翻译(segs)随身带走，浏览时直接显示双语、不用重翻
+function _archRec(m){ var r={role:m.role, ts:m.ts, text:m.text};   // 归档正文进大容量库；可切换版本也随身保存，诊断 trace 不占小仓库/存档
+  if(Array.isArray(m.variants)&&m.variants.length){ r.variants=m.variants; if(typeof m.vi==='number') r.vi=m.vi; }
+  if(m.truncated) r.truncated=m.truncated;
   var key=String(m.ts||''); if(key && _voiceData[key] && _voiceData[key].src===m.text){ r.tr=_voiceData[key].segs.map(function(s){ return {zh:s.zh, raw:s.raw, en:s.en, tag:s.tag, mine:s.mine}; }); }
   return r; }
 // —— 独立备份 store（migBackups，绝不与正式 archives 同 key）——
@@ -7484,7 +7493,3 @@ function renderCore(){
 </script>
 </body>
 </html>
-
-
-
-
