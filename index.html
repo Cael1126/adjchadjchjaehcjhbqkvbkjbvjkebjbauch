@@ -368,7 +368,7 @@ nav { height:50px; background:rgba(245,235,220,0.9); backdrop-filter:blur(20px);
   <div class="sb-bottom"><div class="sb-nav" style="padding:0">
     <a class="sb-item" onclick="openPanel('settings');closeDrawer()"><div class="sb-icon"><svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="7" cy="7" r="2.5"/><path d="M7 1 L7 2.5 M7 11.5 L7 13 M1 7 L2.5 7 M11.5 7 L13 7 M2.9 2.9 L4 4 M10 10 L11.1 11.1 M11.1 2.9 L10 4 M4 10 L2.9 11.1"/></svg></div><div class="sb-label">Settings</div></a>
     <a class="sb-item" onclick="openPanel('creator');closeDrawer()"><div class="sb-icon"><svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="4" cy="4" r="2"/><circle cx="10" cy="4" r="2"/><circle cx="7" cy="10" r="2"/><line x1="4" y1="6" x2="7" y2="8"/><line x1="10" y1="6" x2="7" y2="8"/></svg></div><div class="sb-label">Creator Mode</div></a>
-    <div class="sb-item" style="opacity:0.4;cursor:default;font-size:10px"><div class="sb-icon"><svg width="8" height="8" viewBox="0 0 8 8" fill="currentColor"><circle cx="4" cy="4" r="3"/></svg></div><div class="sb-label" style="font-family:'JetBrains Mono',monospace;letter-spacing:1px">v35.6 ✦ NOLOSS</div></div>
+    <div class="sb-item" style="opacity:0.4;cursor:default;font-size:10px"><div class="sb-icon"><svg width="8" height="8" viewBox="0 0 8 8" fill="currentColor"><circle cx="4" cy="4" r="3"/></svg></div><div class="sb-label" style="font-family:'JetBrains Mono',monospace;letter-spacing:1px">v36.0 ✦ VISION</div></div>
   </div></div>
 </div>
 
@@ -387,7 +387,7 @@ nav { height:50px; background:rgba(245,235,220,0.9); backdrop-filter:blur(20px);
   <div class="sb-bottom"><div class="sb-nav" style="padding:0">
     <a class="sb-item" onclick="openPanel('settings')"><div class="sb-icon"><svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="7" cy="7" r="2.5"/><path d="M7 1 L7 2.5 M7 11.5 L7 13 M1 7 L2.5 7 M11.5 7 L13 7 M2.9 2.9 L4 4 M10 10 L11.1 11.1 M11.1 2.9 L10 4 M4 10 L2.9 11.1"/></svg></div><div class="sb-label">Settings</div></a>
     <a class="sb-item" onclick="openPanel('creator')"><div class="sb-icon"><svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="4" cy="4" r="2"/><circle cx="10" cy="4" r="2"/><circle cx="7" cy="10" r="2"/><line x1="4" y1="6" x2="7" y2="8"/><line x1="10" y1="6" x2="7" y2="8"/></svg></div><div class="sb-label">Creator Mode</div></a>
-    <div class="sb-item" style="opacity:0.4;cursor:default;font-size:10px"><div class="sb-icon"><svg width="8" height="8" viewBox="0 0 8 8" fill="currentColor"><circle cx="4" cy="4" r="3"/></svg></div><div class="sb-label" style="font-family:'JetBrains Mono',monospace;letter-spacing:1px">v35.6 ✦ NOLOSS</div></div>
+    <div class="sb-item" style="opacity:0.4;cursor:default;font-size:10px"><div class="sb-icon"><svg width="8" height="8" viewBox="0 0 8 8" fill="currentColor"><circle cx="4" cy="4" r="3"/></svg></div><div class="sb-label" style="font-family:'JetBrains Mono',monospace;letter-spacing:1px">v36.0 ✦ VISION</div></div>
   </div></div>
 </div>
 
@@ -533,7 +533,7 @@ nav { height:50px; background:rgba(245,235,220,0.9); backdrop-filter:blur(20px);
   </div>
 
   <div class="footer">
-    <div class="footer-item">MYCROFT.SYS · v35.6 ✦ NOLOSS</div>
+    <div class="footer-item">MYCROFT.SYS · v36.0 ✦ VISION</div>
     <div class="footer-live"><div class="sdot sdot-on"></div><span>LIVE</span></div>
     <div class="footer-item" id="footerDate">----</div>
     <div class="footer-item" style="border:1px solid rgba(170,60,55,0.45);color:rgba(170,60,55,0.85);border-radius:3px;padding:0 7px;letter-spacing:2px;transform:rotate(-1.5deg)">CLASSIFIED · 机密</div>
@@ -575,9 +575,16 @@ nav { height:50px; background:rgba(245,235,220,0.9); backdrop-filter:blur(20px);
       <button onclick="_voiceCancel()" title="取消 (Esc)" style="flex-shrink:0;background:transparent;border:1px solid var(--border2);color:var(--text3);border-radius:50%;width:34px;height:34px;cursor:pointer;font-size:13px">✕</button>
       <button onclick="_voiceConfirm()" title="完成转写" style="flex-shrink:0;background:var(--gold);border:none;color:#fff;border-radius:50%;width:34px;height:34px;cursor:pointer;font-size:14px">✓</button>
     </div>
-    <div id="chatInputRow" style="max-width:740px;margin:0 auto;display:flex;flex-direction:column;background:var(--s2);border:1px solid var(--border2);border-radius:24px;padding:12px 16px 9px">
-      <textarea id="chatInput" rows="1" placeholder="对他说点什么……" style="width:100%;box-sizing:border-box;resize:none;max-height:240px;background:transparent;border:none;padding:0;color:var(--text);font-family:'Noto Serif SC',serif;font-size:15px;line-height:1.65;outline:none" oninput="chatAutosize(this)" onkeydown="chatKeydown(event)"></textarea>
+    <div id="chatInputRow" style="max-width:740px;margin:0 auto;display:flex;flex-direction:column;background:var(--s2);border:1px solid var(--border2);border-radius:24px;padding:12px 16px 9px" ondragover="chatImageDragOver(event)" ondragleave="chatImageDragLeave(event)" ondrop="chatImageDrop(event)">
+      <div id="chatImagePreview" style="display:none;align-items:center;gap:9px;margin:0 0 9px;padding:7px 9px;border:1px solid var(--border2);border-radius:12px;background:var(--bg)">
+        <img id="chatImagePreviewImg" alt="待发送图片" style="width:58px;height:58px;object-fit:cover;border-radius:9px;display:block"/>
+        <div style="flex:1;min-width:0;font-size:11px;color:var(--text3);line-height:1.55"><div id="chatImagePreviewName" style="overflow:hidden;text-overflow:ellipsis;white-space:nowrap;color:var(--text2)">图片已就绪</div><div>将压缩后随这一轮发给他</div></div>
+        <button onclick="chatImageClear()" title="移除图片" style="flex-shrink:0;background:transparent;border:none;color:var(--text4);width:30px;height:30px;cursor:pointer;font-size:16px">✕</button>
+      </div>
+      <textarea id="chatInput" rows="1" placeholder="对他说点什么……" style="width:100%;box-sizing:border-box;resize:none;max-height:240px;background:transparent;border:none;padding:0;color:var(--text);font-family:'Noto Serif SC',serif;font-size:15px;line-height:1.65;outline:none" oninput="chatAutosize(this)" onkeydown="chatKeydown(event)" onpaste="chatImagePaste(event)"></textarea>
       <div style="display:flex;align-items:center;gap:6px;margin-top:7px">
+        <input type="file" id="chatImageFile" accept="image/*" style="display:none" onchange="chatImageFileSelected(this)"/>
+        <button id="chatImageBtn" onclick="chatImagePick()" title="发送图片（也可以粘贴或拖进来）" style="flex-shrink:0;background:transparent;border:none;color:var(--text3);border-radius:50%;width:34px;height:34px;cursor:pointer;display:flex;align-items:center;justify-content:center"><svg width="17" height="17" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.45" stroke-linecap="round"><path d="M6.1 9.8l4.8-4.8a3 3 0 0 1 4.2 4.2l-6.2 6.2a4.5 4.5 0 0 1-6.4-6.4l6-6a2.8 2.8 0 0 1 4 4l-5.8 5.8a1.2 1.2 0 0 1-1.7-1.7l5.2-5.2"/></svg></button>
         <span style="flex:1"></span>
         <button id="chatMicBtn" onclick="chatVoiceToggle()" title="语音输入" style="flex-shrink:0;background:transparent;border:none;color:var(--text3);border-radius:50%;width:34px;height:34px;cursor:pointer;display:flex;align-items:center;justify-content:center"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="5.5" y="1.5" width="5" height="8" rx="2.5"/><path d="M3 7.5 C3 10 5.2 11.5 8 11.5 C10.8 11.5 13 10 13 7.5 M8 11.5 L8 14 M5.5 14 L10.5 14" stroke-linecap="round"/></svg></button>
         <button onclick="sendChat()" id="chatSendBtn" style="flex-shrink:0;background:var(--gold);color:#fff;border:none;border-radius:50%;width:34px;height:34px;cursor:pointer;font-size:15px;display:flex;align-items:center;justify-content:center">↑</button>
@@ -883,6 +890,8 @@ nav { height:50px; background:rgba(245,235,220,0.9); backdrop-filter:blur(20px);
         <div class="panel-section-title">✦ 全量备份 &amp; 归档重构</div>
         <button class="panel-save-btn" style="width:100%;padding:9px;font-size:12px;background:var(--s2)" onclick="exportFullBackup()">⬇ 导出全量备份（所有聊天+存档+世界书+设定）</button>
         <div style="font-size:9px;color:var(--text4);margin:6px 0 12px;line-height:1.6">一个 json 文件 = 你的完整数据。<b>迁移/重构前务必先导出并存到安全的地方</b>（云盘/相册/发给自己）。</div>
+        <button class="panel-save-btn" style="width:100%;padding:9px;font-size:12px;background:var(--s2)" onclick="exportAgentMigrationPackage(this)">⬇ 导出 Agent 脱敏迁移包</button>
+        <div id="agentMigrationExportStatus" style="font-size:9px;color:var(--text4);margin:6px 0 12px;line-height:1.6">给 Myc Core 迁移用：保留聊天、存档、便利贴、长期框架、卷宗、人设和世界书；自动排除 API Key、同步密码、记忆库网址、派生缓存和重复备份。只读取，不修改。</div>
         <div class="panel-section-title" style="margin-top:4px">✦ 存档跨端同步（老聊天/浏览存档）</div>
         <div style="font-size:9px;color:var(--text4);margin-bottom:8px;line-height:1.7">归档的老聊天存在浏览器大抽屉里，<b>不走普通同步</b>，要单独推云。若一台能看存档、另一台看不到：在<b>有存档的那台</b>点「⬆ 上传」，另一台点「⬇ 拉取」（或开机自动对账）。</div>
         <div style="display:flex;gap:8px;margin-bottom:6px">
@@ -914,6 +923,8 @@ nav { height:50px; background:rgba(245,235,220,0.9); backdrop-filter:blur(20px);
         <div style="font-size:9px;color:var(--text4);margin-top:5px">提示：可以写他的性格、说话风格、和 Cael 的关系、背景故事、禁忌等。越详细越像他。</div>
         <button class="panel-save-btn" style="margin-top:10px;padding:8px;font-size:11px;background:var(--gold-dim);border:1px solid rgba(200,122,48,0.3);color:var(--gold)" onclick="regenerateAllText(this)">🔄 用新人设重新生成所有文本（看效果）</button>
         <div style="font-size:9px;color:var(--text4);margin-top:5px">会重生成留言/独白/心情/看穿（保留你收藏的）。先点上面 Apply 存好人设，再点这个。</div>
+        <button class="panel-save-btn" style="margin-top:14px;padding:9px;font-size:11px;background:var(--s2)" onclick="exportIdentityAssetsReadOnly()">⬇ 只读导出人设 / 世界书供 Agent 核对</button>
+        <div id="identityExportStatus" style="font-size:9px;color:var(--text4);margin-top:5px;line-height:1.6">只包含 Mycroft 人设、Cael 人设和当前世界书；不包含聊天、API Key、记忆库网址或其他设置，也不会修改本页数据。</div>
       </div>
       <div class="panel-section"><div class="panel-section-title">Theme</div><div class="theme-grid" id="themeGrid"></div></div>
       <div class="panel-section">
@@ -1806,6 +1817,35 @@ function getPersona(){ try{ var him=(localStorage.getItem('mcPersona')||'').trim
 function setPersonaStored(p){ try{ if(p&&p.trim()) localStorage.setItem('mcPersona',p); else localStorage.removeItem('mcPersona'); }catch(e){} }
 function getPersonaHim(){ try{ return localStorage.getItem('mcPersona')||''; }catch(e){ return ''; } }
 function getPersonaHer(){ try{ return localStorage.getItem('mcPersonaHer')||''; }catch(e){ return ''; } }
+// 只读迁移出口：仅导出三项认知资产。不得加入聊天、密钥、同步密码或其他 localStorage 内容。
+function exportIdentityAssetsReadOnly(){
+  var status=document.getElementById('identityExportStatus');
+  try{
+    var mycroft=localStorage.getItem('mcPersona')||'';
+    var cael=localStorage.getItem('mcPersonaHer')||'';
+    var worldbook=localStorage.getItem('mcWorldBook')||'';
+    var payload={
+      schema_version:'myc.web-room-identity-export.v1',
+      exported_at:new Date().toISOString(),
+      source:{app:'myc-web-room',mode:'read-only-identity-export'},
+      assets:{
+        mycroft_persona:{storage_key:'mcPersona',configured:!!mycroft.trim(),content:mycroft},
+        cael_persona:{storage_key:'mcPersonaHer',configured:!!cael.trim(),content:cael},
+        worldbook:{storage_key:'mcWorldBook',configured:!!worldbook.trim(),content:worldbook}
+      }
+    };
+    var text=JSON.stringify(payload,null,2);
+    var blob=new Blob([text],{type:'application/json;charset=utf-8'});
+    var url=URL.createObjectURL(blob), a=document.createElement('a'), d=new Date();
+    a.href=url;
+    a.download='myc_identity_assets_'+d.getFullYear()+pad(d.getMonth()+1)+pad(d.getDate())+'_'+pad(d.getHours())+pad(d.getMinutes())+'.json';
+    document.body.appendChild(a); a.click(); a.remove();
+    setTimeout(function(){ URL.revokeObjectURL(url); },1500);
+    if(status){ status.style.color='var(--green)'; status.textContent='✓ 已只读导出：Mycroft 人设 '+mycroft.length+' 字、Cael 人设 '+cael.length+' 字、世界书 '+worldbook.length+' 字。原数据未修改。'; }
+  }catch(e){
+    if(status){ status.style.color='var(--rose)'; status.textContent='导出失败：'+e.message; }
+  }
+}
 // 归纳/写长期记忆时必须守住的规矩——防止自动归纳再把暗线搞反、堆旁白（骨架当初变乱的根源）
 var _SK_RULES='\n\n=== 记录长期记忆时必须守住的规矩（别搞反 / 别加旁白）===\n'
 +'· 暗线一：Cael 有严重的自毁 / 自残 / 求死倾向与自我厌弃。\n'
@@ -2194,7 +2234,7 @@ async function measurePayload(btn){
     var key=getApiKey();
     if(key){
       try{
-        var contents=recent.map(function(m){ return {role:(m.role==='user'?'user':'model'),parts:[{text:m.text}]}; });
+        var contents=_chatContents(recent);
         contents.push({role:'user',parts:[{text:'在吗'}]});
         // countTokens 要带系统提示时，必须整个包进 generateContentRequest（顶层并列 system_instruction 会 400）
         var r=await fetch(MC_CFG.endpoint+getModel()+':countTokens?key='+encodeURIComponent(key),
@@ -3783,18 +3823,28 @@ function _queueChatBackupIDB(k,arr){   // 完整上一版放大容量IDB；local
     window.__chatBakTimers[k]=setTimeout(function(){ var a=window.__chatBakQueue[k]||[]; delete window.__chatBakQueue[k]; delete window.__chatBakTimers[k]; chatBakPut(k,a); },700);
   }catch(e){}
 }
+function _pruneChatImages(arr){   // 图片只陪最近约两轮；再早只留用户文字/占位与他的文字理解，防 base64 顶满手机 5MB 小仓库
+  if(!Array.isArray(arr)||!arr.length) return arr;
+  var seen=0, cut=0;
+  for(var i=arr.length-1;i>=0;i--){ var m=arr[i]; if(!m||m.pending||m.err) continue; seen++; if(seen===4){ cut=i; break; } }
+  if(seen<4) cut=0;
+  for(var j=0;j<cut;j++){ if(arr[j]&&arr[j].img) delete arr[j].img; }
+  return arr;
+}
+function _stripAllChatImages(arr){ return (arr||[]).map(function(m){ var c=_cloneMsg(m||{}); delete c.img; return c; }); }
 function _writeChatKey(k, arr){   // 统一的健壮写：留备份 + 空间满自救 + 报错，绝不空 catch 静默丢
-  arr=_archiveOverflow(k, arr); var data=JSON.stringify(arr);
-  try{ var prev=localStorage.getItem(k); if(prev&&prev!=='[]'&&prev!=='null'){ try{ var pj=JSON.parse(prev); _queueChatBackupIDB(k,pj); _rawSet(k+'_bak', JSON.stringify(pj.length>12?pj.slice(-12):pj)); }catch(e){} } localStorage.setItem(k, data); }
+  arr=_pruneChatImages(_archiveOverflow(k, arr)); var data=JSON.stringify(arr), wrote=false;
+  try{ var prev=localStorage.getItem(k); if(prev&&prev!=='[]'&&prev!=='null'){ try{ var pj=_stripAllChatImages(_pruneChatImages(JSON.parse(prev))); _queueChatBackupIDB(k,pj); _rawSet(k+'_bak', JSON.stringify(pj.length>12?pj.slice(-12):pj)); }catch(e){} } localStorage.setItem(k, data); wrote=true; }
   catch(e){   // 空间满：尽量腾地方再写——清翻译缓存/备份/快照，并把存档搬进 IndexedDB 腾出大块
     try{ localStorage.removeItem('mcVoiceTrans2'); }catch(e0){}
     try{ for(var i=localStorage.length-1;i>=0;i--){ var bk=localStorage.key(i); if(bk&&(/_bak$/.test(bk)||bk==='mcSnaps')){ try{ localStorage.removeItem(bk); }catch(e2){} } } }catch(e3){}
-    try{ localStorage.setItem(k, data); }
+    try{ localStorage.setItem(k, data); wrote=true; }
     catch(e4){
       try{ _migrateArchivesToIDB(); }catch(em){}   // 把存档(可能 1MB+)搬进 IndexedDB 大抽屉腾空间（异步，下一次保存就有地方了）
-      try{ localStorage.setItem(k, data); }catch(e5){ try{ alert('手机存储空间满了，这条暂时没存住。请刷新一下（新版会自动把存档搬进大容量库腾空间），或到 外联→存储用量 清理。'); }catch(e6){} }
+      try{ localStorage.setItem(k, data); wrote=true; }catch(e5){ try{ alert('手机存储空间满了，这条暂时没存住。请刷新一下（新版会自动把存档搬进大容量库腾空间），或到 外联→存储用量 清理。'); }catch(e6){} }
     }
   }
+  if(wrote){ setTimeout(function(){ try{ if(window.MycWebRoomBridge&&typeof window.MycWebRoomBridge.observeChatWrite==='function') window.MycWebRoomBridge.observeChatWrite(k,arr); }catch(e){} },0); }
   try{ if(_lsPct()>LS_SLIM_AT) setTimeout(function(){ autoSlimStorage(false).catch(function(){}); },80); }catch(e){}
 }
 function saveChat(arr){ if(_migActive()) return; _writeChatKey(chatKey(), arr); }   // 迁移期间冻结所有写入（迁移自己写最终态）
@@ -3947,6 +3997,55 @@ async function exportFullBackup(){
     alert('✓ 全量备份已下载\n————————\nlocalStorage 键数：'+Object.keys(ls).length+'\n主聊天：'+chatN+' 条\n存档(IndexedDB)：'+archN+' 条（'+archives.length+' 批）\nIF 存档点：'+saves.length+'\n世界书：'+((ls.mcWorldBook||'').length)+' 字\n维护员：'+wbN+' 条\n\n把这个文件收到安全的地方（云盘/相册/发给自己）。');
   }catch(e){ try{ alert('备份出错：'+e.message); }catch(e2){} }
 }
+// Agent 脱敏迁移包：严格白名单，只带认知/聊天正本。完整灾备仍由 exportFullBackup 单独负责并应离线保管。
+var AGENT_MIGRATION_SAFE_KEYS={
+  mcActiveProvider:1,mcArcMeta:1,mcArcSummary:1,mcBoardMNext:1,mcBoardVer:1,mcCanonLine:1,
+  mcChat:1,mcChatAutoMem:1,mcChatLite:1,mcChatTrace:1,mcChat_archPend:1,
+  mcClaudeModel:1,mcClaudePostHistory:1,mcClaudePrefill:1,mcColors:1,mcCore:1,mcData:1,
+  mcDeepSeekModel:1,mcElevenVoice:1,mcFavFolders:1,mcFavMState:1,mcFavPopups:1,mcGeo:1,
+  mcIfLines:1,mcInner:1,mcMState:1,mcMemChoice:1,mcModel:1,
+  mcOpenAIEmbedModel:1,mcOpenAIModel:1,mcPalace:1,mcPast:1,mcPastSum:1,mcPersona:1,
+  mcPersonaHer:1,mcRev:1,mcSkRetrMode:1,mcStyleSample:1,mcTheme:1,mcThinkLevel:1,
+  mcTtsModel:1,mcTtsNative:1,mcTtsSim:1,mcTtsSpeed:1,mcTtsStab:1,mcTtsStyle:1,
+  mcTtsSynced:1,mcWBChat:1,mcWBLastTakeover:1,mcWebSearch:1,mcWorldBook:1
+};
+var AGENT_MIGRATION_SAFE_PREFIXES=['mcBoardC','mcBoardM','mcDossier_','mcIfBranches_','mcIfChat_','mcIfFramed_','mcJobChoice_','mcPresets_','mcWin_'];
+var AGENT_MIGRATION_SECRET_KEYS={mcApiKey:1,mcClaudeKey:1,mcDeepSeekKey:1,mcOpenAIKey:1,mcElevenKey:1,mcSyncPass:1,mcOmbreUrl:1};
+function _agentMigrationKeyDecision(k){
+  if(AGENT_MIGRATION_SECRET_KEYS[k]||/(?:key|pass|password|token|secret|url)$/i.test(k)) return 'secret';
+  if(/_bak$/i.test(k)) return 'not-approved';
+  if(AGENT_MIGRATION_SAFE_KEYS[k]) return 'include';
+  for(var i=0;i<AGENT_MIGRATION_SAFE_PREFIXES.length;i++) if(k.indexOf(AGENT_MIGRATION_SAFE_PREFIXES[i])===0) return 'include';
+  if((k.indexOf('mcChat')===0||k.indexOf('mcIfChat_')===0)&&/_archPend$/.test(k)) return 'include';
+  return 'not-approved';
+}
+async function exportAgentMigrationPackage(btn){
+  var status=document.getElementById('agentMigrationExportStatus'), old=btn&&btn.textContent;
+  if(btn){ btn.textContent='正在只读整理…'; btn.style.pointerEvents='none'; btn.style.opacity='.65'; }
+  try{
+    var safe={}, skipped=[];
+    for(var i=0;i<localStorage.length;i++){
+      var k=localStorage.key(i), decision=_agentMigrationKeyDecision(k);
+      if(decision==='include') safe[k]=localStorage.getItem(k);
+      else skipped.push({key:k,reason:decision});
+    }
+    var saves=await _idbGetAll('saves'), archives=await _idbGetAll('archives');
+    var archiveMessages=0; archives.forEach(function(row){ if(row&&Array.isArray(row.arr)) archiveMessages+=row.arr.length; });
+    var payload={
+      schema_version:'myc.agent-migration-export.v1',
+      exported_at:new Date().toISOString(),
+      source:{app:'myc-web-room',version:'35.8',mode:'read-only-sanitized-migration'},
+      local_storage:safe,
+      indexed_db:{saves:saves,archives:archives},
+      inventory:{local_storage_keys:Object.keys(safe).length,saves:saves.length,archive_rows:archives.length,archive_messages:archiveMessages},
+      exclusions:{keys:skipped,remote_ombre_memory:'not-included-separate-export-required',duplicate_backups:'not-included'}
+    };
+    var blob=new Blob([JSON.stringify(payload)],{type:'application/json;charset=utf-8'}),url=URL.createObjectURL(blob),a=document.createElement('a'),d=new Date();
+    a.href=url;a.download='myc_agent_migration_'+d.getFullYear()+pad(d.getMonth()+1)+pad(d.getDate())+'_'+pad(d.getHours())+pad(d.getMinutes())+'.json';document.body.appendChild(a);a.click();a.remove();setTimeout(function(){URL.revokeObjectURL(url);},2000);
+    if(status){ status.style.color='var(--green)';status.textContent='✓ 脱敏迁移包已导出：'+Object.keys(safe).length+' 个安全键、'+saves.length+' 个存档点、'+archiveMessages+' 条归档消息；排除 '+skipped.length+' 个秘密/缓存/备份键。原数据未修改。'; }
+  }catch(e){ if(status){status.style.color='var(--rose)';status.textContent='迁移包导出失败：'+e.message;} }
+  finally{ if(btn){btn.textContent=old||'⬇ 导出 Agent 脱敏迁移包';btn.style.pointerEvents='';btn.style.opacity='';} }
+}
 function _continuityMsgs(v){
   if(typeof v==='string'){ try{ v=JSON.parse(v); }catch(e){ return []; } }
   return Array.isArray(v)?v.filter(function(m){ return m&&typeof m.role==='string'&&typeof m.text==='string'&&!m.err&&!m.pending; }):[];
@@ -4058,6 +4157,91 @@ function currentFramework(){ if(_activeChat.type==='if'){ return getBranchFw(_ac
 function chatEsc(s){ return (s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
 function chatAutosize(el){ if(!el) return; el.style.height='auto'; el.style.height=Math.min(240, el.scrollHeight)+'px'; }
 function chatKeydown(e){ if(e.key==='Enter'&&!e.shiftKey){ e.preventDefault(); sendChat(); } }
+// ===== 聊天看图：单张、只存压缩版。图片不是长期记忆；老轮次会在统一保存处自动剥离 img。 =====
+var _chatPendingImage='', _chatPendingImageName='', _chatImageBusy=false;
+var CHAT_IMAGE_MAX_INPUT=25*1024*1024, CHAT_IMAGE_MAX_EDGE=1024, CHAT_IMAGE_MAX_STORED=1400*1024;
+function _chatImageDataOK(s){ return typeof s==='string' && /^data:image\/jpeg;base64,[A-Za-z0-9+/=\s]+$/.test(s); }
+function _chatImageHTML(m){
+  if(!m||!_chatImageDataOK(m.img)) return '';
+  return '<img src="'+m.img+'" alt="用户发送的图片" loading="lazy" style="display:block;max-width:100%;width:auto;max-height:520px;object-fit:contain;border-radius:11px;margin:0 0 8px;background:var(--bg)"/>';
+}
+function chatImagePick(){ var f=document.getElementById('chatImageFile'); if(f&&!_chatImageBusy) f.click(); }
+function chatImageClear(){
+  _chatPendingImage=''; _chatPendingImageName=''; _chatImageBusy=false;
+  var p=document.getElementById('chatImagePreview'), im=document.getElementById('chatImagePreviewImg'), f=document.getElementById('chatImageFile');
+  if(p) p.style.display='none'; if(im) im.removeAttribute('src'); if(f) f.value='';
+  var b=document.getElementById('chatImageBtn'); if(b){ b.disabled=false; b.style.opacity='1'; }
+}
+function _chatImagePreview(dataUrl,name){
+  var p=document.getElementById('chatImagePreview'), im=document.getElementById('chatImagePreviewImg'), n=document.getElementById('chatImagePreviewName');
+  if(im) im.src=dataUrl; if(n) n.textContent=name||'图片已就绪'; if(p) p.style.display='flex';
+}
+function _chatImageNotice(msg,bad){
+  var sub=document.getElementById('chatSubtitle'); if(!sub) return;
+  sub.textContent=msg; sub.style.color=bad?'var(--rose)':'';
+  setTimeout(function(){ try{ updateChatHeader(); }catch(e){} },2600);
+}
+function _chatCompressImage(file){
+  return new Promise(function(resolve,reject){
+    if(!file||!/^image\//i.test(file.type||'')){ reject(new Error('请选择图片文件')); return; }
+    if(file.size>CHAT_IMAGE_MAX_INPUT){ reject(new Error('图片超过 25 MB，请先缩小')); return; }
+    var url='';
+    try{ url=URL.createObjectURL(file); }catch(e){ reject(new Error('浏览器没能读取这张图')); return; }
+    var img=new Image();
+    img.onload=function(){
+      try{
+        var w=img.naturalWidth||img.width, h=img.naturalHeight||img.height;
+        if(!w||!h) throw new Error('图片尺寸无效');
+        var scale=Math.min(1,CHAT_IMAGE_MAX_EDGE/Math.max(w,h));
+        var cw=Math.max(1,Math.round(w*scale)), ch=Math.max(1,Math.round(h*scale));
+        var cv=document.createElement('canvas'); cv.width=cw; cv.height=ch;
+        var ctx=cv.getContext('2d'); if(!ctx) throw new Error('浏览器不支持图片压缩');
+        ctx.fillStyle='#ffffff'; ctx.fillRect(0,0,cw,ch); ctx.drawImage(img,0,0,cw,ch);
+        var out=cv.toDataURL('image/jpeg',0.8);
+        if(!_chatImageDataOK(out)) throw new Error('图片压缩失败');
+        if(out.length>CHAT_IMAGE_MAX_STORED) out=cv.toDataURL('image/jpeg',0.65);
+        if(out.length>CHAT_IMAGE_MAX_STORED){ var cv2=document.createElement('canvas'); cv2.width=Math.max(1,Math.round(cw*.75)); cv2.height=Math.max(1,Math.round(ch*.75)); var c2=cv2.getContext('2d'); if(!c2) throw new Error('浏览器不支持图片压缩'); c2.fillStyle='#ffffff'; c2.fillRect(0,0,cv2.width,cv2.height); c2.drawImage(cv,0,0,cv2.width,cv2.height); out=cv2.toDataURL('image/jpeg',0.65); }
+        if(out.length>CHAT_IMAGE_MAX_STORED) throw new Error('压缩后仍然太大，请换一张或先裁剪');
+        resolve(out);
+      }catch(e){ reject(e); }
+      finally{ try{ URL.revokeObjectURL(url); }catch(e){} }
+    };
+    img.onerror=function(){ try{ URL.revokeObjectURL(url); }catch(e){} reject(new Error('这张图片无法解码；可先转成 JPG 或 PNG')); };
+    img.src=url;
+  });
+}
+async function _chatAcceptImageFile(file){
+  if(_chatImageBusy) return; _chatImageBusy=true;
+  var b=document.getElementById('chatImageBtn'); if(b){ b.disabled=true; b.style.opacity='.45'; }
+  _chatImageNotice('正在压缩图片…',false);
+  try{
+    var data=await _chatCompressImage(file); _chatPendingImage=data; _chatPendingImageName=(file&&file.name)||'粘贴的图片';
+    _chatImagePreview(data,_chatPendingImageName); _chatImageNotice('图片已就绪，可以直接发送',false);
+  }catch(e){ _chatImageNotice('✗ '+((e&&e.message)||'图片读取失败'),true); }
+  finally{ _chatImageBusy=false; if(b){ b.disabled=false; b.style.opacity='1'; } var f=document.getElementById('chatImageFile'); if(f) f.value=''; }
+}
+function chatImageFileSelected(input){ var f=input&&input.files&&input.files[0]; if(f) _chatAcceptImageFile(f); }
+function chatImagePaste(e){
+  try{ var items=e&&e.clipboardData&&e.clipboardData.items; if(!items) return; for(var i=0;i<items.length;i++){ if(/^image\//i.test(items[i].type||'')){ var f=items[i].getAsFile(); if(f){ e.preventDefault(); _chatAcceptImageFile(f); } return; } } }catch(err){ _chatImageNotice('✗ 没能读取粘贴的图片',true); }
+}
+function chatImageDragOver(e){ try{ e.preventDefault(); e.dataTransfer.dropEffect='copy'; var r=document.getElementById('chatInputRow'); if(r) r.style.borderColor='var(--gold)'; }catch(err){} }
+function chatImageDragLeave(e){ try{ var r=document.getElementById('chatInputRow'); if(r) r.style.borderColor=''; }catch(err){} }
+function chatImageDrop(e){
+  try{ e.preventDefault(); chatImageDragLeave(e); var fs=e.dataTransfer&&e.dataTransfer.files, f=fs&&fs[0]; if(f) _chatAcceptImageFile(f); }catch(err){ _chatImageNotice('✗ 没能读取拖入的图片',true); }
+}
+function _chatContents(hist){
+  return (hist||[]).map(function(m){
+    var parts=[], t=(m&&typeof m.text==='string')?m.text:'';
+    if(t) parts.push({text:t});
+    if(m&&_chatImageDataOK(m.img)) parts.push({inline_data:{mime_type:'image/jpeg',data:m.img.slice(m.img.indexOf(',')+1)}});
+    if(!parts.length) parts.push({text:''});
+    return {role:(m&&m.role==='user'?'user':'model'),parts:parts};
+  });
+}
+function _contentsHasImage(contents){
+  try{ for(var i=0;i<(contents||[]).length;i++){ var p=contents[i].parts||[]; for(var j=0;j<p.length;j++){ if(p[j]&&p[j].inline_data&&p[j].inline_data.data) return true; } } }catch(e){}
+  return false;
+}
 var _curView='dashboard';
 function showView(name){
   _curView=name;
@@ -4253,7 +4437,7 @@ function maskToggle(f,v){ if(_activeChat.type!=='if') return; var cur=getIfMask(
 function maskRefreshToggles(m){ try{ document.querySelectorAll('.mask-opt').forEach(function(el){ var q=el.getAttribute('data-q'), v=el.getAttribute('data-v')==='1'; el.classList.toggle('on', m[q]===v); }); }catch(e){} }
 // ===== IF 存档（IndexedDB · 大容量）=====
 var _idb=null, _ifSaveSeq=0;
-function ifDB(){ return new Promise(function(res,rej){ if(_idb) return res(_idb); try{ var rq=indexedDB.open('mcIfDB',4); rq.onupgradeneeded=function(e){ var db=e.target.result; if(!db.objectStoreNames.contains('saves')){ var st=db.createObjectStore('saves',{keyPath:'id'}); st.createIndex('lineId','lineId',{unique:false}); } if(!db.objectStoreNames.contains('archives')){ db.createObjectStore('archives',{keyPath:'k'}); } if(!db.objectStoreNames.contains('migBackups')){ db.createObjectStore('migBackups',{keyPath:'key'}); } if(!db.objectStoreNames.contains('chatBackups')){ db.createObjectStore('chatBackups',{keyPath:'k'}); } }; var _to=setTimeout(function(){ rej(new Error('IDB_OPEN_TIMEOUT')); }, 8000); rq.onsuccess=function(e){ clearTimeout(_to); _idb=e.target.result; try{ _idb.onversionchange=function(){ try{_idb.close();}catch(_e){} _idb=null; }; }catch(_e){} res(_idb); }; rq.onerror=function(){ clearTimeout(_to); rej(rq.error); }; rq.onblocked=function(){ clearTimeout(_to); rej(new Error('IDB_BLOCKED')); }; }catch(e){ rej(e); } }); }
+function ifDB(){ return new Promise(function(res,rej){ if(_idb) return res(_idb); try{ var rq=indexedDB.open('mcIfDB',5); rq.onupgradeneeded=function(e){ var db=e.target.result; if(!db.objectStoreNames.contains('saves')){ var st=db.createObjectStore('saves',{keyPath:'id'}); st.createIndex('lineId','lineId',{unique:false}); } if(!db.objectStoreNames.contains('archives')){ db.createObjectStore('archives',{keyPath:'k'}); } if(!db.objectStoreNames.contains('migBackups')){ db.createObjectStore('migBackups',{keyPath:'key'}); } if(!db.objectStoreNames.contains('chatBackups')){ db.createObjectStore('chatBackups',{keyPath:'k'}); } if(!db.objectStoreNames.contains('agentOutbox')){ db.createObjectStore('agentOutbox',{keyPath:'id'}); } if(!db.objectStoreNames.contains('agentReceipts')){ db.createObjectStore('agentReceipts',{keyPath:'id'}); } }; var _to=setTimeout(function(){ rej(new Error('IDB_OPEN_TIMEOUT')); }, 8000); rq.onsuccess=function(e){ clearTimeout(_to); _idb=e.target.result; try{ _idb.onversionchange=function(){ try{_idb.close();}catch(_e){} _idb=null; }; }catch(_e){} res(_idb); }; rq.onerror=function(){ clearTimeout(_to); rej(rq.error); }; rq.onblocked=function(){ clearTimeout(_to); rej(new Error('IDB_BLOCKED')); }; }catch(e){ rej(e); } }); }
 // ===== 存档存进 IndexedDB（大抽屉，不占 localStorage 那 5MB）=====
 function archDbGet(k){ return ifDB().then(function(db){ return new Promise(function(res){ try{ var tx=db.transaction('archives','readonly'); var rq=tx.objectStore('archives').get(k); rq.onsuccess=function(){ res((rq.result&&rq.result.arr)||null); }; rq.onerror=function(){ res(null); }; }catch(e){ res(null); } }); }).catch(function(){ return null; }); }
 function archDbPut(k,arr){ return ifDB().then(function(db){ return new Promise(function(res){ try{ var tx=db.transaction('archives','readwrite'); tx.objectStore('archives').put({k:k,arr:arr||[]}); tx.oncomplete=function(){ res(true); }; tx.onerror=function(){ res(false); }; }catch(e){ res(false); } }); }).catch(function(){ return false; }); }
@@ -4736,12 +4920,12 @@ function _liteBubble(m, i){
   var lu=(m.role==='user');
   var bs='align-self:'+(lu?'flex-end':'stretch')+';max-width:'+(lu?'82%':'100%')+';'+(lu?'background:var(--s2);border:1px solid var(--border2);border-radius:14px;padding:9px 13px;':'padding:2px 0;')+'color:var(--text'+(lu?'':'2')+');font-size:14px;font-weight:600;line-height:1.6;white-space:pre-wrap;font-family:\'Noto Serif SC\',serif';
   var t=(m&&m.text)||'';
-  return '<div style="display:flex;flex-direction:column;align-items:'+(lu?'flex-end':'stretch')+';gap:1px"><div style="'+bs+'">'+chatEsc(t)+'</div><span onclick="_liteAct('+i+',event)" title="操作" style="cursor:pointer;color:var(--text4);font-size:17px;line-height:1;padding:2px 12px;align-self:'+(lu?'flex-end':'flex-start')+'">···</span></div>';
+  return '<div style="display:flex;flex-direction:column;align-items:'+(lu?'flex-end':'stretch')+';gap:1px"><div style="'+bs+'">'+(lu?_chatImageHTML(m):'')+chatEsc(t)+'</div><span onclick="_liteAct('+i+',event)" title="操作" style="cursor:pointer;color:var(--text4);font-size:17px;line-height:1;padding:2px 12px;align-self:'+(lu?'flex-end':'flex-start')+'">···</span></div>';
 }
 function _fullBubble(m, i){
   try{
     if(i===_chatEditIdx){ var isU=(m.role==='user'); return '<div style="align-self:'+(isU?'flex-end':'stretch')+';width:100%;'+(isU?'max-width:82%;':'')+'display:flex;flex-direction:column;gap:6px"><textarea id="chatEditTA" oninput="try{_chatEditDraft=this.value;}catch(e){}" style="width:100%;box-sizing:border-box;background:var(--s2);border:1px solid var(--gold-dim);border-radius:12px;padding:10px 13px;color:var(--text);font-family:\'Noto Serif SC\',serif;font-size:15px;line-height:1.65;outline:none;min-height:84px;resize:vertical">'+chatEsc(typeof _chatEditDraft==='string'?_chatEditDraft:(m.text||''))+'</textarea><div style="display:flex;gap:12px;justify-content:flex-end"><span onclick="chatEditCancel()" style="cursor:pointer;font-size:11px;color:var(--text4)">取消</span><span onclick="chatEditSave('+i+')" style="cursor:pointer;font-size:11px;color:var(--gold)">保存</span></div></div>'; }
-    if(m.role==='user'){ var ub='<div style="background:var(--s2);border:1px solid var(--border2);border-radius:16px;padding:10px 14px;color:var(--text);font-size:14px;font-weight:600;line-height:1.5;white-space:pre-wrap;font-family:\'Noto Serif SC\',serif">'+_ubWrap(m.text,'ub'+i)+'</div>'; return '<div style="align-self:flex-end;max-width:82%;display:flex;flex-direction:column;align-items:flex-end;gap:2px">'+ub+_msgTools(i,true,m.fav)+'</div>'; }
+    if(m.role==='user'){ var ub='<div style="background:var(--s2);border:1px solid var(--border2);border-radius:16px;padding:10px 14px;color:var(--text);font-size:14px;font-weight:600;line-height:1.5;white-space:pre-wrap;font-family:\'Noto Serif SC\',serif">'+_chatImageHTML(m)+_ubWrap(m.text||'','ub'+i)+'</div>'; return '<div style="align-self:flex-end;max-width:82%;display:flex;flex-direction:column;align-items:flex-end;gap:2px">'+ub+_msgTools(i,true,m.fav)+'</div>'; }
     if(m.pending){ var _partial=(m.text||(_chatBusy?_streamText:'')||''); var inner=_partial?chatEsc(mcCleanText(_partial)):'<span class="typing-dots"><i></i><i></i><i></i></span><span onclick="chatDelPending('+i+')" title="取消 / 删掉" style="cursor:pointer;color:var(--text4);font-size:12px;margin-left:10px">✕</span>'; return '<div style="align-self:stretch;display:flex;flex-direction:column;gap:2px"><div id="chatStreamBubble" style="color:var(--text2);font-size:14px;font-weight:600;line-height:1.55;white-space:pre-wrap;font-family:\'Noto Serif SC\',serif;padding:2px 0">'+inner+'</div></div>'; }
     var bubble='<div style="color:var(--text2);font-size:14px;font-weight:600;line-height:1.55;white-space:pre-wrap;font-family:\'Noto Serif SC\',serif;padding:2px 0">'+_modelMsgHTML(m, i)+'</div>';
     if(m.err) return '<div style="align-self:stretch;display:flex;flex-direction:column;gap:2px">'+bubble+'<div style="display:flex;gap:14px;padding:2px 6px"><span onclick="chatRetryLast()" style="cursor:pointer;font-size:11px;color:var(--gold)">↻ 重试</span><span onclick="openModelSwitch(true)" style="cursor:pointer;font-size:11px;color:var(--text3)">⇄ 换模型重试</span></div>'+_msgTools(i,false,m.fav)+'</div>';
@@ -4868,7 +5052,7 @@ function renderChat(){
       var _lu=(m.role==='user');
       var _bs='align-self:'+(_lu?'flex-end':'stretch')+';max-width:'+(_lu?'82%':'100%')+';'+(_lu?'background:var(--s2);border:1px solid var(--border2);border-radius:14px;padding:9px 13px;':'padding:2px 0;')+'color:var(--text'+(_lu?'':'2')+');font-size:14px;font-weight:600;line-height:1.6;white-space:pre-wrap;font-family:\'Noto Serif SC\',serif';
       return '<div style="display:flex;flex-direction:column;align-items:'+(_lu?'flex-end':'stretch')+';gap:1px">'
-        +'<div style="'+_bs+'">'+chatEsc(m.text||'')+'</div>'
+        +'<div style="'+_bs+'">'+(_lu?_chatImageHTML(m):'')+chatEsc(m.text||'')+'</div>'
         +'<span onclick="_liteAct('+i+',event)" title="操作（复制/编辑/删除/重roll/朗读/收藏/记忆）" style="cursor:pointer;color:var(--text4);font-size:17px;line-height:1;padding:2px 12px;align-self:'+(_lu?'flex-end':'flex-start')+'">···</span>'
       +'</div>';
     }
@@ -4880,7 +5064,7 @@ function renderChat(){
       +'</div>';
     }
     if(m.role==='user'){
-      var ub='<div style="background:var(--s2);border:1px solid var(--border2);border-radius:16px;padding:10px 14px;color:var(--text);font-size:14px;font-weight:600;line-height:1.5;white-space:pre-wrap;font-family:\'Noto Serif SC\',serif">'+_ubWrap(m.text,'ub'+i)+'</div>';
+      var ub='<div style="background:var(--s2);border:1px solid var(--border2);border-radius:16px;padding:10px 14px;color:var(--text);font-size:14px;font-weight:600;line-height:1.5;white-space:pre-wrap;font-family:\'Noto Serif SC\',serif">'+_chatImageHTML(m)+_ubWrap(m.text||'','ub'+i)+'</div>';
       return '<div style="align-self:flex-end;max-width:82%;display:flex;flex-direction:column;align-items:flex-end;gap:2px">'+ub+_msgTools(i,true,m.fav)+'</div>';
     }
     if(m.pending){   // 打字中：有字（含正在流式的半成品）=填入；真的还没字才显示三点跳动+✕
@@ -4973,9 +5157,10 @@ async function saveWindowsIDB(arr){
   for(var i=0;i<(arr||[]).length;i++){
     var w=arr[i]; if(!w) continue;
     if(w.chat && w.chat.length){
-      var ok=false; try{ ok=await archDbPut(_winBodyKey(w.id), w.chat); }catch(e){ ok=false; }
+      var cleanChat=_stripAllChatImages(w.chat);
+      var ok=false; try{ ok=await archDbPut(_winBodyKey(w.id), cleanChat); }catch(e){ ok=false; }
       if(ok) idx.push({id:w.id, ts:w.ts, title:w.title, n:w.n});   // ★落库确认成功，才剥掉正文
-      else   idx.push(w);                                          // 落库失败 → 正文原样留着，绝不丢
+      else   idx.push({id:w.id, ts:w.ts, title:w.title, n:w.n, chat:cleanChat});   // 落库失败 → 文字正文原样留着；图片按短期规则剥离
     } else idx.push({id:w.id, ts:w.ts, title:w.title, n:w.n});
   }
   try{ localStorage.setItem(_winKey(), JSON.stringify(idx)); }catch(e){}
@@ -4998,8 +5183,8 @@ async function _migrateWinBodiesToIDB(){   // 一次性：把已存的旧窗口�
       for(var n=0;n<arr.length;n++){
         var w=arr[n]; if(!w) continue;
         if(w.chat&&w.chat.length){
-          var ok=false; try{ ok=await archDbPut(_winBodyKey(w.id), w.chat); }catch(e){ ok=false; }
-          idx.push(ok ? {id:w.id, ts:w.ts, title:w.title, n:w.n} : w);
+          var cleanChat=_stripAllChatImages(w.chat), ok=false; try{ ok=await archDbPut(_winBodyKey(w.id), cleanChat); }catch(e){ ok=false; }
+          idx.push(ok ? {id:w.id, ts:w.ts, title:w.title, n:w.n} : {id:w.id,ts:w.ts,title:w.title,n:w.n,chat:cleanChat});
         } else idx.push({id:w.id, ts:w.ts, title:w.title, n:w.n});
       }
       try{ _rawSet(key, JSON.stringify(idx)); }catch(e){}   // 原始写：不触发同步、不被字符串化
@@ -5048,7 +5233,7 @@ async function chatNewWindow(){
     var a=loadWindows(); a.unshift({id:'w'+Date.now(), ts:Date.now(), title:_winTitle(cur), n:cur.length, chat:cur }); await saveWindowsIDB(a);   // ③旧窗仍可切回（正文进 IndexedDB，localStorage 只留索引）
   }
   // ④界面只留最后 20 条当"冷摆设"：只显示、永不喂 AI（隔离旧窗文风）；新窗一开始聊，只灌新产出
-  var coldBuf=cur.slice(-PINNED_KEEP).map(function(m){ var c=_cloneMsg(m); c._cold=true; delete c._pinned; return c; });
+  var coldBuf=cur.slice(-PINNED_KEEP).map(function(m){ var c=_cloneMsg(m); c._cold=true; delete c._pinned; delete c.img; return c; });
   saveChat(coldBuf); closeWinPanel(); renderChat(); updateChatHeader();
 }
 async function chatSwitchWindow(id){
@@ -5173,7 +5358,7 @@ async function _genReplyForLast(){
   var sub=document.getElementById('chatSubtitle'); _chatBusy=true; var myGen=++_chatGen; _setSendBtn(true); if(sub) sub.textContent='正在斟酌……';
   try{
     var recent=recentByChars(_feedHist(loadChat()), 20000);
-    var contents=recent.map(function(m){ return { role:(m.role==='user'?'user':'model'), parts:[{ text:m.text }] }; });
+    var contents=_chatContents(recent);
     var sys=await _chatBuildSys(text);
     _streamText=''; var hp=loadChat(); hp.push({role:'model', text:'', ts:Date.now(), pending:true}); saveChat(hp); renderChat();
     var reply=''; _chatAbort=new AbortController();
@@ -5200,7 +5385,7 @@ async function chatContinue(i){   // 续写：接着这条(可能被截断的)�
     var ctxHist=h.slice(0,i);
     var lastUser=''; for(var k=ctxHist.length-1;k>=0;k--){ if(ctxHist[k].role==='user'){ lastUser=ctxHist[k].text; break; } }
     var recent=recentByChars(_feedHist(ctxHist), 20000);
-    var contents=recent.map(function(m){ return { role:(m.role==='user'?'user':'model'), parts:[{ text:m.text }] }; });
+    var contents=_chatContents(recent);
     contents.push({ role:'model', parts:[{ text:base }] });
     contents.push({ role:'user', parts:[{ text:'（接着你上面那条没说完的话继续写下去：直接从断点接着写，不要重复已经写过的内容、不要重新开头、不要复述前文，自然衔接即可。）' }] });
     var sys=await _chatBuildSys(lastUser, base);
@@ -5228,7 +5413,7 @@ async function chatRegen(i){
     var ctxHist=h.slice(0,i);
     var lastUser=''; for(var k=ctxHist.length-1;k>=0;k--){ if(ctxHist[k].role==='user'){ lastUser=ctxHist[k].text; break; } }
     var recent=recentByChars(_feedHist(ctxHist), 20000);
-    var contents=recent.map(function(m){ return { role:(m.role==='user'?'user':'model'), parts:[{ text:m.text }] }; });
+    var contents=_chatContents(recent);
     var sys=await _chatBuildSys(lastUser);
     reply=await streamReply(sys, contents, function(p){ if(myGen===_chatGen) _streamPaint(p); }, {signal:_chatAbort.signal});
     if(myGen!==_chatGen) return;   // 已被取代 → 丢弃，不写回（stopChat 会恢复原文）
@@ -5309,16 +5494,37 @@ async function callGeminiChatStream(systemText, contents, onChunk, opts){
   if(!full) throw new Error('空回复');
   return full;
 }
-// Claude（Anthropic）适配器——直连官方 API；支持独立的历史后指令，旧型号按能力可选 assistant prefill。
+// Claude（Anthropic）适配器——直连官方 API；支持文字 + 图片内容块、历史后指令与可选 assistant prefill。
+function _claudeContent(parts){
+  var blocks=[], hasImage=false;
+  for(var i=0;i<(parts||[]).length;i++){ var p=parts[i]||{};
+    if(typeof p.text==='string'&&p.text) blocks.push({type:'text',text:p.text});
+    if(p.inline_data&&p.inline_data.data){ hasImage=true; blocks.push({type:'image',source:{type:'base64',media_type:p.inline_data.mime_type||'image/jpeg',data:p.inline_data.data}}); }
+  }
+  if(!hasImage) return blocks.map(function(b){return b.text||'';}).join('');
+  return blocks;
+}
+function _claudeAsBlocks(content){ return Array.isArray(content)?content.slice():(content?[{type:'text',text:String(content)}]:[]); }
+function _claudeAppendText(msg,text){
+  if(!msg||!text) return;
+  if(Array.isArray(msg.content)) msg.content.push({type:'text',text:text}); else msg.content=String(msg.content||'')+text;
+}
+function _claudeMsgs(contents){
+  var msgs=[];
+  for(var i=0;i<(contents||[]).length;i++){ var c=contents[i]||{}, role=(c.role==='model'?'assistant':'user'), content=_claudeContent(c.parts||[]); if(!content||(Array.isArray(content)&&!content.length)) continue;
+    if(msgs.length&&msgs[msgs.length-1].role===role){ var prev=msgs[msgs.length-1]; if(typeof prev.content==='string'&&typeof content==='string') prev.content+='\n\n'+content; else prev.content=_claudeAsBlocks(prev.content).concat([{type:'text',text:'\n\n'}],_claudeAsBlocks(content)); }
+    else msgs.push({role:role,content:content});
+  }
+  while(msgs.length&&msgs[0].role!=='user') msgs.shift();
+  if(!msgs.length) msgs.push({role:'user',content:'（继续）'});
+  return msgs;
+}
 async function callClaude(systemText, contents, opts){
   opts=opts||{};
   var key=getClaudeKey(); if(!key) throw new Error('NO_CLAUDE_KEY');
-  var msgs=[];
-  for(var i=0;i<contents.length;i++){ var c=contents[i]; var role=(c.role==='model'?'assistant':'user'); var t=(c.parts||[]).map(function(p){return p.text||'';}).join(''); if(!t) continue; if(msgs.length&&msgs[msgs.length-1].role===role){ msgs[msgs.length-1].content+='\n\n'+t; } else { msgs.push({role:role, content:t}); } }
-  while(msgs.length && msgs[0].role!=='user') msgs.shift();   // Anthropic 要求首条是 user、且交替
-  if(!msgs.length) msgs.push({role:'user', content:'（继续）'});
+  var msgs=_claudeMsgs(contents);
   var _post=getClaudePostHistory();
-  if(_post && msgs.length){ var _last=msgs[msgs.length-1]; if(_last.role==='user') _last.content+='\n\n<reply_instructions>\n'+_post+'\n</reply_instructions>'; }
+  if(_post && msgs.length){ var _last=msgs[msgs.length-1]; if(_last.role==='user') _claudeAppendText(_last,'\n\n<reply_instructions>\n'+_post+'\n</reply_instructions>'); }
   var _prefill=getClaudePrefill();
   if(_prefill && _claudeSupportsPrefill(opts.model||getClaudeModel()) && msgs.length && msgs[msgs.length-1].role==='user') msgs.push({role:'assistant',content:_prefill});
   var _ac=new AbortController(), _slow=false, _to=setTimeout(function(){ _slow=true; try{ _ac.abort(); }catch(e){} }, 60000);
@@ -5339,12 +5545,9 @@ async function callClaude(systemText, contents, opts){
 async function callClaudeStream(systemText, contents, onChunk, opts){
   opts=opts||{};
   var key=getClaudeKey(); if(!key) throw new Error('NO_CLAUDE_KEY');
-  var msgs=[];
-  for(var i=0;i<contents.length;i++){ var c=contents[i]; var role=(c.role==='model'?'assistant':'user'); var t=(c.parts||[]).map(function(p){return p.text||'';}).join(''); if(!t) continue; if(msgs.length&&msgs[msgs.length-1].role===role){ msgs[msgs.length-1].content+='\n\n'+t; } else { msgs.push({role:role, content:t}); } }
-  while(msgs.length && msgs[0].role!=='user') msgs.shift();
-  if(!msgs.length) msgs.push({role:'user', content:'（继续）'});
+  var msgs=_claudeMsgs(contents);
   var _post=getClaudePostHistory();
-  if(_post && msgs.length){ var _last=msgs[msgs.length-1]; if(_last.role==='user') _last.content+='\n\n<reply_instructions>\n'+_post+'\n</reply_instructions>'; }
+  if(_post && msgs.length){ var _last=msgs[msgs.length-1]; if(_last.role==='user') _claudeAppendText(_last,'\n\n<reply_instructions>\n'+_post+'\n</reply_instructions>'); }
   var _prefill=getClaudePrefill();
   if(_prefill && _claudeSupportsPrefill(opts.model||getClaudeModel()) && msgs.length && msgs[msgs.length-1].role==='user') msgs.push({role:'assistant',content:_prefill});
   var FIRST_MS=30000, IDLE_MS=25000;
@@ -5379,16 +5582,21 @@ async function callClaudeStream(systemText, contents, onChunk, opts){
   if(!full) throw new Error('Claude 空回复');
   return full;
 }
-// DeepSeek（OpenAI 兼容）适配器——又一路兜底。露骨段它比 Claude 宽松，可当 Gemini 503 时的备胎。
-function _dsMsgs(systemText, contents){
+// OpenAI 兼容消息组装：GPT 可收图片 data URL；DeepSeek 调用时关闭图片块。
+function _dsMsgs(systemText, contents, allowImages){
   var msgs=[]; if(systemText) msgs.push({role:'system', content:systemText});
-  for(var i=0;i<contents.length;i++){ var c=contents[i]; var role=(c.role==='model'?'assistant':'user'); var t=(c.parts||[]).map(function(p){return p.text||'';}).join(''); if(!t) continue; if(msgs.length&&msgs[msgs.length-1].role===role&&role!=='system'){ msgs[msgs.length-1].content+='\n\n'+t; } else { msgs.push({role:role, content:t}); } }
+  for(var i=0;i<contents.length;i++){ var c=contents[i]||{}, role=(c.role==='model'?'assistant':'user'), parts=c.parts||[], textParts=[], blocks=[], hasImage=false;
+    for(var j=0;j<parts.length;j++){ var p=parts[j]||{}; if(typeof p.text==='string'&&p.text){ textParts.push(p.text); blocks.push({type:'text',text:p.text}); } if(allowImages&&p.inline_data&&p.inline_data.data){ hasImage=true; blocks.push({type:'image_url',image_url:{url:'data:'+(p.inline_data.mime_type||'image/jpeg')+';base64,'+p.inline_data.data}}); } }
+    var content=hasImage?blocks:textParts.join(''); if(!content||(Array.isArray(content)&&!content.length)) continue;
+    if(msgs.length&&msgs[msgs.length-1].role===role&&role!=='system'&&typeof msgs[msgs.length-1].content==='string'&&typeof content==='string') msgs[msgs.length-1].content+='\n\n'+content;
+    else msgs.push({role:role,content:content});
+  }
   return msgs;
 }
 async function callDeepSeek(systemText, contents, opts){
   opts=opts||{};
   var key=getDeepSeekKey(); if(!key) throw new Error('NO_DEEPSEEK_KEY');
-  var msgs=_dsMsgs(systemText, contents);
+  var msgs=_dsMsgs(systemText, contents, false);
   var _ac=new AbortController(), _slow=false, _to=setTimeout(function(){ _slow=true; try{ _ac.abort(); }catch(e){} }, 60000);
   var resp;
   try{ resp=await fetch('https://api.deepseek.com/chat/completions',{ method:'POST', headers:{ 'content-type':'application/json', 'authorization':'Bearer '+key }, body:JSON.stringify({ model:(opts.model||getDeepSeekModel()), max_tokens:8192, messages:msgs, temperature:(opts.temperature!=null?opts.temperature:1.0) }), signal:_ac.signal }); clearTimeout(_to); }
@@ -5402,7 +5610,7 @@ async function callDeepSeek(systemText, contents, opts){
 async function callDeepSeekStream(systemText, contents, onChunk, opts){
   opts=opts||{};
   var key=getDeepSeekKey(); if(!key) throw new Error('NO_DEEPSEEK_KEY');
-  var msgs=_dsMsgs(systemText, contents);
+  var msgs=_dsMsgs(systemText, contents, false);
   var FIRST_MS=30000, IDLE_MS=25000;
   var resp=await Promise.race([ fetch('https://api.deepseek.com/chat/completions',{ method:'POST', headers:{ 'content-type':'application/json','authorization':'Bearer '+key }, body:JSON.stringify({ model:(opts.model||getDeepSeekModel()), max_tokens:8192, messages:msgs, temperature:(opts.temperature!=null?opts.temperature:1.0), stream:true }), signal:opts.signal }), new Promise(function(_,rej){ setTimeout(function(){ rej(new Error('STREAM_TIMEOUT')); }, FIRST_MS); }) ]);
   if(!resp.ok){ var t0=await resp.text(); throw new Error('DeepSeek HTTP '+resp.status+'：'+t0.slice(0,140)); }
@@ -5443,7 +5651,7 @@ function _oaiBody(model, msgs, opts, stream){
 async function callOpenAI(systemText, contents, opts){
   opts=opts||{};
   var key=getOpenAIKey(); if(!key) throw new Error('NO_OPENAI_KEY');
-  var model=(opts.model||getOpenAIModel()), msgs=_dsMsgs(systemText, contents);
+  var model=(opts.model||getOpenAIModel()), msgs=_dsMsgs(systemText, contents, true);
   var _ac=new AbortController(), _slow=false, _to=setTimeout(function(){ _slow=true; try{ _ac.abort(); }catch(e){} }, 60000);
   var resp;
   try{ resp=await fetch('https://api.openai.com/v1/chat/completions',{ method:'POST', headers:{ 'content-type':'application/json','authorization':'Bearer '+key }, body:JSON.stringify(_oaiBody(model,msgs,opts,false)), signal:_ac.signal }); clearTimeout(_to); }
@@ -5457,7 +5665,7 @@ async function callOpenAI(systemText, contents, opts){
 async function callOpenAIStream(systemText, contents, onChunk, opts){
   opts=opts||{};
   var key=getOpenAIKey(); if(!key) throw new Error('NO_OPENAI_KEY');
-  var model=(opts.model||getOpenAIModel()), msgs=_dsMsgs(systemText, contents);
+  var model=(opts.model||getOpenAIModel()), msgs=_dsMsgs(systemText, contents, true);
   var FIRST_MS=30000, IDLE_MS=25000;
   var resp=await Promise.race([ fetch('https://api.openai.com/v1/chat/completions',{ method:'POST', headers:{ 'content-type':'application/json','authorization':'Bearer '+key }, body:JSON.stringify(_oaiBody(model,msgs,opts,true)), signal:opts.signal }), new Promise(function(_,rej){ setTimeout(function(){ rej(new Error('STREAM_TIMEOUT')); }, FIRST_MS); }) ]);
   if(!resp.ok){ var t0=await resp.text(); throw new Error('OpenAI HTTP '+resp.status+'：'+t0.slice(0,140)); }
@@ -5517,6 +5725,7 @@ function getWebSearch(){ try{ return localStorage.getItem('mcWebSearch')==='1'; 
 function setWebSearch(v){ try{ localStorage.setItem('mcWebSearch', v?'1':'0'); }catch(e){} }
 function toggleWebSearch(){ setWebSearch(!getWebSearch()); try{ updateChatHeader(); }catch(e){} var sub=document.getElementById('chatSubtitle'); if(sub){ sub.textContent=getWebSearch()?'🌐 联网已开——这条会实时搜网':'联网已关'; setTimeout(function(){ try{ updateChatHeader(); }catch(e){} },1800); } }
 function _lastUserOf(contents){ try{ for(var i=contents.length-1;i>=0;i--){ if(contents[i].role==='user'){ var p=contents[i].parts||[]; return p.map(function(x){return x.text||'';}).join(' '); } } }catch(e){} return ''; }
+function _lastUserHasImage(contents){ try{ for(var i=(contents||[]).length-1;i>=0;i--){ if(contents[i].role!=='user') continue; var p=contents[i].parts||[]; for(var j=0;j<p.length;j++){ if(p[j]&&p[j].inline_data&&p[j].inline_data.data) return true; } return false; } }catch(e){} return false; }
 async function _geminiWebLookup(query){   // 用谷歌搜索代查（给 DeepSeek 这种没自带联网的兜底）
   try{ var key=getApiKey(); if(!key||!query) return '';
     var body={ contents:[{role:'user',parts:[{text:'联网检索并用中文简要总结与这句话相关的【最新真实信息】（列要点，有日期/数据就写出，注明来源网站名）：\n'+query.slice(0,500)}]}], tools:[{google_search:{}}] };
@@ -5528,6 +5737,11 @@ async function _geminiWebLookup(query){   // 用谷歌搜索代查（给 DeepSee
 async function streamReply(sys, contents, onChunk, opts){
   opts=opts||{};
   var prov=opts.provider||getActiveProvider();
+  if(prov==='deepseek'&&_lastUserHasImage(contents)){
+    if(!getApiKey()) throw new Error('DeepSeek 不能看图；请在 Settings 填 Gemini key，或切到 GPT / Claude');
+    prov='gemini';
+    try{ if(_lastBuildTrace) _lastBuildTrace.visionRoute='本轮图片：DeepSeek → Gemini'; }catch(e){}
+  }
   opts.web=getWebSearch();
   if(opts.web && prov==='deepseek'){ try{ var _ex=await _geminiWebLookup(_lastUserOf(contents)); if(_ex){ sys=sys+_ex; try{ if(_lastBuildTrace) _lastBuildTrace.webFound=_ex; }catch(e){} } }catch(e){} }   // DeepSeek 没自带联网 → 谷歌代查喂进去（并记进溯源）
   if(prov==='claude') return await callClaudeStream(sys, contents, onChunk, opts);
@@ -5903,18 +6117,26 @@ async function _chatBuildSys(lastUserText, endingOverride){
 async function sendChat(){
   if(_chatBusy) return;
   var inp=document.getElementById('chatInput'), btn=document.getElementById('chatSendBtn'), sub=document.getElementById('chatSubtitle');
-  var text=inp?inp.value.trim():''; if(!text) return;
+  var text=inp?inp.value.trim():'', imageData=_chatPendingImage; if(!text&&!imageData) return;
+  if(_chatImageBusy){ if(sub) sub.textContent='图片还在压缩，请稍等一下'; return; }
   if(_recOn){ _voiceCancel(); }
-  if(!getApiKey()){ if(sub){ sub.textContent='✗ 先在 Settings 填 Gemini API key'; } return; }
-  var hist=loadChat(); hist.push({role:'user',text:text,ts:Date.now()}); saveChat(hist);
-  var _saved=false; try{ var _c=loadChat(), _l=_c[_c.length-1]; _saved=!!(_l&&_l.role==='user'&&_l.text===text); }catch(e){}   // 确认存住了再清输入框
+  // Myc Agent bridge：Core可以常开接收主动事件；只有明确开启Agent聊天模式才接管用户发送。
+  if(!imageData&&window.MycWebRoomBridge&&window.MycWebRoomBridge.shouldHandleChat()){
+    await window.MycWebRoomBridge.sendCurrentChat(text); return;
+  }
+  var _prov=getActiveProvider(), _needGem=(_prov==='gemini'||(_prov==='deepseek'&&!!imageData));
+  var _hasKey=_needGem?!!getApiKey():(_prov==='claude'?!!getClaudeKey():(_prov==='openai'?!!getOpenAIKey():!!getDeepSeekKey()));
+  if(!_hasKey){ if(sub){ sub.textContent='✗ 先在 Settings 填 '+(_needGem?'Gemini':(_prov==='claude'?'Claude':(_prov==='openai'?'OpenAI':'DeepSeek')))+' API key'; } return; }
+  var storedText=text||'（发送了一张图片）', userMsg={role:'user',text:storedText,ts:Date.now()}; if(imageData) userMsg.img=imageData;
+  var hist=loadChat(); hist.push(userMsg); saveChat(hist);
+  var _saved=false; try{ var _c=loadChat(), _l=_c[_c.length-1]; _saved=!!(_l&&_l.role==='user'&&_l.text===storedText&&(!imageData||_l.img===imageData)); }catch(e){}   // 确认文字和图片都存住了再清输入框
   if(!_saved){ if(sub) sub.textContent='✗ 没存住（存储可能满了）— 已保留你的输入，去 外联→存储用量 清理后重发'; return; }   // 存储满：保留输入，绝不清空丢字
-  if(inp){ inp.value=''; chatAutosize(inp); } renderChat();
+  if(inp){ inp.value=''; chatAutosize(inp); } if(imageData) chatImageClear(); renderChat();
   _chatBusy=true; var myGen=++_chatGen; _setSendBtn(true); if(sub) sub.textContent='正在斟酌……';
   try{
     var recent=recentByChars(_feedHist(loadChat()), 20000);   // 短期：最近约2万字逐字喂；更早的浓缩进长期框架
-    var contents=recent.map(function(m){ return { role:(m.role==='user'?'user':'model'), parts:[{ text:m.text }] }; });
-    var sys=await _chatBuildSys(text);
+    var contents=_chatContents(recent);
+    var sys=await _chatBuildSys(storedText);
     // 占位"打字中"泡
     _streamText=''; var hp=loadChat(); hp.push({role:'model', text:'', ts:Date.now(), pending:true}); saveChat(hp); renderChat();
     var reply=''; _chatAbort=new AbortController();
@@ -7489,5 +7711,6 @@ function renderCore(){
   if(ch) saveCore(o2);
 }
 </script>
+<script src="myc-agent/apps/web-room-plugin/web-room-bridge.js?v=main-only-1"></script>
 </body>
 </html>
