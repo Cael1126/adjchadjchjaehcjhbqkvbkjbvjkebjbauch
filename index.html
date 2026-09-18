@@ -368,7 +368,7 @@ nav { height:50px; background:rgba(245,235,220,0.9); backdrop-filter:blur(20px);
   <div class="sb-bottom"><div class="sb-nav" style="padding:0">
     <a class="sb-item" onclick="openPanel('settings');closeDrawer()"><div class="sb-icon"><svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="7" cy="7" r="2.5"/><path d="M7 1 L7 2.5 M7 11.5 L7 13 M1 7 L2.5 7 M11.5 7 L13 7 M2.9 2.9 L4 4 M10 10 L11.1 11.1 M11.1 2.9 L10 4 M4 10 L2.9 11.1"/></svg></div><div class="sb-label">Settings</div></a>
     <a class="sb-item" onclick="openPanel('creator');closeDrawer()"><div class="sb-icon"><svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="4" cy="4" r="2"/><circle cx="10" cy="4" r="2"/><circle cx="7" cy="10" r="2"/><line x1="4" y1="6" x2="7" y2="8"/><line x1="10" y1="6" x2="7" y2="8"/></svg></div><div class="sb-label">Creator Mode</div></a>
-    <div class="sb-item" style="opacity:0.4;cursor:default;font-size:10px"><div class="sb-icon"><svg width="8" height="8" viewBox="0 0 8 8" fill="currentColor"><circle cx="4" cy="4" r="3"/></svg></div><div class="sb-label" style="font-family:'JetBrains Mono',monospace;letter-spacing:1px">v36.3 ✦ RELAY3</div></div>
+    <div class="sb-item" style="opacity:0.4;cursor:default;font-size:10px"><div class="sb-icon"><svg width="8" height="8" viewBox="0 0 8 8" fill="currentColor"><circle cx="4" cy="4" r="3"/></svg></div><div class="sb-label" style="font-family:'JetBrains Mono',monospace;letter-spacing:1px">v36.4 ✦ RELAY-TRANS</div></div>
   </div></div>
 </div>
 
@@ -387,7 +387,7 @@ nav { height:50px; background:rgba(245,235,220,0.9); backdrop-filter:blur(20px);
   <div class="sb-bottom"><div class="sb-nav" style="padding:0">
     <a class="sb-item" onclick="openPanel('settings')"><div class="sb-icon"><svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="7" cy="7" r="2.5"/><path d="M7 1 L7 2.5 M7 11.5 L7 13 M1 7 L2.5 7 M11.5 7 L13 7 M2.9 2.9 L4 4 M10 10 L11.1 11.1 M11.1 2.9 L10 4 M4 10 L2.9 11.1"/></svg></div><div class="sb-label">Settings</div></a>
     <a class="sb-item" onclick="openPanel('creator')"><div class="sb-icon"><svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="4" cy="4" r="2"/><circle cx="10" cy="4" r="2"/><circle cx="7" cy="10" r="2"/><line x1="4" y1="6" x2="7" y2="8"/><line x1="10" y1="6" x2="7" y2="8"/></svg></div><div class="sb-label">Creator Mode</div></a>
-    <div class="sb-item" style="opacity:0.4;cursor:default;font-size:10px"><div class="sb-icon"><svg width="8" height="8" viewBox="0 0 8 8" fill="currentColor"><circle cx="4" cy="4" r="3"/></svg></div><div class="sb-label" style="font-family:'JetBrains Mono',monospace;letter-spacing:1px">v36.3 ✦ RELAY3</div></div>
+    <div class="sb-item" style="opacity:0.4;cursor:default;font-size:10px"><div class="sb-icon"><svg width="8" height="8" viewBox="0 0 8 8" fill="currentColor"><circle cx="4" cy="4" r="3"/></svg></div><div class="sb-label" style="font-family:'JetBrains Mono',monospace;letter-spacing:1px">v36.4 ✦ RELAY-TRANS</div></div>
   </div></div>
 </div>
 
@@ -533,7 +533,7 @@ nav { height:50px; background:rgba(245,235,220,0.9); backdrop-filter:blur(20px);
   </div>
 
   <div class="footer">
-    <div class="footer-item">MYCROFT.SYS · v36.3 ✦ RELAY3</div>
+    <div class="footer-item">MYCROFT.SYS · v36.4 ✦ RELAY-TRANS</div>
     <div class="footer-live"><div class="sdot sdot-on"></div><span>LIVE</span></div>
     <div class="footer-item" id="footerDate">----</div>
     <div class="footer-item" style="border:1px solid rgba(170,60,55,0.45);color:rgba(170,60,55,0.85);border-radius:3px;padding:0 7px;letter-spacing:2px;transform:rotate(-1.5deg)">CLASSIFIED · 机密</div>
@@ -1342,6 +1342,12 @@ async function testEleven(){
 }
 // ===== 双语台词朗读：点 🔊 → 翻译每句台词 → 生成一份带时间戳的总音频 → 切片单句播 / 总播（不重生成）=====
 var _voiceData={}, _voiceAudio=null, _voiceTimer=null;
+var VOICE_TRANS_CACHE_V=3;   // v3：翻译结果绑定翻译模型，并拒绝“英英/中中”的伪双语缓存
+function _voiceTransSignature(){
+  var c=''; try{ c=jobChoice('trans'); }catch(e){ c='gemini-2.5-flash'; }
+  if(/^relay\d+$/.test(c||'')){ var i=_relayIdx(c), s=getRelaySlot(i); return 'v'+VOICE_TRANS_CACHE_V+'|'+c+'|'+(s.base||'')+'|'+(s.model||''); }
+  return 'v'+VOICE_TRANS_CACHE_V+'|'+c+'|'+(c==='claude'?getClaudeModel():(c==='deepseek'?getDeepSeekModel():(c==='openai'?getOpenAIModel():c)));
+}
 function _msgSegments(text){
   text=(typeof mcCleanText==='function'?mcCleanText(text||''):(text||''));
   var parts=[], re=/"([^"]+)"|“([^”]+)”|「([^」]+)」|『([^』]+)』/g, last=0, m;   // 认所有引号里的台词（他用什么引号都行，不强求）
@@ -1350,10 +1356,28 @@ function _msgSegments(text){
   return parts;
 }
 function _looksCJK(s){ return /[㐀-鿿]/.test(s||''); }   // 有没有中文字
+function _looksLatin(s){ return /[A-Za-z]{2,}/.test(s||''); }
+function _voiceSegsValid(segs){   // 不让失败时复制出的“英英/中中”冒充双语
+  if(!segs||!segs.length) return false;
+  for(var i=0;i<segs.length;i++){ var s=segs[i]||{}; if(s.mine===false) continue;
+    var en=_stripTags(s.en||''), zh=_stripTags(s.zh||'');
+    if((_looksCJK(en) && !_looksLatin(en)) || (_looksLatin(zh) && !_looksCJK(zh))) return false;
+    if(en.trim()===zh.trim() && (en.trim().length>2)) return false;
+  }
+  return true;
+}
 async function _forceZhLines(engLines){   // ★兜底强制翻译：把还是英文的台词逐行翻成中文（纯文本，不走 JSON，避开 flash 在结构化模式偷懒把英文抄进 zh 的毛病）
   if(!engLines||!engLines.length) return [];
   var sys='把下面每一行英文台词翻成自然、克制、有文学感的简体中文。人名/称呼/专有名词（Cael、Mycroft、麦考夫、MI6、Diogenes Club 等）保留原文不译。每行输出一句中文，与输入的行数、顺序完全一致；只输出译文，不要编号、不要英文原文、不要任何解释。';
   var u=engLines.map(function(s,i){return (i+1)+'. '+s;}).join('\n');
+  try{ var t=await memChat(sys,[{role:'user',parts:[{text:u}]}], jobChoice('trans'));
+    return String(t||'').split('\n').map(function(x){return x.replace(/^\s*\d+[.、)]\s*/,'').trim();}).filter(function(x){return x;});
+  }catch(e){ return []; }
+}
+async function _forceEnLines(zhLines){   // 对称兜底：结构化翻译若把中文原样抄进 en，再单独翻一次英文
+  if(!zhLines||!zhLines.length) return [];
+  var sys='把下面每一行中文台词翻成自然、克制、符合 Mycroft Holmes 说话习惯的英文口语。人名、称呼和专有名词（Cael、Mycroft、MI6、Diogenes Club 等）保留。每行输出一句英文，与输入的行数、顺序完全一致；只输出译文，不要编号、不要中文原文、不要解释。';
+  var u=zhLines.map(function(s,i){return (i+1)+'. '+s;}).join('\n');
   try{ var t=await memChat(sys,[{role:'user',parts:[{text:u}]}], jobChoice('trans'));
     return String(t||'').split('\n').map(function(x){return x.replace(/^\s*\d+[.、)]\s*/,'').trim();}).filter(function(x){return x;});
   }catch(e){ return []; }
@@ -1365,12 +1389,17 @@ async function _transLines(zhLines, fullText){
   var res;
   try{ var r=await jobJSON('trans', sys,u,schema); var o=(r&&r.lines)||[]; res=zhLines.map(function(s,i){ var x=o[i]||{}; return {en:(x.en||s), zh:(x.zh||s), bi:(x.bilingual!==false), mine:(x.mine!==false), tag:(x.tag||'')}; }); }
   catch(e){ res=zhLines.map(function(s){ return {en:s, zh:s, bi:false, mine:true, tag:''}; }); }
-  // ★修复"翻译出来还是英语":挑出【他的台词里、下面那行(zh)却还是英文】的,用纯文本再强制翻一次,保证中文那行一定是中文
+  // 双向修复：zh 仍是英文、或 en 仍是中文，都拆成纯文本任务重翻；最终仍不合格就报失败，不显示伪双语。
   try{
     var need=[], needIdx=[];
     res.forEach(function(r2,i){ if(r2.mine!==false && !_looksCJK(r2.zh) && /[A-Za-z]{2,}/.test(r2.zh||'')){ need.push(_stripTags(r2.en||r2.zh)); needIdx.push(i); } });
     if(need.length){ var zhs=await _forceZhLines(need); for(var j=0;j<needIdx.length;j++){ var z=zhs[j]; if(z&&_looksCJK(z)) res[needIdx[j]].zh=z; } }
+    var needEn=[], needEnIdx=[];
+    res.forEach(function(r3,i){ if(r3.mine!==false && _looksCJK(r3.en)){ needEn.push(_stripTags(r3.zh||zhLines[i]||r3.en)); needEnIdx.push(i); } });
+    if(needEn.length){ var ens=await _forceEnLines(needEn); for(var k=0;k<needEnIdx.length;k++){ var en=ens[k]; if(en&&_looksLatin(en)&&!_looksCJK(en)) res[needEnIdx[k]].en=en; } }
   }catch(e){}
+  var check=res.map(function(x){ return {en:x.en,zh:x.zh,mine:x.mine}; });
+  if(!_voiceSegsValid(check)) throw new Error('翻译模型没有生成有效的中英双语，请重试或更换“翻译（双语）”模型');
   return res;
 }
 async function _elevenSpeakTS(text, model){
@@ -1389,45 +1418,46 @@ async function _elevenSpeakTS(text, model){
 // 翻译（便宜 flash）：只做双语，不生成音频。默认就给每条他消息做好，所以双语+▶一打开就在
 // 翻译持久缓存（只存文本不存音频；绑定原文，文本变了就失效；有上限、不进云同步）
 function _loadVoiceCache(){ try{ return JSON.parse(localStorage.getItem('mcVoiceTrans2')||'{}'); }catch(e){ return {}; } }
-function _saveVoiceCacheEntry(key, src, segs){ try{ var c=_loadVoiceCache(); c[key]={src:src, segs:segs.map(function(s){ return {zh:s.zh, raw:s.raw, en:s.en, tag:s.tag, mine:s.mine}; })};
+function _saveVoiceCacheEntry(key, src, segs){ try{ var c=_loadVoiceCache(); c[key]={v:VOICE_TRANS_CACHE_V,sig:_voiceTransSignature(),src:src, segs:segs.map(function(s){ return {zh:s.zh, raw:s.raw, en:s.en, tag:s.tag, mine:s.mine}; })};
   var ks=Object.keys(c); if(ks.length>60){ ks.sort(function(a,b){ return (parseInt(a)||0)-(parseInt(b)||0); }); ks.slice(0, ks.length-60).forEach(function(k){ delete c[k]; }); }   // 只留最近 60 条翻译缓存（手机存储紧，别囤太多；更老的滚回去会自动重翻，不丢原文）
   _rawSet('mcVoiceTrans2', JSON.stringify(c)); }catch(e){} }
-function _voiceCurrent(key, src){ var d=_voiceData[key]; return (d && d.src===src) ? d : null; }   // 内存里且是当前文本才算有效
+function _voiceCurrent(key, src){ var d=_voiceData[key]; return (d && d.src===src && d.sig===_voiceTransSignature() && _voiceSegsValid(d.segs)) ? d : null; }   // 文本、翻译模型和管线版本都一致才复用
 async function _voiceTranslateMsg(m, fbKey){   // 对【任意消息对象】做翻译（活跃聊天 / 归档 都能用）；结果按 ts 存进 _voiceData + 持久缓存
   if(!m||m.role==='user') return; var key=String(m.ts||fbKey);
   if(_voiceCurrent(key, m.text)) return;   // 已是当前文本 → 不重翻
+  if(_voiceData[key]) delete _voiceData[key];   // 旧模型/旧管线/伪双语先撤下，失败时也只显示一次原文
   var parts=_msgSegments(m.text); var lines=parts.filter(function(p){return p.type==='line';}); if(!lines.length) return;
-  if(m.tr && m.tr.length){   // 归档记录里带着翻译 → 直接用，不调 Gemini
-    _voiceData[key]={ parts:parts, segs:m.tr.map(function(s){ return {zh:s.zh, raw:s.raw, en:s.en, tag:s.tag, mine:s.mine, url:null}; }), open:true, src:m.text }; return;
+  if(m.tr && m.tr.length && _voiceSegsValid(m.tr)){   // 归档自带的有效翻译可复用；旧的英英/中中结果自动作废重翻
+    _voiceData[key]={ parts:parts, segs:m.tr.map(function(s){ return {zh:s.zh, raw:s.raw, en:s.en, tag:s.tag, mine:s.mine, url:null}; }), open:true, src:m.text, sig:_voiceTransSignature() }; return;
   }
   var pc=_loadVoiceCache();   // 再看持久缓存：同一文本翻过 → 直接复用，不调 Gemini
-  if(pc[key] && pc[key].src===m.text && pc[key].segs){
-    _voiceData[key]={ parts:parts, segs:pc[key].segs.map(function(s){ return {zh:s.zh, raw:s.raw, en:s.en, tag:s.tag, mine:s.mine, url:null}; }), open:true, src:m.text }; return;
+  if(pc[key] && pc[key].v===VOICE_TRANS_CACHE_V && pc[key].sig===_voiceTransSignature() && pc[key].src===m.text && pc[key].segs && _voiceSegsValid(pc[key].segs)){
+    _voiceData[key]={ parts:parts, segs:pc[key].segs.map(function(s){ return {zh:s.zh, raw:s.raw, en:s.en, tag:s.tag, mine:s.mine, url:null}; }), open:true, src:m.text, sig:_voiceTransSignature() }; return;
   }
   var trans=await _transLines(lines.map(function(p){return p.zh;}), m.text);
   var segs=lines.map(function(p,k){ return {zh:(trans[k].zh||p.zh), raw:p.raw, en:(trans[k].en||p.zh), tag:(trans[k].tag||''), mine:(trans[k].mine!==false), url:null}; });   // zh 用翻译结果：他用英文说的台词，下面那行也保证是中文
-  _voiceData[key]={ parts:parts, segs:segs, open:true, src:m.text };
+  _voiceData[key]={ parts:parts, segs:segs, open:true, src:m.text, sig:_voiceTransSignature() };
   _saveVoiceCacheEntry(key, m.text, segs);   // 存起来，下次进来/刷新不用重翻
 }
 async function _voiceTranslateNow(i){ return _voiceTranslateMsg(loadChat()[i], String(i)); }   // 活跃聊天按下标翻译（薄封装）
 // 归档里某条的翻译（有就返回 segs，供归档时随身带走 / 浏览时直接显示）
 function _trOf(m){ if(!m) return null; var key=String(m.ts||''); if(!key) return null;
-  if(_voiceData[key] && _voiceData[key].src===m.text) return _voiceData[key].segs.map(function(s){ return {zh:s.zh, raw:s.raw, en:s.en, tag:s.tag, mine:s.mine}; });
-  try{ var pc=_loadVoiceCache(); if(pc[key] && pc[key].src===m.text && pc[key].segs) return pc[key].segs; }catch(e){}
+  if(_voiceCurrent(key,m.text)) return _voiceData[key].segs.map(function(s){ return {zh:s.zh, raw:s.raw, en:s.en, tag:s.tag, mine:s.mine}; });
+  try{ var pc=_loadVoiceCache(); if(pc[key] && pc[key].v===VOICE_TRANS_CACHE_V && pc[key].sig===_voiceTransSignature() && pc[key].src===m.text && pc[key].segs && _voiceSegsValid(pc[key].segs)) return pc[key].segs; }catch(e){}
   return null;
 }
 // 渲染前即时回填：把持久缓存里已翻过的消息（文本没变的）直接灌进内存 _voiceData——无 API、无延迟，重开也立刻显示双语
 function _voiceHydrateFromCache(hist){
   if(!hist||!hist.length) return; var pc=null;
   for(var i=0;i<hist.length;i++){ var m=hist[i]; if(!m||m.role==='user'||m.pending) continue; var key=String(m.ts||i);
-    if(_voiceData[key]&&_voiceData[key].src===m.text) continue;   // 内存已是当前文本
+    if(_voiceCurrent(key,m.text)) continue;   // 内存已是当前文本和当前翻译模型
     if(pc===null) pc=_loadVoiceCache();
-    var c=pc[key]; if(c&&c.src===m.text&&c.segs){ try{ _voiceData[key]={ parts:_msgSegments(m.text), segs:c.segs.map(function(s){ return {zh:s.zh, raw:s.raw, en:s.en, tag:s.tag, mine:s.mine, url:null}; }), open:true, src:m.text }; }catch(e){} }
+    var c=pc[key]; if(c&&c.v===VOICE_TRANS_CACHE_V&&c.sig===_voiceTransSignature()&&c.src===m.text&&c.segs&&_voiceSegsValid(c.segs)){ try{ _voiceData[key]={ parts:_msgSegments(m.text), segs:c.segs.map(function(s){ return {zh:s.zh, raw:s.raw, en:s.en, tag:s.tag, mine:s.mine, url:null}; }), open:true, src:m.text, sig:_voiceTransSignature() }; }catch(e){} }
   }
 }
 // 后台翻译队列：进聊天 / 新回复时，自动把最近的他消息翻好（双语默认显示）
 var _vtQueue=[], _vtBusy=false;
-function _voiceEnsureTrans(i){ if(!getApiKey()) return; var h=loadChat(); var m=h[i]; if(!m||m.role==='user'||m.pending) return; var key=String(m.ts||i); if(_voiceCurrent(key, m.text)) return; if(!/["“「『]/.test(m.text||'')) return; if(_vtQueue.indexOf(i)<0) _vtQueue.push(i); _voiceTransPump(); }
+function _voiceEnsureTrans(i){ if(!_canTranslate()) return; var h=loadChat(); var m=h[i]; if(!m||m.role==='user'||m.pending) return; var key=String(m.ts||i); if(_voiceCurrent(key, m.text)) return; if(!/["“「『]/.test(m.text||'')) return; if(_vtQueue.indexOf(i)<0) _vtQueue.push(i); _voiceTransPump(); }
 async function _voiceTransPump(){ if(_vtBusy||!_vtQueue.length) return; _vtBusy=true; var i=_vtQueue.shift(); try{ await _voiceTranslateNow(i); }catch(e){} finally{ _vtBusy=false; if(_vtQueue.length){ setTimeout(_voiceTransPump, 350); } else if(_curView==='chat'){ _afterVoiceUpdate(); } } }   // 整批翻完只刷新可见几条（虚拟列表下不重建整表、不跳滚动）
 // 每句台词【独立生成】一小段音频、缓存：点哪句生成哪句、立刻能单独点、重听免费、不重生成
 function _voiceStopAll(){ try{ if(_voiceAudio) _voiceAudio.pause(); }catch(e){} if(_voiceTimer){ clearTimeout(_voiceTimer); _voiceTimer=null; } }
@@ -1479,8 +1509,8 @@ async function chatLineReroll(i, idx){   // ↻ 重新生成：丢掉这条、�
 }
 // 渲染：翻好了→他的台词 "英文"(上,双引号)+▶ + 中文(下)；别人的台词原样；没翻好→原样文本
 function _modelMsgHTML(m, i){
-  var key=String(m.ts||i); var d=_voiceData[key];
-  if(!d || d.src!==m.text) return chatEsc(mcCleanText(m.text));   // 没翻 / 翻的是旧版本(切了变体) → 先原样，队列会按当前文本重翻
+  var key=String(m.ts||i); var d=_voiceCurrent(key,m.text);
+  if(!d) return chatEsc(mcCleanText(m.text));   // 没翻 / 旧模型 / 伪双语 → 只显示一次原文，队列会按当前配置重翻
   var html='', li=0, hisAny=false;
   d.parts.forEach(function(p){
     if(p.type==='narr'){ html+=chatEsc(p.text); return; }   // 旁白：原样行内文本，不动
@@ -1513,7 +1543,8 @@ function getMemChoice(){ try{ return localStorage.getItem('mcMemChoice')||'auto'
 function setMemChoice(v){ try{ localStorage.setItem('mcMemChoice', v||'auto'); }catch(e){} }
 function _memPlan(choice){   // 按选择排出"先试谁、再试谁"；Gemini 永远兜底，绝不 dead-end。choice 传空=用全局 getMemChoice
   var c=choice||getMemChoice(), plan=[];
-  if(c==='claude'){ if(_hasClaude()) plan.push({prov:'claude',model:getClaudeModel()}); plan.push({prov:'gemini',model:'gemini-3-flash-preview'}); }
+  var ri=_relayIdx(c); if(ri>=0){ var rs=getRelaySlot(ri); if(_hasRelay(ri)&&rs.model) plan.push({prov:'relay',relay:ri,model:rs.model}); plan.push({prov:'gemini',model:'gemini-2.5-flash'}); }
+  else if(c==='claude'){ if(_hasClaude()) plan.push({prov:'claude',model:getClaudeModel()}); plan.push({prov:'gemini',model:'gemini-3-flash-preview'}); }
   else if(c==='deepseek'){ if(_hasDeepSeek()) plan.push({prov:'deepseek',model:getDeepSeekModel()}); plan.push({prov:'gemini',model:'gemini-3-flash-preview'}); }
   else if(c==='openai'){ if(_hasOpenAI()) plan.push({prov:'openai',model:getOpenAIModel()}); plan.push({prov:'gemini',model:'gemini-3-flash-preview'}); }
   else if(c && c.indexOf('gemini-')===0){ plan.push({prov:'gemini',model:c}); }
@@ -1529,6 +1560,7 @@ async function memChat(sys, contents, choice){
       if(s.prov==='claude') return await _memRace(callClaude(sys, contents, {model:s.model}));
       if(s.prov==='deepseek') return await _memRace(callDeepSeek(sys, contents, {model:s.model}));
       if(s.prov==='openai') return await _memRace(callOpenAI(sys, contents, {model:s.model}));
+      if(s.prov==='relay') return await _memRace(callOpenAI(sys, contents, {model:s.model,_relay:s.relay}));
       return await _memRace(callGeminiChat(sys, contents, {model:s.model}));
     }catch(e){}
   }
@@ -1544,6 +1576,7 @@ async function memJSON(sys, user, schema, choice){
       if(s.prov==='claude'){ var t=await _memRace(callClaude(jsys, uc, {model:s.model})); var o=_memJExtract(t); if(o) return o; continue; }
       if(s.prov==='deepseek'){ var t2=await _memRace(callDeepSeek(jsys, uc, {model:s.model})); var o2=_memJExtract(t2); if(o2) return o2; continue; }
       if(s.prov==='openai'){ var t3=await _memRace(callOpenAI(jsys, uc, {model:s.model})); var o3=_memJExtract(t3); if(o3) return o3; continue; }
+      if(s.prov==='relay'){ var t4=await _memRace(callOpenAI(jsys, uc, {model:s.model,_relay:s.relay})); var o4=_memJExtract(t4); if(o4) return o4; continue; }
       return await _memRace(callGeminiJSON(sys, user, schema, s.model));
     }catch(e){}
   }
@@ -1567,11 +1600,20 @@ var JOBS=[
 ];
 function jobChoice(k){ try{ var v=localStorage.getItem('mcJobChoice_'+k); if(v!==null&&v!=='') return v; }catch(e){} for(var i=0;i<JOBS.length;i++){ if(JOBS[i].k===k) return JOBS[i].def; } return 'auto'; }
 function setJobChoice(k,v){ try{ if(v&&v!=='') localStorage.setItem('mcJobChoice_'+k, v); else localStorage.removeItem('mcJobChoice_'+k); }catch(e){} }
+function _choiceAvailable(c){
+  var ri=_relayIdx(c); if(ri>=0) return _hasRelay(ri) && !!getRelaySlot(ri).model;
+  if(c==='claude') return _hasClaude(); if(c==='deepseek') return _hasDeepSeek(); if(c==='openai') return _hasOpenAI();
+  if(c&&c.indexOf('gemini-')===0) return !!getApiKey();
+  if(c==='auto') return _hasClaude()||_hasDeepSeek()||_hasOpenAI()||!!getApiKey();
+  return false;
+}
+function _canTranslate(){ return _choiceAvailable(jobChoice('trans')); }
 async function jobChat(k, sys, contents){ return await memChat(sys, contents, jobChoice(k)); }   // 该任务的纯文本调用（按它自己选的模型 + 兜底级联）
 async function jobJSON(k, sys, user, schema){ return await memJSON(sys, user, schema, jobChoice(k)); }   // 该任务的 JSON 调用
 function renderJobModels(){   // 外联里每任务一个下拉
   var box=document.getElementById('jobModelBox'); if(!box) return;
   var opts=[['auto','自动·级联'],['claude','Claude'],['deepseek','DeepSeek'],['openai','GPT'],['gemini-3-flash-preview','Gemini 3 Flash'],['gemini-2.5-flash','Gemini 2.5 Flash'],['gemini-2.5-pro','Gemini 2.5 Pro'],['deepseek-v4-pro','DeepSeek V4 Pro']];
+  for(var ri=0;ri<RELAY_N;ri++){ var rs=getRelaySlot(ri); if(_hasRelay(ri)&&rs.model) opts.push(['relay'+ri,'中转 · '+_relayName(ri)+' · '+rs.model]); }
   box.innerHTML=JOBS.map(function(j){ var cur=jobChoice(j.k);
     var sel=opts.map(function(o){ return '<option value="'+o[0]+'"'+(cur===o[0]?' selected':'')+'>'+o[1]+'</option>'; }).join('');
     if(!opts.some(function(o){ return o[0]===cur; })) sel='<option value="'+chatEsc(cur)+'" selected>'+chatEsc(cur)+'（自定义）</option>'+sel;
@@ -3888,7 +3930,7 @@ function _stripArch(arr){ return (arr||[]).map(function(m){ return {role:m.role,
 function _archRec(m){ var r={role:m.role, ts:m.ts, text:m.text};   // 归档正文进大容量库；可切换版本也随身保存，诊断 trace 不占小仓库/存档
   if(Array.isArray(m.variants)&&m.variants.length){ r.variants=m.variants; if(typeof m.vi==='number') r.vi=m.vi; }
   if(m.truncated) r.truncated=m.truncated;
-  var key=String(m.ts||''); if(key && _voiceData[key] && _voiceData[key].src===m.text){ r.tr=_voiceData[key].segs.map(function(s){ return {zh:s.zh, raw:s.raw, en:s.en, tag:s.tag, mine:s.mine}; }); }
+  var key=String(m.ts||''); if(key && _voiceCurrent(key,m.text)){ r.tr=_voiceData[key].segs.map(function(s){ return {zh:s.zh, raw:s.raw, en:s.en, tag:s.tag, mine:s.mine}; }); }
   return r; }
 // —— 独立备份 store（migBackups，绝不与正式 archives 同 key）——
 function migBackupPut(key,obj){ return ifDB().then(function(db){ return new Promise(function(res){ try{ var tx=db.transaction('migBackups','readwrite'); tx.objectStore('migBackups').put({key:key,obj:obj}); tx.oncomplete=function(){res(true);}; tx.onerror=function(){res(false);}; }catch(e){res(false);} }); }).catch(function(){return false;}); }
@@ -4708,11 +4750,11 @@ function archBrowseRender(){
 }
 // 归档里模型消息的渲染：已翻(内存/随身tr)→双语+单句▶+全部朗读；没翻→纯文本+「译」按钮。所有按钮 stopPropagation，不触发点开改字
 function _archModelHTML(m, i){
-  var key=String(m.ts||''); var d=key?_voiceData[key]:null;
-  if((!d || d.src!==m.text) && key && m.tr && m.tr.length){   // 归档随身带的翻译 → 回填内存，直接显示
-    try{ _voiceData[key]={ parts:_msgSegments(m.text), segs:m.tr.map(function(s){ return {zh:s.zh, raw:s.raw, en:s.en, tag:s.tag, mine:s.mine, url:null}; }), open:true, src:m.text }; d=_voiceData[key]; }catch(e){}
+  var key=String(m.ts||''); var d=key?_voiceCurrent(key,m.text):null;
+  if((!d || d.src!==m.text) && key && m.tr && m.tr.length && _voiceSegsValid(m.tr)){   // 归档随身带的有效翻译 → 回填内存；旧伪双语不再展示
+    try{ _voiceData[key]={ parts:_msgSegments(m.text), segs:m.tr.map(function(s){ return {zh:s.zh, raw:s.raw, en:s.en, tag:s.tag, mine:s.mine, url:null}; }), open:true, src:m.text, sig:_voiceTransSignature() }; d=_voiceData[key]; }catch(e){}
   }
-  if(!d || d.src!==m.text){   // 没翻 → 纯文本 + 🔊(和聊天一样：点了自动翻译+显示双语+连读) + 「译」(只翻不读)
+  if(!d){   // 没翻 / 旧模型 / 伪双语 → 纯文本 + 🔊 +「译」
     return chatEsc(_archMsgText(m))
       +'<span onclick="event.stopPropagation();archVoiceAll('+i+')" title="连读全部台词（点一下自动翻译+朗读，和聊天一样）" style="cursor:pointer;color:var(--text4);margin-left:8px;vertical-align:-3px;display:inline-flex">'+_SVG_SPEAK+'</span>'
       +'<span onclick="event.stopPropagation();archTransShow('+i+')" title="只翻译这条、不朗读" style="cursor:pointer;color:var(--gold);font-size:11px;opacity:.8;margin-left:6px">译</span>';
@@ -4731,14 +4773,14 @@ function _archModelHTML(m, i){
 }
 async function archTransShow(i){   // 翻译归档里这一条 → 重渲染显示双语
   var arch=_archCache[_archBrowseKey]||[]; var m=arch[i]; if(!m||m.role==='user') return;
-  if(!getApiKey()){ alert('先在 Settings 填 Gemini API key'); return; }
+  if(!_canTranslate()){ alert('先在 Settings → 外联为“翻译（双语）”选择一个已配置的模型'); return; }
   try{ await _voiceTranslateMsg(m, String(i)); }catch(e){ alert('翻译失败：'+e.message); return; }
   if(document.getElementById('archBrowseList')) archBrowseRender();
 }
 async function archVoiceAll(i){   // 归档里这一条：和聊天的小喇叭一样——先自动翻译+显示双语，再连读（单句失败跳过、不整段断）
   var arch=_archCache[_archBrowseKey]||[]; var m=arch[i]; if(!m||m.role==='user') return; var key=String(m.ts||i);
   // ① 自动检查/生成翻译 + 立刻显示双语（就算没填 ElevenLabs，也先把翻译翻出来给你看）
-  if(!_voiceCurrent(key,m.text)){ if(!getApiKey()){ alert('先在 Settings 填 Gemini API key（翻译用）'); return; } try{ await _voiceTranslateMsg(m, String(i)); }catch(e){} if(document.getElementById('archBrowseList')) archBrowseRender(); }
+  if(!_voiceCurrent(key,m.text)){ if(!_canTranslate()){ alert('先在 Settings → 外联为“翻译（双语）”选择一个已配置的模型'); return; } try{ await _voiceTranslateMsg(m, String(i)); }catch(e){} if(document.getElementById('archBrowseList')) archBrowseRender(); }
   // ② 连读（需要 ElevenLabs）；没填就只翻不读、不弹框打断
   if(!getElevenKey()||!getElevenVoice()) return;
   if(_ttsLocked()) return;
@@ -4950,7 +4992,7 @@ function _fullBubble(m, i){
     return '<div style="align-self:stretch;display:flex;flex-direction:column;gap:2px">'+bubble+nav+_msgTools(i,false,m.fav)+'</div>';
   }catch(_e){ return '<div style="color:var(--text2);white-space:pre-wrap;font-family:\'Noto Serif SC\',serif">'+chatEsc((m&&m.text)||'')+'</div>'; }
 }
-function _voiceHydrateOne(i, m){ try{ var key=String(m.ts||i); if(_voiceData[key]&&_voiceData[key].src===m.text) return; var pc=_loadVoiceCache(); var c=pc[key]; if(c&&c.src===m.text&&c.segs){ _voiceData[key]={parts:_msgSegments(m.text), segs:c.segs.map(function(s){return {zh:s.zh,raw:s.raw,en:s.en,tag:s.tag,mine:s.mine,url:null};}), open:true, src:m.text}; } }catch(e){} }
+function _voiceHydrateOne(i, m){ try{ var key=String(m.ts||i); if(_voiceCurrent(key,m.text)) return; var pc=_loadVoiceCache(); var c=pc[key]; if(c&&c.v===VOICE_TRANS_CACHE_V&&c.sig===_voiceTransSignature()&&c.src===m.text&&c.segs&&_voiceSegsValid(c.segs)){ _voiceData[key]={parts:_msgSegments(m.text), segs:c.segs.map(function(s){return {zh:s.zh,raw:s.raw,en:s.en,tag:s.tag,mine:s.mine,url:null};}), open:true, src:m.text, sig:_voiceTransSignature()}; } }catch(e){} }
 function _renderVirtual(box, hist, _stick){
   var prevTop=0; try{ prevTop=box.scrollTop||0; }catch(e){}
   var prevFull={}; try{ var _pr=box.getElementsByClassName('cvrow'); for(var _pi=0;_pi<_pr.length;_pi++){ if(_pr[_pi].getAttribute('data-full')==='1') prevFull[+_pr[_pi].getAttribute('data-idx')]=1; } }catch(e){}   // ★记住之前已完整的行，重建时仍渲染成完整→高度不变→按旧滚动位置恢复不跳
@@ -4958,7 +5000,7 @@ function _renderVirtual(box, hist, _stick){
   var parts=['<div id="_chatWrap" style="max-width:740px;width:100%;margin:0 auto;display:flex;flex-direction:column;gap:18px">'];
   for(var i=0;i<n;i++){ var m=hist[i]; if(!m||typeof m!=='object') continue;
     var initFull=(i>=n-2)||m.pending||(i===_chatEditIdx)||prevFull[i];   // 最后两条 + 打字/编辑中 + 之前已完整的：一开始就完整（高度稳定、流式/编辑即时可用）
-    if(initFull && m.role!=='user' && !m.pending){ try{ _voiceHydrateOne(i, m); }catch(e){} try{ if(getApiKey() && /["“「『]/.test(m.text||'')) _voiceEnsureTrans(i); }catch(e){} }   // 一开始就完整的那几条（最新回复等）也要触发自动翻译，别漏
+    if(initFull && m.role!=='user' && !m.pending){ try{ _voiceHydrateOne(i, m); }catch(e){} try{ if(_canTranslate() && /["“「『]/.test(m.text||'')) _voiceEnsureTrans(i); }catch(e){} }   // 一开始就完整的那几条（最新回复等）也要触发自动翻译，别漏
     parts.push('<div class="cvrow" data-idx="'+i+'" data-full="'+(initFull?'1':'0')+'" style="display:flex;flex-direction:column">'+(initFull?_fullBubble(m,i):_liteBubble(m,i))+'</div>');   // ★.cvrow 必须是弹性列，里面气泡的 align-self(靠右/铺满) 才生效，否则消息错位
   }
   parts.push('</div>');
@@ -4990,7 +5032,7 @@ function _cvUp(row, idx){
     row.innerHTML=_fullBubble(m, idx);
     row.setAttribute('data-full','1'); try{ row.style.minHeight=''; }catch(e){}
   });
-  try{ if(getApiKey() && m.role!=='user' && !m.pending && /["“「『]/.test(m.text||'')) _voiceEnsureTrans(idx); }catch(e){}
+  try{ if(_canTranslate() && m.role!=='user' && !m.pending && /["“「『]/.test(m.text||'')) _voiceEnsureTrans(idx); }catch(e){}
 }
 function _cvDown(row, idx){
   if(row.getAttribute('data-full')!=='1') return;
@@ -5019,7 +5061,7 @@ function _finalizeStreamRow(){   // ★他生成完：只就地刷新他最后�
         if(m && row){
           try{ if(m.role!=='user'&&!m.pending) _voiceHydrateOne(li, m); }catch(e){}
           row.innerHTML=_fullBubble(m, li); row.setAttribute('data-full','1'); try{ row.style.minHeight=''; }catch(e){}
-          try{ if(getApiKey() && m.role!=='user' && !m.pending && /["“「『]/.test(m.text||'')) _voiceEnsureTrans(li); }catch(e){}
+          try{ if(_canTranslate() && m.role!=='user' && !m.pending && /["“「『]/.test(m.text||'')) _voiceEnsureTrans(li); }catch(e){}
           if(box.__nearBottom!==false){ requestAnimationFrame(function(){ try{ box.scrollTop=box.scrollHeight; }catch(e){} }); }   // 只有你原本贴着底才跟到底；你翻上去/在编辑就不动你
           return;
         }
@@ -5057,7 +5099,7 @@ function renderChat(){
   try{ if(box.__cvObs){ box.__cvObs.disconnect(); } box.__cvObs=null; }catch(e){}   // ★拿掉旧虚拟列表观察器，避免误判/闪屏
   if(typeof _chatLite==='undefined' || !_chatLite){
     try{ _voiceHydrateFromCache(hist); }catch(e){}
-    try{ if(getApiKey()){ for(var _vhi=hist.length-1; _vhi>=_start && _vhi>=0; _vhi--){ var _vhm=hist[_vhi]; if(_vhm&&_vhm.role!=='user'&&!_vhm.pending&&/["“「『]/.test(_vhm.text||'')) _voiceEnsureTrans(_vhi); } } }catch(e){}
+    try{ if(_canTranslate()){ for(var _vhi=hist.length-1; _vhi>=_start && _vhi>=0; _vhi--){ var _vhm=hist[_vhi]; if(_vhm&&_vhm.role!=='user'&&!_vhm.pending&&/["“「『]/.test(_vhm.text||'')) _voiceEnsureTrans(_vhi); } } }catch(e){}
   }
   var _bufEnd=0; while(_bufEnd<hist.length&&(_isPinned(hist[_bufEnd])||_isCold(hist[_bufEnd]))) _bufEnd++;   // 缓冲(pinned/冷摆设)前缀的边界
   try{ if(typeof _trace==='function') _trace('rc:准备逐条渲染map'); }catch(e){}
