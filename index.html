@@ -368,7 +368,7 @@ nav { height:50px; background:rgba(245,235,220,0.9); backdrop-filter:blur(20px);
   <div class="sb-bottom"><div class="sb-nav" style="padding:0">
     <a class="sb-item" onclick="openPanel('settings');closeDrawer()"><div class="sb-icon"><svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="7" cy="7" r="2.5"/><path d="M7 1 L7 2.5 M7 11.5 L7 13 M1 7 L2.5 7 M11.5 7 L13 7 M2.9 2.9 L4 4 M10 10 L11.1 11.1 M11.1 2.9 L10 4 M4 10 L2.9 11.1"/></svg></div><div class="sb-label">Settings</div></a>
     <a class="sb-item" onclick="openPanel('creator');closeDrawer()"><div class="sb-icon"><svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="4" cy="4" r="2"/><circle cx="10" cy="4" r="2"/><circle cx="7" cy="10" r="2"/><line x1="4" y1="6" x2="7" y2="8"/><line x1="10" y1="6" x2="7" y2="8"/></svg></div><div class="sb-label">Creator Mode</div></a>
-    <div class="sb-item" style="opacity:0.4;cursor:default;font-size:10px"><div class="sb-icon"><svg width="8" height="8" viewBox="0 0 8 8" fill="currentColor"><circle cx="4" cy="4" r="3"/></svg></div><div class="sb-label" style="font-family:'JetBrains Mono',monospace;letter-spacing:1px">v36.0 ✦ VISION</div></div>
+    <div class="sb-item" style="opacity:0.4;cursor:default;font-size:10px"><div class="sb-icon"><svg width="8" height="8" viewBox="0 0 8 8" fill="currentColor"><circle cx="4" cy="4" r="3"/></svg></div><div class="sb-label" style="font-family:'JetBrains Mono',monospace;letter-spacing:1px">v36.1 ✦ RELAY</div></div>
   </div></div>
 </div>
 
@@ -387,7 +387,7 @@ nav { height:50px; background:rgba(245,235,220,0.9); backdrop-filter:blur(20px);
   <div class="sb-bottom"><div class="sb-nav" style="padding:0">
     <a class="sb-item" onclick="openPanel('settings')"><div class="sb-icon"><svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="7" cy="7" r="2.5"/><path d="M7 1 L7 2.5 M7 11.5 L7 13 M1 7 L2.5 7 M11.5 7 L13 7 M2.9 2.9 L4 4 M10 10 L11.1 11.1 M11.1 2.9 L10 4 M4 10 L2.9 11.1"/></svg></div><div class="sb-label">Settings</div></a>
     <a class="sb-item" onclick="openPanel('creator')"><div class="sb-icon"><svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="4" cy="4" r="2"/><circle cx="10" cy="4" r="2"/><circle cx="7" cy="10" r="2"/><line x1="4" y1="6" x2="7" y2="8"/><line x1="10" y1="6" x2="7" y2="8"/></svg></div><div class="sb-label">Creator Mode</div></a>
-    <div class="sb-item" style="opacity:0.4;cursor:default;font-size:10px"><div class="sb-icon"><svg width="8" height="8" viewBox="0 0 8 8" fill="currentColor"><circle cx="4" cy="4" r="3"/></svg></div><div class="sb-label" style="font-family:'JetBrains Mono',monospace;letter-spacing:1px">v36.0 ✦ VISION</div></div>
+    <div class="sb-item" style="opacity:0.4;cursor:default;font-size:10px"><div class="sb-icon"><svg width="8" height="8" viewBox="0 0 8 8" fill="currentColor"><circle cx="4" cy="4" r="3"/></svg></div><div class="sb-label" style="font-family:'JetBrains Mono',monospace;letter-spacing:1px">v36.1 ✦ RELAY</div></div>
   </div></div>
 </div>
 
@@ -533,7 +533,7 @@ nav { height:50px; background:rgba(245,235,220,0.9); backdrop-filter:blur(20px);
   </div>
 
   <div class="footer">
-    <div class="footer-item">MYCROFT.SYS · v36.0 ✦ VISION</div>
+    <div class="footer-item">MYCROFT.SYS · v36.1 ✦ RELAY</div>
     <div class="footer-live"><div class="sdot sdot-on"></div><span>LIVE</span></div>
     <div class="footer-item" id="footerDate">----</div>
     <div class="footer-item" style="border:1px solid rgba(170,60,55,0.45);color:rgba(170,60,55,0.85);border-radius:3px;padding:0 7px;letter-spacing:2px;transform:rotate(-1.5deg)">CLASSIFIED · 机密</div>
@@ -837,6 +837,9 @@ nav { height:50px; background:rgba(245,235,220,0.9); backdrop-filter:blur(20px);
         <div class="panel-section-title">✦ OpenAI（GPT）· 可切换 + 语义检索</div>
         <div style="font-size:10px;color:var(--text3);margin-bottom:8px;line-height:1.7">填了 key：① 聊天顶栏「模型」能切 GPT；② 杂活（外联里可选 GPT）；③ <b>长期记忆的语义检索</b>就用它的 embedding（比关键词准，能认出"割腕≈割着"这种）。<br>去 <span style="color:var(--gold)">platform.openai.com</span> → API keys → 建 key（<b>sk-…</b>）＋ Billing 充值。只存这台设备。<br><b style="color:var(--amber)">露骨段 GPT 也会拒答，那种段切回 Gemini/DeepSeek。</b></div>
         <input class="panel-input" id="setOpenAIKey" type="password" placeholder="sk-... 粘贴在这里" autocomplete="off" spellcheck="false" oninput="setOpenAIKey(this.value.trim())"/>
+        <label class="panel-label" style="margin-top:10px">中转站地址（选填 · OpenAI 兼容）</label>
+        <input class="panel-input" id="setOpenAIBase" placeholder="https://newapi.youkies.space/v1" spellcheck="false" oninput="setOpenAIBase(this.value.trim())"/>
+        <div style="font-size:9px;color:var(--text4);margin-top:4px;line-height:1.6">用<b>中转站</b>就填它的接口地址(如 <b>https://newapi.youkies.space/v1</b>)＋上面填中转 key＋下面「模型」填中转支持的型号。<b style="color:var(--amber)">留空=直连 OpenAI 官方。注意:中转=第三方，你的对话会经过它的服务器。</b></div>
         <label class="panel-label" style="margin-top:10px">GPT 模型（聊天/杂活）</label>
         <input class="panel-input" id="setOpenAIModel" placeholder="gpt-5-mini" spellcheck="false" oninput="setOpenAIModel(this.value.trim())"/>
         <div style="font-size:9px;color:var(--text4);margin-top:4px;line-height:1.6">默认 <b>gpt-5-mini</b>（快、便宜、够聪明做杂活）；要更强可填 <b>gpt-5</b>。若报型号错就换 <b>gpt-4.1-mini</b> / <b>gpt-4o-mini</b>。</div>
@@ -1209,6 +1212,10 @@ function setOpenAIKey(k){ try{ if(k) localStorage.setItem('mcOpenAIKey',k); else
 function getOpenAIModel(){ try{ return localStorage.getItem('mcOpenAIModel')||'gpt-5-mini'; }catch(e){ return 'gpt-5-mini'; } }
 function setOpenAIModel(m){ try{ if(m) localStorage.setItem('mcOpenAIModel',m); else localStorage.removeItem('mcOpenAIModel'); }catch(e){} }
 function getOpenAIEmbedModel(){ try{ return localStorage.getItem('mcOpenAIEmbedModel')||'text-embedding-3-small'; }catch(e){ return 'text-embedding-3-small'; } }
+// ★中转站/自定义地址：填了就把 OpenAI 兼容请求发去这个地址(如 https://newapi.youkies.space/v1)，否则发官方
+function getOpenAIBase(){ try{ var b=(localStorage.getItem('mcOpenAIBase')||'').trim().replace(/\/+$/,''); return b||'https://api.openai.com'; }catch(e){ return 'https://api.openai.com'; } }
+function setOpenAIBase(v){ try{ v=(v||'').trim().replace(/\/+$/,''); if(v) localStorage.setItem('mcOpenAIBase',v); else localStorage.removeItem('mcOpenAIBase'); }catch(e){} }
+function _oaiURL(path){ var b=getOpenAIBase(); return (/\/v\d+$/.test(b) ? b : (b+'/v1')) + path; }   // base 已带 /v1 就直接用，否则补 /v1
 function _hasOpenAI(){ return !!getOpenAIKey(); }
 // ---- 当前模型路由（手动切换；不自动兜底）。provider=gemini|claude|deepseek|openai；各家用各自的 model 存储 ----
 function getActiveProvider(){ try{ var p=localStorage.getItem('mcActiveProvider'); return (p==='claude'||p==='deepseek'||p==='openai')?p:'gemini'; }catch(e){ return 'gemini'; } }
@@ -2982,6 +2989,7 @@ function loadPanelData(){
   var dk=document.getElementById('setDeepSeekKey'); if(dk) dk.value=getDeepSeekKey();
   var dmd=document.getElementById('setDeepSeekModel'); if(dmd) dmd.value=getDeepSeekModel();
   var ok=document.getElementById('setOpenAIKey'); if(ok) ok.value=getOpenAIKey();
+  var oba=document.getElementById('setOpenAIBase'); if(oba){ try{ oba.value=(localStorage.getItem('mcOpenAIBase')||''); }catch(e){} }
   var omd=document.getElementById('setOpenAIModel'); if(omd) omd.value=getOpenAIModel();
   var oem=document.getElementById('setOpenAIEmbedModel'); if(oem) oem.value=getOpenAIEmbedModel();
   var ek=document.getElementById('setElevenKey'); if(ek) ek.value=getElevenKey();
@@ -5278,7 +5286,7 @@ function getModelPresets(prov){ try{ var v=JSON.parse(localStorage.getItem('mcPr
 function setModelPresets(prov,arr){ try{ localStorage.setItem('mcPresets_'+prov, JSON.stringify(arr||[])); }catch(e){} }
 async function fetchModels(prov){   // 拉该家全部可用模型
   try{
-    if(prov==='openai'){ var k=getOpenAIKey(); if(!k) return []; var r=await fetch('https://api.openai.com/v1/models',{headers:{'authorization':'Bearer '+k}}); var j=await r.json(); return (j.data||[]).map(function(m){return m.id;}).filter(function(id){ return /^(gpt|o[1-9]|chatgpt)/.test(id) && !/embedding|whisper|tts|audio|image|dall|moderation|realtime|transcribe|instruct/.test(id); }).sort(); }
+    if(prov==='openai'){ var k=getOpenAIKey(); if(!k) return []; var r=await fetch(_oaiURL('/models'),{headers:{'authorization':'Bearer '+k}}); var j=await r.json(); return (j.data||[]).map(function(m){return m.id;}).filter(function(id){ return /^(gpt|o[1-9]|chatgpt)/.test(id) && !/embedding|whisper|tts|audio|image|dall|moderation|realtime|transcribe|instruct/.test(id); }).sort(); }
     if(prov==='gemini'){ var k2=getApiKey(); if(!k2) return []; var r2=await fetch('https://generativelanguage.googleapis.com/v1beta/models?pageSize=200&key='+encodeURIComponent(k2)); var j2=await r2.json(); return (j2.models||[]).filter(function(m){ return (m.supportedGenerationMethods||[]).indexOf('generateContent')>=0; }).map(function(m){ return (m.name||'').replace(/^models\//,''); }).filter(function(id){ return /^gemini/.test(id) && !/embedding|aqa|tts/.test(id); }).sort(); }
     if(prov==='claude'){ var k3=getClaudeKey(); if(!k3) return []; var r3=await fetch('https://api.anthropic.com/v1/models?limit=100',{headers:{'x-api-key':k3,'anthropic-version':'2023-06-01','anthropic-dangerous-direct-browser-access':'true'}}); var j3=await r3.json(); return (j3.data||[]).map(function(m){return m.id;}).sort(); }
     if(prov==='deepseek'){ var k4=getDeepSeekKey(); if(!k4) return []; var r4=await fetch('https://api.deepseek.com/models',{headers:{'authorization':'Bearer '+k4}}); var j4=await r4.json(); return (j4.data||[]).map(function(m){return m.id;}).sort(); }
@@ -5654,7 +5662,7 @@ async function callOpenAI(systemText, contents, opts){
   var model=(opts.model||getOpenAIModel()), msgs=_dsMsgs(systemText, contents, true);
   var _ac=new AbortController(), _slow=false, _to=setTimeout(function(){ _slow=true; try{ _ac.abort(); }catch(e){} }, 60000);
   var resp;
-  try{ resp=await fetch('https://api.openai.com/v1/chat/completions',{ method:'POST', headers:{ 'content-type':'application/json','authorization':'Bearer '+key }, body:JSON.stringify(_oaiBody(model,msgs,opts,false)), signal:_ac.signal }); clearTimeout(_to); }
+  try{ resp=await fetch(_oaiURL('/chat/completions'),{ method:'POST', headers:{ 'content-type':'application/json','authorization':'Bearer '+key }, body:JSON.stringify(_oaiBody(model,msgs,opts,false)), signal:_ac.signal }); clearTimeout(_to); }
   catch(e){ clearTimeout(_to); if(_slow) throw new Error('OpenAI 响应太慢（60秒无回应）'); throw e; }
   if(!resp.ok){ var et=await resp.text(); throw new Error('OpenAI HTTP '+resp.status+'：'+et.slice(0,160)); }
   var data=await resp.json();
@@ -5667,7 +5675,7 @@ async function callOpenAIStream(systemText, contents, onChunk, opts){
   var key=getOpenAIKey(); if(!key) throw new Error('NO_OPENAI_KEY');
   var model=(opts.model||getOpenAIModel()), msgs=_dsMsgs(systemText, contents, true);
   var FIRST_MS=30000, IDLE_MS=25000;
-  var resp=await Promise.race([ fetch('https://api.openai.com/v1/chat/completions',{ method:'POST', headers:{ 'content-type':'application/json','authorization':'Bearer '+key }, body:JSON.stringify(_oaiBody(model,msgs,opts,true)), signal:opts.signal }), new Promise(function(_,rej){ setTimeout(function(){ rej(new Error('STREAM_TIMEOUT')); }, FIRST_MS); }) ]);
+  var resp=await Promise.race([ fetch(_oaiURL('/chat/completions'),{ method:'POST', headers:{ 'content-type':'application/json','authorization':'Bearer '+key }, body:JSON.stringify(_oaiBody(model,msgs,opts,true)), signal:opts.signal }), new Promise(function(_,rej){ setTimeout(function(){ rej(new Error('STREAM_TIMEOUT')); }, FIRST_MS); }) ]);
   if(!resp.ok){ var t0=await resp.text(); throw new Error('OpenAI HTTP '+resp.status+'：'+t0.slice(0,140)); }
   if(!resp.body||!resp.body.getReader) throw new Error('NO_STREAM');
   var reader=resp.body.getReader(), dec=new TextDecoder(), buf='', full='', stop='', _lastProg=Date.now();
@@ -5698,7 +5706,7 @@ async function openaiEmbed(texts){   // texts: 字符串数组 → 向量数组
   var arr=(Array.isArray(texts)?texts:[texts]).map(function(s){ return (s||'').slice(0,8000); });
   var body={ model:getOpenAIEmbedModel(), input:arr };
   if(/^text-embedding-3/.test(getOpenAIEmbedModel())) body.dimensions=SK_EMB_DIM;   // 只有 3 系列支持降维
-  var resp=await fetch('https://api.openai.com/v1/embeddings',{ method:'POST', headers:{ 'content-type':'application/json','authorization':'Bearer '+key }, body:JSON.stringify(body) });
+  var resp=await fetch(_oaiURL('/embeddings'),{ method:'POST', headers:{ 'content-type':'application/json','authorization':'Bearer '+key }, body:JSON.stringify(body) });
   if(!resp.ok){ var et=await resp.text(); throw new Error('OpenAI embed HTTP '+resp.status+'：'+et.slice(0,140)); }
   var data=await resp.json();
   return (data&&data.data)?data.data.map(function(d){ return d.embedding; }):[];
