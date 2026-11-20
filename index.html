@@ -368,7 +368,7 @@ nav { height:50px; background:rgba(245,235,220,0.9); backdrop-filter:blur(20px);
   <div class="sb-bottom"><div class="sb-nav" style="padding:0">
     <a class="sb-item" onclick="openPanel('settings');closeDrawer()"><div class="sb-icon"><svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="7" cy="7" r="2.5"/><path d="M7 1 L7 2.5 M7 11.5 L7 13 M1 7 L2.5 7 M11.5 7 L13 7 M2.9 2.9 L4 4 M10 10 L11.1 11.1 M11.1 2.9 L10 4 M4 10 L2.9 11.1"/></svg></div><div class="sb-label">Settings</div></a>
     <a class="sb-item" onclick="openPanel('creator');closeDrawer()"><div class="sb-icon"><svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="4" cy="4" r="2"/><circle cx="10" cy="4" r="2"/><circle cx="7" cy="10" r="2"/><line x1="4" y1="6" x2="7" y2="8"/><line x1="10" y1="6" x2="7" y2="8"/></svg></div><div class="sb-label">Creator Mode</div></a>
-    <div class="sb-item" style="opacity:0.4;cursor:default;font-size:10px"><div class="sb-icon"><svg width="8" height="8" viewBox="0 0 8 8" fill="currentColor"><circle cx="4" cy="4" r="3"/></svg></div><div class="sb-label" style="font-family:'JetBrains Mono',monospace;letter-spacing:1px">v36.4 ✦ RELAY-TRANS</div></div>
+    <div class="sb-item" style="opacity:0.4;cursor:default;font-size:10px"><div class="sb-icon"><svg width="8" height="8" viewBox="0 0 8 8" fill="currentColor"><circle cx="4" cy="4" r="3"/></svg></div><div class="sb-label" style="font-family:'JetBrains Mono',monospace;letter-spacing:1px">v36.6 ✦ PRESET</div></div>
   </div></div>
 </div>
 
@@ -387,7 +387,7 @@ nav { height:50px; background:rgba(245,235,220,0.9); backdrop-filter:blur(20px);
   <div class="sb-bottom"><div class="sb-nav" style="padding:0">
     <a class="sb-item" onclick="openPanel('settings')"><div class="sb-icon"><svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="7" cy="7" r="2.5"/><path d="M7 1 L7 2.5 M7 11.5 L7 13 M1 7 L2.5 7 M11.5 7 L13 7 M2.9 2.9 L4 4 M10 10 L11.1 11.1 M11.1 2.9 L10 4 M4 10 L2.9 11.1"/></svg></div><div class="sb-label">Settings</div></a>
     <a class="sb-item" onclick="openPanel('creator')"><div class="sb-icon"><svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="4" cy="4" r="2"/><circle cx="10" cy="4" r="2"/><circle cx="7" cy="10" r="2"/><line x1="4" y1="6" x2="7" y2="8"/><line x1="10" y1="6" x2="7" y2="8"/></svg></div><div class="sb-label">Creator Mode</div></a>
-    <div class="sb-item" style="opacity:0.4;cursor:default;font-size:10px"><div class="sb-icon"><svg width="8" height="8" viewBox="0 0 8 8" fill="currentColor"><circle cx="4" cy="4" r="3"/></svg></div><div class="sb-label" style="font-family:'JetBrains Mono',monospace;letter-spacing:1px">v36.4 ✦ RELAY-TRANS</div></div>
+    <div class="sb-item" style="opacity:0.4;cursor:default;font-size:10px"><div class="sb-icon"><svg width="8" height="8" viewBox="0 0 8 8" fill="currentColor"><circle cx="4" cy="4" r="3"/></svg></div><div class="sb-label" style="font-family:'JetBrains Mono',monospace;letter-spacing:1px">v36.6 ✦ PRESET</div></div>
   </div></div>
 </div>
 
@@ -533,7 +533,7 @@ nav { height:50px; background:rgba(245,235,220,0.9); backdrop-filter:blur(20px);
   </div>
 
   <div class="footer">
-    <div class="footer-item">MYCROFT.SYS · v36.4 ✦ RELAY-TRANS</div>
+    <div class="footer-item">MYCROFT.SYS · v36.6 ✦ PRESET</div>
     <div class="footer-live"><div class="sdot sdot-on"></div><span>LIVE</span></div>
     <div class="footer-item" id="footerDate">----</div>
     <div class="footer-item" style="border:1px solid rgba(170,60,55,0.45);color:rgba(170,60,55,0.85);border-radius:3px;padding:0 7px;letter-spacing:2px;transform:rotate(-1.5deg)">CLASSIFIED · 机密</div>
@@ -552,6 +552,7 @@ nav { height:50px; background:rgba(245,235,220,0.9); backdrop-filter:blur(20px);
       <div id="chatSubtitle" style="font-size:10px;color:var(--text3)">与你私语</div>
     </div>
     <div id="modelChip" onclick="openModelSwitch()" title="点击切换当前模型（全流式）" style="cursor:pointer;font-size:10px;color:var(--gold);padding:5px 9px;border:1px solid var(--border2);border-radius:7px;font-family:'JetBrains Mono',monospace;white-space:nowrap">模型</div>
+    <div id="presetChip" onclick="openPresetSheet()" title="文风预设：像酒馆那样，一键切换"他怎么写"的套装（只改文风/格式，不动人设与防火墙）" style="cursor:pointer;font-size:10px;color:var(--text3);padding:5px 9px;border:1px solid var(--border2);border-radius:7px;font-family:'JetBrains Mono',monospace;white-space:nowrap">预设</div>
     <div id="webChip" onclick="toggleWebSearch()" title="联网搜索：开启后这条会实时搜网（各模型用各自的搜索；DeepSeek 用谷歌代查）。会多花一点 token。" style="cursor:pointer;font-size:10px;padding:5px 9px;border:1px solid var(--border2);border-radius:7px;font-family:'JetBrains Mono',monospace;white-space:nowrap;color:var(--text3)">联网</div>
     <div id="chatCount" title="活跃条数 · 已归档条数" style="font-size:11px;color:var(--text4);padding:5px 8px;font-family:'JetBrains Mono',monospace">—</div>
     <div id="chatLiteBtn" onclick="_chatToggleLite()" title="朴素=纯文字最稳 · 完整=带按钮和双语。卡的话切朴素。" style="cursor:pointer;font-size:11px;color:var(--gold);padding:5px 10px;border:1px solid var(--border2);border-radius:7px;white-space:nowrap">朴素</div>
@@ -3923,7 +3924,7 @@ function _clearMigState(){ try{ localStorage.removeItem(MIG_STATE_KEY); }catch(e
 function _migPhase(p){ var s=_migState()||{}; s.phase=p; _setMigState(s); }
 // —— 精确工具：稳定排序、精确全等去重、逐条精确比对（不做语义并、不截断）——
 function _sortByTsStable(arr){ return (arr||[]).map(function(m,i){ return {m:m,i:i}; }).sort(function(a,b){ var d=(a.m.ts||0)-(b.m.ts||0); return d!==0?d:a.i-b.i; }).map(function(x){ return x.m; }); }
-function _msgFp(m){ return (m&&m.role||'')+' '+Number(m&&m.ts||0)+' '+String(m&&m.text||''); }
+function _msgFp(m){ return (m&&m.role||'')+'\0'+Number(m&&m.ts||0)+'\0'+String(m&&m.text||''); }
 function _dedupExact(arr){ var seen={}, out=[]; for(var i=0;i<(arr||[]).length;i++){ var f=_msgFp(arr[i]); if(seen[f]) continue; seen[f]=1; out.push(arr[i]); } return out; }   // 只丢"角色+时间+全文完全相同"的真重复
 function _segEqual(a,b){ if(!a||!b||a.length!==b.length) return false; for(var i=0;i<a.length;i++){ var x=a[i]||{},y=b[i]||{}; if((x.role||'')!==(y.role||'')||Number(x.ts||0)!==Number(y.ts||0)||String(x.text||'')!==String(y.text||'')) return false; } return true; }   // 逐条精确
 function _stripArch(arr){ return (arr||[]).map(function(m){ return {role:m.role, ts:m.ts, text:m.text}; }); }
@@ -4342,6 +4343,7 @@ function closeChat(){ showView('dashboard'); }
 function updateChatHeader(){
   var back=document.getElementById('chatBack'), title=document.getElementById('chatTitle'), sub=document.getElementById('chatSubtitle'), fwb=document.getElementById('chatFwBtn'), mb=document.getElementById('chatMaskBtn'), sv=document.getElementById('chatSaveBtn'), wb=document.getElementById('chatWinBtn'), auto=document.getElementById('chatAutoBtn');
   var _mc=document.getElementById('modelChip'); if(_mc) _mc.textContent=activeModelLabel();
+  try{ updatePresetChip(); }catch(e){}
   var _wc=document.getElementById('webChip'); if(_wc){ var _on=(typeof getWebSearch==='function'&&getWebSearch()); _wc.style.background=_on?'var(--gold-dim)':'transparent'; _wc.style.borderColor=_on?'var(--gold)':'var(--border2)'; _wc.style.color=_on?'var(--gold)':'var(--text3)'; _wc.textContent=_on?'联网 ✓':'联网'; }
   var _lb=document.getElementById('chatLiteBtn'); if(_lb){ _lb.textContent=(typeof _chatLite!=='undefined'&&_chatLite)?'朴素':'完整'; }
   var _osb=document.getElementById('ombreSoonBar'); if(_osb&&_activeChat.type==='if') _osb.style.display='none';
@@ -5989,7 +5991,7 @@ function _setSendBtn(busy){ var b=document.getElementById('chatSendBtn'); if(!b)
   if(busy){ b.innerHTML='<svg width="14" height="14" viewBox="0 0 14 14"><rect x="2.5" y="2.5" width="9" height="9" rx="2" fill="#fff"/></svg>'; b.title='停止生成'; b.onclick=function(){ stopChat(); }; }
   else { b.innerHTML='↑'; b.title=''; b.onclick=function(){ sendChat(); }; }
 }
-function stopChat(){ _chatGen++; if(_chatAbort){ try{ _chatAbort.abort(); }catch(e){} } _chatBusy=false; _chatAbort=null; if(typeof _setSendBtn==='function') _setSendBtn(false); try{ var h=loadChat(),ch=false; for(var k=h.length-1;k>=0;k--){ if(h[k]&&h[k].pending){ if(h[k]._saved!=null){ h[k].text=h[k]._saved; h[k].pending=false; delete h[k]._saved; if(h[k].variants&&h[k].variants.length<=1) delete h[k].variants; ch=true; } else { h.splice(k,1); ch=true; } } } if(ch) saveChat(h); renderChat(); }catch(e){} var sub=document.getElementById('chatSubtitle'); if(sub) sub.textContent='与你私语'; }   // 点停止：强制收尾——重输中的恢复原文、sendChat 占位泡删掉，保证点得动且不误删消息
+function stopChat(){ _chatGen++; if(_chatAbort){ try{ _chatAbort.abort(); }catch(e){} } _chatBusy=false; _chatAbort=null; if(typeof _setSendBtn==='function') _setSendBtn(false); var _partial=''; try{ _partial=(typeof mcCleanText==='function'?mcCleanText(_streamText||''):(_streamText||'')); }catch(e){ _partial=(_streamText||''); } try{ var h=loadChat(),ch=false; for(var k=h.length-1;k>=0;k--){ if(h[k]&&h[k].pending){ if(_partial&&_partial.trim()){ h[k].text=_partial; h[k].pending=false; h[k].ts=Date.now(); h[k].truncated='STOPPED'; if(h[k]._saved!=null){ if(!h[k].variants||!h[k].variants.length) h[k].variants=[h[k]._saved]; h[k].variants.push(_partial); h[k].vi=h[k].variants.length-1; } delete h[k]._saved; ch=true; } else if(h[k]._saved!=null){ h[k].text=h[k]._saved; h[k].pending=false; delete h[k]._saved; if(h[k].variants&&h[k].variants.length<=1) delete h[k].variants; ch=true; } else { h.splice(k,1); ch=true; } } } if(ch) saveChat(h); renderChat(); }catch(e){} _streamText=''; var sub=document.getElementById('chatSubtitle'); if(sub) sub.textContent='与你私语'; }   // 点停止：★停在哪留到哪——有半成品就留下(标记可续写/重roll)；重roll中途停则把原文留成变体、半成品当前；没流出任何字才删空泡/恢复原文
 // 构建当前这条线的系统提示（sendChat 和"重新输出"复用）
 // ===== 卷宗 / 往事 的"精简摘要"：喂给聊天的是这个短版，省 token；存起来，内容变了才用便宜模型重算 =====
 function getDossierSum(){ try{ var o=JSON.parse(localStorage.getItem('mcDossierSum')||'null'); if(o&&o.text) return o.text; }catch(e){} var f=(typeof dossierText==='function')?dossierText():''; return f?f.slice(0,1600):''; }
@@ -6139,6 +6141,95 @@ function skRetrievalBarHTML(){
     +'<button onclick="skRebuildEmb(this)" title="重新嵌入骨架（换了模型/骨架大改后用）" style="background:var(--gold-dim);border:1px solid var(--border2);color:var(--gold);border-radius:7px;padding:4px 10px;font-size:11px;cursor:pointer">↻ 重嵌</button>'
   +'</div>';
 }
+/* ============ 文风预设（像酒馆那样一键切换写作风格套装）============
+   设计原则：预设是「单独一层」，只决定他「怎么写」（文笔/格式/节奏/情欲密度），
+   绝不改「他是谁」——注入时排在人设、世界书、防火墙之后，并明确标注服从它们。
+   可多开（勾上的拼在一起）、可编辑、可删、可从酒馆 JSON 导入。存 localStorage。 */
+function getPromptPresets(){ try{ var a=JSON.parse(localStorage.getItem('mcPromptPresets')||'[]'); return Array.isArray(a)?a:[]; }catch(e){ return []; } }
+function savePromptPresets(a){ try{ localStorage.setItem('mcPromptPresets', JSON.stringify(a||[])); }catch(e){} }
+function _activePresetText(){ try{ var a=getPromptPresets(),out=[]; for(var i=0;i<a.length;i++){ if(a[i]&&a[i].on&&a[i].text&&a[i].text.trim()) out.push(a[i].text.trim()); } return out.join('\n\n---\n\n'); }catch(e){ return ''; } }
+function _presetCount(){ try{ var a=getPromptPresets(),n=0; for(var i=0;i<a.length;i++){ if(a[i]&&a[i].on) n++; } return n; }catch(e){ return 0; } }
+/* 解析导入：酒馆预设 JSON（prompts[].content，跳过纯 marker）→ 拼成纯文本；否则原样当文本 */
+function _parsePresetImport(raw){
+  raw=(raw||'').trim(); if(!raw) return '';
+  try{
+    var j=JSON.parse(raw);
+    if(j&&Array.isArray(j.prompts)){
+      var parts=[];
+      for(var i=0;i<j.prompts.length;i++){ var p=j.prompts[i]; if(!p) continue; if(p.marker&&!p.content) continue; var c=(p.content||'').trim(); if(c) parts.push(c); }
+      if(parts.length) return parts.join('\n\n');
+    }
+    if(j&&typeof j.content==='string'&&j.content.trim()) return j.content.trim();
+    if(typeof j==='string') return j.trim();
+  }catch(e){}
+  return raw;   // 不是 JSON 就当纯提示词文本
+}
+function updatePresetChip(){ try{ var c=document.getElementById('presetChip'); if(!c) return; var n=_presetCount(); if(n>0){ c.textContent='预设·'+n; c.style.color='var(--gold)'; c.style.borderColor='var(--border2)'; } else { c.textContent='预设'; c.style.color='var(--text3)'; } }catch(e){} }
+function _presetToggle(id){ var a=getPromptPresets(); for(var i=0;i<a.length;i++){ if(a[i]&&a[i].id===id){ a[i].on=!a[i].on; break; } } savePromptPresets(a); updatePresetChip(); openPresetSheet(); }
+function _presetDelete(id){ if(!confirm('删掉这个预设？（不影响他是谁，只是少一套写作风格）')) return; var a=getPromptPresets().filter(function(x){ return x&&x.id!==id; }); savePromptPresets(a); updatePresetChip(); openPresetSheet(); }
+function _presetNew(){ _presetEdit(null); }
+function _presetEdit(id){
+  var a=getPromptPresets(),cur=null; for(var i=0;i<a.length;i++){ if(a[i]&&a[i].id===id){ cur=a[i]; break; } }
+  var ov=document.getElementById('presetEditOverlay'); if(ov) ov.remove();
+  var d=document.createElement('div'); d.id='presetEditOverlay';
+  d.style.cssText='position:fixed;inset:0;z-index:100000;background:rgba(0,0,0,.55);display:flex;align-items:center;justify-content:center;padding:16px';
+  var h=cur?'编辑预设':'新建预设';
+  var nameV=cur?(cur.name||''):''; var textV=cur?(cur.text||''):'';
+  d.innerHTML='<div style="width:100%;max-width:560px;max-height:86vh;overflow:auto;background:var(--s1);border:1px solid var(--border2);border-radius:16px;padding:18px">'
+    +'<div style="font-size:15px;color:var(--text1);margin-bottom:4px">'+h+'</div>'
+    +'<div style="font-size:11px;color:var(--text3);margin-bottom:12px;line-height:1.5">只写「怎么写」：文笔、格式、节奏、情欲浓度、禁用口癖……<b style="color:var(--gold)">不要</b>写「你是谁」。他的人设 / 世界书 / 防火墙永远压在这上面，冲突一律听他们的。</div>'
+    +'<input id="presetNameInput" placeholder="预设名字（例：灰烬之桥·文笔）" value="'+nameV.replace(/"/g,'&quot;')+'" style="width:100%;box-sizing:border-box;background:var(--bg);border:1px solid var(--border2);border-radius:9px;padding:10px 12px;color:var(--text1);font-size:13px;outline:none;margin-bottom:10px">'
+    +'<textarea id="presetTextInput" placeholder="在这里粘贴 / 写预设正文。可直接粘酒馆导出的预设 JSON，我会自动抽出里面的提示词文字。" style="width:100%;box-sizing:border-box;min-height:240px;background:var(--bg);border:1px solid var(--border2);border-radius:9px;padding:12px;color:var(--text1);font-size:13px;line-height:1.6;outline:none;resize:vertical;font-family:inherit">'+textV.replace(/</g,'&lt;')+'</textarea>'
+    +'<div style="display:flex;gap:8px;margin-top:14px;justify-content:flex-end">'
+    +'<button onclick="document.getElementById(\'presetEditOverlay\').remove()" style="background:transparent;border:1px solid var(--border2);color:var(--text2);border-radius:9px;padding:9px 16px;font-size:13px;cursor:pointer">取消</button>'
+    +'<button onclick="_presetSaveEdit('+(cur?('\''+cur.id+'\''):'null')+')" style="background:var(--gold-dim);border:1px solid var(--border2);color:var(--gold);border-radius:9px;padding:9px 18px;font-size:13px;cursor:pointer">保存</button>'
+    +'</div></div>';
+  document.body.appendChild(d);
+  try{ document.getElementById('presetNameInput').focus(); }catch(e){}
+}
+function _presetSaveEdit(id){
+  var name=(document.getElementById('presetNameInput')||{}).value||'';
+  var rawText=(document.getElementById('presetTextInput')||{}).value||'';
+  var text=_parsePresetImport(rawText);
+  if(!text.trim()){ alert('预设正文不能为空'); return; }
+  if(!name.trim()) name='未命名预设';
+  var a=getPromptPresets();
+  if(id){ for(var i=0;i<a.length;i++){ if(a[i]&&a[i].id===id){ a[i].name=name; a[i].text=text; break; } } }
+  else { a.push({ id:'p'+Date.now()+Math.floor(Math.random()*1000), name:name, text:text, on:true }); }
+  savePromptPresets(a);
+  var ov=document.getElementById('presetEditOverlay'); if(ov) ov.remove();
+  updatePresetChip(); openPresetSheet();
+}
+function openPresetSheet(){
+  var ov=document.getElementById('presetSheetOverlay'); if(ov) ov.remove();
+  var a=getPromptPresets();
+  var d=document.createElement('div'); d.id='presetSheetOverlay';
+  d.style.cssText='position:fixed;inset:0;z-index:99990;background:rgba(0,0,0,.55);display:flex;align-items:flex-end;justify-content:center';
+  d.onclick=function(e){ if(e.target===d) d.remove(); };
+  var rows='';
+  if(!a.length){ rows='<div style="color:var(--text3);font-size:12px;text-align:center;padding:28px 10px;line-height:1.7">还没有预设。<br>点下面「＋ 新建」，或把酒馆导出的预设 JSON 整段粘进去。</div>'; }
+  for(var i=0;i<a.length;i++){ var p=a[i]; if(!p) continue;
+    var preview=(p.text||'').replace(/</g,'&lt;').slice(0,70); if((p.text||'').length>70) preview+='…';
+    rows+='<div style="display:flex;align-items:flex-start;gap:10px;padding:12px 2px;border-bottom:1px solid var(--border1)">'
+      +'<div onclick="_presetToggle(\''+p.id+'\')" title="开/关" style="flex-shrink:0;width:40px;height:23px;border-radius:12px;cursor:pointer;position:relative;transition:.15s;background:'+(p.on?'var(--gold)':'var(--border2)')+'">'
+        +'<div style="position:absolute;top:2px;left:'+(p.on?'19px':'2px')+';width:19px;height:19px;border-radius:50%;background:#fff;transition:.15s"></div></div>'
+      +'<div style="flex:1;min-width:0" onclick="_presetEdit(\''+p.id+'\')">'
+        +'<div style="font-size:13px;color:'+(p.on?'var(--text1)':'var(--text3)')+';margin-bottom:3px">'+(p.name||'未命名').replace(/</g,'&lt;')+'</div>'
+        +'<div style="font-size:11px;color:var(--text3);line-height:1.5;word-break:break-all">'+preview+'</div></div>'
+      +'<button onclick="_presetEdit(\''+p.id+'\')" style="flex-shrink:0;background:transparent;border:1px solid var(--border2);color:var(--text2);border-radius:7px;padding:5px 9px;font-size:11px;cursor:pointer">编辑</button>'
+      +'<button onclick="_presetDelete(\''+p.id+'\')" style="flex-shrink:0;background:transparent;border:1px solid var(--border2);color:var(--text3);border-radius:7px;padding:5px 9px;font-size:11px;cursor:pointer">删</button>'
+      +'</div>';
+  }
+  d.innerHTML='<div style="width:100%;max-width:600px;max-height:82vh;overflow:auto;background:var(--s1);border:1px solid var(--border2);border-top-left-radius:18px;border-top-right-radius:18px;padding:18px 18px 26px">'
+    +'<div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:4px">'
+      +'<div style="font-size:15px;color:var(--text1)">文风预设</div>'
+      +'<div onclick="document.getElementById(\'presetSheetOverlay\').remove()" style="cursor:pointer;color:var(--text3);font-size:20px;line-height:1;padding:0 4px">×</div></div>'
+    +'<div style="font-size:11px;color:var(--text3);margin-bottom:10px;line-height:1.6">一套套写作风格，勾上的会拼在一起喂给他。<b style="color:var(--gold)">只管「怎么写」，不改「他是谁」</b>——人设 / 世界书 / 防火墙永远压在预设上面。</div>'
+    +rows
+    +'<button onclick="_presetNew()" style="width:100%;margin-top:14px;background:var(--gold-dim);border:1px solid var(--border2);color:var(--gold);border-radius:10px;padding:11px;font-size:13px;cursor:pointer">＋ 新建 / 粘贴预设</button>'
+    +'</div>';
+  document.body.appendChild(d);
+}
 var _lastBuildTrace=null;   // ★最近一次组装的"喂了什么"，生成完挂到那条消息上供溯源
 async function _chatBuildSys(lastUserText, endingOverride){
   var sys;
@@ -6205,6 +6296,7 @@ async function _chatBuildSys(lastUserText, endingOverride){
       +'When two sources differ, preserve the newest concrete event and the more specific relevant instruction. Never explain this hierarchy in the reply.\n\n'
       +'=== WORLD BOOK · durable rules, facts, and user corrections ===\n'+_wb+'\n\n=== PERSONA, STYLE, MEMORY, AND LIVE CONTEXT ===\n\n'+sys;
   }
+  try{ var _pst=_activePresetText(); if(_pst){ sys+='\n\n=== 文风 / 输出预设（Cael 选的写作风格套装；只决定你「怎么写」——文笔、格式、节奏、情欲密度；绝不凌驾上面的人设、世界书与防火墙，冲突时一律以上面为准，不改「你是谁」）===\n'+_pst; try{ if(_lastBuildTrace) _lastBuildTrace.presetFull=_pst; }catch(e){} } }catch(e){}   // ★文风预设：单独一层，服从防火墙
   try{ if(_lastBuildTrace) _lastBuildTrace.sysFull=sys; }catch(e){}   // ★溯源：完整提示词（怎么被塑造/肘击的）；prune 只留最近2条
   return sys;
 }
@@ -7512,6 +7604,14 @@ async function _syncPullCheck(reloadOnApply){
   return false;
 }
 async function syncInit(){
+  // /room is hosted by Myc Core and uses the Core ledger for cross-device sync.
+  // The old Supabase password lock belongs only to the standalone legacy page;
+  // showing it here both duplicates sync and can hide the actual room when
+  // Supabase is unreachable on a phone.
+  if(/^https?:$/.test(location.protocol) && location.pathname.replace(/\/+$/,'')==='/room'){
+    hideSyncLock();
+    return;
+  }
   if(!(window.crypto&&crypto.subtle)){ return; }   // 不支持加密就跳过（需 https/本地文件）
   var pass=null; try{ pass=localStorage.getItem('mcSyncPass'); }catch(e){}
   if(!pass){ showSyncLock('', true); return; }       // 本设备还没设 → 锁屏设置
@@ -7805,6 +7905,6 @@ function renderCore(){
   if(ch) saveCore(o2);
 }
 </script>
-<script src="myc-agent/apps/web-room-plugin/web-room-bridge.js?v=main-only-1"></script>
+<script src="myc-agent/apps/web-room-plugin/web-room-bridge.js?v=central-sync-6"></script>
 </body>
 </html>
