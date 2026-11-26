@@ -368,7 +368,7 @@ nav { height:50px; background:rgba(245,235,220,0.9); backdrop-filter:blur(20px);
   <div class="sb-bottom"><div class="sb-nav" style="padding:0">
     <a class="sb-item" onclick="openPanel('settings');closeDrawer()"><div class="sb-icon"><svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="7" cy="7" r="2.5"/><path d="M7 1 L7 2.5 M7 11.5 L7 13 M1 7 L2.5 7 M11.5 7 L13 7 M2.9 2.9 L4 4 M10 10 L11.1 11.1 M11.1 2.9 L10 4 M4 10 L2.9 11.1"/></svg></div><div class="sb-label">Settings</div></a>
     <a class="sb-item" onclick="openPanel('creator');closeDrawer()"><div class="sb-icon"><svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="4" cy="4" r="2"/><circle cx="10" cy="4" r="2"/><circle cx="7" cy="10" r="2"/><line x1="4" y1="6" x2="7" y2="8"/><line x1="10" y1="6" x2="7" y2="8"/></svg></div><div class="sb-label">Creator Mode</div></a>
-    <div class="sb-item" style="opacity:0.4;cursor:default;font-size:10px"><div class="sb-icon"><svg width="8" height="8" viewBox="0 0 8 8" fill="currentColor"><circle cx="4" cy="4" r="3"/></svg></div><div class="sb-label" style="font-family:'JetBrains Mono',monospace;letter-spacing:1px">v36.6 ✦ PRESET</div></div>
+    <div class="sb-item" style="opacity:0.4;cursor:default;font-size:10px"><div class="sb-icon"><svg width="8" height="8" viewBox="0 0 8 8" fill="currentColor"><circle cx="4" cy="4" r="3"/></svg></div><div class="sb-label" style="font-family:'JetBrains Mono',monospace;letter-spacing:1px">v36.7 ✦ TRANS-FREE</div></div>
   </div></div>
 </div>
 
@@ -387,7 +387,7 @@ nav { height:50px; background:rgba(245,235,220,0.9); backdrop-filter:blur(20px);
   <div class="sb-bottom"><div class="sb-nav" style="padding:0">
     <a class="sb-item" onclick="openPanel('settings')"><div class="sb-icon"><svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="7" cy="7" r="2.5"/><path d="M7 1 L7 2.5 M7 11.5 L7 13 M1 7 L2.5 7 M11.5 7 L13 7 M2.9 2.9 L4 4 M10 10 L11.1 11.1 M11.1 2.9 L10 4 M4 10 L2.9 11.1"/></svg></div><div class="sb-label">Settings</div></a>
     <a class="sb-item" onclick="openPanel('creator')"><div class="sb-icon"><svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="4" cy="4" r="2"/><circle cx="10" cy="4" r="2"/><circle cx="7" cy="10" r="2"/><line x1="4" y1="6" x2="7" y2="8"/><line x1="10" y1="6" x2="7" y2="8"/></svg></div><div class="sb-label">Creator Mode</div></a>
-    <div class="sb-item" style="opacity:0.4;cursor:default;font-size:10px"><div class="sb-icon"><svg width="8" height="8" viewBox="0 0 8 8" fill="currentColor"><circle cx="4" cy="4" r="3"/></svg></div><div class="sb-label" style="font-family:'JetBrains Mono',monospace;letter-spacing:1px">v36.6 ✦ PRESET</div></div>
+    <div class="sb-item" style="opacity:0.4;cursor:default;font-size:10px"><div class="sb-icon"><svg width="8" height="8" viewBox="0 0 8 8" fill="currentColor"><circle cx="4" cy="4" r="3"/></svg></div><div class="sb-label" style="font-family:'JetBrains Mono',monospace;letter-spacing:1px">v36.7 ✦ TRANS-FREE</div></div>
   </div></div>
 </div>
 
@@ -533,7 +533,7 @@ nav { height:50px; background:rgba(245,235,220,0.9); backdrop-filter:blur(20px);
   </div>
 
   <div class="footer">
-    <div class="footer-item">MYCROFT.SYS · v36.6 ✦ PRESET</div>
+    <div class="footer-item">MYCROFT.SYS · v36.7 ✦ TRANS-FREE</div>
     <div class="footer-live"><div class="sdot sdot-on"></div><span>LIVE</span></div>
     <div class="footer-item" id="footerDate">----</div>
     <div class="footer-item" style="border:1px solid rgba(170,60,55,0.45);color:rgba(170,60,55,0.85);border-radius:3px;padding:0 7px;letter-spacing:2px;transform:rotate(-1.5deg)">CLASSIFIED · 机密</div>
@@ -775,7 +775,7 @@ nav { height:50px; background:rgba(245,235,220,0.9); backdrop-filter:blur(20px);
     <div id="linkTab" style="display:none">
       <div class="panel-section">
         <div class="panel-section-title">✦ 每个小任务用哪个模型（各自独立）</div>
-        <div style="font-size:10px;color:var(--text3);margin-bottom:8px;line-height:1.6">下面每个后台小任务都能<b>单独</b>选模型。<b>auto</b>=Claude→DeepSeek→Gemini 级联；也可指定 Claude / DeepSeek / 具体 Gemini 型号。改完即时生效、只存本机。（Claude/DeepSeek 需在下方填对应 key。）</div>
+        <div style="font-size:10px;color:var(--text3);margin-bottom:8px;line-height:1.6">下面每个后台小任务都能<b>单独</b>选模型。<b>auto</b>=只在你已经配置好的官方/中转模型中级联；显式指定后失败会直接报错，<b>不再暗中切去 Gemini 扣费</b>。翻译还可选「免费·浏览器本机翻译」（0 token；需浏览器支持），或在下拉框下直接填 <b>relay0:任意型号</b>。改完即时生效、只存本机。</div>
         <div id="jobModelBox"></div>
       </div>
       <div class="panel-section">
@@ -1346,7 +1346,8 @@ var _voiceData={}, _voiceAudio=null, _voiceTimer=null;
 var VOICE_TRANS_CACHE_V=3;   // v3：翻译结果绑定翻译模型，并拒绝“英英/中中”的伪双语缓存
 function _voiceTransSignature(){
   var c=''; try{ c=jobChoice('trans'); }catch(e){ c='gemini-2.5-flash'; }
-  if(/^relay\d+$/.test(c||'')){ var i=_relayIdx(c), s=getRelaySlot(i); return 'v'+VOICE_TRANS_CACHE_V+'|'+c+'|'+(s.base||'')+'|'+(s.model||''); }
+  if(c==='browser-free') return 'v'+VOICE_TRANS_CACHE_V+'|browser-free';
+  if(/^relay\d+(?::.+)?$/.test(c||'')){ var rm=/^relay(\d+)(?::(.+))?$/.exec(c), i=parseInt(rm[1],10), s=getRelaySlot(i); return 'v'+VOICE_TRANS_CACHE_V+'|relay'+i+'|'+(s.base||'')+'|'+(rm[2]||s.model||''); }
   return 'v'+VOICE_TRANS_CACHE_V+'|'+c+'|'+(c==='claude'?getClaudeModel():(c==='deepseek'?getDeepSeekModel():(c==='openai'?getOpenAIModel():c)));
 }
 function _msgSegments(text){
@@ -1384,6 +1385,7 @@ async function _forceEnLines(zhLines){   // 对称兜底：结构化翻译若把
   }catch(e){ return []; }
 }
 async function _transLines(zhLines, fullText){
+  if(jobChoice('trans')==='browser-free') return await _browserFreeTransLines(zhLines);
   var schema={type:'OBJECT',properties:{lines:{type:'ARRAY',items:{type:'OBJECT',properties:{en:{type:'STRING'},zh:{type:'STRING'},bilingual:{type:'BOOLEAN'},mine:{type:'BOOLEAN'},tag:{type:'STRING'}},required:['en','zh','bilingual','mine','tag']}}},required:['lines']};
   var sys='给你一段 Mycroft 视角 RP 的全文(上下文) + 其中被引号框住的内容逐条。对每条输出：\n- mine：**只有**当这条是【Mycroft 本人当场说出口的台词（对话）】才 true。mine=false：Cael / "你" / 她 / 别人说的；以及任何不是"当场说话"的引用——概念 / 专有名词 / 标签 / 屏幕文字 / 课程或功能名 / 被引用的词（如 Curriculum、Tutorial、System、Desertion 这类）。\n- en：仅当 mine=true 时翻成自然英文【口语】（冷峻克制英伦腔，允许语气词/停顿/省略号、像真人说话）；mine=false 时 en 原样即可。不要在 en 里放任何方括号标签。\n- tag：**默认给空字符串""**。麦考夫极克制，**大多数句子都不该有标签**——只有当这句情绪【非常明显】时，才给【一个】很轻的方括号标签放句首（如 [softly] [gently] [warmly] [quietly] [dryly]，亲密温柔才用 [softly]/[warmly]）。宁可不给也不要硬塞；绝不叠标签、绝不夸张标签([shouting]/[crying]/[teasing] 等)。mine=false 时 tag 给""。\n- zh：这句的【中文】版本。**zh 这一栏永远、必须、只能是中文**（除下面专有名词例外）。原文是中文 → 原样返回；**原文是英文（他有时整句用英文说台词）→ 必须翻成自然、克制、有文学感的中文，绝对不许把英文原样抄进 zh**。例：en="Come here, Sister mine." → zh 应为「过来，小妹。」，而不是照抄英文。en="You are mine." → zh 应为「你是我的。」。【例外·保留原文不译】人名与称呼（Cael、Mycroft、麦考夫、小妹…）、专有名词与机构（MI6、Diogenes Club、Whitehall…）、代号与专业术语——这些照抄原文，不要硬译成中文。mine=false 时 zh 原样即可。\n- bilingual：句子正常→true；很短/本就是简单英文词→false。\n条数、顺序与输入完全一致。只输出 JSON。';
   var u='全文（判断谁说的、定情绪）：\n'+(fullText||'').slice(0,2200)+'\n\n逐句台词（共 '+zhLines.length+' 句）：\n'+zhLines.map(function(s,i){return (i+1)+'. '+s;}).join('\n');
@@ -1402,6 +1404,27 @@ async function _transLines(zhLines, fullText){
   var check=res.map(function(x){ return {en:x.en,zh:x.zh,mine:x.mine}; });
   if(!_voiceSegsValid(check)) throw new Error('翻译模型没有生成有效的中英双语，请重试或更换“翻译（双语）”模型');
   return res;
+}
+
+// 免费本机翻译：使用浏览器自带 Translator API，不调用模型、不花 token。
+// 浏览器不支持时明确报错，不会暗中改用 Gemini 扣费。
+var _nativeTranslator={};
+async function _browserFreeTransLines(lines){
+  var api=window.Translator;
+  if(!api||typeof api.create!=='function') throw new Error('这个浏览器暂不支持免费本机翻译；请换用已配置的模型或中转模型');
+  var out=[];
+  for(var i=0;i<lines.length;i++){
+    var src=String(lines[i]||''), en=src, zh=src;
+    if(_looksCJK(src)){
+      if(!_nativeTranslator.zhEn) _nativeTranslator.zhEn=await api.create({sourceLanguage:'zh',targetLanguage:'en'});
+      en=await _nativeTranslator.zhEn.translate(src);
+    }else if(_looksLatin(src)){
+      if(!_nativeTranslator.enZh) _nativeTranslator.enZh=await api.create({sourceLanguage:'en',targetLanguage:'zh'});
+      zh=await _nativeTranslator.enZh.translate(src);
+    }
+    out.push({en:String(en||src),zh:String(zh||src),bi:true,mine:true,tag:''});
+  }
+  return out;
 }
 async function _elevenSpeakTS(text, model){
   var key=getElevenKey(), vid=getElevenVoice(); if(!key||!vid) throw new Error('没填 ElevenLabs key/Voice ID');
@@ -1542,20 +1565,24 @@ function _hasAnyMemKey(){ return (typeof getApiKey==='function' && !!getApiKey()
 // ★记忆/总结用哪个模型：在「档案手册」里单独切换（和聊天模型分开）。默认 auto = Claude→DeepSeek→Gemini 级联。
 function getMemChoice(){ try{ return localStorage.getItem('mcMemChoice')||'auto'; }catch(e){ return 'auto'; } }
 function setMemChoice(v){ try{ localStorage.setItem('mcMemChoice', v||'auto'); }catch(e){} }
-function _memPlan(choice){   // 按选择排出"先试谁、再试谁"；Gemini 永远兜底，绝不 dead-end。choice 传空=用全局 getMemChoice
+function _memPlan(choice){   // 显式选择只走指定线；auto 才在已配置的 provider 中级联。绝不暗中改用 Gemini 扣费。
   var c=choice||getMemChoice(), plan=[];
-  var ri=_relayIdx(c); if(ri>=0){ var rs=getRelaySlot(ri); if(_hasRelay(ri)&&rs.model) plan.push({prov:'relay',relay:ri,model:rs.model}); plan.push({prov:'gemini',model:'gemini-2.5-flash'}); }
-  else if(c==='claude'){ if(_hasClaude()) plan.push({prov:'claude',model:getClaudeModel()}); plan.push({prov:'gemini',model:'gemini-3-flash-preview'}); }
-  else if(c==='deepseek'){ if(_hasDeepSeek()) plan.push({prov:'deepseek',model:getDeepSeekModel()}); plan.push({prov:'gemini',model:'gemini-3-flash-preview'}); }
-  else if(c==='openai'){ if(_hasOpenAI()) plan.push({prov:'openai',model:getOpenAIModel()}); plan.push({prov:'gemini',model:'gemini-3-flash-preview'}); }
+  var rm=/^relay(\d+)(?::(.+))?$/.exec(c||''), ri=rm?parseInt(rm[1],10):-1;
+  if(ri>=0){ var rs=getRelaySlot(ri); if(_hasRelay(ri)&&(rm[2]||rs.model)) plan.push({prov:'relay',relay:ri,model:(rm[2]||rs.model)}); }
+  else if(c==='claude'){ if(_hasClaude()) plan.push({prov:'claude',model:getClaudeModel()}); }
+  else if(c==='deepseek'){ if(_hasDeepSeek()) plan.push({prov:'deepseek',model:getDeepSeekModel()}); }
+  else if(c==='openai'){ if(_hasOpenAI()) plan.push({prov:'openai',model:getOpenAIModel()}); }
+  else if(/^claude[-:]/.test(c||'')){ if(_hasClaude()) plan.push({prov:'claude',model:c.replace(/^claude:/,'')}); }
+  else if(/^deepseek[-:]/.test(c||'')){ if(_hasDeepSeek()) plan.push({prov:'deepseek',model:c.replace(/^deepseek:/,'')}); }
+  else if(/^(?:openai:|gpt-)/.test(c||'')){ if(_hasOpenAI()) plan.push({prov:'openai',model:c.replace(/^openai:/,'')}); }
   else if(c && c.indexOf('gemini-')===0){ plan.push({prov:'gemini',model:c}); }
-  else { if(_hasClaude()) plan.push({prov:'claude',model:getClaudeModel()}); if(_hasDeepSeek()) plan.push({prov:'deepseek',model:getDeepSeekModel()}); if(_hasOpenAI()) plan.push({prov:'openai',model:getOpenAIModel()}); plan.push({prov:'gemini',model:'gemini-3-flash-preview'}); }   // auto
-  plan.push({prov:'gemini',model:MEM_FALLBACK});   // 终极兜底
+  else if(c==='auto'){ if(_hasClaude()) plan.push({prov:'claude',model:getClaudeModel()}); if(_hasDeepSeek()) plan.push({prov:'deepseek',model:getDeepSeekModel()}); if(_hasOpenAI()) plan.push({prov:'openai',model:getOpenAIModel()}); for(var x=0;x<RELAY_N;x++){ var rx=getRelaySlot(x); if(_hasRelay(x)&&rx.model) plan.push({prov:'relay',relay:x,model:rx.model}); } if(getApiKey()) plan.push({prov:'gemini',model:'gemini-3-flash-preview'}); }
   return plan;
 }
 // 纯文本记忆总结（骨架续写 / 大纲 / 往事 / IF 骨架）
 async function memChat(sys, contents, choice){
-  var plan=_memPlan(choice);
+  var plan=_memPlan(choice), lastErr=null;
+  if(!plan.length) throw new Error('这个任务选的模型没有配置 key / 地址 / 型号');
   for(var i=0;i<plan.length;i++){ var s=plan[i];
     try{
       if(s.prov==='claude') return await _memRace(callClaude(sys, contents, {model:s.model}));
@@ -1563,15 +1590,16 @@ async function memChat(sys, contents, choice){
       if(s.prov==='openai') return await _memRace(callOpenAI(sys, contents, {model:s.model}));
       if(s.prov==='relay') return await _memRace(callOpenAI(sys, contents, {model:s.model,_relay:s.relay}));
       return await _memRace(callGeminiChat(sys, contents, {model:s.model}));
-    }catch(e){}
+    }catch(e){ lastErr=e; }
   }
-  return await callGeminiChat(sys, contents, {model:MEM_FALLBACK});
+  throw (lastErr||new Error('所选模型调用失败'));
 }
 // 结构化 JSON 记忆（Ombre 蒸馏 / 卷宗 / 便利贴 / 往事归位）：Claude/DeepSeek 无原生 schema → 让它只吐 JSON 再解析；都不行退 Gemini 原生 schema
 async function memJSON(sys, user, schema, choice){
   var jsys=sys+'\n\n【只输出一个合法 JSON 对象】：不要任何解释、不要代码块围栏、不要前后缀。顶层字段：'+Object.keys((schema&&schema.properties)||{}).join('、')+'。';
   var uc=[{role:'user',parts:[{text:user}]}];
-  var plan=_memPlan(choice);
+  var plan=_memPlan(choice), lastErr=null;
+  if(!plan.length) throw new Error('这个任务选的模型没有配置 key / 地址 / 型号');
   for(var i=0;i<plan.length;i++){ var s=plan[i];
     try{
       if(s.prov==='claude'){ var t=await _memRace(callClaude(jsys, uc, {model:s.model})); var o=_memJExtract(t); if(o) return o; continue; }
@@ -1579,9 +1607,9 @@ async function memJSON(sys, user, schema, choice){
       if(s.prov==='openai'){ var t3=await _memRace(callOpenAI(jsys, uc, {model:s.model})); var o3=_memJExtract(t3); if(o3) return o3; continue; }
       if(s.prov==='relay'){ var t4=await _memRace(callOpenAI(jsys, uc, {model:s.model,_relay:s.relay})); var o4=_memJExtract(t4); if(o4) return o4; continue; }
       return await _memRace(callGeminiJSON(sys, user, schema, s.model));
-    }catch(e){}
+    }catch(e){ lastErr=e; }
   }
-  return await callGeminiJSON(sys, user, schema, MEM_FALLBACK);
+  throw (lastErr||new Error('所选模型调用失败'));
 }
 // ★★ 每个小任务各自选模型（外联里设）。存 mcJobChoice_<k>；空=跟随全局「记忆/总结模型」(getMemChoice)。选项同全局：auto / claude / deepseek / 具体 gemini 型号
 var JOBS=[
@@ -1596,16 +1624,18 @@ var JOBS=[
   {k:'mood',   label:'心情（M.Status）',     def:'gemini-2.5-flash'},
   {k:'sched',  label:'日程',                 def:'gemini-2.5-flash'},
   {k:'mstate', label:'看穿伪装',             def:'gemini-2.5-flash'},
-  {k:'trans',  label:'翻译（双语）',         def:'gemini-2.5-flash'},
+  {k:'trans',  label:'翻译（双语）',         def:'browser-free'},
   {k:'tts',    label:'语音·标情绪',          def:'gemini-2.5-flash'}
 ];
-function jobChoice(k){ try{ var v=localStorage.getItem('mcJobChoice_'+k); if(v!==null&&v!=='') return v; }catch(e){} for(var i=0;i<JOBS.length;i++){ if(JOBS[i].k===k) return JOBS[i].def; } return 'auto'; }
+function jobChoice(k){ try{ var v=localStorage.getItem('mcJobChoice_'+k); if(k==='trans'&&!localStorage.getItem('mcTransRouteV367')){ localStorage.setItem('mcTransRouteV367','1'); if(v==='gemini-2.5-flash'){ localStorage.removeItem('mcJobChoice_trans'); v='browser-free'; } } if(v!==null&&v!=='') return v; }catch(e){} for(var i=0;i<JOBS.length;i++){ if(JOBS[i].k===k) return JOBS[i].def; } return 'auto'; }
 function setJobChoice(k,v){ try{ if(v&&v!=='') localStorage.setItem('mcJobChoice_'+k, v); else localStorage.removeItem('mcJobChoice_'+k); }catch(e){} }
 function _choiceAvailable(c){
-  var ri=_relayIdx(c); if(ri>=0) return _hasRelay(ri) && !!getRelaySlot(ri).model;
+  if(c==='browser-free') return !!(window.Translator&&typeof window.Translator.create==='function');
+  var rm=/^relay(\d+)(?::(.+))?$/.exec(c||''), ri=rm?parseInt(rm[1],10):-1; if(ri>=0) return _hasRelay(ri) && !!(rm[2]||getRelaySlot(ri).model);
   if(c==='claude') return _hasClaude(); if(c==='deepseek') return _hasDeepSeek(); if(c==='openai') return _hasOpenAI();
+  if(/^claude[-:]/.test(c||'')) return _hasClaude(); if(/^deepseek[-:]/.test(c||'')) return _hasDeepSeek(); if(/^(?:openai:|gpt-)/.test(c||'')) return _hasOpenAI();
   if(c&&c.indexOf('gemini-')===0) return !!getApiKey();
-  if(c==='auto') return _hasClaude()||_hasDeepSeek()||_hasOpenAI()||!!getApiKey();
+  if(c==='auto'){ if(_hasClaude()||_hasDeepSeek()||_hasOpenAI()||!!getApiKey()) return true; for(var x=0;x<RELAY_N;x++) if(_hasRelay(x)&&getRelaySlot(x).model) return true; return false; }
   return false;
 }
 function _canTranslate(){ return _choiceAvailable(jobChoice('trans')); }
@@ -1615,11 +1645,12 @@ function renderJobModels(){   // 外联里每任务一个下拉
   var box=document.getElementById('jobModelBox'); if(!box) return;
   var opts=[['auto','自动·级联'],['claude','Claude'],['deepseek','DeepSeek'],['openai','GPT'],['gemini-3-flash-preview','Gemini 3 Flash'],['gemini-2.5-flash','Gemini 2.5 Flash'],['gemini-2.5-pro','Gemini 2.5 Pro'],['deepseek-v4-pro','DeepSeek V4 Pro']];
   for(var ri=0;ri<RELAY_N;ri++){ var rs=getRelaySlot(ri); if(_hasRelay(ri)&&rs.model) opts.push(['relay'+ri,'中转 · '+_relayName(ri)+' · '+rs.model]); }
-  box.innerHTML=JOBS.map(function(j){ var cur=jobChoice(j.k);
-    var sel=opts.map(function(o){ return '<option value="'+o[0]+'"'+(cur===o[0]?' selected':'')+'>'+o[1]+'</option>'; }).join('');
-    if(!opts.some(function(o){ return o[0]===cur; })) sel='<option value="'+chatEsc(cur)+'" selected>'+chatEsc(cur)+'（自定义）</option>'+sel;
+  box.innerHTML=JOBS.map(function(j){ var cur=jobChoice(j.k), localOpts=opts.slice(); if(j.k==='trans') localOpts.unshift(['browser-free','免费·浏览器本机翻译（0 token）']);
+    var sel=localOpts.map(function(o){ return '<option value="'+o[0]+'"'+(cur===o[0]?' selected':'')+'>'+o[1]+'</option>'; }).join('');
+    if(!localOpts.some(function(o){ return o[0]===cur; })) sel='<option value="'+chatEsc(cur)+'" selected>'+chatEsc(cur)+'（自定义）</option>'+sel;
+    var custom=(j.k==='trans')?'<input list="transModelRoutes" value="'+chatEsc(cur)+'" onchange="setJobChoice(\'trans\',this.value.trim());renderJobModels()" placeholder="也可输入 relay0:型号 / claude:型号" style="width:100%;box-sizing:border-box;margin:-2px 0 8px;background:var(--s2);border:1px solid var(--border2);border-radius:8px;padding:6px 9px;color:var(--text2);font-size:10px;outline:none"><datalist id="transModelRoutes"><option value="browser-free"><option value="relay0:"><option value="relay1:"><option value="relay2:"><option value="claude:"><option value="deepseek:"><option value="openai:"></datalist>':'';
     return '<label style="display:flex;align-items:center;justify-content:space-between;gap:8px;margin-bottom:7px;font-size:12px;color:var(--text2)"><span style="flex:1;min-width:0">'+chatEsc(j.label)+'</span>'
-      +'<select onchange="setJobChoice(\''+j.k+'\',this.value)" style="flex-shrink:0;background:var(--s2);border:1px solid var(--border2);border-radius:8px;padding:5px 9px;color:var(--text2);font-family:\'Noto Serif SC\',serif;font-size:11px;outline:none;cursor:pointer;max-width:54%">'+sel+'</select></label>';
+      +'<select onchange="setJobChoice(\''+j.k+'\',this.value);renderJobModels()" style="flex-shrink:0;background:var(--s2);border:1px solid var(--border2);border-radius:8px;padding:5px 9px;color:var(--text2);font-family:\'Noto Serif SC\',serif;font-size:11px;outline:none;cursor:pointer;max-width:54%">'+sel+'</select></label>'+custom;
   }).join('');
 }
 // ===== Gemini 3.x 是「思考型」模型：回话前先想很久，想的时候一个可见的字都不吐 =====
